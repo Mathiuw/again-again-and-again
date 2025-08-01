@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerAnimationManager : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _sprite;
+    [SerializeField] private Transform _orientationTransform;
     PlayerMovement _playerMovement;
 
     private void Start()
@@ -26,22 +26,22 @@ public class PlayerAnimationManager : MonoBehaviour
         if (moveVector.x == 1)
         {
             desiredRotaion.z = 0;
-            _sprite.transform.rotation = Quaternion.Euler(desiredRotaion);
+            _orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
         }
         else if (moveVector.x == -1)
         {
             desiredRotaion.z = 180;
-            _sprite.transform.rotation = Quaternion.Euler(desiredRotaion);
+            _orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
         }
         else if (moveVector.y == 1)
         {
             desiredRotaion.z = 90;
-            _sprite.transform.rotation = Quaternion.Euler(desiredRotaion);
+            _orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
         }
         else if (moveVector.y == -1)
         {
             desiredRotaion.z = -90;
-            _sprite.transform.rotation = Quaternion.Euler(desiredRotaion);
+            _orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
         }
     }
 }

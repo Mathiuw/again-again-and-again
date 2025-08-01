@@ -20,6 +20,12 @@ public class PlayerMovement : MonoBehaviour
         Input.Player.Move.performed += OnMovePerformed;
         Input.Player.Move.canceled += OnMoveCanceled;
         Input.Enable();
+
+        Health health = GetComponent<Health>();
+        if (health)
+        {
+            health.OnDie += OnDie;
+        }
     }
 
     private void OnDisable()
@@ -27,11 +33,12 @@ public class PlayerMovement : MonoBehaviour
         Input.Player.Move.performed -= OnMovePerformed;
         Input.Player.Move.canceled -= OnMoveCanceled;
         Input.Disable();
-    }
 
-    private void Update()
-    {
-        
+        Health health = GetComponent<Health>();
+        if (health)
+        {
+            health.OnDie -= OnDie;
+        }
     }
 
     private void FixedUpdate()
@@ -49,5 +56,10 @@ public class PlayerMovement : MonoBehaviour
     private void OnMoveCanceled(InputAction.CallbackContext context)
     {
         MoveVector = Vector2.zero;
+    }
+
+    private void OnDie()
+    {
+        Input.Disable();
     }
 }

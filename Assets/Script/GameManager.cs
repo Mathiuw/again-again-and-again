@@ -11,10 +11,29 @@ public class GameManager : MonoBehaviour
     {
         Timer timer = FindFirstObjectByType<Timer>();
         timer.OnTimerEnd += OnTimerEnd;
+
+        Transform player = GameObject.FindWithTag("Player").transform;
+        if (player)
+        {
+            Health health = player.GetComponent<Health>();
+
+            if (health)
+            {
+                health.OnDie += OnPlayerDie;
+            }
+        }
     }
 
     private void OnTimerEnd()
     {
+        StartCoroutine(RestartLoop());
+    }
+
+    private void OnPlayerDie()
+    {
+        Timer timer = FindFirstObjectByType<Timer>();
+        timer.OnTimerEnd -= OnTimerEnd;
+
         StartCoroutine(RestartLoop());
     }
 
