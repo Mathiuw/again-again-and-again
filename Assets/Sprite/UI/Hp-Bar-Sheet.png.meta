@@ -1,43 +1,40 @@
 fileFormatVersion: 2
-guid: 255a6023d3f45e74abbbee812a2673f3
+guid: 345cc19070c67f24b945695d7c6dde8b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5867727847684248088
-    second: Zehmerlin_0
+      213: 6241452092716870826
+    second: Hp-Bar-Sheet_0
   - first:
-      213: 6057688823870904438
-    second: Zehmerlin_1
+      213: -6519588466773485044
+    second: Hp-Bar-Sheet_1
   - first:
-      213: -8547005143661938604
-    second: Zehmerlin_2
+      213: 5382848598118503492
+    second: Hp-Bar-Sheet_2
   - first:
-      213: -429544459061452951
-    second: Zehmerlin_3
+      213: -3286175434298331613
+    second: Hp-Bar-Sheet_3
   - first:
-      213: 8046059508872114483
-    second: Zehmerlin_4
+      213: -6568273589451308296
+    second: Hp-Bar-Sheet_4
   - first:
-      213: -1490291846707503491
-    second: Zehmerlin_5
+      213: -6409425585056629211
+    second: Hp-Bar-Sheet_5
   - first:
-      213: -809494047465592893
-    second: Zehmerlin_6
+      213: 200536549231110461
+    second: Hp-Bar-Sheet_6
   - first:
-      213: 2841421544149586226
-    second: Zehmerlin_7
+      213: -5188201005869991537
+    second: Hp-Bar-Sheet_7
   - first:
-      213: 6329112961325493660
-    second: Zehmerlin_8
+      213: -5614076092026132669
+    second: Hp-Bar-Sheet_8
   - first:
-      213: -2070880340841426852
-    second: Zehmerlin_9
+      213: -7928550472680221896
+    second: Hp-Bar-Sheet_9
   - first:
-      213: -3099427303470461233
-    second: Zehmerlin_10
-  - first:
-      213: -4133671382348383612
-    second: Zehmerlin_11
+      213: 351004511289795236
+    second: Hp-Bar-Sheet_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,7 +81,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -133,265 +130,243 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Zehmerlin_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8edec107c94a19ea0800000000000000
-      internalID: -5867727847684248088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zehmerlin_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 678ddaae3eb311450800000000000000
-      internalID: 6057688823870904438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zehmerlin_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 458f7961b10f26980800000000000000
-      internalID: -8547005143661938604
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zehmerlin_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 96f976e1793f90af0800000000000000
-      internalID: -429544459061452951
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zehmerlin_4
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 331f9f35e7859af60800000000000000
-      internalID: 8046059508872114483
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zehmerlin_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d7e9659167b615be0800000000000000
-      internalID: -1490291846707503491
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zehmerlin_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3c72505e37914c4f0800000000000000
-      internalID: -809494047465592893
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zehmerlin_7
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2319d2407d1ce6720800000000000000
-      internalID: 2841421544149586226
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zehmerlin_8
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c9d602b84b685d750800000000000000
-      internalID: 6329112961325493660
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zehmerlin_9
+      name: Hp-Bar-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 112
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c509ecf4d41c243e0800000000000000
-      internalID: -2070880340841426852
+      spriteID: aace1051c971e9650800000000000000
+      internalID: 6241452092716870826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zehmerlin_10
+      name: Hp-Bar-Sheet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 112
         y: 0
-        width: 32
-        height: 32
+        width: 112
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fce0f79f94f9cf4d0800000000000000
-      internalID: -3099427303470461233
+      spriteID: c0a9b3ce4d4c585a0800000000000000
+      internalID: -6519588466773485044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zehmerlin_11
+      name: Hp-Bar-Sheet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 224
         y: 0
-        width: 32
-        height: 32
+        width: 112
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 48a3de467cf32a6c0800000000000000
-      internalID: -4133671382348383612
+      spriteID: 444109ac748b3ba40800000000000000
+      internalID: 5382848598118503492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hp-Bar-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 112
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32e68097ad82562d0800000000000000
+      internalID: -3286175434298331613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hp-Bar-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 112
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f2cc2978fdc8d4a0800000000000000
+      internalID: -6568273589451308296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hp-Bar-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 112
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52e366493652d07a0800000000000000
+      internalID: -6409425585056629211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hp-Bar-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 112
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d392765dde278c200800000000000000
+      internalID: 200536549231110461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hp-Bar-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 0
+        width: 112
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f897bc56caecff7b0800000000000000
+      internalID: -5188201005869991537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hp-Bar-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 112
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 347e4c8f98bc612b0800000000000000
+      internalID: -5614076092026132669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hp-Bar-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 0
+        width: 112
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 833d3243a5128f190800000000000000
+      internalID: -7928550472680221896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hp-Bar-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 112
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a2ecf94eb40fd400800000000000000
+      internalID: 351004511289795236
       vertices: []
       indices: 
       edges: []
@@ -400,7 +375,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 0ce268188b76c6b45b65e5ae93998422
     internalID: 0
     vertices: []
     indices: 
@@ -410,20 +385,19 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":112.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Zehmerlin_0: -5867727847684248088
-      Zehmerlin_1: 6057688823870904438
-      Zehmerlin_10: -3099427303470461233
-      Zehmerlin_11: -4133671382348383612
-      Zehmerlin_2: -8547005143661938604
-      Zehmerlin_3: -429544459061452951
-      Zehmerlin_4: 8046059508872114483
-      Zehmerlin_5: -1490291846707503491
-      Zehmerlin_6: -809494047465592893
-      Zehmerlin_7: 2841421544149586226
-      Zehmerlin_8: 6329112961325493660
-      Zehmerlin_9: -2070880340841426852
+      Hp-Bar-Sheet_0: 6241452092716870826
+      Hp-Bar-Sheet_1: -6519588466773485044
+      Hp-Bar-Sheet_10: 351004511289795236
+      Hp-Bar-Sheet_2: 5382848598118503492
+      Hp-Bar-Sheet_3: -3286175434298331613
+      Hp-Bar-Sheet_4: -6568273589451308296
+      Hp-Bar-Sheet_5: -6409425585056629211
+      Hp-Bar-Sheet_6: 200536549231110461
+      Hp-Bar-Sheet_7: -5188201005869991537
+      Hp-Bar-Sheet_8: -5614076092026132669
+      Hp-Bar-Sheet_9: -7928550472680221896
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

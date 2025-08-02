@@ -1,28 +1,79 @@
 fileFormatVersion: 2
-guid: f6402bffeb9f1324fb91f8d94247c792
+guid: cbd2ebb18f3791743b2975a51777de98
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4069449512220615723
-    second: UI-Timer_0
+      213: -6549141103299261067
+    second: Cherub_0
   - first:
-      213: 7741672094342093378
-    second: UI-Timer_1
+      213: -5080518822523839886
+    second: Cherub_1
   - first:
-      213: 4780593722007619620
-    second: UI-Timer_2
+      213: 8193770155345167407
+    second: Cherub_2
   - first:
-      213: -2273019684117325397
-    second: UI-Timer_3
+      213: -1672699222170182955
+    second: Cherub_3
   - first:
-      213: 5339373046916438629
-    second: UI-Timer_4
+      213: 1294676188154093551
+    second: Cherub_4
   - first:
-      213: 938165070420303231
-    second: UI-Timer_5
+      213: -6313356205133083504
+    second: Cherub_5
   - first:
-      213: -2370606791420732777
-    second: UI-Timer_6
+      213: 5280145811746830302
+    second: Cherub_6
+  - first:
+      213: 2191412803240004779
+    second: Cherub_7
+  - first:
+      213: -143289299836251983
+    second: Cherub_8
+  - first:
+      213: -3836024634396534007
+    second: Cherub_9
+  - first:
+      213: -7577417936466905412
+    second: Cherub_10
+  - first:
+      213: 6092246672830864499
+    second: Cherub_11
+  - first:
+      213: 2658599476465875190
+    second: Cherub_12
+  - first:
+      213: -537205410562024445
+    second: Cherub_13
+  - first:
+      213: 8290546541045366148
+    second: Cherub_14
+  - first:
+      213: -1380957328593206109
+    second: Cherub_15
+  - first:
+      213: 3617539160923095286
+    second: Cherub_16
+  - first:
+      213: -6206548886395709334
+    second: Cherub_17
+  - first:
+      213: -4085524946889547519
+    second: Cherub_18
+  - first:
+      213: -2660523130674901837
+    second: Cherub_19
+  - first:
+      213: -5247818615344679018
+    second: Cherub_20
+  - first:
+      213: 108811457418762351
+    second: Cherub_21
+  - first:
+      213: 6755907887997497093
+    second: Cherub_22
+  - first:
+      213: -7282758400285672789
+    second: Cherub_23
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -64,12 +115,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -93,7 +144,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -118,57 +169,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI-Timer_0
+      name: Cherub_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 11
-        width: 74
-        height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b24eb4f35c6997830800000000000000
-      internalID: 4069449512220615723
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI-Timer_1
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 50
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 24a90dea0c1ff6b60800000000000000
-      internalID: 7741672094342093378
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI-Timer_2
-      rect:
-        serializedVersion: 2
-        x: 1481
-        y: 50
+        x: 0
+        y: 0
         width: 32
-        height: 14
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,20 +184,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4280ab759a4185240800000000000000
-      internalID: 4780593722007619620
+      spriteID: 57d00f98dd6cc15a0800000000000000
+      internalID: -6549141103299261067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI-Timer_3
+      name: Cherub_1
       rect:
         serializedVersion: 2
-        x: 1550
-        y: 11
-        width: 68
-        height: 59
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ba957b8e3ac9470e0800000000000000
-      internalID: -2273019684117325397
+      spriteID: 27ad7c47c0f5e79b0800000000000000
+      internalID: -5080518822523839886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI-Timer_4
+      name: Cherub_2
       rect:
         serializedVersion: 2
-        x: 1583
-        y: 38
-        width: 44
-        height: 44
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +228,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 56adfb83f73491a40800000000000000
-      internalID: 5339373046916438629
+      spriteID: f24cb883b8e16b170800000000000000
+      internalID: 8193770155345167407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI-Timer_5
+      name: Cherub_3
       rect:
         serializedVersion: 2
-        x: 95
-        y: 14
-        width: 1442
-        height: 35
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,20 +250,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f7dd4133928050d00800000000000000
-      internalID: 938165070420303231
+      spriteID: 5da59767be069c8e0800000000000000
+      internalID: -1672699222170182955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI-Timer_6
+      name: Cherub_4
       rect:
         serializedVersion: 2
-        x: 1634
-        y: 20
-        width: 29
-        height: 29
+        x: 128
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,8 +272,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79a1d37eea9e91fd0800000000000000
-      internalID: -2370606791420732777
+      spriteID: fefd416322d97f110800000000000000
+      internalID: 1294676188154093551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cherub_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09cc8842bf37268a0800000000000000
+      internalID: -6313356205133083504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cherub_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed7bf6fe3a8d64940800000000000000
+      internalID: 5280145811746830302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cherub_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bac0d5d7556796e10800000000000000
+      internalID: 2191412803240004779
       vertices: []
       indices: 
       edges: []
@@ -275,7 +348,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: bff35c5304afd9245989f6f58ef37cfa
     internalID: 0
     vertices: []
     indices: 
@@ -283,15 +356,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      UI-Timer_0: 4069449512220615723
-      UI-Timer_1: 7741672094342093378
-      UI-Timer_2: 4780593722007619620
-      UI-Timer_3: -2273019684117325397
-      UI-Timer_4: 5339373046916438629
-      UI-Timer_5: 938165070420303231
-      UI-Timer_6: -2370606791420732777
+      Cherub_0: -6549141103299261067
+      Cherub_1: -5080518822523839886
+      Cherub_2: 8193770155345167407
+      Cherub_3: -1672699222170182955
+      Cherub_4: 1294676188154093551
+      Cherub_5: -6313356205133083504
+      Cherub_6: 5280145811746830302
+      Cherub_7: 2191412803240004779
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

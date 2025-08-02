@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4bdf31f46c3b4f84594318f394cd22e1
+guid: 0379db231e3b6b0469480cfabd4f78f9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2197672003421536830
-    second: Flecha_0
+      213: 5469143215588974378
+    second: Caixa_futuro_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flecha_0
+      name: Caixa_futuro_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 5
+        y: 0
         width: 16
-        height: 7
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2cdfc37e4fc4081e0800000000000000
-      internalID: -2197672003421536830
+      spriteID: a2f1bee17cc46eb40800000000000000
+      internalID: 5469143215588974378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caixa_futuro_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87230dabc3e079f43bf590d707e51078
+      internalID: 1893290955
       vertices: []
       indices: 
       edges: []
@@ -125,7 +147,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3ef5430403248a54d9a727342f32cbf7
     internalID: 0
     vertices: []
     indices: 
@@ -133,9 +155,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Flecha_0: -2197672003421536830
+      Caixa_futuro_0: 5469143215588974378
+      Caixa_futuro_1: 1893290955
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

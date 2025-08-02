@@ -31,6 +31,8 @@ public class Bullet : MonoBehaviour
             damageable.Damage(Damage, Owner);
         }
 
+        SoundManager.PlaySound(ESoundType.HIT);
+
         Destroy(gameObject);
     }
 }
