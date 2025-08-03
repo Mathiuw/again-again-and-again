@@ -1,11 +1,9 @@
 using UnityEngine;
 using Pathfinding;
 
-public class ZehmerlinAnimationManager : MonoBehaviour
+public class ZehmerlinAnimationManager : AnimationManagerBase
 {
     private AIPath _aiPath;
-    private Animator _animator;
-    private string _currentAnimation;
 
     private void Awake()
     {
@@ -34,15 +32,6 @@ public class ZehmerlinAnimationManager : MonoBehaviour
         else
         {
             ChangeAnimation("Zehmerlin_Idle");
-        }
-    }
-
-    protected void ChangeAnimation(string animation) 
-    {
-        if (_currentAnimation != animation)
-        {
-            _currentAnimation = animation;
-            _animator.Play(animation);
         }
     }
 }

@@ -6,7 +6,9 @@ public enum ESoundType
     HIT,
     DOOR,
     ENEMY,
-    UI
+    UI,
+    MEDUSASHOOT,
+    BOWAUDIO
 }
 
 [RequireComponent(typeof(AudioSource))]

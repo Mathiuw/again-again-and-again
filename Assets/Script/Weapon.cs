@@ -5,12 +5,18 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected Bullet _bulletPrefab;
     [SerializeField] protected float _bulletSpeed = 300f;
     [SerializeField] protected int _damage = 1;
-    [SerializeField] protected AudioSource _shootSFX;
 
-    public void ShootBullet(Vector3 bulletDirection) 
+    public void ShootBullet(Vector3 bulletDirection, Transform spawnPosition = null) 
     {
+        Vector3 spawn = transform.position;
+
+        if (spawnPosition != null)
+        {
+            spawn = spawnPosition.position;
+        }
+
         // Spawn bullet
-        Bullet bullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity, null);
+        Bullet bullet = Instantiate(_bulletPrefab, spawn, Quaternion.identity, null);
         // Set bullet direction and speed
         bullet.Owner = transform;
         bullet.Damage = _damage;
@@ -24,9 +30,6 @@ public class Weapon : MonoBehaviour
             Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), shooterCollider);
         }
 
-        if (_shootSFX)
-        {
-            _shootSFX.Play();
-        }
+        SoundManager.PlaySound(ESoundType.SHOOT);
     }
 }

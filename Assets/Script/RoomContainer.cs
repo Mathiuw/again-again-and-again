@@ -1,6 +1,9 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
+[SelectionBase]
 public class RoomContainer : MonoBehaviour
 {
     [SerializeField] private int _roomWidth = 40;
@@ -19,14 +22,23 @@ public class RoomContainer : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void OnEnable()
+    {
+        CameraMovement cameraMovement = FindFirstObjectByType<CameraMovement>();
+        cameraMovement.OnCameraTransformUpdate += OnCameraTransformUpdate;
+    }
+
+    private void OnDisable()
     {
         CameraMovement cameraMovement = FindFirstObjectByType<CameraMovement>();
         if (cameraMovement)
         {
-            cameraMovement.OnCameraTransformUpdate += OnCameraTransformUpdate;
+            cameraMovement.OnCameraTransformUpdate -= OnCameraTransformUpdate;
         }
+    }
 
+    private void Start()
+    {
         foreach (Transform t in transform)
         {
             if (t.CompareTag("Enemy"))
@@ -39,10 +51,15 @@ public class RoomContainer : MonoBehaviour
             }
         }
 
-        OnEnemyDie();
+        CountEnemies();
     }
 
     private void OnEnemyDie()
+    {
+        CountEnemies();
+    }
+
+    private void CountEnemies() 
     {
         int enemyCount = 0;
 
@@ -55,7 +72,7 @@ public class RoomContainer : MonoBehaviour
                 if (!health.IsDead)
                 {
                     enemyCount++;
-                }           
+                }
             }
         }
 
@@ -70,15 +87,6 @@ public class RoomContainer : MonoBehaviour
         foreach (Door door in GetComponentsInChildren<Door>())
         {
             door.OpenDoor();
-        }
-    }
-
-    private void OnDisable()
-    {
-        CameraMovement cameraMovement = FindFirstObjectByType<CameraMovement>();
-        if (cameraMovement)
-        {
-            cameraMovement.OnCameraTransformUpdate -= OnCameraTransformUpdate;
         }
     }
 

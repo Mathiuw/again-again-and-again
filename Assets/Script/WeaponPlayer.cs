@@ -24,6 +24,12 @@ public class WeaponPlayer : Weapon
             _currentCooldown -= Time.deltaTime;
             _currentCooldown = Mathf.Clamp(_currentCooldown, 0, _shootCooldown);
         }
+
+        if (_playerMovement.Input.Player.Attack.IsPressed() && _currentCooldown <= 0)
+        {
+            ShootBullet();
+            _currentCooldown = _shootCooldown;
+        }
     }
 
     private void OnDisable()
@@ -33,10 +39,28 @@ public class WeaponPlayer : Weapon
 
     private void OnAttackStarted(InputAction.CallbackContext context)
     {
-        if (_currentCooldown <= 0f)
+        Vector2 moveVector = context.ReadValue<Vector2>();
+        Vector3 desiredRotaion = Vector3.zero;
+
+        if (moveVector.x == 1)
         {
-            ShootBullet();
-            _currentCooldown = _shootCooldown;
+            desiredRotaion.z = 0;
+            _orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
+        }
+        else if (moveVector.x == -1)
+        {
+            desiredRotaion.z = 180;
+            _orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
+        }
+        else if (moveVector.y == 1)
+        {
+            desiredRotaion.z = 90;
+            _orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
+        }
+        else if (moveVector.y == -1)
+        {
+            desiredRotaion.z = -90;
+            _orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
         }
     }
 
@@ -57,9 +81,6 @@ public class WeaponPlayer : Weapon
             Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), shooterCollider);
         }
 
-        if (_shootSFX)
-        {
-            _shootSFX.Play();
-        }
+        SoundManager.PlaySound(ESoundType.BOWAUDIO);
     }
 }
