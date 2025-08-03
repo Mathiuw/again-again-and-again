@@ -25,4 +25,10 @@ public class Timer : MonoBehaviour
             enabled = false;
         }
     }
+
+    public void AddTime(float seconds)
+    {
+        _timerSeconds += seconds; // Or whatever your timer variable is called
+    }
+
 }
