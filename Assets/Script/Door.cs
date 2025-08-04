@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[SelectionBase]
 public class Door : MonoBehaviour
 {
     [SerializeField] Transform _DoorTransform;

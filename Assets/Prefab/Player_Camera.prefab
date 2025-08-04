@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _desiredTransform: {fileID: 0}
-  _lerpSpeed: 6
+  _lerpSpeed: 8
 --- !u!1 &3749213143378632611
 GameObject:
   m_ObjectHideFlags: 0

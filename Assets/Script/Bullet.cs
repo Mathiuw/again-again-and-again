@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision == null) return;
 
-        if (collision.gameObject.CompareTag("Enemy") && Owner.transform.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && Owner && Owner.transform.CompareTag("Enemy"))
         {
             Destroy(gameObject);
             return;

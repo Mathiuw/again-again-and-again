@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6487413472383415424}
   - component: {fileID: 1111906033460691907}
   - component: {fileID: 8744419771213730439}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TugaPellet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 7853769138429381273}
   - component: {fileID: 1649649390933042911}
   - component: {fileID: 6290212371310059924}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
