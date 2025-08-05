@@ -14,7 +14,6 @@ public class AudioManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
 
         SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume", 1f));
         SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 1f));
@@ -31,5 +30,15 @@ public class AudioManager : MonoBehaviour
         if (musicSource != null)
             musicSource.volume = value;
         PlayerPrefs.SetFloat("MusicVolume", value);
+    }
+
+    public void ChangeMusic(AudioClip newClip)
+    {
+        if (musicSource.clip == newClip)
+            return; // Already playing this music
+
+        musicSource.Stop();
+        musicSource.clip = newClip;
+        musicSource.Play();
     }
 }

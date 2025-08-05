@@ -13,6 +13,7 @@ public class TimeCollectable : MonoBehaviour
                 timer.AddTime(additionalTime);
 
             Destroy(gameObject);
+            
         }
     }
 }
