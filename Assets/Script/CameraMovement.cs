@@ -26,7 +26,7 @@ public class CameraMovement : MonoBehaviour
     {
         if (_desiredTransform)
         {
-            OnCameraTransformUpdate?.Invoke(_desiredTransform);
+            transform.position = _desiredTransform.position;
         }
     }
 

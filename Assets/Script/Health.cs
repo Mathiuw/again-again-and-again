@@ -25,6 +25,11 @@ public class Health : MonoBehaviour, IDamageable
         {
             IsDead = true;
             OnDie?.Invoke();
+
+            foreach (IDie die in GetComponentsInChildren<IDie>())
+            {
+                die.Die();
+            }
         }
     }
 

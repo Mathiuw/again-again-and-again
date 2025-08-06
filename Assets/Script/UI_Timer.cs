@@ -1,40 +1,47 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(TextMeshProUGUI))]
+[RequireComponent(typeof(Slider))]
 public class UI_Timer : MonoBehaviour
 {
-    Timer _timer;
-    TextMeshProUGUI _timerText;
-    [SerializeField] string _timerPrefix = "Timer: ";
+    private Slider _sliderBar;
 
     private void Awake()
     {
-        _timerText = GetComponent<TextMeshProUGUI>();
+        _sliderBar = GetComponent<Slider>();
+
+        if (!_sliderBar)
+        {
+            Debug.LogError("SliderBar component not found on this GameObject.");
+        }
     }
 
-    private void Start()
+    void Start()
     {
-        _timer = FindFirstObjectByType<Timer>();
+        Timer timer = FindFirstObjectByType<Timer>();
 
-        if (_timer)
+        if (timer)
         {
-            _timer.OnTimerUpdate += OnTimerUpdate;
+            _sliderBar.maxValue = timer.TimerStartSeconds;
+            _sliderBar.value = timer.TimerStartSeconds;
+            timer.OnTimerValueChange += OnTimerValueChange;
         }
     }
 
     private void OnDisable()
     {
-        _timer.OnTimerUpdate -= OnTimerUpdate;
+        Timer timer = FindFirstObjectByType<Timer>();
+
+        if (timer)
+        {
+            timer.OnTimerValueChange -= OnTimerValueChange;
+        }
     }
 
-    private void OnTimerUpdate(float timerValue)
+    private void OnTimerValueChange(float currentSeconds)
     {
-        int minutes = Mathf.FloorToInt(timerValue / 60);
-        int seconds = Mathf.FloorToInt(timerValue % 60);
-        minutes = Mathf.Clamp(minutes, 0, 60);
-        seconds = Mathf.Clamp(seconds, 0, 60);
-
-        _timerText.text = _timerPrefix + string.Format("{00:00}:{1:00}", minutes, seconds);
+        _sliderBar.value = currentSeconds;
     }
 }

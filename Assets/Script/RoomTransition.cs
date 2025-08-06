@@ -3,35 +3,35 @@ using UnityEngine;
 [SelectionBase]
 public class RoomTransition : MonoBehaviour
 {
-    [field: SerializeField] public Transform DesiredCameraTransform { get; private set; }
-    [field: SerializeField] public Transform RoomTransitionPosition { get; private set; }
+    [field: SerializeField] public Transform DesiredRoomTransform { get; private set; }
+    [field: SerializeField] public Transform DesiredPlayerTransform { get; private set; }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Player") && DesiredCameraTransform && RoomTransitionPosition)
+        if (collision.transform.CompareTag("Player") && DesiredRoomTransform && DesiredPlayerTransform)
         {
             CameraMovement cameraMovement = FindFirstObjectByType<CameraMovement>();
 
             if (cameraMovement)
             {
-                cameraMovement.DesiredTransform = DesiredCameraTransform;
-                collision.transform.position = RoomTransitionPosition.position;
+                cameraMovement.DesiredTransform = DesiredRoomTransform;
+                collision.transform.position = DesiredPlayerTransform.position;
             }
         }
     }
 
     private void OnDrawGizmosSelected()
     {
-        if (RoomTransitionPosition)
+        if (DesiredPlayerTransform)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawSphere(RoomTransitionPosition.position, 0.5f);
+            Gizmos.DrawSphere(DesiredPlayerTransform.position, 0.5f);
         }
 
-        if (DesiredCameraTransform)
+        if (DesiredRoomTransform)
         {
             Gizmos.color = Color.orange;
-            Gizmos.DrawSphere(DesiredCameraTransform.position, 1f);
+            Gizmos.DrawSphere(DesiredRoomTransform.position, 1f);
         }
     }
 }

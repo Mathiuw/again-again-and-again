@@ -297,5 +297,6 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 8744419771213730439, guid: 18d73aa9a29769a4491b1509f9b6df85, type: 3}
   _bulletSpeed: 700
   _damage: 1
+  _soundType: 6
   _orientationTransform: {fileID: 3356284917513912866}
   _shootCooldown: 0.4

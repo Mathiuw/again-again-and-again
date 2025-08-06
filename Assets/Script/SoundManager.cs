@@ -16,8 +16,8 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; private set; }
 
-    [SerializeField] private AudioClip[] soundList;
-    private AudioSource audioSource;
+    [SerializeField] private AudioClip[] _soundList;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
@@ -30,11 +30,11 @@ public class SoundManager : MonoBehaviour
             Instance = this;
         }
 
-        audioSource = GetComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public static void PlaySound(ESoundType sound, float volume = 1) 
     {
-        Instance.audioSource.PlayOneShot(Instance.soundList[(int)sound], volume);
+        Instance._audioSource.PlayOneShot(Instance._soundList[(int)sound], volume);
     }
 }

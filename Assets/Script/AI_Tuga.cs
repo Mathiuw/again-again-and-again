@@ -4,13 +4,13 @@ public class AI_Tuga : AI_Shooter
 {
     [Header("Tuga Settings")]
     [SerializeField] Transform[] shootPositions;
-    TugaAnimationManager _tugaAnimationManager;
+    AnimationManager_Tuga _tugaAnimationManager;
 
     protected void OnEnable()
     {
         base.OnEnable();
 
-        _tugaAnimationManager = GetComponentInChildren<TugaAnimationManager>();
+        _tugaAnimationManager = GetComponentInChildren<AnimationManager_Tuga>();
     }
 
     public override void EnemyShoot()

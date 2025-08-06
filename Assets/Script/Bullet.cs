@@ -6,7 +6,6 @@ public class Bullet : MonoBehaviour
 {
     [field: SerializeField] public int Damage { get; set; } = 1;
     public Rigidbody2D Rb { get; private set; }
-
     public Transform Owner { get; set; }
 
     private void Awake()
@@ -34,5 +33,17 @@ public class Bullet : MonoBehaviour
         SoundManager.PlaySound(ESoundType.HIT);
 
         Destroy(gameObject);
+    }
+
+    public void LaunchBullet(float force) 
+    {
+        Rb.AddForce(transform.right * force);
+
+        Collider2D shooterCollider = Owner.GetComponent<Collider2D>();
+        if (shooterCollider)
+        {
+            // Bullet ignore shooter
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), shooterCollider);
+        }
     }
 }

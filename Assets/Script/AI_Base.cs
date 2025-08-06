@@ -9,7 +9,7 @@ public class AI_Base : MonoBehaviour
     protected Transform _player;
     protected AIDestinationSetter _destinationSetter;
 
-    private void Awake()
+    protected void Awake()
     {
         Health health = GetComponent<Health>();
         if (health)
@@ -18,7 +18,7 @@ public class AI_Base : MonoBehaviour
         }
     }
 
-    private void Start()
+    protected void Start()
     {
         Transform player = GameObject.FindWithTag("Player").transform;
         if (player)

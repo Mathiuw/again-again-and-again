@@ -3,13 +3,13 @@ using UnityEngine;
 [RequireComponent(typeof(Weapon))]
 public class AI_Medusa : AI_Shooter
 {
-    MedusaAnimationManager _medusaAnimationManager;
+    AnimationManager_Medusa _medusaAnimationManager;
 
     protected void OnEnable()
     {
         base.OnEnable();
 
-        _medusaAnimationManager = GetComponentInChildren<MedusaAnimationManager>();
+        _medusaAnimationManager = GetComponentInChildren<AnimationManager_Medusa>();
     }
 
     public override void EnemyShoot()

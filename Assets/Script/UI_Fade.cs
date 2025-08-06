@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,10 +23,10 @@ public class UI_Fade : MonoBehaviour
         switch (EFadeType)
         {
             case EFadeType.FadeIn:
-                SetImageAlphaValue(0f);
+                SetImageAlpha(0f);
                 break;
             case EFadeType.FadeOut:
-                SetImageAlphaValue(1f);
+                SetImageAlpha(1f);
                 break;
             default:
                 break;
@@ -51,7 +52,12 @@ public class UI_Fade : MonoBehaviour
         rawImage = GetComponentInChildren<RawImage>();
     }
 
-    public void SetImageAlphaValue(float value)
+    public void ChangeFadeColor(Color color) 
+    {
+        rawImage.color = color;
+    }
+
+    public void SetImageAlpha(float value)
     {
         Color color = rawImage.color;
         color.a = value;
@@ -62,21 +68,33 @@ public class UI_Fade : MonoBehaviour
 
     public void FadeIn() => StartCoroutine(FadeCoroutine(0, 1));
 
+    public void FadeIn(Color fadeColor) 
+    {
+        ChangeFadeColor(fadeColor);
+        FadeIn();
+    }
+
     public void FadeOut() => StartCoroutine(FadeCoroutine(1, 0));
+
+    public void FadeOut(Color fadeColor) 
+    {
+        ChangeFadeColor(fadeColor);
+        FadeOut();
+    }
 
     private IEnumerator FadeCoroutine(float initial, float final)
     {
         float timePassed = 0;
 
-        SetImageAlphaValue(initial);
+        SetImageAlpha(initial);
         while (timePassed < fadeTime)
         {
-            SetImageAlphaValue(curve.Evaluate(Mathf.Lerp(initial, final, timePassed)));
+            SetImageAlpha(curve.Evaluate(Mathf.Lerp(initial, final, timePassed)));
             timePassed += (Time.deltaTime / fadeTime);
 
             yield return null;
         }
-        SetImageAlphaValue(final);
+        SetImageAlpha(final);
 
         yield break;
     }

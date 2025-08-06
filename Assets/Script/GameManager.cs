@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +12,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -25,9 +25,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Timer timer = FindFirstObjectByType<Timer>();
-        timer.OnTimerEnd += OnTimerEnd;
+        if (timer)
+        {
+            timer.OnTimerEnd += OnTimerEnd;
+        }
 
-        Transform player = GameObject.FindWithTag("Player").transform;
+        GameObject player = GameObject.FindWithTag("Player");
         if (player)
         {
             Health health = player.GetComponent<Health>();
@@ -41,7 +44,8 @@ public class GameManager : MonoBehaviour
 
     private void OnTimerEnd()
     {
-        StartCoroutine(RestartLoop());
+        StartCoroutine(SceneTransitionCoroutine(SceneManager.GetActiveScene().buildIndex, Color.white));
+        AddRestartCount();
     }
 
     private void OnPlayerDie()
@@ -49,19 +53,32 @@ public class GameManager : MonoBehaviour
         Timer timer = FindFirstObjectByType<Timer>();
         timer.OnTimerEnd -= OnTimerEnd;
 
-        StartCoroutine(RestartLoop());
+        StartCoroutine(SceneTransitionCoroutine(SceneManager.GetActiveScene().buildIndex, Color.white));
+        AddRestartCount();
     }
 
-    private IEnumerator RestartLoop() 
+    public void SceneTransition(int sceneIndex, Color fadeColor) 
+    {
+        StartCoroutine(SceneTransitionCoroutine(sceneIndex, fadeColor));
+    }
+
+    private IEnumerator SceneTransitionCoroutine(int sceneIndex, Color fadeColor) 
     {
         UI_Fade fade = Instantiate(this.fade);
-        fade.FadeIn();
+        fade.FadeIn(fadeColor);
 
         while (fade.alpha < 1)
         {
             yield return null;
         }
 
+        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
+
+        yield break;
+    }
+
+    private void AddRestartCount() 
+    {
         // Adds or set restart count on playerprefs
         // In case needs to reset count: go to %userprofile%\AppData\Local\Packages\[ProductPackageId]\LocalState\playerprefs.dat and delete the file
         if (PlayerPrefs.GetInt("RestartCount") == 0)
@@ -74,9 +91,5 @@ public class GameManager : MonoBehaviour
 
             PlayerPrefs.SetInt("RestartCount", newRestartCountValue);
         }
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
-
-        yield break;
     }
 }
