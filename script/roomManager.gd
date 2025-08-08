@@ -1,3 +1,3 @@
 extends Node
 
-signal roomChange(room);
+signal _room_change(room);

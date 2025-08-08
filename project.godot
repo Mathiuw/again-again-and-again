@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="TopDown"
+config/name="AgainAgainAndAgain"
+config/version="0.1.0"
 run/main_scene="uid://dquef6xj016ys"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://sprite/icon.svg"
@@ -78,6 +79,10 @@ project/assembly_name="TopDown"
 2d_physics/layer_1="Enviroment"
 2d_physics/layer_2="Character"
 2d_physics/layer_3="Projectile"
+
+[physics]
+
+2d/run_on_separate_thread=true
 
 [rendering]
 

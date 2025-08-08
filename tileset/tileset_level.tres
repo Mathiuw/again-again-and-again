@@ -488,6 +488,7 @@ texture = ExtResource("1_1n71p")
 
 [resource]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_wp4xf")
 pattern_0 = SubResource("TileMapPattern_1n71p")
 pattern_1 = SubResource("TileMapPattern_7kbgn")

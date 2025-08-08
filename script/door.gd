@@ -5,5 +5,5 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if desiredRoom != null:
-		RoomManager.roomChange.emit(desiredRoom);
+		RoomManager._room_change.emit(desiredRoom);
 		body.global_position = desiredPosition.global_position;

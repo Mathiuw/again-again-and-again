@@ -17,7 +17,9 @@ func _process(delta: float) -> void:
 		currentCooldown = shootCooldown
 
 func _shoot(direction: Vector2) -> void:
-	var newBullet = bullet.instantiate()
+	var newBullet: Bullet = bullet.instantiate()
+	newBullet.add_collision_exception_with(get_parent())
 	newBullet.global_position = global_position
 	newBullet.rotation = direction.angle()
-	get_parent().get_parent().add_child(newBullet)
+	
+	get_tree().root.add_child(newBullet)
