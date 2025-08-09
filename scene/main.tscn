@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dquef6xj016ys"]
+[gd_scene load_steps=6 format=3 uid="uid://dquef6xj016ys"]
 
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="1_itxqv"]
 [ext_resource type="PackedScene" uid="uid://4jl3alvfl8o3" path="res://scene/room_base.tscn" id="1_v0l8b"]
 [ext_resource type="PackedScene" uid="uid://24mlgdnxmvkc" path="res://scene/room_01.tscn" id="2_brvut"]
 [ext_resource type="Script" uid="uid://bvibwp2q2iop7" path="res://script/playerCamera.gd" id="3_wp4xf"]
+[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://scene/enemy.tscn" id="5_0ha60"]
 
 [node name="Main" type="Node"]
 
@@ -47,6 +48,11 @@ position = Vector2(-56, 0)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("3_wp4xf")
+
+[node name="Enemy" parent="." instance=ExtResource("5_0ha60")]
+position = Vector2(195, 0)
+collision_layer = 2
+collision_mask = 2
 
 [editable path="Map/Room"]
 [editable path="Map/Room/Door"]
