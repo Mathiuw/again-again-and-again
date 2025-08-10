@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cshb25yq5ltku"]
+
+[ext_resource type="Script" uid="uid://bvibwp2q2iop7" path="res://script/player_Camera.gd" id="1_pveva"]
+
+[node name="PlayerCamera" type="Camera2D"]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("1_pveva")

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://58d741ajcrd4" path="res://script/player.gd" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://cmr8qd5bl0vp0" path="res://sprite/CharEras.png" id="2_fvtld"]
-[ext_resource type="Script" uid="uid://bux16gcvfro4x" path="res://script/weapon.gd" id="3_fvtld"]
-[ext_resource type="PackedScene" uid="uid://c2jv5crvpeg70" path="res://scene/bullet.tscn" id="4_ct4mp"]
+[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon.tscn" id="4_ct4mp"]
+[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health.tscn" id="5_s4jxa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bup7g"]
 atlas = ExtResource("2_fvtld")
@@ -189,6 +189,7 @@ autoplay = "idle_front"
 z_index = 1
 shape = SubResource("CircleShape2D_g2vtq")
 
-[node name="Weapon" type="Node2D" parent="."]
-script = ExtResource("3_fvtld")
-bullet = ExtResource("4_ct4mp")
+[node name="Health" parent="." instance=ExtResource("5_s4jxa")]
+unique_name_in_owner = true
+
+[node name="Weapon" parent="." instance=ExtResource("4_ct4mp")]

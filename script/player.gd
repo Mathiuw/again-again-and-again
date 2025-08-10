@@ -4,7 +4,7 @@ const SPEED: float = 150.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if velocity.length() > 0:
 		_set_player_animation(velocity.normalized())
 	else:

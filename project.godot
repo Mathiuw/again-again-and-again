@@ -83,6 +83,8 @@ project/assembly_name="TopDown"
 [physics]
 
 2d/run_on_separate_thread=true
+2d/show_image=true
+2d/version="0.1.0"
 
 [rendering]
 

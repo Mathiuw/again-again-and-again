@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2jv5crvpeg70"]
 
-[ext_resource type="Texture2D" uid="uid://j1c1kbigbp5d" path="res://sprite/Flecha.png" id="1_qwydi"]
+[ext_resource type="Texture2D" uid="uid://j1c1kbigbp5d" path="res://sprite/Spr_Flecha.png" id="1_qwydi"]
 [ext_resource type="Script" uid="uid://cyyrvtx7bgcoq" path="res://script/bullet.gd" id="1_xw300"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xw300"]

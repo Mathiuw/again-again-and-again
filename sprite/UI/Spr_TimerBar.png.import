@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j1c1kbigbp5d"
-path="res://.godot/imported/Flecha.png-ac13b66b378cc6d061226d7040d86291.ctex"
+uid="uid://ey3ldwxatay"
+path="res://.godot/imported/Spr_TimerBar.png-0d0a6b8e3f45b06f322c068b48ea03e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/Flecha.png"
-dest_files=["res://.godot/imported/Flecha.png-ac13b66b378cc6d061226d7040d86291.ctex"]
+source_file="res://sprite/UI/Spr_TimerBar.png"
+dest_files=["res://.godot/imported/Spr_TimerBar.png-0d0a6b8e3f45b06f322c068b48ea03e6.ctex"]
 
 [params]
 

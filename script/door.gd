@@ -4,6 +4,6 @@ extends Area2D
 @onready var desiredPosition: Marker2D = $desiredPosition
 
 func _on_body_entered(body: Node2D) -> void:
-	if desiredRoom != null:
-		RoomManager._room_change.emit(desiredRoom);
-		body.global_position = desiredPosition.global_position;
+	if desiredRoom:
+		RoomManager.on_room_change.emit(desiredRoom)
+		body.global_position = desiredPosition.global_position
