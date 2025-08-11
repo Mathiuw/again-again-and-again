@@ -1,7 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://dliyelxwg7x8w"]
+[gd_scene load_steps=25 format=3 uid="uid://dliyelxwg7x8w"]
 
 [ext_resource type="Script" uid="uid://bjfekveea263k" path="res://script/enemy.gd" id="1_f87vc"]
 [ext_resource type="Texture2D" uid="uid://bwpg6wl7nkl0v" path="res://sprite/Zehmerlin-Sheet.png" id="2_8u16h"]
+[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health.tscn" id="3_8u16h"]
+[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon.tscn" id="3_b7koy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7koy"]
 atlas = ExtResource("2_8u16h")
@@ -150,18 +152,33 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1i3en"]
-radius = 65.0077
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1et1"]
 radius = 9.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1i3en"]
+radius = 155.003
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_f87vc")
 
+[node name="Health" parent="." instance=ExtResource("3_8u16h")]
+unique_name_in_owner = true
+max_hits = 2
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_gg45h")
 animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_x1et1")
+
+[node name="Weapon" parent="." instance=ExtResource("3_b7koy")]
 
 [node name="Detection_area" type="Area2D" parent="."]
 collision_layer = 2
@@ -169,10 +186,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_area"]
 shape = SubResource("CircleShape2D_1i3en")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_x1et1")
 
 [connection signal="body_entered" from="Detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Detection_area" to="." method="_on_detection_area_body_exited"]

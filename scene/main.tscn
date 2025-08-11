@@ -1,16 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://dquef6xj016ys"]
+[gd_scene load_steps=8 format=3 uid="uid://dquef6xj016ys"]
 
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="1_itxqv"]
 [ext_resource type="PackedScene" uid="uid://4jl3alvfl8o3" path="res://scene/room_base.tscn" id="1_v0l8b"]
 [ext_resource type="PackedScene" uid="uid://24mlgdnxmvkc" path="res://scene/room_01.tscn" id="2_brvut"]
-[ext_resource type="Script" uid="uid://bvibwp2q2iop7" path="res://script/playerCamera.gd" id="3_wp4xf"]
+[ext_resource type="PackedScene" uid="uid://b24q0q78wlx5d" path="res://scene/HUD.tscn" id="2_p1hux"]
+[ext_resource type="Script" uid="uid://bvibwp2q2iop7" path="res://script/player_Camera.gd" id="3_wp4xf"]
 [ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://scene/enemy.tscn" id="5_0ha60"]
+[ext_resource type="Script" uid="uid://kbsq1w7ymwa6" path="res://script/loop_timer.gd" id="6_4j5ol"]
 
 [node name="Main" type="Node"]
+
+[node name="LoopTimer" type="Timer" parent="." groups=["loop_timer"]]
+wait_time = 10.0
+one_shot = true
+autostart = true
+script = ExtResource("6_4j5ol")
+metadata/_custom_type_script = "uid://kbsq1w7ymwa6"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("2_p1hux")]
 
 [node name="Map" type="Node" parent="."]
 
 [node name="Room" parent="Map" instance=ExtResource("1_v0l8b")]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Door" parent="Map/Room" index="1" node_paths=PackedStringArray("desiredRoom")]
 desiredRoom = NodePath("../../Room2")
@@ -20,6 +35,8 @@ position = Vector2(66, 0)
 
 [node name="Room2" parent="Map" instance=ExtResource("1_v0l8b")]
 position = Vector2(640, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Door" parent="Map/Room2" index="1" node_paths=PackedStringArray("desiredRoom")]
 desiredRoom = NodePath("../../Room3")
@@ -35,6 +52,8 @@ position = Vector2(-56, 0)
 
 [node name="Room3" parent="Map" instance=ExtResource("2_brvut")]
 position = Vector2(1280, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Door2" parent="Map/Room3" index="2" node_paths=PackedStringArray("desiredRoom")]
 desiredRoom = NodePath("../../Room2")
@@ -42,17 +61,18 @@ desiredRoom = NodePath("../../Room2")
 [node name="desiredPosition" parent="Map/Room3/Door2" index="1"]
 position = Vector2(-56, 0)
 
-[node name="Player" parent="." instance=ExtResource("1_itxqv")]
+[node name="Player" parent="." groups=["enemy", "player"] instance=ExtResource("1_itxqv")]
+
+[node name="Enemy" parent="." groups=["enemy"] instance=ExtResource("5_0ha60")]
+position = Vector2(195, 0)
+collision_mask = 2
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("3_wp4xf")
 
-[node name="Enemy" parent="." instance=ExtResource("5_0ha60")]
-position = Vector2(195, 0)
-collision_layer = 2
-collision_mask = 2
+[connection signal="timeout" from="LoopTimer" to="LoopTimer" method="_on_timeout"]
 
 [editable path="Map/Room"]
 [editable path="Map/Room/Door"]
