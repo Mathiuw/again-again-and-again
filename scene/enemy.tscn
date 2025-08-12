@@ -162,6 +162,7 @@ radius = 155.003
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
+motion_mode = 1
 script = ExtResource("1_f87vc")
 
 [node name="Health" parent="." instance=ExtResource("3_8u16h")]

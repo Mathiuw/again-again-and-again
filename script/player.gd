@@ -2,9 +2,6 @@ class_name Player
 extends CharacterBody2D
 
 const SPEED: float = 150.0
-var buly = Input.get_axis("shoot up", "shoot down");
-var bulx = Input.get_axis("shoot left", "shoot right");
-var desiredBullet = Vector2 (bulx, buly)
 
 @onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _health: Health = %Health
@@ -28,25 +25,18 @@ func _process(_delta: float) -> void:
 		_set_player_idle()
 	
 	# shoot input
-	var shootVector: Vector2 = Vector2(Input.get_axis("shoot left", "shoot right"), Input.get_axis("shoot up","shoot down"))
-	if shootVector : _weapon.shoot(shootVector)
+	var shoot_vector: Vector2 = Input.get_vector("shoot left", "shoot right", "shoot up", "shoot down")
+	if shoot_vector : _weapon.shoot(shoot_vector)
 
 func _physics_process(_delta: float) -> void:
-	var dirY = Input.get_axis("move up", "move down");
-	var dirX = Input.get_axis("move left","move right");
-	var desiredDirection = Vector2( dirX, dirY );
-	
-	if desiredDirection:
-		velocity = desiredDirection.normalized() * SPEED;
-	else:
-		velocity = Vector2.ZERO;
-	
+	# Move logic
+	var desired_direction: Vector2 = Input.get_vector("move left", "move right", "move up", "move down");
+	velocity = desired_direction * SPEED;
 	move_and_slide();
 
 func _set_player_animation(desiredDirection: Vector2) -> void:
-	if desiredDirection.y == 1 and desiredBullet.y == 1:
-		_animated_sprite_2d.play("shoot_left")
-	elif desiredDirection.y == 1:
+	#TODO implement player shoot animation
+	if desiredDirection.y == 1:
 		_animated_sprite_2d.play("walk_front")
 	elif desiredDirection.y == -1:
 		_animated_sprite_2d.play("walk_back")
