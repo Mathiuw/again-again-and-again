@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dcwk2yq15m4rk"
+path="res://.godot/imported/primeira fase master.mp3-6799a9302fc57080a47fae788eca5399.mp3str"
+
+[deps]
+
+source_file="res://sound/music/primeira fase master.mp3"
+dest_files=["res://.godot/imported/primeira fase master.mp3-6799a9302fc57080a47fae788eca5399.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

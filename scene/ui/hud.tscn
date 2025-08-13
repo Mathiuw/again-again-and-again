@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://b24q0q78wlx5d"]
+
+[ext_resource type="Script" uid="uid://bv8x8s4r04jea" path="res://script/hud.gd" id="1_4nxdm"]
+[ext_resource type="Texture2D" uid="uid://cq1of4ywlegd1" path="res://sprite/HUD/Spr_HpBar_Sheet.png" id="1_mmka4"]
+[ext_resource type="Texture2D" uid="uid://ey3ldwxatay" path="res://sprite/HUD/Spr_TimerBar.png" id="2_5nt5s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nt5s"]
+atlas = ExtResource("1_mmka4")
+region = Rect2(0, 0, 112, 16)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5nt5s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nt5s"]
+bg_color = Color(0.968627, 0.219608, 0.282353, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4nxdm")
+metadata/_edit_lock_ = true
+
+[node name="Reference" type="ReferenceRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 2.0
+metadata/_edit_lock_ = true
+
+[node name="Hearts" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 232.0
+offset_bottom = 72.0
+texture = SubResource("AtlasTexture_5nt5s")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Timer" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -32.0
+offset_right = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_5nt5s")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Timer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 11.0
+offset_right = -67.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_5nt5s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5nt5s")
+value = 100.0
+show_percentage = false
+
+[node name="RepeatTimes" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.941176, 0.941176, 0.85098, 1)
+text = "0"
+vertical_alignment = 1

@@ -7,6 +7,8 @@ const SPEED: float = 150.0
 @onready var _health: Health = %Health
 @onready var _weapon: Weapon = $Weapon
 
+var player_camera: PlayerCamera
+
 func _ready() -> void:
 	# Die function
 	_health.on_die.connect(func():
@@ -15,6 +17,13 @@ func _ready() -> void:
 		_animated_sprite_2d.play("die")
 		await get_tree().create_timer(3).timeout
 		get_tree().reload_current_scene()
+		)
+	
+	player_camera = get_tree().get_first_node_in_group("camera")
+	
+	_health.on_health_changed.connect(func(_current_hits: float):
+		if player_camera:
+			player_camera.trigger_shake(3)
 		)
 
 func _process(_delta: float) -> void:
@@ -26,7 +35,8 @@ func _process(_delta: float) -> void:
 	
 	# shoot input
 	var shoot_vector: Vector2 = Input.get_vector("shoot left", "shoot right", "shoot up", "shoot down")
-	if shoot_vector : _weapon.shoot(shoot_vector)
+	if shoot_vector :
+		_weapon.shoot(shoot_vector)
 
 func _physics_process(_delta: float) -> void:
 	# Move logic
