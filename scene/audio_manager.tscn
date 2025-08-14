@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://15chkvrx0hgw"]
+
+[ext_resource type="Script" uid="uid://b0u26g4tgch7a" path="res://script/audio_manager.gd" id="1_pgo6v"]
+[ext_resource type="Script" uid="uid://dhuujfbdmx3ku" path="res://script/custom_resource/sound_effect.gd" id="2_8jnrl"]
+[ext_resource type="AudioStream" uid="uid://bstw5pt5dnycu" path="res://sound/sfx/ARCO FLECHA.MP3" id="3_8jnrl"]
+[ext_resource type="AudioStream" uid="uid://cxoulhifxa1s" path="res://sound/sfx/HIT.wav" id="3_o1am0"]
+[ext_resource type="AudioStream" uid="uid://d1wf2imnjwee2" path="res://sound/sfx/TIRO - ZÉ MERLIN.wav" id="5_tdpk3"]
+
+[sub_resource type="Resource" id="Resource_o1am0"]
+script = ExtResource("2_8jnrl")
+limit = 5
+type = 0
+sound_effects = Array[AudioStream]([ExtResource("3_o1am0")])
+volume = -10.0
+pitch_scale = 1.0
+pitch_randomness = 0.3
+metadata/_custom_type_script = "uid://dhuujfbdmx3ku"
+
+[sub_resource type="Resource" id="Resource_tdpk3"]
+script = ExtResource("2_8jnrl")
+limit = 5
+type = 1
+sound_effects = Array[AudioStream]([ExtResource("3_8jnrl"), ExtResource("5_tdpk3")])
+volume = -5.0
+pitch_scale = 1.0
+pitch_randomness = 0.1
+metadata/_custom_type_script = "uid://dhuujfbdmx3ku"
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_pgo6v")
+sound_effects = Array[ExtResource("2_8jnrl")]([SubResource("Resource_o1am0"), SubResource("Resource_tdpk3")])

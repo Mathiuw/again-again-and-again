@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=4 uid="uid://4jl3alvfl8o3"]
+[gd_scene load_steps=4 format=4 uid="uid://4jl3alvfl8o3"]
 
+[ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://scene/room.gd" id="1_rp1sb"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="1_x71b1"]
 [ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door.tscn" id="3_bdfyo"]
 
 [node name="Room" type="Node2D"]
+script = ExtResource("1_rp1sb")
 
 [node name="tilemap" type="TileMapLayer" parent="."]
 texture_filter = 1

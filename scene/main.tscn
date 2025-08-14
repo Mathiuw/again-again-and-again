@@ -75,10 +75,8 @@ position = Vector2(195, 0)
 collision_mask = 2
 
 [node name="PlayerCamera" type="Camera2D" parent="." groups=["camera"]]
-process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
-rotation_smoothing_enabled = true
 script = ExtResource("3_wp4xf")
 
 [connection signal="timeout" from="LoopTimer" to="LoopTimer" method="_on_timeout"]
