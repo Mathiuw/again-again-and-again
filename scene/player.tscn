@@ -306,13 +306,16 @@ script = ExtResource("1_hjaqi")
 unique_name_in_owner = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -6)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_hp4bs")
-animation = &"die"
+animation = &"idle_front"
 autoplay = "idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 1
+position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_g2vtq")
 
 [node name="Weapon" parent="." instance=ExtResource("4_ct4mp")]
+position = Vector2(0, -8)
