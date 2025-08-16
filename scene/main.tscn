@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dquef6xj016ys"]
+[gd_scene load_steps=8 format=3 uid="uid://dquef6xj016ys"]
 
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="1_itxqv"]
 [ext_resource type="PackedScene" uid="uid://4jl3alvfl8o3" path="res://scene/room_base.tscn" id="1_v0l8b"]
@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_of57s"]
 [ext_resource type="PackedScene" uid="uid://b24q0q78wlx5d" path="res://scene/ui/hud.tscn" id="2_p1hux"]
 [ext_resource type="Script" uid="uid://bvibwp2q2iop7" path="res://script/player_Camera.gd" id="3_wp4xf"]
-[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://scene/enemy/zemerlin.tscn" id="5_0ha60"]
 [ext_resource type="Script" uid="uid://kbsq1w7ymwa6" path="res://script/loop_timer.gd" id="6_4j5ol"]
 
 [node name="Main" type="Node"]
@@ -66,7 +65,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="tilemap" parent="Map/Room3" index="0"]
-y_sort_enabled = false
+z_index = 0
 
 [node name="Door2" parent="Map/Room3" index="2" node_paths=PackedStringArray("desiredRoom")]
 desiredRoom = NodePath("../../Room2")
@@ -74,11 +73,7 @@ desiredRoom = NodePath("../../Room2")
 [node name="desiredPosition" parent="Map/Room3/Door2" index="1"]
 position = Vector2(-56, 0)
 
-[node name="Player" parent="Map" groups=["enemy", "player"] instance=ExtResource("1_itxqv")]
-
-[node name="Enemy" parent="Map" groups=["enemy"] instance=ExtResource("5_0ha60")]
-position = Vector2(195, 0)
-collision_mask = 2
+[node name="Player" parent="Map" groups=["enemy"] instance=ExtResource("1_itxqv")]
 
 [node name="PlayerCamera" type="Camera2D" parent="." groups=["camera"]]
 position_smoothing_enabled = true

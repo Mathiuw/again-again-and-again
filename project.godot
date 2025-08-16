@@ -43,6 +43,7 @@ project/assembly_name="TopDown"
 
 player=""
 enemy=""
+camera=""
 
 [input]
 

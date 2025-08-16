@@ -1,6 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://dliyelxwg7x8w"]
+[gd_scene load_steps=24 format=3 uid="uid://dliyelxwg7x8w"]
 
-[ext_resource type="Script" uid="uid://bjfekveea263k" path="res://script/enemy.gd" id="1_f87vc"]
+[ext_resource type="Script" uid="uid://bjfekveea263k" path="res://script/zemerlin.gd" id="1_f87vc"]
 [ext_resource type="Texture2D" uid="uid://bwpg6wl7nkl0v" path="res://sprite/Zehmerlin-Sheet.png" id="2_8u16h"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health.tscn" id="3_8u16h"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon.tscn" id="3_b7koy"]
@@ -154,22 +154,15 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gpa5e"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1i3en"]
-radius = 155.003
-
-[node name="zemerlin" type="CharacterBody2D"]
+[node name="zemerlin" type="CharacterBody2D" groups=["enemy"]]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_f87vc")
 
-[node name="Health" parent="." instance=ExtResource("3_8u16h")]
-unique_name_in_owner = true
-max_hits = 2
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 1
-y_sort_enabled = true
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_gg45h")
 animation = &"idle"
@@ -179,16 +172,22 @@ autoplay = "idle"
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_gpa5e")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 50.0
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="DrawPathTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="Health" parent="." instance=ExtResource("3_8u16h")]
+unique_name_in_owner = true
+max_hits = 2
+
 [node name="Weapon" parent="." instance=ExtResource("3_b7koy")]
 position = Vector2(0, -9)
 sound_variant_index = 1
 
-[node name="Detection_area" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_area"]
-shape = SubResource("CircleShape2D_1i3en")
-
-[connection signal="body_entered" from="Detection_area" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="Detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="DrawPathTimer" to="." method="_on_draw_path_timer_timeout"]
