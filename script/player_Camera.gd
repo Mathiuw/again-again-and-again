@@ -8,6 +8,8 @@ extends Camera2D
 
 var _current_shake_force: float = 0.0
 
+var current_room: Room
+
 func trigger_shake(override_force: float = 0) -> void:
 	if !camera_shake: return 
 	
@@ -18,7 +20,8 @@ func trigger_shake(override_force: float = 0) -> void:
 
 func _ready() -> void:
 	# Room change event setup
-	RoomManager.on_room_change.connect(func(room):
+	RoomManager.on_room_change.connect(func(room: Room, smooth_transition: bool):
+		position_smoothing_enabled = smooth_transition
 		global_position = room.global_position;
 		)
 

@@ -4,7 +4,7 @@ extends Node2D
 @export_category("Bullet settings")
 @export var damage: int = 1;
 @export var bulletSpeed: float = 300
-@export var bullet: PackedScene = preload("res://scene/bullet.tscn")
+@export var bullet: PackedScene = preload("res://scene/bullet/bullet_base.tscn")
 
 @export_category("Audio Settings")
 @export var sound_variant_index: int = 0

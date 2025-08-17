@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://d2uhi6ia23jpa"]
+
+[ext_resource type="PackedScene" uid="uid://c2jv5crvpeg70" path="res://scene/bullet/bullet_base.tscn" id="1_ldyl3"]
+[ext_resource type="Texture2D" uid="uid://cnw1igwot1bsr" path="res://sprite/bullet.png" id="2_lk2av"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hlwx"]
+atlas = ExtResource("2_lk2av")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr1gf"]
+atlas = ExtResource("2_lk2av")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8wci"]
+atlas = ExtResource("2_lk2av")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwac2"]
+atlas = ExtResource("2_lk2av")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n4d1"]
+atlas = ExtResource("2_lk2av")
+region = Rect2(32, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keuit"]
+atlas = ExtResource("2_lk2av")
+region = Rect2(64, 16, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ow715"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hlwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr1gf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8wci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwac2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1n4d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keuit")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 10.0
+}]
+
+[node name="bullet" instance=ExtResource("1_ldyl3")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(-0.5, 0)
+scale = Vector2(0.53125, 0.5)
+sprite_frames = SubResource("SpriteFrames_ow715")
+frame = 1
+frame_progress = 0.246306

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b24q0q78wlx5d"]
+[gd_scene load_steps=8 format=3 uid="uid://b24q0q78wlx5d"]
 
 [ext_resource type="Script" uid="uid://bv8x8s4r04jea" path="res://script/hud.gd" id="1_4nxdm"]
 [ext_resource type="Texture2D" uid="uid://cq1of4ywlegd1" path="res://sprite/HUD/Spr_HpBar_Sheet.png" id="1_mmka4"]
 [ext_resource type="Texture2D" uid="uid://ey3ldwxatay" path="res://sprite/HUD/Spr_TimerBar.png" id="2_5nt5s"]
+[ext_resource type="FontFile" uid="uid://cigkq8qle8jkd" path="res://font/ari-w9500-condensed-display.ttf" id="4_73u6w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5nt5s"]
 atlas = ExtResource("1_mmka4")
@@ -84,5 +85,6 @@ offset_top = -24.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.941176, 0.941176, 0.85098, 1)
+theme_override_fonts/font = ExtResource("4_73u6w")
 text = "0"
 vertical_alignment = 1

@@ -1,19 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjf1mdp07gqci"]
+[gd_scene load_steps=4 format=3 uid="uid://bjf1mdp07gqci"]
 
 [ext_resource type="Script" uid="uid://bx0bv6spxg62p" path="res://script/door.gd" id="1_y5pye"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5pye"]
+size = Vector2(40, 4)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x71b1"]
-size = Vector2(10, 38)
+size = Vector2(10, 40)
 
 [node name="Door" type="Area2D"]
+collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_y5pye")
+metadata/_edit_group_ = true
+
+[node name="DoorStaticBody" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="DoorStaticBody"]
+offset_top = -20.0
+offset_right = 12.0
+offset_bottom = 20.0
+color = Color(0.117647, 0.054902, 0.054902, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorStaticBody"]
+position = Vector2(10, 0)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_y5pye")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 3)
+position = Vector2(5, 0)
 shape = SubResource("RectangleShape2D_x71b1")
 
-[node name="desiredPosition" type="Marker2D" parent="."]
+[node name="DesiredPosition" type="Marker2D" parent="."]
 z_index = 10
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
