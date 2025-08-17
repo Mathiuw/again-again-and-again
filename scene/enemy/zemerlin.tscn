@@ -1,10 +1,17 @@
-[gd_scene load_steps=25 format=3 uid="uid://dliyelxwg7x8w"]
+[gd_scene load_steps=30 format=3 uid="uid://dliyelxwg7x8w"]
 
+[ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://shader/damage_flash.gdshader" id="1_2mmqe"]
 [ext_resource type="Script" uid="uid://bjfekveea263k" path="res://script/zemerlin.gd" id="1_f87vc"]
 [ext_resource type="Texture2D" uid="uid://bwpg6wl7nkl0v" path="res://sprite/Zehmerlin-Sheet.png" id="2_8u16h"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health.tscn" id="3_8u16h"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon.tscn" id="3_b7koy"]
 [ext_resource type="PackedScene" uid="uid://d2uhi6ia23jpa" path="res://scene/bullet/bullet_zemerlin.tscn" id="5_mb7b2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2mmqe"]
+resource_local_to_scene = true
+shader = ExtResource("1_2mmqe")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7koy"]
 atlas = ExtResource("2_8u16h")
@@ -155,6 +162,43 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gpa5e"]
 
+[sub_resource type="Animation" id="Animation_cv5gn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2mmqe"]
+resource_name = "damage_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cv5gn"]
+_data = {
+&"RESET": SubResource("Animation_cv5gn"),
+&"damage_flash": SubResource("Animation_2mmqe")
+}
+
 [node name="zemerlin" type="CharacterBody2D" groups=["enemy"]]
 y_sort_enabled = true
 collision_layer = 2
@@ -164,6 +208,7 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_f87vc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_2mmqe")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_gg45h")
 animation = &"idle"
@@ -190,6 +235,11 @@ autostart = true
 [node name="Health" parent="." instance=ExtResource("3_8u16h")]
 unique_name_in_owner = true
 max_hits = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cv5gn")
+}
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="DrawPathTimer" to="." method="_on_draw_path_timer_timeout"]

@@ -3,7 +3,7 @@ extends Control
 @onready var progress_bar: ProgressBar = $Timer/ProgressBar
 @onready var hearts: TextureRect = $Hearts
 
-@onready var _loop_timer: LoopTimer
+@onready var _loop_timer: Timer
 @onready var _player_health: Health
 
 func _ready() -> void:

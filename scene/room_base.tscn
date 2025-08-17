@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door.tscn" id="3_bdfyo"]
 [ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://scene/enemy/zemerlin.tscn" id="4_mlk0m"]
 
-[node name="Room" type="Node2D"]
+[node name="RoomBase" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_rp1sb")
 

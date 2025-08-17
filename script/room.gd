@@ -7,6 +7,13 @@ extends Node2D
 signal on_no_enemies_left
 
 func _ready() -> void:
+	RoomManager.on_room_change.connect(func(room: Room, _smooth_transition: bool):
+		if room != self:
+			set_room_state(false)
+		else:
+			set_room_state(true)
+		)
+	
 	if get_enemy_count() == 0:
 		return
 	
@@ -23,10 +30,12 @@ func check_initial_room() -> void:
 		if  initial_room: 
 			RoomManager.on_room_change.emit(self, false)
 
+
 func open_room_doors() -> void:
 	for node in get_children():
 		if node is Door:
 			node.set_door_open_state(true)
+
 
 func get_enemy_count() -> int:
 	var count: int = 0
@@ -39,6 +48,7 @@ func get_enemy_count() -> int:
 		on_no_enemies_left.emit()
 	
 	return count
+
 
 func set_room_state(state: bool) -> void:
 	for node: Node in get_children():
