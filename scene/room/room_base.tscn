@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://4jl3alvfl8o3"]
+[gd_scene load_steps=4 format=4 uid="uid://4jl3alvfl8o3"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_rp1sb"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="1_x71b1"]
 [ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door.tscn" id="3_bdfyo"]
-[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://scene/enemy/zemerlin.tscn" id="4_mlk0m"]
 
 [node name="RoomBase" type="Node2D"]
 y_sort_enabled = true
@@ -16,15 +15,8 @@ tile_map_data = PackedByteArray("AADs//T/AAADABYAAADs//X/AAADABYAAADs//b/AAADABY
 tile_set = ExtResource("1_x71b1")
 metadata/_edit_lock_ = true
 
-[node name="DoorLeft" parent="." instance=ExtResource("3_bdfyo")]
-position = Vector2(-304, 2)
-
 [node name="DoorRight" parent="." instance=ExtResource("3_bdfyo")]
 position = Vector2(304, 2)
 rotation = 3.14159
 
-[node name="zemerlin" parent="." instance=ExtResource("4_mlk0m")]
-position = Vector2(256, 0)
-
-[editable path="DoorLeft"]
 [editable path="DoorRight"]

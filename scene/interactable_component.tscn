@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://y34phjayr0ow"]
+
+[ext_resource type="Script" uid="uid://eaoer8n2c0xl" path="res://script/interactable_component.gd" id="1_15x8u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rckw1"]
+radius = 24.0
+
+[node name="InteractableComponent" type="Area2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_15x8u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rckw1")

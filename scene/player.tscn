@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://v6scm44jqtat"]
+[gd_scene load_steps=31 format=3 uid="uid://v6scm44jqtat"]
 
 [ext_resource type="Script" uid="uid://58d741ajcrd4" path="res://script/player.gd" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://cmr8qd5bl0vp0" path="res://sprite/CharEras.png" id="2_fvtld"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon.tscn" id="4_ct4mp"]
+[ext_resource type="PackedScene" uid="uid://bdq4ak6qkr0i1" path="res://scene/interact_component.tscn" id="5_oh5ij"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health.tscn" id="5_s4jxa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_42h83"]
@@ -319,3 +320,6 @@ shape = SubResource("CircleShape2D_g2vtq")
 
 [node name="Weapon" parent="." instance=ExtResource("4_ct4mp")]
 position = Vector2(0, -8)
+
+[node name="InteractComponent" parent="." instance=ExtResource("5_oh5ij")]
+position = Vector2(0, -10)

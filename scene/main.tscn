@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://dquef6xj016ys"]
 
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="1_itxqv"]
-[ext_resource type="PackedScene" uid="uid://4jl3alvfl8o3" path="res://scene/room_base.tscn" id="1_v0l8b"]
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_of57s"]
 [ext_resource type="PackedScene" uid="uid://b24q0q78wlx5d" path="res://scene/ui/hud.tscn" id="2_p1hux"]
 [ext_resource type="Script" uid="uid://bvibwp2q2iop7" path="res://script/player_Camera.gd" id="3_wp4xf"]
-[ext_resource type="PackedScene" uid="uid://c6m28at08ltqy" path="res://scene/room_rome_01.tscn" id="5_p1hux"]
+[ext_resource type="PackedScene" uid="uid://c6m28at08ltqy" path="res://scene/room/room_rome_01.tscn" id="5_p1hux"]
+[ext_resource type="PackedScene" uid="uid://bbdklpf1hb3ar" path="res://scene/room/room_start.tscn" id="6_p1hux"]
 
 [sub_resource type="GDScript" id="GDScript_4j5ol"]
 resource_name = "loop_timer"
@@ -38,44 +38,26 @@ bus = &"Music"
 y_sort_enabled = true
 metadata/_edit_lock_ = true
 
-[node name="Room" parent="Map" instance=ExtResource("1_v0l8b")]
+[node name="RoomBase" parent="Map" instance=ExtResource("6_p1hux")]
 initial_room = true
-metadata/_edit_lock_ = true
 
-[node name="DoorRight" parent="Map/Room" index="2" node_paths=PackedStringArray("desired_room")]
-desired_room = NodePath("../../Room2")
-
-[node name="DesiredPosition" parent="Map/Room/DoorRight" index="2"]
-position = Vector2(-64, 1.99972)
-
-[node name="Room2" parent="Map" instance=ExtResource("1_v0l8b")]
-position = Vector2(640, 0)
-metadata/_edit_lock_ = true
-
-[node name="DoorLeft" parent="Map/Room2" index="1" node_paths=PackedStringArray("desired_room")]
-desired_room = NodePath("../../Room")
-
-[node name="DesiredPosition" parent="Map/Room2/DoorLeft" index="2"]
-position = Vector2(-64, -2)
-
-[node name="DoorRight" parent="Map/Room2" index="2" node_paths=PackedStringArray("desired_room")]
+[node name="DoorRight" parent="Map/RoomBase" index="2" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome")
 
-[node name="DesiredPosition" parent="Map/Room2/DoorRight" index="2"]
-position = Vector2(-64, 1.99984)
+[node name="DesiredPosition" parent="Map/RoomBase/DoorRight" index="2"]
+position = Vector2(-62, 2.99984)
 
 [node name="RoomRome" parent="Map" instance=ExtResource("5_p1hux")]
-position = Vector2(1280, 0)
-metadata/_edit_lock_ = true
+position = Vector2(640, 0)
 
 [node name="DoorLeft" parent="Map/RoomRome" index="1" node_paths=PackedStringArray("desired_room")]
-desired_room = NodePath("../../Room2")
+desired_room = NodePath("../../RoomBase")
 
 [node name="DesiredPosition" parent="Map/RoomRome/DoorLeft" index="2"]
 position = Vector2(-64, -2)
 
 [node name="Player" parent="Map" groups=["enemy"] instance=ExtResource("1_itxqv")]
-position = Vector2(-256, 0)
+position = Vector2(-184, 16)
 
 [node name="PlayerCamera" type="Camera2D" parent="." groups=["camera"]]
 position_smoothing_enabled = true
@@ -84,12 +66,8 @@ script = ExtResource("3_wp4xf")
 
 [connection signal="timeout" from="LoopTimer" to="LoopTimer" method="_on_timeout"]
 
-[editable path="Map/Room"]
-[editable path="Map/Room/DoorLeft"]
-[editable path="Map/Room/DoorRight"]
-[editable path="Map/Room2"]
-[editable path="Map/Room2/DoorLeft"]
-[editable path="Map/Room2/DoorRight"]
+[editable path="Map/RoomBase"]
+[editable path="Map/RoomBase/DoorRight"]
 [editable path="Map/RoomRome"]
 [editable path="Map/RoomRome/DoorLeft"]
 [editable path="Map/RoomRome/DoorRight"]

@@ -6,6 +6,7 @@ const SPEED: float = 150.0
 @onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _health: Health = %Health
 @onready var _weapon: Weapon = $Weapon
+@onready var _interact_component: InteractComponent = $InteractComponent
 
 var player_camera: PlayerCamera
 
@@ -37,6 +38,10 @@ func _process(_delta: float) -> void:
 	var shoot_vector: Vector2 = Input.get_vector("shoot left", "shoot right", "shoot up", "shoot down")
 	if shoot_vector :
 		_weapon.shoot(shoot_vector)
+	
+	# interact/roll input
+	if Input.is_action_just_pressed("interact"):
+		_interact_component.try_to_interact()
 
 func _physics_process(_delta: float) -> void:
 	# Move logic

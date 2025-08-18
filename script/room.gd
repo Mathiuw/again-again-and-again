@@ -14,6 +14,8 @@ func _ready() -> void:
 			set_room_state(true)
 		)
 	
+	call_deferred("check_initial_room")
+	
 	if get_enemy_count() == 0:
 		return
 	
@@ -22,8 +24,6 @@ func _ready() -> void:
 			node._health.on_die.connect(func():
 				get_enemy_count()
 				)
-	
-	call_deferred("check_initial_room")
 
 
 func check_initial_room() -> void:
