@@ -1,12 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjf1mdp07gqci"]
+[gd_scene load_steps=8 format=3 uid="uid://bjf1mdp07gqci"]
 
 [ext_resource type="Script" uid="uid://bx0bv6spxg62p" path="res://script/door.gd" id="1_y5pye"]
+[ext_resource type="Texture2D" uid="uid://cmdvti2y6w1q3" path="res://sprite/particle_sphere.png" id="2_i7qj5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5pye"]
 size = Vector2(40, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x71b1"]
 size = Vector2(10, 40)
+
+[sub_resource type="Curve" id="Curve_psa10"]
+_data = [Vector2(0, 0.696629), 0.0, 0.0, 0, 0, Vector2(1, 0.348315), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2tyue"]
+curve = SubResource("Curve_psa10")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xt1h0"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 20, 1)
+angle_min = -385.7
+angle_max = 352.5
+spread = 0.0
+flatness = 1.0
+initial_velocity_min = 5.0
+initial_velocity_max = 23.65
+angular_velocity_min = -91.35
+angular_velocity_max = 96.71
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_2tyue")
+color = Color(0.294583, 0.168784, 0.168698, 1)
 
 [node name="Door" type="Area2D"]
 collision_layer = 0
@@ -30,6 +55,12 @@ shape = SubResource("RectangleShape2D_y5pye")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, 0)
 shape = SubResource("RectangleShape2D_x71b1")
+
+[node name="OpenParticle" type="GPUParticles2D" parent="."]
+position = Vector2(5, 0)
+emitting = false
+texture = ExtResource("2_i7qj5")
+process_material = SubResource("ParticleProcessMaterial_xt1h0")
 
 [node name="DesiredPosition" type="Marker2D" parent="."]
 z_index = 10

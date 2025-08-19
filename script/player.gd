@@ -8,6 +8,8 @@ const SPEED: float = 150.0
 @onready var _weapon: Weapon = $Weapon
 @onready var _interact_component: InteractComponent = $InteractComponent
 
+signal on_player_die
+
 var player_camera: PlayerCamera
 
 func _ready() -> void:
@@ -17,7 +19,7 @@ func _ready() -> void:
 		set_process(false)
 		_animated_sprite_2d.play("die")
 		await get_tree().create_timer(3).timeout
-		get_tree().reload_current_scene()
+		on_player_die.emit()
 		)
 	
 	player_camera = get_tree().get_first_node_in_group("camera")

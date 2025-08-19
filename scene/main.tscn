@@ -11,15 +11,67 @@
 resource_name = "loop_timer"
 script/source = "extends Timer
 
+var loop_amount: int = 0
+
+func _ready() -> void:
+	load_game()
+	
+	var player: Player = get_tree().get_first_node_in_group(\"player\")
+	if  player:
+		player.on_player_die.connect(func():
+			end_loop()
+			)
+	
+	print(\"Loop started\")
+
 func _on_timeout() -> void:
-	print(\"Loop ended\")
+	end_loop()
+
+func save()-> Dictionary :
+	var save_dict = {
+		\"loop_amount\": loop_amount
+	}
+	
+	return save_dict
+
+func end_loop() -> void:
+	loop_amount += 1
+	save_game()
 	get_tree().reload_current_scene()
+	print(\"Loop ended\")
+
+func save_game() -> void :
+	var save_file: FileAccess = FileAccess.open(\"user://savegame.save\", FileAccess.WRITE)
+	var save_data: Dictionary = save()
+	
+	var json_string = JSON.stringify(save_data)
+	save_file.store_line(json_string)
+
+func load_game() -> void:
+	if !FileAccess.file_exists(\"user://savegame.save\"):
+		return # No save file found
+	
+	var save_file: FileAccess = FileAccess.open(\"user://savegame.save\", FileAccess.READ)
+	while save_file.get_position() < save_file.get_length():
+		var json_string = save_file.get_line()
+		
+		var json = JSON.new()
+		
+		var parse_result = json.parse(json_string)
+		
+		if not parse_result == OK:
+			push_error(\"JSON parse error\")
+			continue
+		
+		var node_data = json.data
+		
+		loop_amount = node_data[\"loop_amount\"]
 "
 
 [node name="Main" type="Node"]
 
 [node name="LoopTimer" type="Timer" parent="." groups=["loop_timer"]]
-wait_time = 60.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 script = SubResource("GDScript_4j5ol")
@@ -44,7 +96,7 @@ initial_room = true
 [node name="DoorRight" parent="Map/RoomBase" index="2" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome")
 
-[node name="DesiredPosition" parent="Map/RoomBase/DoorRight" index="2"]
+[node name="DesiredPosition" parent="Map/RoomBase/DoorRight" index="3"]
 position = Vector2(-62, 2.99984)
 
 [node name="RoomRome" parent="Map" instance=ExtResource("5_p1hux")]
@@ -53,7 +105,7 @@ position = Vector2(640, 0)
 [node name="DoorLeft" parent="Map/RoomRome" index="1" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomBase")
 
-[node name="DesiredPosition" parent="Map/RoomRome/DoorLeft" index="2"]
+[node name="DesiredPosition" parent="Map/RoomRome/DoorLeft" index="3"]
 position = Vector2(-64, -2)
 
 [node name="Player" parent="Map" groups=["enemy"] instance=ExtResource("1_itxqv")]

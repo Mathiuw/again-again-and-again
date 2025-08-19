@@ -12,7 +12,7 @@ var target: Node2D = null
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
-	_health.on_health_changed.connect(func(current_hits: int):
+	_health.on_health_changed.connect(func(_current_hits: int):
 		_animation_player.play("damage_flash")
 	)
 	_health.on_die.connect(func(): queue_free())

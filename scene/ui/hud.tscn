@@ -73,7 +73,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_5nt5s")
 value = 100.0
 show_percentage = false
 
-[node name="RepeatTimes" type="Label" parent="."]
+[node name="RepeatAmount" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

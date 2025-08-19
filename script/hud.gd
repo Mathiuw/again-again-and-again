@@ -5,11 +5,13 @@ extends Control
 
 @onready var _loop_timer: Timer
 @onready var _player_health: Health
+@onready var _repeat_amount: Label = $RepeatAmount
 
 func _ready() -> void:
 	_loop_timer = get_tree().get_first_node_in_group("loop_timer")
 	if  _loop_timer:
 		progress_bar.max_value = _loop_timer.wait_time
+		_repeat_amount.text = str(_loop_timer.loop_amount) 
 	else:
 		push_error("HUD: cant find loop timer")
 		return

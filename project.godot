@@ -45,6 +45,7 @@ project/assembly_name="TopDown"
 player=""
 enemy=""
 camera=""
+persist="nodes that data will be saved; PS: persist nodes must have save() func"
 
 [input]
 
