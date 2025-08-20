@@ -23,6 +23,13 @@ func _ready() -> void:
 			)
 	
 	print(\"Loop started\")
+	
+	RoomManager.on_room_change.connect(func(room: Room, smooth_transition: bool):
+		if  room.pause_timer:
+			paused = true
+		else:
+			paused = false
+		)
 
 func _on_timeout() -> void:
 	end_loop()
@@ -91,7 +98,6 @@ y_sort_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="RoomBase" parent="Map" instance=ExtResource("6_p1hux")]
-initial_room = true
 
 [node name="DoorRight" parent="Map/RoomBase" index="2" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome")

@@ -4,7 +4,8 @@ extends Resource
 enum SOUND_EFFECT_TYPE
 {
 	HIT,
-	SHOOT
+	SHOOT,
+	ROOM_OPEN,
 }
 
 @export_range(0, 10) var limit: int = 5 ## Maximum number of this SoundEffect to play

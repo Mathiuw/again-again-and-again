@@ -4,15 +4,15 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wu0w0"]
 radius = 16.0
-height = 44.0
+height = 46.0
 
 [node name="Keeper" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -26)
 texture = ExtResource("1_vfub0")
+offset = Vector2(0, -27)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -16)
+position = Vector2(-4, -16)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_wu0w0")

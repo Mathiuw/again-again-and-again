@@ -22,11 +22,8 @@ func _ready() -> void:
 		on_player_die.emit()
 		)
 	
-	player_camera = get_tree().get_first_node_in_group("camera")
-	
 	_health.on_health_changed.connect(func(_current_hits: float):
-		if player_camera:
-			player_camera.trigger_shake(3)
+		SignalBus.on_camera_shake.emit(3)
 		)
 
 func _process(_delta: float) -> void:

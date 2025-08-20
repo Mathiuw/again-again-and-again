@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://e1scgkiciot6" path="res://scene/keeper.tscn" id="3_nadyk"]
 
 [node name="RoomBase" instance=ExtResource("1_vom0k")]
+initial_room = true
+pause_timer = true
 
 [node name="background" type="TileMapLayer" parent="." index="0"]
 z_index = -1

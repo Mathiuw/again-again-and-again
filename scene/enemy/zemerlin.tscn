@@ -200,7 +200,6 @@ _data = {
 }
 
 [node name="zemerlin" type="CharacterBody2D" groups=["enemy"]]
-y_sort_enabled = true
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
@@ -209,10 +208,10 @@ script = ExtResource("1_f87vc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_2mmqe")
-position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_gg45h")
 animation = &"idle"
 autoplay = "idle"
+offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)

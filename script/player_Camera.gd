@@ -1,7 +1,7 @@
 class_name PlayerCamera
 extends Camera2D
 
-@export_category("Camera Shake Settings")
+@export_group("Camera Shake Settings")
 @export var camera_shake:bool = true
 @export var max_shake_force: float = 10
 @export var shake_fade: float = 10
@@ -20,6 +20,10 @@ func trigger_shake(override_force: float = 0) -> void:
 
 func _ready() -> void:
 	# Room change event setup
+	SignalBus.on_camera_shake.connect(func(force: float):
+		trigger_shake(force)
+		)
+	
 	RoomManager.on_room_change.connect(func(room: Room, smooth_transition: bool):
 		position_smoothing_enabled = smooth_transition
 		global_position = room.global_position;

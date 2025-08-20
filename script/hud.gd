@@ -1,11 +1,12 @@
 extends Control
 
-@onready var progress_bar: ProgressBar = $Timer/ProgressBar
+@onready var progress_bar: ProgressBar = $TimerBar/ProgressBar
 @onready var hearts: TextureRect = $Hearts
 
 @onready var _loop_timer: Timer
 @onready var _player_health: Health
 @onready var _repeat_amount: Label = $RepeatAmount
+@onready var _time_bar_animation_player: AnimationPlayer = $TimerBar/ProgressBar/TimeBarAnimationPlayer
 
 func _ready() -> void:
 	_loop_timer = get_tree().get_first_node_in_group("loop_timer")
@@ -18,9 +19,9 @@ func _ready() -> void:
 	
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
+		await player.ready
 		_player_health = player.get_node("%Health")
 		if _player_health:
-			await _player_health.ready
 			_player_health.on_health_changed.connect(func(current_hits:int):
 				_set_health_UI(current_hits)
 			)
@@ -29,6 +30,13 @@ func _ready() -> void:
 			return
 		
 		_set_health_UI(_player_health._current_hits)
+		
+		RoomManager.on_room_change.connect(func(room:Room, smooth_trasition):
+			if  room.pause_timer:
+				_time_bar_animation_player.play("timer_paused")
+			else:
+				_time_bar_animation_player.play("RESET")
+			)
 
 func _process(_delta: float) -> void:
 	if _loop_timer:
