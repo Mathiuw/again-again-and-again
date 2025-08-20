@@ -24,6 +24,7 @@ buses/default_bus_layout="res://sound/default_bus_layout.tres"
 [autoload]
 
 RoomManager="*res://script/roomManager.gd"
+DialogueManager="*res://scene/dialogue_manager.tscn"
 AudioManager="*res://scene/audio_manager.tscn"
 SignalBus="*res://script/signal_bus.gd"
 

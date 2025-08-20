@@ -24,7 +24,7 @@ func _ready() -> void:
 	
 	print(\"Loop started\")
 	
-	RoomManager.on_room_change.connect(func(room: Room, smooth_transition: bool):
+	RoomManager.on_room_change.connect(func(room: Room, _smooth_transition: bool):
 		if  room.pause_timer:
 			paused = true
 		else:

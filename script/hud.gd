@@ -31,7 +31,7 @@ func _ready() -> void:
 		
 		_set_health_UI(_player_health._current_hits)
 		
-		RoomManager.on_room_change.connect(func(room:Room, smooth_trasition):
+		RoomManager.on_room_change.connect(func(room:Room, _smooth_trasition):
 			if  room.pause_timer:
 				_time_bar_animation_player.play("timer_paused")
 			else:

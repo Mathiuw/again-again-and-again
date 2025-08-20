@@ -15,8 +15,7 @@ var player_camera: PlayerCamera
 func _ready() -> void:
 	# Die function
 	_health.on_die.connect(func():
-		set_physics_process(false)
-		set_process(false)
+		set_move_state(false)
 		_animated_sprite_2d.play("die")
 		await get_tree().create_timer(3).timeout
 		on_player_die.emit()
@@ -24,6 +23,15 @@ func _ready() -> void:
 	
 	_health.on_health_changed.connect(func(_current_hits: float):
 		SignalBus.on_camera_shake.emit(3)
+		)
+	
+	SignalBus.on_display_dialog.connect(func(_key: String):
+		set_move_state(false)
+		)
+	
+	SignalBus.on_dialog_end.connect(func():
+		await get_tree().create_timer(0.1).timeout
+		set_move_state(true)
 		)
 
 func _process(_delta: float) -> void:
@@ -47,6 +55,11 @@ func _physics_process(_delta: float) -> void:
 	var desired_direction: Vector2 = Input.get_vector("move left", "move right", "move up", "move down");
 	velocity = desired_direction * SPEED;
 	move_and_slide();
+
+func set_move_state(state: bool) -> void:
+	set_physics_process(state)
+	set_process(state)
+	_set_player_idle()
 
 func _set_player_animation(desiredDirection: Vector2) -> void:
 	#TODO implement player shoot animation

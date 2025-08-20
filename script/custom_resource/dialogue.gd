@@ -1,4 +1,4 @@
-class_name DialogueText
+class_name Dialogue
 extends Resource
 
 @export_group("Dialogue Settings")
