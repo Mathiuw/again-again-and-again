@@ -1,12 +1,13 @@
 class_name DialogueComponent
 extends InteractableComponent
 
-@export var dialogue_resource: Dialogue
+@export var dialogue_steps: Array[DialogueBase]
 
 func interact():
-	if !dialogue_resource:
+	if !dialogue_steps:
 		push_error("Error finding dialogue resource")
 		return
 	
 	super()
-	SignalBus.on_display_dialog.emit(dialogue_resource.dialogue_key)
+	
+	SignalBus.on_dialog_enter.emit(dialogue_steps)

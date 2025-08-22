@@ -25,7 +25,7 @@ func _ready() -> void:
 		SignalBus.on_camera_shake.emit(3)
 		)
 	
-	SignalBus.on_display_dialog.connect(func(_key: String):
+	SignalBus.on_dialog_enter.connect(func(_dialogue_steps: Array[DialogueBase]):
 		set_move_state(false)
 		)
 	

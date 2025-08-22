@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://e1scgkiciot6"]
+[gd_scene load_steps=7 format=3 uid="uid://e1scgkiciot6"]
 
 [ext_resource type="Texture2D" uid="uid://ddw81iiesgdev" path="res://sprite/RestRoomGuyRome.png" id="1_vfub0"]
 [ext_resource type="PackedScene" uid="uid://xlm0m144kl1c" path="res://scene/dialogue_component.tscn" id="2_vfub0"]
 [ext_resource type="Resource" uid="uid://ctef3ngvhdhtr" path="res://resource/dialogue_test.tres" id="3_jv7ca"]
+[ext_resource type="Script" uid="uid://cuetc258gthhy" path="res://script/custom_resource/dialogue_base.gd" id="3_ognfk"]
+[ext_resource type="Resource" uid="uid://beym2x6p5s3e" path="res://resource/option_test.tres" id="5_d308q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wu0w0"]
 radius = 16.0
@@ -21,7 +23,7 @@ shape = SubResource("CapsuleShape2D_wu0w0")
 
 [node name="DialogueComponent" parent="." instance=ExtResource("2_vfub0")]
 position = Vector2(-2, -13)
-dialogue_resource = ExtResource("3_jv7ca")
+dialogue_steps = Array[ExtResource("3_ognfk")]([ExtResource("3_jv7ca"), ExtResource("5_d308q")])
 
 [node name="CollisionShape2D" parent="DialogueComponent" index="0"]
 position = Vector2(0, 1)

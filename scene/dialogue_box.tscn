@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqori46ibnbqm"]
-
-[ext_resource type="Script" uid="uid://bu6fgrbjxo0wr" path="res://script/dialogue_box.gd" id="1_0pf5q"]
+[gd_scene load_steps=2 format=3 uid="uid://bqori46ibnbqm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0pf5q"]
 bg_color = Color(0.117647, 0.054902, 0.054902, 1)
@@ -14,12 +12,8 @@ offset_top = -104.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_0pf5q")
-script = ExtResource("1_0pf5q")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-scroll_active = false
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
