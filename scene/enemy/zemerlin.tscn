@@ -221,11 +221,14 @@ shape = SubResource("CircleShape2D_gpa5e")
 position = Vector2(0, -9)
 bullet = ExtResource("5_mb7b2")
 sound_variant_index = 1
+shootCooldown = 1.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-target_desired_distance = 50.0
+path_desired_distance = 66.62
+target_desired_distance = 153.63
+path_max_distance = 1000.0
 avoidance_enabled = true
-debug_enabled = true
+radius = 33.69
 
 [node name="DrawPathTimer" type="Timer" parent="."]
 wait_time = 0.25

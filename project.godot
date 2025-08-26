@@ -42,6 +42,10 @@ window/vsync/vsync_mode=0
 
 project/assembly_name="TopDown"
 
+[editor]
+
+movie_writer/movie_file="D:/mateu/Videos/Godot/footage.avi"
+
 [global_group]
 
 player=""

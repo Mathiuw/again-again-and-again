@@ -1,11 +1,32 @@
-[gd_scene load_steps=32 format=3 uid="uid://v6scm44jqtat"]
+[gd_scene load_steps=36 format=3 uid="uid://v6scm44jqtat"]
 
 [ext_resource type="Script" uid="uid://58d741ajcrd4" path="res://script/player.gd" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://cmr8qd5bl0vp0" path="res://sprite/CharEras.png" id="2_fvtld"]
 [ext_resource type="PackedScene" uid="uid://cgy5ipfx6ohjl" path="res://scene/roll_component.tscn" id="3_oh5ij"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon_component.tscn" id="4_ct4mp"]
+[ext_resource type="Script" uid="uid://b31aehpmkkpx4" path="res://script/dash_particle.gd" id="4_hp4bs"]
 [ext_resource type="PackedScene" uid="uid://bdq4ak6qkr0i1" path="res://scene/interactor_component.tscn" id="5_oh5ij"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health.tscn" id="5_s4jxa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvtld"]
+atlas = ExtResource("2_fvtld")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="Curve" id="Curve_hp4bs"]
+_data = [Vector2(0, 0.592752), 0.0, 0.0, 0, 0, Vector2(0.756923, 0), 0.111987, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g2vtq"]
+curve = SubResource("Curve_hp4bs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hp4bs"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 0.0
+initial_velocity_min = 63.35
+initial_velocity_max = 63.35
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_g2vtq")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_42h83"]
 atlas = ExtResource("2_fvtld")
@@ -38,10 +59,6 @@ region = Rect2(96, 192, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_bup7g"]
 atlas = ExtResource("2_fvtld")
 region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fvtld"]
-atlas = ExtResource("2_fvtld")
-region = Rect2(0, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ja17"]
 atlas = ExtResource("2_fvtld")
@@ -308,12 +325,27 @@ script = ExtResource("1_hjaqi")
 unique_name_in_owner = true
 
 [node name="RollComponent" parent="." instance=ExtResource("3_oh5ij")]
+dash_speed_multiplier = 6.0
+dash_length = 0.1
+
+[node name="RollParticle" type="GPUParticles2D" parent="." node_paths=PackedStringArray("character_owner", "animated_sprite", "roll_component")]
+position = Vector2(0, -16)
+emitting = false
+texture = SubResource("AtlasTexture_fvtld")
+lifetime = 0.31
+trail_sections = 9
+process_material = SubResource("ParticleProcessMaterial_hp4bs")
+script = ExtResource("4_hp4bs")
+character_owner = NodePath("..")
+animated_sprite = NodePath("../AnimatedSprite2D")
+roll_component = NodePath("../RollComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_hp4bs")
 animation = &"idle_front"
 autoplay = "idle_front"
+frame_progress = 0.311848
 offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
