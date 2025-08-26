@@ -4,6 +4,7 @@ extends Node2D
 @export_group("Room Settings")
 @export var initial_room: bool = false
 @export var pause_timer: bool = false
+@export var music_override: AudioStream
 
 signal on_no_enemies_left
 
@@ -13,6 +14,8 @@ func _ready() -> void:
 			set_room_state(false)
 		else:
 			set_room_state(true)
+			if music_override:
+				AudioManager.current_music = music_override
 		)
 	
 	call_deferred("check_initial_room")

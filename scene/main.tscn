@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dquef6xj016ys"]
+[gd_scene load_steps=7 format=3 uid="uid://dquef6xj016ys"]
 
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="1_itxqv"]
-[ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_of57s"]
 [ext_resource type="PackedScene" uid="uid://b24q0q78wlx5d" path="res://scene/hud.tscn" id="2_p1hux"]
 [ext_resource type="Script" uid="uid://bvibwp2q2iop7" path="res://script/player_Camera.gd" id="3_wp4xf"]
 [ext_resource type="PackedScene" uid="uid://c6m28at08ltqy" path="res://scene/room/room_rome_01.tscn" id="5_p1hux"]
@@ -82,12 +81,6 @@ wait_time = 30.0
 one_shot = true
 autostart = true
 script = SubResource("GDScript_4j5ol")
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_of57s")
-volume_db = -10.0
-autoplay = true
-bus = &"Music"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

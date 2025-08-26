@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ble6ebjrjqmc4"]
 
-[ext_resource type="Script" uid="uid://dxp8b0fyxcn4f" path="res://scene/dialog_box_option.gd" id="1_y01bh"]
+[ext_resource type="Script" uid="uid://dxp8b0fyxcn4f" path="res://script/dialog_box_option.gd" id="1_y01bh"]
 
 [node name="DialogueBoxOption" type="HBoxContainer"]
 anchors_preset = 10

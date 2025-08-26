@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bjfekveea263k" path="res://script/zemerlin.gd" id="1_f87vc"]
 [ext_resource type="Texture2D" uid="uid://bwpg6wl7nkl0v" path="res://sprite/Zehmerlin-Sheet.png" id="2_8u16h"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health.tscn" id="3_8u16h"]
-[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon.tscn" id="3_b7koy"]
+[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon_component.tscn" id="3_b7koy"]
 [ext_resource type="PackedScene" uid="uid://d2uhi6ia23jpa" path="res://scene/bullet/bullet_zemerlin.tscn" id="5_mb7b2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2mmqe"]

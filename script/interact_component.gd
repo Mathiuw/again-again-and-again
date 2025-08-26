@@ -1,8 +1,9 @@
 class_name InteractComponent
 extends Area2D
 
-func try_to_interact() -> void:
+func try_to_interact() -> bool:
 	if has_overlapping_areas():
 		for node: InteractableComponent in get_overlapping_areas():
 			node.interact()
-			break
+			return true
+	return false

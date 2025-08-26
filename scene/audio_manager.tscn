@@ -41,3 +41,6 @@ metadata/_custom_type_script = "uid://dhuujfbdmx3ku"
 script = ExtResource("1_pgo6v")
 sound_effects = Array[ExtResource("2_8jnrl")]([SubResource("Resource_o1am0"), SubResource("Resource_tdpk3"), SubResource("Resource_x8syu")])
 metadata/_edit_lock_ = true
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"

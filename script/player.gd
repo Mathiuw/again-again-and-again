@@ -7,12 +7,16 @@ const SPEED: float = 150.0
 @onready var _health: Health = %Health
 @onready var _weapon: Weapon = $Weapon
 @onready var _interact_component: InteractComponent = $InteractComponent
+@onready var _roll_component: Roll = $RollComponent
 
 signal on_player_die
 
 var player_camera: PlayerCamera
 
 func _ready() -> void:
+	# Hide and confine mouse
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+	
 	# Die function
 	_health.on_die.connect(func():
 		set_move_state(false)
@@ -48,12 +52,14 @@ func _process(_delta: float) -> void:
 	
 	# interact/roll input
 	if Input.is_action_just_pressed("interact"):
-		_interact_component.try_to_interact()
+		if !_interact_component.try_to_interact():
+			_roll_component.start_dash()
 
 func _physics_process(_delta: float) -> void:
 	# Move logic
+	var multiplier: float = _roll_component.dash_speed_multiplier
 	var desired_direction: Vector2 = Input.get_vector("move left", "move right", "move up", "move down");
-	velocity = desired_direction * SPEED;
+	velocity = desired_direction * (SPEED * multiplier)
 	move_and_slide();
 
 func set_move_state(state: bool) -> void:

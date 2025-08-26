@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bosoqve4wshsx"]
+[gd_scene load_steps=2 format=3 uid="uid://bosoqve4wshsx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70ia8"]
 
 [node name="ButtonOption" type="Button"]
 size_flags_horizontal = 6
@@ -7,6 +9,9 @@ theme_override_colors/font_hover_pressed_color = Color(0.902859, 0.826727, 0.083
 theme_override_colors/font_hover_color = Color(0.902859, 0.826727, 0.0831587, 1)
 theme_override_colors/font_focus_color = Color(0.902859, 0.826727, 0.0831587, 1)
 theme_override_colors/font_pressed_color = Color(0.902859, 0.826727, 0.0831587, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_70ia8")
+action_mode = 0
+button_mask = 0
 text = "Option
 "
 flat = true
