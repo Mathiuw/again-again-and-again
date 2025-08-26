@@ -1,5 +1,5 @@
 extends Node2D 
-@export var current_music: AudioStream = preload("uid://74xuctaer14g"):
+@export var current_music: AudioStream:
 	set = set_music
 
 @export var sound_effects: Array[SoundEffect]

@@ -8,7 +8,7 @@
 		
 	"keep_keys_option": 
 		{
-			"yes" : "option_yes",
-			"no" : "option_no"
+			"Yes" : "option_yes",
+			"No" : "option_no"
 		}
 }

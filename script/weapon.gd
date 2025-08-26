@@ -22,14 +22,19 @@ func _process(delta: float) -> void:
 func shoot(direction: Vector2) -> void:
 	if currentCooldown > 0: return
 	
-	var newBullet: Bullet = bullet.instantiate()
-	newBullet.add_collision_exception_with(get_parent())
-	newBullet.global_position = global_position
-	newBullet.rotation = direction.angle()
-	newBullet.damage = damage
+	var new_bullet: Bullet = bullet.instantiate()
+	new_bullet.add_collision_exception_with(get_parent())
+	new_bullet.global_position = global_position
+	new_bullet.rotation = direction.angle()
+	new_bullet.damage = damage
 	
 	currentCooldown = shootCooldown
 	
-	get_tree().root.add_child(newBullet)
+	var world_root: Node = get_tree().get_first_node_in_group("world")
+	if world_root:
+		world_root.add_child(new_bullet)
+	else:
+		push_warning("No world root found, spawning bullet in tree root")
+		get_tree().root.add_child(new_bullet)
 	
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SHOOT, sound_variant_index)

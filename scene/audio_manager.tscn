@@ -43,4 +43,5 @@ sound_effects = Array[ExtResource("2_8jnrl")]([SubResource("Resource_o1am0"), Su
 metadata/_edit_lock_ = true
 
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 bus = &"Music"

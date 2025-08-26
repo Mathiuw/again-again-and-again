@@ -15,7 +15,7 @@ var player_camera: PlayerCamera
 
 func _ready() -> void:
 	# Hide and confine mouse
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	
 	# Die function
 	_health.on_die.connect(func():

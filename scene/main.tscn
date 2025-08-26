@@ -1,10 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://dquef6xj016ys"]
+[gd_scene load_steps=8 format=3 uid="uid://dquef6xj016ys"]
 
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="1_itxqv"]
 [ext_resource type="PackedScene" uid="uid://b24q0q78wlx5d" path="res://scene/hud.tscn" id="2_p1hux"]
 [ext_resource type="Script" uid="uid://bvibwp2q2iop7" path="res://script/player_Camera.gd" id="3_wp4xf"]
 [ext_resource type="PackedScene" uid="uid://c6m28at08ltqy" path="res://scene/room/room_rome_01.tscn" id="5_p1hux"]
 [ext_resource type="PackedScene" uid="uid://bbdklpf1hb3ar" path="res://scene/room/room_start.tscn" id="6_p1hux"]
+
+[sub_resource type="GDScript" id="GDScript_0ha60"]
+resource_name = "main"
+script/source = "extends Node
+
+func _ready() -> void:
+	PauseManager.can_pause_input = true
+"
 
 [sub_resource type="GDScript" id="GDScript_4j5ol"]
 resource_name = "loop_timer"
@@ -74,7 +82,8 @@ func load_game() -> void:
 		loop_amount = node_data[\"loop_amount\"]
 "
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" groups=["world"]]
+script = SubResource("GDScript_0ha60")
 
 [node name="LoopTimer" type="Timer" parent="." groups=["loop_timer"]]
 wait_time = 30.0

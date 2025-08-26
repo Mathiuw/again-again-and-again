@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://tmiaggulr37f"]
+
+[ext_resource type="Texture2D" uid="uid://c4f72o08f7dxq" path="res://sprite/MainMenu/PlayButton.png" id="1_u3ukc"]
+[ext_resource type="Texture2D" uid="uid://dtcql65nt7367" path="res://sprite/MainMenu/PlayButtonPressed.png" id="2_ocmi1"]
+
+[node name="PlayButton" type="TextureButton"]
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("1_u3ukc")
+texture_pressed = ExtResource("2_ocmi1")
+stretch_mode = 3

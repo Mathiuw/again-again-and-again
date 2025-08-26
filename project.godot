@@ -26,6 +26,7 @@ buses/default_bus_layout="res://sound/default_bus_layout.tres"
 RoomManager="*res://script/roomManager.gd"
 DialogueManager="*res://scene/dialogue_manager.tscn"
 AudioManager="*res://scene/audio_manager.tscn"
+PauseManager="*res://scene/pause_manager.tscn"
 SignalBus="*res://script/signal_bus.gd"
 
 [display]
@@ -47,6 +48,7 @@ player=""
 enemy=""
 camera=""
 persist="nodes that data will be saved; PS: persist nodes must have save() func"
+world="world root node"
 
 [input]
 

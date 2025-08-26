@@ -6,8 +6,8 @@ var dialogue_step_index: int = 0
 var dialogue_box_node: Node
 
 func _ready() -> void:
-	SignalBus.on_dialog_enter.connect(func(dialogue_steps: Array[DialogueBase]):
-		self.dialogue_steps = dialogue_steps
+	SignalBus.on_dialog_enter.connect(func(dialogues: Array[DialogueBase]):
+		dialogue_steps = dialogues
 		dialogue_step_index = 0
 	
 		dialogue_box_node = dialogue_box_scene.instantiate()
