@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4djleirskoec"]
+
+[ext_resource type="Script" uid="uid://ci3v85chx4d6" path="res://script/damage_particle.gd" id="1_6nm1r"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ry2h7"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Curve" id="Curve_pvgpj"]
+_limits = [0.0, 1.0, 0.0, 1.01538]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1.01538, 0), -3.03601, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nhyt6"]
+curve = SubResource("Curve_pvgpj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pvgpj"]
+particle_flag_disable_z = true
+direction = Vector3(1, -0.5, 0)
+spread = 24.661
+initial_velocity_min = 30.3
+initial_velocity_max = 60.61
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_nhyt6")
+
+[node name="DamageParticle" type="Node2D"]
+script = ExtResource("1_6nm1r")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(64, 64)
+
+[node name="Label" type="Label" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "-999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+texture = SubResource("ViewportTexture_ry2h7")
+one_shot = true
+visibility_rect = Rect2(0.882894, -21.9699, 54.1687, 21.4461)
+process_material = SubResource("ParticleProcessMaterial_pvgpj")
+
+[connection signal="editor_state_changed" from="." to="." method="_on_editor_state_changed"]
+[connection signal="property_list_changed" from="." to="." method="_on_property_list_changed"]
+[connection signal="finished" from="GPUParticles2D" to="." method="_on_damage_particle_finished"]

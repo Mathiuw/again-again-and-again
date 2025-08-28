@@ -6,7 +6,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5nt5s"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nt5s"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvgpj"]
 bg_color = Color(0.968627, 0.219608, 0.282353, 1)
 
 [sub_resource type="Animation" id="Animation_qxikp"]
@@ -93,7 +93,7 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxEmpty_5nt5s")
-theme_override_styles/fill = SubResource("StyleBoxFlat_5nt5s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pvgpj")
 value = 100.0
 show_percentage = false
 
