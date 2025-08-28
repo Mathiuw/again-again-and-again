@@ -1,18 +1,28 @@
-[gd_scene load_steps=11 format=3 uid="uid://b24q0q78wlx5d"]
+[gd_scene load_steps=9 format=3 uid="uid://b24q0q78wlx5d"]
 
 [ext_resource type="Script" uid="uid://bv8x8s4r04jea" path="res://script/hud.gd" id="1_4nxdm"]
-[ext_resource type="Texture2D" uid="uid://cq1of4ywlegd1" path="res://sprite/HUD/Spr_HpBar_Sheet.png" id="1_mmka4"]
 [ext_resource type="Texture2D" uid="uid://ey3ldwxatay" path="res://sprite/HUD/Spr_TimerBar.png" id="2_5nt5s"]
 [ext_resource type="FontFile" uid="uid://cigkq8qle8jkd" path="res://font/ari-w9500-condensed-display.ttf" id="4_73u6w"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5nt5s"]
-atlas = ExtResource("1_mmka4")
-region = Rect2(0, 0, 112, 16)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5nt5s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nt5s"]
 bg_color = Color(0.968627, 0.219608, 0.282353, 1)
+
+[sub_resource type="Animation" id="Animation_qxikp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/fill:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.968627, 0.219608, 0.282353, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_vgic2"]
 resource_name = "timer_paused"
@@ -28,21 +38,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0.968627, 0.219608, 0.282353, 1), Color(1, 1, 1, 1), Color(0.968627, 0.219608, 0.282353, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_qxikp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:theme_override_styles/fill:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.968627, 0.219608, 0.282353, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nja0l"]
@@ -71,14 +66,6 @@ grow_horizontal = 2
 grow_vertical = 2
 border_width = 2.0
 metadata/_edit_lock_ = true
-
-[node name="Hearts" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 232.0
-offset_bottom = 72.0
-texture = SubResource("AtlasTexture_5nt5s")
-expand_mode = 1
-stretch_mode = 4
 
 [node name="TimerBar" type="TextureRect" parent="."]
 layout_mode = 1

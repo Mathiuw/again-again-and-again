@@ -4,30 +4,27 @@ extends CharacterBody2D
 const SPEED: float = 150.0
 
 @onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var _health: Health = %Health
 @onready var _weapon: Weapon = $Weapon
 @onready var _interact_component: InteractComponent = $InteractComponent
 @onready var _roll_component: Roll = $RollComponent
+var _loop_timer: Timer
 
 signal on_player_die
-
-var player_camera: PlayerCamera
 
 func _ready() -> void:
 	# Hide and confine mouse
 	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	
-	# Die function
-	_health.on_die.connect(func():
-		set_move_state(false)
-		_animated_sprite_2d.play("die")
-		await get_tree().create_timer(3).timeout
-		on_player_die.emit()
-		)
-	
-	_health.on_health_changed.connect(func(_current_hits: float):
-		SignalBus.on_camera_shake.emit(3)
-		)
+	_loop_timer = get_tree().get_first_node_in_group("loop_timer")
+	if _loop_timer:
+		_loop_timer.timeout.connect(func():
+			set_move_state(false)
+			_animated_sprite_2d.play("die")
+			await get_tree().create_timer(3).timeout
+			on_player_die.emit()
+			)
+	else:
+		push_warning("No loop timer found")
 	
 	SignalBus.on_dialog_enter.connect(func(_dialogue_steps: Array[DialogueBase]):
 		set_move_state(false)
@@ -88,3 +85,17 @@ func _set_player_idle() -> void:
 			_animated_sprite_2d.play("idle_left")
 		"walk_right":
 			_animated_sprite_2d.play("idle_right")
+
+func damage(damage: int) -> void:
+	SignalBus.on_camera_shake.emit(3)
+	if _loop_timer && _loop_timer.time_left > 0:
+		var new_loop_timer_time: float = _loop_timer.time_left - damage
+		
+		if new_loop_timer_time > _loop_timer.time_left: return
+		
+		if new_loop_timer_time <= 0:
+			_loop_timer.start(0.1)
+			return
+		
+		_loop_timer.start(new_loop_timer_time)
+	pass

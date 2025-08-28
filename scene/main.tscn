@@ -38,9 +38,6 @@ func _ready() -> void:
 			paused = false
 		)
 
-func _on_timeout() -> void:
-	end_loop()
-
 func save()-> Dictionary :
 	var save_dict = {
 		\"loop_amount\": loop_amount
@@ -86,7 +83,7 @@ func load_game() -> void:
 script = SubResource("GDScript_0ha60")
 
 [node name="LoopTimer" type="Timer" parent="." groups=["loop_timer"]]
-wait_time = 30.0
+wait_time = 20.0
 one_shot = true
 autostart = true
 script = SubResource("GDScript_4j5ol")

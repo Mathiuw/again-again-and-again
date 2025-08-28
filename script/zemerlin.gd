@@ -42,3 +42,7 @@ func _on_draw_path_timer_timeout() -> void:
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 	move_and_slide()
+
+
+func damage(damage: int):
+	_health.remove_health(damage)
