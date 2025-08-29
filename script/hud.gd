@@ -5,6 +5,8 @@ var _loop_timer: Timer
 const DAMAGE_PARTICLE_SCENE: PackedScene = preload("uid://d4djleirskoec")
 
 @onready var progress_bar: ProgressBar = $TimerBar/ProgressBar
+@onready var damage_bar: ProgressBar = $TimerBar/ProgressBar/DamageBar
+
 @onready var _repeat_amount: Label = $RepeatAmount
 @onready var _time_bar_animation_player: AnimationPlayer = $TimerBar/ProgressBar/TimeBarAnimationPlayer
 
@@ -13,6 +15,9 @@ func _ready() -> void:
 	if  _loop_timer:
 		progress_bar.max_value = _loop_timer.wait_time
 		progress_bar.value = _loop_timer.wait_time
+		
+		damage_bar.max_value = _loop_timer.wait_time
+		damage_bar.value = _loop_timer.wait_time
 		
 		_repeat_amount.text = str(_loop_timer.loop_amount) 
 		
@@ -41,6 +46,8 @@ func _process(delta: float) -> void:
 func _set_progress_bar() -> void:
 	if _loop_timer:
 		progress_bar.value = _loop_timer.time_left
+		damage_bar.value = lerp(damage_bar.value, _loop_timer.time_left, 1.0 - exp(-5 * get_process_delta_time())) 
+
 
 func _spawn_damage_particle(damage_amount: int):
 	var damage_particle = DAMAGE_PARTICLE_SCENE.instantiate()

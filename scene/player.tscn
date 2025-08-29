@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://v6scm44jqtat"]
+[gd_scene load_steps=36 format=3 uid="uid://v6scm44jqtat"]
 
 [ext_resource type="Script" uid="uid://58d741ajcrd4" path="res://script/player.gd" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://cmr8qd5bl0vp0" path="res://sprite/CharEras.png" id="2_fvtld"]
@@ -314,6 +314,9 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2vtq"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_oh5ij"]
+radius = 12.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 collision_mask = 7
@@ -353,3 +356,7 @@ position = Vector2(0, -8)
 
 [node name="InteractComponent" parent="." instance=ExtResource("5_oh5ij")]
 position = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractComponent"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_oh5ij")

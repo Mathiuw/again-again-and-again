@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b24q0q78wlx5d"]
+[gd_scene load_steps=10 format=3 uid="uid://b24q0q78wlx5d"]
 
 [ext_resource type="Script" uid="uid://bv8x8s4r04jea" path="res://script/hud.gd" id="1_4nxdm"]
 [ext_resource type="Texture2D" uid="uid://ey3ldwxatay" path="res://sprite/HUD/Spr_TimerBar.png" id="2_5nt5s"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvgpj"]
 bg_color = Color(0.968627, 0.219608, 0.282353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhyt6"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_qxikp"]
 length = 0.001
@@ -94,6 +97,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxEmpty_5nt5s")
 theme_override_styles/fill = SubResource("StyleBoxFlat_pvgpj")
+value = 100.0
+show_percentage = false
+
+[node name="DamageBar" type="ProgressBar" parent="TimerBar/ProgressBar"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_5nt5s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nhyt6")
 value = 100.0
 show_percentage = false
 

@@ -6,4 +6,5 @@ func try_to_interact() -> bool:
 		for node: InteractableComponent in get_overlapping_areas():
 			node.interact()
 			return true
+			
 	return false

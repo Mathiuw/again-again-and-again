@@ -16,6 +16,7 @@ func _ready() -> void:
 	# Hide and confine mouse
 	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	
+	# On loop end function
 	_loop_timer = get_tree().get_first_node_in_group("loop_timer")
 	if _loop_timer:
 		_loop_timer.timeout.connect(func():
@@ -46,7 +47,7 @@ func _process(_delta: float) -> void:
 	# shoot input
 	var shoot_vector: Vector2 = Input.get_vector("shoot left", "shoot right", "shoot up", "shoot down")
 	if shoot_vector :
-		_weapon.shoot(shoot_vector)
+		_weapon.shoot(shoot_vector, self)
 	
 	# interact/roll input
 	if Input.is_action_just_pressed("interact"):
@@ -96,10 +97,6 @@ func damage(damage: int) -> void:
 		if new_loop_timer_time > _loop_timer.time_left: return
 		
 		new_loop_timer_time = clampf(new_loop_timer_time, 0.1, new_loop_timer_time)
-		
-		#if new_loop_timer_time <= 0:
-			#_loop_timer.start(0.1)
-		#else:
 		_loop_timer.start(new_loop_timer_time)
 		
 		on_player_damage.emit(damage)

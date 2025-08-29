@@ -205,6 +205,8 @@ collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_f87vc")
+move_speed = 90.0
+shoot_variation = 0.3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_2mmqe")
@@ -219,7 +221,7 @@ shape = SubResource("CircleShape2D_gpa5e")
 
 [node name="Weapon" parent="." instance=ExtResource("3_b7koy")]
 position = Vector2(0, -9)
-bullet = ExtResource("5_mb7b2")
+bullet_scene = ExtResource("5_mb7b2")
 sound_variant_index = 1
 shootCooldown = 1.0
 
