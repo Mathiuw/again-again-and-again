@@ -1,13 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjf1mdp07gqci"]
+[gd_scene load_steps=10 format=3 uid="uid://bjf1mdp07gqci"]
 
 [ext_resource type="Script" uid="uid://bx0bv6spxg62p" path="res://script/door.gd" id="1_y5pye"]
-[ext_resource type="Texture2D" uid="uid://cmdvti2y6w1q3" path="res://sprite/particle_sphere.png" id="2_i7qj5"]
+[ext_resource type="Texture2D" uid="uid://clcw6tve7cnvf" path="res://sprite/particle_sphere_2.png" id="2_i7qj5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5pye"]
 size = Vector2(40, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x71b1"]
 size = Vector2(10, 40)
+
+[sub_resource type="Gradient" id="Gradient_i7qj5"]
+offsets = PackedFloat32Array(0.5322034)
+colors = PackedColorArray(0.11764706, 0.05490196, 0.05490196, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_psa10"]
+gradient = SubResource("Gradient_i7qj5")
 
 [sub_resource type="Curve" id="Curve_psa10"]
 _data = [Vector2(0, 0.696629), 0.0, 0.0, 0, 0, Vector2(1, 0.348315), 0.0, 0.0, 0, 0]
@@ -31,7 +38,7 @@ angular_velocity_min = -91.35
 angular_velocity_max = 96.71
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_2tyue")
-color = Color(0.294583, 0.168784, 0.168698, 1)
+color_ramp = SubResource("GradientTexture1D_psa10")
 
 [node name="Door" type="Area2D"]
 collision_layer = 0
