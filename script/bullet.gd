@@ -9,7 +9,7 @@ func _physics_process(_delta: float) -> void:
 	var collision: KinematicCollision2D = move_and_collide(transform.x * bullet_speed * _delta)
 	if collision:
 		var body: Node = collision.get_collider() as Node
-			
+		
 		# Check if the collider is in the same group as the shooter
 		#for group in body.get_groups():
 			#if shooter.is_in_group(group):

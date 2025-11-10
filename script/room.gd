@@ -24,10 +24,12 @@ func _ready() -> void:
 		return
 	
 	for node in get_children():
-		if node is Zemerlin:
-			node._health.on_die.connect(func():
-				get_enemy_count()
-				)
+		if node.is_in_group("enemy"):
+			for child in node.get_children():
+				if child is Health && !child.dead:
+					child.on_die.connect(func():
+						get_enemy_count()
+						)
 
 
 func check_initial_room() -> void:
@@ -48,8 +50,10 @@ func open_room_doors(open_effects: bool = true) -> void:
 func get_enemy_count(open_effects: bool = true) -> int:
 	var count: int = 0
 	for node in get_children():
-		if node is Zemerlin && !node._health.dead:
-			count =+ 1
+		if node.is_in_group("enemy"):
+			for child in node.get_children():
+				if child is Health && !child.dead:
+					count =+ 1
 	
 	if count == 0:
 		open_room_doors(open_effects)
@@ -57,8 +61,9 @@ func get_enemy_count(open_effects: bool = true) -> int:
 	
 	return count
 
-
 func set_room_state(state: bool) -> void:
 	for node: Node in get_children():
-		node.set_process(state)
-		node.set_physics_process(state)
+		if  state:
+			node.process_mode = Node.PROCESS_MODE_INHERIT 
+		else:
+			node.process_mode = Node.PROCESS_MODE_WHEN_PAUSED 

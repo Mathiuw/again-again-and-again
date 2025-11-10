@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bjf1mdp07gqci"]
 
-[ext_resource type="Script" uid="uid://bx0bv6spxg62p" path="res://script/door.gd" id="1_y5pye"]
-[ext_resource type="Texture2D" uid="uid://clcw6tve7cnvf" path="res://sprite/particle_sphere_2.png" id="2_i7qj5"]
+[ext_resource type="Script" uid="uid://bx0bv6spxg62p" path="res://script/door.gd" id="1_6iv73"]
+[ext_resource type="Texture2D" uid="uid://cmdvti2y6w1q3" path="res://sprite/projectile/door_particle_sphere.png" id="2_1s0nm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5pye"]
 size = Vector2(40, 4)
@@ -43,7 +43,7 @@ color_ramp = SubResource("GradientTexture1D_psa10")
 [node name="Door" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_y5pye")
+script = ExtResource("1_6iv73")
 metadata/_edit_group_ = true
 
 [node name="DoorStaticBody" type="StaticBody2D" parent="."]
@@ -66,7 +66,7 @@ shape = SubResource("RectangleShape2D_x71b1")
 [node name="OpenParticle" type="GPUParticles2D" parent="."]
 position = Vector2(5, 0)
 emitting = false
-texture = ExtResource("2_i7qj5")
+texture = ExtResource("2_1s0nm")
 process_material = SubResource("ParticleProcessMaterial_xt1h0")
 
 [node name="DesiredPosition" type="Marker2D" parent="."]

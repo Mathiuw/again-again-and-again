@@ -10,7 +10,7 @@ const SPEED: float = 150.0
 var _loop_timer: Timer
 
 signal on_player_die
-signal on_player_damage(damage: int)
+signal on_player_damage(damageAmount: int)
 
 func _ready() -> void:
 	# Hide and confine mouse
@@ -88,15 +88,15 @@ func _set_player_idle() -> void:
 		"walk_right":
 			_animated_sprite_2d.play("idle_right")
 
-func damage(damage: int) -> void:
+func damage(damageAmount: int) -> void:
 	SignalBus.on_camera_shake.emit(3)
 	
 	if _loop_timer && _loop_timer.time_left > 0:
-		var new_loop_timer_time: float = _loop_timer.time_left - damage
+		var new_loop_timer_time: float = _loop_timer.time_left - damageAmount
 		
 		if new_loop_timer_time > _loop_timer.time_left: return
 		
 		new_loop_timer_time = clampf(new_loop_timer_time, 0.1, new_loop_timer_time)
 		_loop_timer.start(new_loop_timer_time)
 		
-		on_player_damage.emit(damage)
+		on_player_damage.emit(damageAmount)

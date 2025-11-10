@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_rp1sb"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="1_x71b1"]
-[ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door.tscn" id="3_bdfyo"]
+[ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_side.tscn" id="3_bdfyo"]
 
 [node name="RoomBase" type="Node2D"]
 y_sort_enabled = true

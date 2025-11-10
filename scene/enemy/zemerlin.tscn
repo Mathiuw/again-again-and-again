@@ -1,11 +1,12 @@
-[gd_scene load_steps=30 format=3 uid="uid://dliyelxwg7x8w"]
+[gd_scene load_steps=31 format=3 uid="uid://dliyelxwg7x8w"]
 
 [ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://shader/damage_flash.gdshader" id="1_2mmqe"]
 [ext_resource type="Script" uid="uid://bjfekveea263k" path="res://script/zemerlin.gd" id="1_f87vc"]
-[ext_resource type="Texture2D" uid="uid://bwpg6wl7nkl0v" path="res://sprite/Zehmerlin-Sheet.png" id="2_8u16h"]
+[ext_resource type="Texture2D" uid="uid://bwpg6wl7nkl0v" path="res://sprite/character/Zehmerlin-Sheet.png" id="2_8u16h"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health.tscn" id="3_8u16h"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon_component.tscn" id="3_b7koy"]
 [ext_resource type="PackedScene" uid="uid://d2uhi6ia23jpa" path="res://scene/bullet/bullet_zemerlin.tscn" id="5_mb7b2"]
+[ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://scene/AI/ai_shoot_behaviour.tscn" id="7_cv5gn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2mmqe"]
 resource_local_to_scene = true
@@ -199,14 +200,14 @@ _data = {
 &"damage_flash": SubResource("Animation_2mmqe")
 }
 
-[node name="zemerlin" type="CharacterBody2D" groups=["enemy"]]
+[node name="Zemerlin" type="CharacterBody2D" groups=["enemy"]]
+disable_mode = 1
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_f87vc")
 move_speed = 90.0
-shoot_variation = 0.3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_2mmqe")
@@ -236,9 +237,13 @@ radius = 33.69
 wait_time = 0.25
 autostart = true
 
-[node name="Health" parent="." instance=ExtResource("3_8u16h")]
+[node name="HealthComponent" parent="." instance=ExtResource("3_8u16h")]
 unique_name_in_owner = true
 max_hits = 2
+
+[node name="AIShootBehaviour" parent="." node_paths=PackedStringArray("weapon_component", "root_node") instance=ExtResource("7_cv5gn")]
+weapon_component = NodePath("../Weapon")
+root_node = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -353,6 +353,7 @@ shape = SubResource("CircleShape2D_g2vtq")
 
 [node name="Weapon" parent="." instance=ExtResource("4_ct4mp")]
 position = Vector2(0, -8)
+bulletSpeed = 500.0
 
 [node name="InteractComponent" parent="." instance=ExtResource("5_oh5ij")]
 position = Vector2(0, -10)

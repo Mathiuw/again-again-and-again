@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddw81iiesgdev"
-path="res://.godot/imported/RestRoomGuyRome.png-20f6cf61b5a3dfbbd8ed3704ef492420.ctex"
+uid="uid://cnw1igwot1bsr"
+path="res://.godot/imported/bullet.png-07ca5ace6c9f5fbafa19a382f26922a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/RestRoomGuyRome.png"
-dest_files=["res://.godot/imported/RestRoomGuyRome.png-20f6cf61b5a3dfbbd8ed3704ef492420.ctex"]
+source_file="res://sprite/projectile/bullet.png"
+dest_files=["res://.godot/imported/bullet.png-07ca5ace6c9f5fbafa19a382f26922a1.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

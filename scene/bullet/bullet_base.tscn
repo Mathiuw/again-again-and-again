@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2jv5crvpeg70"]
 
-[ext_resource type="Texture2D" uid="uid://j1c1kbigbp5d" path="res://sprite/Spr_Arrow.png" id="1_qwydi"]
+[ext_resource type="Texture2D" uid="uid://j1c1kbigbp5d" path="res://sprite/projectile/Spr_Arrow.png" id="1_qwydi"]
 [ext_resource type="Script" uid="uid://cyyrvtx7bgcoq" path="res://script/bullet.gd" id="1_xw300"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xw300"]
@@ -15,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcxha"]
-size = Vector2(13.74, 6)
+size = Vector2(13, 5)
 
 [node name="bullet" type="StaticBody2D"]
 collision_layer = 4
@@ -29,6 +29,7 @@ autoplay = "bullet"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_dcxha")
 
 [node name="DestroyTimer" type="Timer" parent="."]

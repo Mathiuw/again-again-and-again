@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clcw6tve7cnvf"
-path="res://.godot/imported/particle_sphere_2.png-4567530349d38d850612b1d0840ea782.ctex"
+uid="uid://dsra6h7i3ciqm"
+path="res://.godot/imported/Catlionidk-Sheet.png-7f4adc19cbd1b438ec70662d5fe53a0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/particle_sphere_2.png"
-dest_files=["res://.godot/imported/particle_sphere_2.png-4567530349d38d850612b1d0840ea782.ctex"]
+source_file="res://sprite/character/Catlionidk-Sheet.png"
+dest_files=["res://.godot/imported/Catlionidk-Sheet.png-7f4adc19cbd1b438ec70662d5fe53a0b.ctex"]
 
 [params]
 

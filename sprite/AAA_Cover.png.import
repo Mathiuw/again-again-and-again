@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5as202xdk2b6"
-path="res://.godot/imported/SenhorDoTempo-Sheet.png-396d47e4a44a7b8f4e7304f85d82fd70.ctex"
+uid="uid://cyi5ukmu5845v"
+path="res://.godot/imported/AAA_Cover.png-4d60fb51a8ce80c5f1cf89b868fe2792.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/SenhorDoTempo-Sheet.png"
-dest_files=["res://.godot/imported/SenhorDoTempo-Sheet.png-396d47e4a44a7b8f4e7304f85d82fd70.ctex"]
+source_file="res://sprite/AAA_Cover.png"
+dest_files=["res://.godot/imported/AAA_Cover.png-4d60fb51a8ce80c5f1cf89b868fe2792.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
