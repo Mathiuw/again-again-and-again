@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://c6m28at08ltqy"]
+[gd_scene load_steps=7 format=4 uid="uid://c6m28at08ltqy"]
 
 [ext_resource type="PackedScene" uid="uid://4jl3alvfl8o3" path="res://scene/room/room_base.tscn" id="1_f5ujw"]
 [ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://scene/enemy/zemerlin.tscn" id="2_7k0rd"]
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_66bwh"]
 [ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_side.tscn" id="2_mtb6u"]
 [ext_resource type="PackedScene" uid="uid://c5pxaov6df4yw" path="res://scene/enemy/tuga.tscn" id="5_7xtqb"]
+[ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://scene/enemy/medusa.tscn" id="6_nq463"]
 
 [node name="RoomRome" instance=ExtResource("1_f5ujw")]
 music_override = ExtResource("2_66bwh")
@@ -26,6 +27,15 @@ position = Vector2(-64, -80)
 
 [node name="Tuga2" parent="." index="6" instance=ExtResource("5_7xtqb")]
 position = Vector2(-144, 128)
+
+[node name="Medusa" parent="." index="7" instance=ExtResource("6_nq463")]
+position = Vector2(-192, -72)
+
+[node name="Medusa2" parent="." index="8" instance=ExtResource("6_nq463")]
+position = Vector2(24, 120)
+
+[node name="Medusa3" parent="." index="9" instance=ExtResource("6_nq463")]
+position = Vector2(192, -72)
 
 [editable path="DoorLeft"]
 [editable path="DoorRight"]

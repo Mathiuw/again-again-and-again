@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhe30cbxewbj"]
+
+[ext_resource type="PackedScene" uid="uid://c2jv5crvpeg70" path="res://scene/bullet/bullet_base.tscn" id="1_16787"]
+[ext_resource type="Texture2D" uid="uid://cqi3mfhwd1paw" path="res://sprite/projectile/FriendshipPellet-Sheet.png" id="2_22ktm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j65l2"]
+atlas = ExtResource("2_22ktm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bade"]
+atlas = ExtResource("2_22ktm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti81w"]
+atlas = ExtResource("2_22ktm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jnsw"]
+atlas = ExtResource("2_22ktm")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_00d31"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j65l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bade")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ti81w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jnsw")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16787"]
+size = Vector2(5, 5)
+
+[node name="bullet" instance=ExtResource("1_16787")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_00d31")
+frame_progress = 0.29281068
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_16787")

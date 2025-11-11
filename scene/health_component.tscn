@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://cwii0lcu3vmks" path="res://script/health.gd" id="1_ki7ji"]
 
-[node name="Health" type="Node"]
+[node name="HealthComponent" type="Node"]
 script = ExtResource("1_ki7ji")

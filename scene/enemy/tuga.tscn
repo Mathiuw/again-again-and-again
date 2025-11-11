@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bt2l6o3tgni6n" path="res://sprite/character/Tuga-Sheet.png" id="1_antqy"]
 [ext_resource type="Script" uid="uid://b46717m7x1f5n" path="res://script/tuga.gd" id="1_b5dlg"]
-[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health.tscn" id="1_og3h1"]
+[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="1_og3h1"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon_component.tscn" id="2_k5jd2"]
 [ext_resource type="PackedScene" uid="uid://dkkymdqija6rj" path="res://scene/bullet/bullet_tuga.tscn" id="4_r6lkd"]
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://scene/AI/ai_shoot_behaviour.tscn" id="5_teoyt"]
@@ -10,6 +10,21 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r6lkd"]
 radius = 12.5
 height = 46.0
+
+[sub_resource type="Animation" id="Animation_lbuii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_r6lkd"]
 resource_name = "idle"
@@ -26,21 +41,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_lbuii"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_gckpa"]
@@ -126,7 +126,7 @@ max_hits = 3
 
 [node name="AIShootBehaviour" parent="." node_paths=PackedStringArray("weapon_component", "root_node") instance=ExtResource("5_teoyt")]
 shoot_cooldown = 3.2
-cooldown_variation = 2.0
+cooldown_variation = 3.0
 can_shoot = false
 weapon_component = NodePath("../WeaponComponent")
 root_node = NodePath("..")

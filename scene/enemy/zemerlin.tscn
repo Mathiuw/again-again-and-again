@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://shader/damage_flash.gdshader" id="1_2mmqe"]
 [ext_resource type="Script" uid="uid://bjfekveea263k" path="res://script/zemerlin.gd" id="1_f87vc"]
 [ext_resource type="Texture2D" uid="uid://bwpg6wl7nkl0v" path="res://sprite/character/Zehmerlin-Sheet.png" id="2_8u16h"]
-[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health.tscn" id="3_8u16h"]
+[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="3_8u16h"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon_component.tscn" id="3_b7koy"]
 [ext_resource type="PackedScene" uid="uid://d2uhi6ia23jpa" path="res://scene/bullet/bullet_zemerlin.tscn" id="5_mb7b2"]
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://scene/AI/ai_shoot_behaviour.tscn" id="7_cv5gn"]
