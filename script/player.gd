@@ -68,14 +68,14 @@ func set_move_state(state: bool) -> void:
 
 func _set_player_animation(desiredDirection: Vector2) -> void:
 	#TODO implement player shoot animation
-	if desiredDirection.y == 1:
-		_animated_sprite_2d.play("walk_front")
-	elif desiredDirection.y == -1:
-		_animated_sprite_2d.play("walk_back")
-	elif desiredDirection.x == 1:
+	if desiredDirection.y == 0 && desiredDirection.x > 0:
 		_animated_sprite_2d.play("walk_right")
-	elif desiredDirection.x == -1:
+	elif desiredDirection.y == 0 && desiredDirection.x < 0:
 		_animated_sprite_2d.play("walk_left")
+	elif desiredDirection.y > 0:
+		_animated_sprite_2d.play("walk_front")
+	elif desiredDirection.y < 0:
+		_animated_sprite_2d.play("walk_back")
 
 func _set_player_idle() -> void:
 	match _animated_sprite_2d.animation:
