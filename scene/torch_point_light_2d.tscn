@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://daei5no6mv7u5"]
+
+[sub_resource type="Gradient" id="Gradient_nq463"]
+offsets = PackedFloat32Array(0, 0.82300884)
+colors = PackedColorArray(0.98039216, 0.73333335, 0.24313726, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h67ar"]
+gradient = SubResource("Gradient_nq463")
+width = 32
+height = 26
+fill = 1
+fill_from = Vector2(0.5, 0.2)
+metadata/_snap_enabled = true
+
+[node name="TorchPointLight2D" type="PointLight2D"]
+energy = 1.25
+texture = SubResource("GradientTexture2D_h67ar")
