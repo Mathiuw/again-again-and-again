@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1uw6v7edbscl"]
+
+[ext_resource type="Script" uid="uid://fjtqgm701i1c" path="res://script/ai_run_away_behaviour.gd" id="1_1shr2"]
+[ext_resource type="Script" uid="uid://c45ygg03xydtb" path="res://script/bunnyale.gd" id="1_8ggyp"]
+[ext_resource type="Texture2D" uid="uid://bv1q0eu466n4g" path="res://sprite/character/BunnyaleD-Sheet.png" id="2_tcpcj"]
+[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="4_3rus2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ggyp"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_tcpcj"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_3rus2"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r4plt"]
+_data = {
+&"RESET": SubResource("Animation_tcpcj"),
+&"idle": SubResource("Animation_3rus2")
+}
+
+[node name="Bunnyale" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_8ggyp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_tcpcj")
+hframes = 2
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_8ggyp")
+
+[node name="AIRunAwayBehaviour" type="Node" parent="."]
+script = ExtResource("1_1shr2")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_3rus2")]
+unique_name_in_owner = true
+max_hits = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_r4plt")
+}
+autoplay = "idle"

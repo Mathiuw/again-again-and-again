@@ -41,7 +41,7 @@ window/vsync/vsync_mode=0
 
 [dotnet]
 
-project/assembly_name="TopDown"
+project/assembly_name="AAA"
 
 [editor]
 

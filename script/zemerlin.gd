@@ -10,13 +10,8 @@ var target: Node2D = null
 
 @onready var _health: Health = $HealthComponent
 @onready var _navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
-@onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
-	# Damage function connect
-	_health.on_health_changed.connect(func(_current_hits: int):
-		_animation_player.play("damage_flash")
-	)
 	# Die function connect
 	_health.on_die.connect(func(): queue_free())
 	

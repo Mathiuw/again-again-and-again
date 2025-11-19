@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8813j66n8scq"]
+
+[ext_resource type="Script" uid="uid://d1d8xsllqqno1" path="res://script/damage_shader_player.gd" id="1_n400b"]
+
+[node name="DamageShaderPlayer" type="AnimationPlayer"]
+script = ExtResource("1_n400b")

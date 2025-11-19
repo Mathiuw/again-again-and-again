@@ -1,15 +1,37 @@
-[gd_scene load_steps=13 format=3 uid="uid://dk62nei0etksf"]
+[gd_scene load_steps=19 format=3 uid="uid://dk62nei0etksf"]
 
 [ext_resource type="Texture2D" uid="uid://bejteuurphesn" path="res://sprite/character/Medusahead-Sheet.png" id="1_0srtd"]
 [ext_resource type="Script" uid="uid://cfskjefpr4x5b" path="res://scene/enemy/medusa.gd" id="1_7o4kk"]
+[ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://shader/damage_flash.gdshader" id="2_10gqf"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon_component.tscn" id="2_i1pib"]
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://scene/AI/ai_shoot_behaviour.tscn" id="3_7o4kk"]
 [ext_resource type="Texture2D" uid="uid://cmdvti2y6w1q3" path="res://sprite/projectile/door_particle_sphere.png" id="3_v51rx"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="5_0bcff"]
 [ext_resource type="PackedScene" uid="uid://bhe30cbxewbj" path="res://scene/bullet/bullet_medusa.tscn" id="5_7frci"]
+[ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="9_tbr1f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w63sr"]
+shader = ExtResource("2_10gqf")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0srtd"]
 radius = 8.0
+
+[sub_resource type="Animation" id="Animation_lowmn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MedusaSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_7frci"]
 resource_name = "idle"
@@ -26,21 +48,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_lowmn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MedusaSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_10gqf"]
@@ -95,10 +102,48 @@ _data = {
 &"shoot": SubResource("Animation_10gqf")
 }
 
-[node name="Medusa" type="CharacterBody2D"]
+[sub_resource type="Animation" id="Animation_uwws3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MedusaSprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_pu5ri"]
+resource_name = "damage_flash"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MedusaSprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0008544326, 0.12414557, 0.24914557),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_laftw"]
+_data = {
+&"RESET": SubResource("Animation_uwws3"),
+&"damage_flash": SubResource("Animation_pu5ri")
+}
+
+[node name="Medusa" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_7o4kk")
 
 [node name="MedusaSprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_w63sr")
 position = Vector2(0, -24)
 texture = ExtResource("1_0srtd")
 hframes = 4
@@ -117,7 +162,7 @@ shape = SubResource("CircleShape2D_0srtd")
 [node name="ShootTransform" type="Marker2D" parent="."]
 position = Vector2(0, -12)
 
-[node name="Weapon_Component" parent="." node_paths=PackedStringArray("transformOverrides") instance=ExtResource("2_i1pib")]
+[node name="Weapon_Component" parent="." node_paths=PackedStringArray("transformOverrides") groups=["enemy"] instance=ExtResource("2_i1pib")]
 bulletSpeed = 400.0
 bullet_scene = ExtResource("5_7frci")
 shootCooldown = 0.0
@@ -130,6 +175,7 @@ weapon_component = NodePath("../Weapon_Component")
 root_node = NodePath("..")
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_0bcff")]
+unique_name_in_owner = true
 max_hits = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -137,5 +183,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_tbr1f")
 }
 autoplay = "idle"
+
+[node name="DamageShaderPlayer" parent="." instance=ExtResource("9_tbr1f")]
+libraries = {
+&"": SubResource("AnimationLibrary_laftw")
+}
 
 [connection signal="on_ai_shoot" from="AIShootBehaviour" to="." method="_on_ai_shoot_behaviour_on_ai_shoot"]
