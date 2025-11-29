@@ -10,7 +10,7 @@
 radius = 16.0
 height = 46.0
 
-[node name="Keeper" type="StaticBody2D"]
+[node name="Aditya" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_vfub0")

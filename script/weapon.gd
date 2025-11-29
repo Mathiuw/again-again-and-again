@@ -1,6 +1,8 @@
 class_name Weapon
 extends Node2D
 
+signal on_finished_shooting
+
 @export_group("Bullet settings")
 @export var damage: int = 1;
 @export var bulletAmount: int = 1
@@ -62,3 +64,4 @@ func shoot(direction: Vector2, shooter: Node) -> void:
 			await get_tree().create_timer(betweenBulletsCooldown).timeout
 	
 	currentCooldown = shootCooldown
+	on_finished_shooting.emit()

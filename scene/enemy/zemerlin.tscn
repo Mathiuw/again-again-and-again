@@ -228,11 +228,10 @@ sound_variant_index = 1
 shootCooldown = 1.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 66.62
-target_desired_distance = 153.63
-path_max_distance = 1000.0
+target_desired_distance = 60.0
+path_max_distance = 300.0
 avoidance_enabled = true
-radius = 33.69
+debug_enabled = true
 
 [node name="DrawPathTimer" type="Timer" parent="."]
 wait_time = 0.25

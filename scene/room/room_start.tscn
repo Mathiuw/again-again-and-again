@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://4jl3alvfl8o3" path="res://scene/room/room_base.tscn" id="1_vom0k"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_nadyk"]
-[ext_resource type="PackedScene" uid="uid://e1scgkiciot6" path="res://scene/keeper.tscn" id="3_nadyk"]
+[ext_resource type="PackedScene" uid="uid://e1scgkiciot6" path="res://scene/aditya.tscn" id="3_nadyk"]
 
 [node name="RoomBase" instance=ExtResource("1_vom0k")]
 initial_room = true
@@ -19,7 +19,7 @@ tile_map_data = PackedByteArray("AADs//T/AAADABYAAADs//X/AAADABYAAADs//b/AAADABY
 [node name="DoorRight" parent="." index="2"]
 position = Vector2(306, 3)
 
-[node name="Keeper" parent="." index="3" instance=ExtResource("3_nadyk")]
+[node name="Aditya" parent="." index="3" instance=ExtResource("3_nadyk")]
 position = Vector2(-48, -96)
 
 [editable path="DoorRight"]

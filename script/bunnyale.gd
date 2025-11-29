@@ -18,8 +18,23 @@ func _ready() -> void:
 	else:
 		push_error("Cant find health_component")
 
+
 # Called every frame to update AI behavior
-func _process(_delta: float):
+func _physics_process(_delta: float) -> void:
+	# Do not query when the map has never synchronized and is empty.
+	#if NavigationServer2D.map_get_iteration_id(_navigation_agent_2d.get_navigation_map()) == 0:
+		#return
+	#if _navigation_agent_2d.is_navigation_finished():
+		#return
+	#
+	#if target:
+		#var move_direction: Vector2 = _navigation_agent_2d.get_next_path_position()
+		#var new_velocity: Vector2 = global_position.direction_to(move_direction) * move_speed
+		#
+		#if  _navigation_agent_2d.avoidance_enabled:
+			#_navigation_agent_2d.velocity = new_velocity
+		#else:
+			#_on_navigation_agent_2d_velocity_computed(new_velocity)
 	if target == null:
 		return # Don't do anything if no target is assigned
 	
@@ -37,6 +52,11 @@ func _process(_delta: float):
 		
 		# Apply movement (CharacterBody2D will handle collisions automatically)
 		move_and_slide()
+
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	velocity = safe_velocity
+	move_and_slide()
 
 
 func damage(damageAmount: int):
