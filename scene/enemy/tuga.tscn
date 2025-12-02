@@ -148,6 +148,11 @@ texture = ExtResource("1_antqy")
 hframes = 8
 vframes = 2
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-27, -14, -22, -27, 22, -27, 26, -12, 22, 0, -23, 0)
+affect_navigation_mesh = true
+avoidance_enabled = false
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -13)
 rotation = -1.5707964

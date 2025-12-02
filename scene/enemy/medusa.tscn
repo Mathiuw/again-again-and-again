@@ -159,6 +159,11 @@ texture = ExtResource("3_v51rx")
 position = Vector2(0, -16)
 shape = SubResource("CircleShape2D_0srtd")
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-6, -8, -11, -17, 0, -27, 11, -17, 6, -8)
+affect_navigation_mesh = true
+avoidance_enabled = false
+
 [node name="ShootTransform" type="Marker2D" parent="."]
 position = Vector2(0, -12)
 

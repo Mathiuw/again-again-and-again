@@ -5,6 +5,7 @@ extends Node2D
 @export var initial_room: bool = false
 @export var pause_timer: bool = false
 @export var music_override: AudioStream
+@export var enemies_root: Node = self
 
 signal on_no_enemies_left
 
@@ -23,7 +24,7 @@ func _ready() -> void:
 	if get_enemy_count(false) == 0:
 		return
 	
-	for node in get_children():
+	for node in enemies_root.get_children():
 		if node.is_in_group("enemy"):
 			for child in node.get_children():
 				if child is Health && !child.dead:
@@ -49,7 +50,7 @@ func open_room_doors(open_effects: bool = true) -> void:
 
 func get_enemy_count(open_effects: bool = true) -> int:
 	var count: int = 0
-	for node in get_children():
+	for node in enemies_root.get_children():
 		if node.is_in_group("enemy"):
 			for child in node.get_children():
 				if child is Health && !child.dead:

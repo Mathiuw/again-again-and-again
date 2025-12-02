@@ -8,6 +8,7 @@ signal on_finished_shooting
 @export var bulletAmount: int = 1
 @export var bulletSpeed: float = 300
 @export var bullet_scene: PackedScene = preload("uid://c2jv5crvpeg70")
+#@export var ignore_group: Array[StringName]
 
 @export_group("Audio Settings")
 @export var sound_variant_index: int = 0
@@ -45,6 +46,7 @@ func shoot(direction: Vector2, shooter: Node) -> void:
 		new_bullet.rotation = direction.angle()
 		new_bullet.damage = damage
 		new_bullet.shooter = shooter
+		new_bullet.ignore_group = shooter.get_groups()
 		
 		var world_root: Node = get_tree().get_first_node_in_group("world")
 		if world_root:

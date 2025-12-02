@@ -221,14 +221,15 @@ offset = Vector2(0, -16)
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_gpa5e")
 
-[node name="Weapon" parent="." instance=ExtResource("3_b7koy")]
+[node name="WeaponComponent" parent="." instance=ExtResource("3_b7koy")]
 position = Vector2(0, -9)
 bullet_scene = ExtResource("5_mb7b2")
+ignore_group = "enemy"
 sound_variant_index = 1
 shootCooldown = 1.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-target_desired_distance = 60.0
+target_desired_distance = 120.0
 path_max_distance = 300.0
 avoidance_enabled = true
 debug_enabled = true
@@ -242,7 +243,7 @@ unique_name_in_owner = true
 max_hits = 2
 
 [node name="AIShootBehaviour" parent="." node_paths=PackedStringArray("weapon_component", "root_node") instance=ExtResource("7_cv5gn")]
-weapon_component = NodePath("../Weapon")
+weapon_component = NodePath("../WeaponComponent")
 root_node = NodePath("..")
 
 [node name="DamageShaderPlayer" parent="." instance=ExtResource("8_qklf1")]

@@ -2,62 +2,72 @@ class_name Bunnyale
 extends CharacterBody2D
 
 # Variables to control speed and detection range
-@export var speed = 200
-@export var detection_range = 400
-@onready var health_component: Health = %HealthComponent
+@export_group("AI Escape Settings")
+@export var move_speed: float = 100
+@export var escape_range: float = 250
 
-var target: Node2D
+@onready var health_component: Health = %HealthComponent
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+
+var target_escape: Node2D
+var escape_point: Vector2
 
 func _ready() -> void:
-	target = get_tree().get_first_node_in_group("player")
-	if  !target:
+	target_escape = get_tree().get_first_node_in_group("player")
+	if  !target_escape:
 		push_error("Couldnt find player")
+		return
 	
 	if health_component:
 		health_component.on_die.connect(func(): queue_free())
 	else:
 		push_error("Cant find health_component")
+		return
 
 
 # Called every frame to update AI behavior
 func _physics_process(_delta: float) -> void:
-	# Do not query when the map has never synchronized and is empty.
-	#if NavigationServer2D.map_get_iteration_id(_navigation_agent_2d.get_navigation_map()) == 0:
-		#return
-	#if _navigation_agent_2d.is_navigation_finished():
-		#return
-	#
-	#if target:
-		#var move_direction: Vector2 = _navigation_agent_2d.get_next_path_position()
-		#var new_velocity: Vector2 = global_position.direction_to(move_direction) * move_speed
-		#
-		#if  _navigation_agent_2d.avoidance_enabled:
-			#_navigation_agent_2d.velocity = new_velocity
-		#else:
-			#_on_navigation_agent_2d_velocity_computed(new_velocity)
-	if target == null:
-		return # Don't do anything if no target is assigned
+	print(velocity)
 	
-	# Get the direction vector from the AI to the target
-	var to_target = target.position - position
-	var distance_to_target = to_target.length()
-
-	# If target is within the detection range, the AI runs away
-	if distance_to_target < detection_range:
-		# Calculate the opposite direction and normalize it
-		var direction = (position - target.position).normalized()
-		
-		# Move the AI in the opposite direction of the target
-		velocity = direction * speed
-		
-		# Apply movement (CharacterBody2D will handle collisions automatically)
-		move_and_slide()
+	if !target_escape:
+		return
+	
+	# Do not query when the map has never synchronized and is empty.
+	if NavigationServer2D.map_get_iteration_id(navigation_agent_2d.get_navigation_map()) == 0:
+		return
+	
+	if navigation_agent_2d.is_navigation_finished():
+		return
+	
+	var move_direction: Vector2 = navigation_agent_2d.get_next_path_position()
+	var new_velocity: Vector2 = global_position.direction_to(move_direction) * move_speed
+	
+	if  navigation_agent_2d.avoidance_enabled:
+		navigation_agent_2d.velocity = new_velocity
+	else:
+		_on_navigation_agent_2d_velocity_computed(new_velocity)
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 	move_and_slide()
 
+func calculate_escape_point() -> void:
+	# Calculate new escape point based on the escape_range
+	var new_escape_point: Vector2 = target_escape.position
+	
+	while new_escape_point.distance_to(target_escape.global_position) < escape_range:
+		new_escape_point = NavigationServer2D.map_get_random_point(navigation_agent_2d.get_navigation_map(), 1, false)
+	
+	escape_point = new_escape_point
+	navigation_agent_2d.target_position = escape_point
+	print(new_escape_point)
 
-func damage(damageAmount: int):
+
+func damage(damageAmount: int)-> void:
 	health_component.remove_health(damageAmount)
+
+
+func _on_get_escape_point_timer_timeout() -> void:
+	if navigation_agent_2d.is_navigation_finished() && global_position.distance_to(target_escape.global_position) < escape_range:
+		calculate_escape_point()
