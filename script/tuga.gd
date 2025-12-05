@@ -1,5 +1,5 @@
 class_name tuga
-extends CharacterBody2D
+extends StaticBody2D
 
 @onready var _health: Health = $HealthComponent
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

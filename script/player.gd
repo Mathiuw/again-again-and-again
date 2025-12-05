@@ -37,6 +37,7 @@ func _ready() -> void:
 		set_move_state(true)
 		)
 
+
 func _process(_delta: float) -> void:
 	# set player animations
 	if velocity.length() > 0:
@@ -54,6 +55,7 @@ func _process(_delta: float) -> void:
 		if !_interact_component.try_to_interact():
 			_roll_component.start_dash()
 
+
 func _physics_process(_delta: float) -> void:
 	# Move logic
 	var multiplier: float = _roll_component.dash_speed_multiplier
@@ -61,10 +63,12 @@ func _physics_process(_delta: float) -> void:
 	velocity = desired_direction * (SPEED * multiplier)
 	move_and_slide();
 
+
 func set_move_state(state: bool) -> void:
 	set_physics_process(state)
 	set_process(state)
 	_set_player_idle()
+
 
 func _set_player_animation(desiredDirection: Vector2) -> void:
 	#TODO implement player shoot animation
@@ -77,6 +81,7 @@ func _set_player_animation(desiredDirection: Vector2) -> void:
 	elif desiredDirection.y < 0:
 		_animated_sprite_2d.play("walk_back")
 
+
 func _set_player_idle() -> void:
 	match _animated_sprite_2d.animation:
 		"walk_back":
@@ -87,6 +92,7 @@ func _set_player_idle() -> void:
 			_animated_sprite_2d.play("idle_left")
 		"walk_right":
 			_animated_sprite_2d.play("idle_right")
+
 
 func damage(damageAmount: int) -> void:
 	SignalBus.on_camera_shake.emit(3)

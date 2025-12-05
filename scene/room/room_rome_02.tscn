@@ -46,13 +46,14 @@ position = Vector2(-192, -28)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="1"]
 navigation_polygon = SubResource("NavigationPolygon_j55g4")
+metadata/_edit_lock_ = true
 
 [node name="DoorLeft" parent="." index="3" instance=ExtResource("2_nufff")]
 position = Vector2(-304, 2)
 rotation = 6.2831764
 
 [node name="DoorUp" parent="." index="4" instance=ExtResource("5_j55g4")]
-position = Vector2(-80, -175)
+position = Vector2(-80, -176)
 
 [node name="zemerlin" parent="." index="5" instance=ExtResource("3_j55g4")]
 position = Vector2(228, 118)

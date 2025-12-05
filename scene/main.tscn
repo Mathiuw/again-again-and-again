@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dquef6xj016ys"]
+[gd_scene load_steps=18 format=3 uid="uid://dquef6xj016ys"]
 
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="1_itxqv"]
 [ext_resource type="PackedScene" uid="uid://b24q0q78wlx5d" path="res://scene/hud.tscn" id="2_p1hux"]
@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://bw650n1ie2vmr" path="res://scene/room/room_rome_04.tscn" id="8_of57s"]
 [ext_resource type="PackedScene" uid="uid://8luo5dcpmybm" path="res://scene/room/room_rome_06.tscn" id="9_tqoya"]
 [ext_resource type="PackedScene" uid="uid://cqf4my004uu8l" path="res://scene/room/room_rome_07.tscn" id="11_k65ib"]
+[ext_resource type="PackedScene" uid="uid://8rfa07htx7q8" path="res://scene/room/room_rome_08.tscn" id="12_wscrc"]
+[ext_resource type="PackedScene" uid="uid://b056oyyacy25q" path="res://scene/room/room_rome_09.tscn" id="13_mswub"]
+[ext_resource type="PackedScene" uid="uid://brb4rci4dugk7" path="res://scene/room/room_rome_10.tscn" id="14_hybxs"]
+[ext_resource type="PackedScene" uid="uid://btul2ajiynlmr" path="res://scene/room/room_rome_11.tscn" id="15_v2gmf"]
 
 [sub_resource type="GDScript" id="GDScript_0ha60"]
 resource_name = "main"
@@ -122,59 +126,38 @@ desired_room = NodePath("../../RoomStart")
 [node name="DesiredPosition" parent="Map/RoomRome01/DoorLeft" index="3"]
 position = Vector2(-64, 6)
 
-[node name="DoorRight" parent="Map/RoomRome01" index="2" node_paths=PackedStringArray("desired_room")]
-desired_room = NodePath("../../RoomRome02")
-
 [node name="DesiredPosition" parent="Map/RoomRome01/DoorRight" index="3"]
 position = Vector2(-55.999985, -6.000142)
 
 [node name="RoomRome02" parent="Map" instance=ExtResource("4_4j5ol")]
 position = Vector2(1280, 0)
 
-[node name="DoorLeft" parent="Map/RoomRome02" index="3" node_paths=PackedStringArray("desired_room")]
-desired_room = NodePath("../../RoomRome01")
-
-[node name="DesiredPosition" parent="Map/RoomRome02/DoorLeft" index="3"]
-position = Vector2(-56.000053, 5.9995027)
-
-[node name="DoorUp" parent="Map/RoomRome02" index="4" node_paths=PackedStringArray("desired_room")]
-desired_room = NodePath("../../RoomRome04")
-
-[node name="DesiredPosition" parent="Map/RoomRome02/DoorUp" index="2"]
-position = Vector2(0, -73)
-
 [node name="RoomRome03" parent="Map" instance=ExtResource("5_of57s")]
-position = Vector2(1920, 0)
+position = Vector2(2560, -384)
 
 [node name="RoomRome04" parent="Map" instance=ExtResource("8_of57s")]
 position = Vector2(1280, -384)
 
-[node name="DoorDown" parent="Map/RoomRome04" index="2" node_paths=PackedStringArray("desired_room")]
-desired_room = NodePath("../../RoomRome02")
-
-[node name="DesiredPosition" parent="Map/RoomRome04/DoorDown" index="3"]
-position = Vector2(-94, 1.1209388e-06)
-
-[node name="DoorRight3" parent="Map/RoomRome04" index="3" node_paths=PackedStringArray("desired_room")]
-desired_room = NodePath("../../RoomRome05")
-
-[node name="DesiredPosition" parent="Map/RoomRome04/DoorRight3" index="3"]
-position = Vector2(-64, 6.000011)
-
 [node name="RoomRome05" parent="Map" instance=ExtResource("8_b5f6u")]
 position = Vector2(640, -384)
-
-[node name="DoorRight" parent="Map/RoomRome05" index="1" node_paths=PackedStringArray("desired_room")]
-desired_room = NodePath("../../RoomRome04")
-
-[node name="DesiredPosition" parent="Map/RoomRome05/DoorRight" index="3"]
-position = Vector2(-63.999985, -6.0001626)
 
 [node name="RoomRome06" parent="Map" instance=ExtResource("9_tqoya")]
 position = Vector2(1920, -384)
 
 [node name="RoomRome07" parent="Map" instance=ExtResource("11_k65ib")]
-position = Vector2(2560, 0)
+position = Vector2(2560, 768)
+
+[node name="RoomRome08" parent="Map" instance=ExtResource("12_wscrc")]
+position = Vector2(3200, 768)
+
+[node name="RoomRome09" parent="Map" instance=ExtResource("13_mswub")]
+position = Vector2(1920, 768)
+
+[node name="RoomRome10" parent="Map" instance=ExtResource("14_hybxs")]
+position = Vector2(1280, 384)
+
+[node name="RoomRome11" parent="Map" instance=ExtResource("15_v2gmf")]
+position = Vector2(1280, 768)
 
 [node name="PlayerCamera" type="Camera2D" parent="." groups=["camera"]]
 position_smoothing_enabled = true
@@ -188,16 +171,3 @@ script = ExtResource("3_wp4xf")
 [editable path="Map/RoomRome01"]
 [editable path="Map/RoomRome01/DoorLeft"]
 [editable path="Map/RoomRome01/DoorRight"]
-[editable path="Map/RoomRome02"]
-[editable path="Map/RoomRome02/DoorRight"]
-[editable path="Map/RoomRome02/DoorLeft"]
-[editable path="Map/RoomRome02/DoorUp"]
-[editable path="Map/RoomRome03"]
-[editable path="Map/RoomRome03/DoorRight"]
-[editable path="Map/RoomRome03/DoorRight2"]
-[editable path="Map/RoomRome04"]
-[editable path="Map/RoomRome04/DoorRight"]
-[editable path="Map/RoomRome04/DoorDown"]
-[editable path="Map/RoomRome04/DoorRight3"]
-[editable path="Map/RoomRome05"]
-[editable path="Map/RoomRome05/DoorRight"]

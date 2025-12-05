@@ -1,14 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1uw6v7edbscl"]
+[gd_scene load_steps=15 format=3 uid="uid://bqyoyuprd01pg"]
 
-[ext_resource type="Script" uid="uid://fjtqgm701i1c" path="res://script/ai_run_away_behaviour.gd" id="1_1shr2"]
-[ext_resource type="Script" uid="uid://c45ygg03xydtb" path="res://script/bunnyale.gd" id="1_8ggyp"]
-[ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://shader/damage_flash.gdshader" id="2_mvmwx"]
-[ext_resource type="Texture2D" uid="uid://bv1q0eu466n4g" path="res://sprite/character/BunnyaleD-Sheet.png" id="2_tcpcj"]
-[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="4_3rus2"]
-[ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="6_jp0fl"]
+[ext_resource type="Script" uid="uid://c45ygg03xydtb" path="res://script/bunnyale.gd" id="1_xpy6e"]
+[ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://shader/damage_flash.gdshader" id="2_t6cjt"]
+[ext_resource type="Texture2D" uid="uid://iu33kude3xkk" path="res://sprite/character/Frankymouse.png" id="3_xpy6e"]
+[ext_resource type="Script" uid="uid://fjtqgm701i1c" path="res://script/ai_run_away_behaviour.gd" id="4_oto10"]
+[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="5_refap"]
+[ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="6_lmukf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rtdwv"]
-shader = ExtResource("2_mvmwx")
+shader = ExtResource("2_t6cjt")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
 
@@ -66,17 +66,19 @@ _data = {
 &"damage_flash": SubResource("Animation_uoi8m")
 }
 
-[node name="Bunnyale" type="CharacterBody2D" groups=["enemy"]]
+[node name="FrankyMouse" type="CharacterBody2D" groups=["enemy"]]
 motion_mode = 1
-script = ExtResource("1_8ggyp")
+script = ExtResource("1_xpy6e")
 move_speed = 25000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_rtdwv")
 position = Vector2(0, -16)
-texture = ExtResource("2_tcpcj")
-hframes = 2
+texture = ExtResource("3_xpy6e")
+hframes = 3
 vframes = 4
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 128)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
@@ -95,9 +97,9 @@ wait_time = 0.3
 autostart = true
 
 [node name="AIRunAwayBehaviour" type="Node" parent="."]
-script = ExtResource("1_1shr2")
+script = ExtResource("4_oto10")
 
-[node name="HealthComponent" parent="." instance=ExtResource("4_3rus2")]
+[node name="HealthComponent" parent="." instance=ExtResource("5_refap")]
 unique_name_in_owner = true
 max_hits = 2
 
@@ -107,7 +109,7 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="DamageShaderPlayer" parent="." instance=ExtResource("6_jp0fl")]
+[node name="DamageShaderPlayer" parent="." instance=ExtResource("6_lmukf")]
 libraries = {
 &"": SubResource("AnimationLibrary_sbj51")
 }

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://be2ns7nd7wct4"]
+
+[ext_resource type="Script" uid="uid://bbim12t1u8d40" path="res://script/catlionidk.gd" id="1_asvjx"]
+[ext_resource type="Texture2D" uid="uid://dsra6h7i3ciqm" path="res://sprite/character/Catlionidk-Sheet.png" id="1_n3eyp"]
+[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="3_n1omm"]
+[ext_resource type="PackedScene" uid="uid://cgy5ipfx6ohjl" path="res://scene/roll_component.tscn" id="3_yfmbt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_asvjx"]
+
+[node name="Catlionidk" type="CharacterBody2D" groups=["enemy"]]
+motion_mode = 1
+script = ExtResource("1_asvjx")
+move_speed = 150.0
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 40.0
+avoidance_enabled = true
+radius = 20.0
+max_speed = 10000.0
+debug_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_n3eyp")
+hframes = 4
+vframes = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_asvjx")
+
+[node name="RollComponent" parent="." instance=ExtResource("3_yfmbt")]
+dash_length = 0.2
+dash_cooldown = 2.0
+
+[node name="DrawPathTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_n1omm")]
+max_hits = 2
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="DrawPathTimer" to="." method="_on_draw_path_timer_timeout"]

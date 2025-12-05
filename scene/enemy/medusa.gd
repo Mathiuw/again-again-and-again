@@ -1,5 +1,5 @@
 class_name medusa
-extends CharacterBody2D
+extends StaticBody2D
 
 @onready var health_component: Health = $HealthComponent
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

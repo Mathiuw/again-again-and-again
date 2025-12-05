@@ -139,7 +139,8 @@ _data = {
 &"damage_flash": SubResource("Animation_pu5ri")
 }
 
-[node name="Medusa" type="CharacterBody2D" groups=["enemy"]]
+[node name="Medusa" type="StaticBody2D" groups=["enemy"]]
+disable_mode = 1
 script = ExtResource("1_7o4kk")
 
 [node name="MedusaSprite2D" type="Sprite2D" parent="."]
@@ -158,11 +159,6 @@ texture = ExtResource("3_v51rx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)
 shape = SubResource("CircleShape2D_0srtd")
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-vertices = PackedVector2Array(-6, -8, -11, -17, 0, -27, 11, -17, 6, -8)
-affect_navigation_mesh = true
-avoidance_enabled = false
 
 [node name="ShootTransform" type="Marker2D" parent="."]
 position = Vector2(0, -12)

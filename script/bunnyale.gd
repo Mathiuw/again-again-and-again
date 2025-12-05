@@ -27,7 +27,7 @@ func _ready() -> void:
 
 # Called every frame to update AI behavior
 func _physics_process(_delta: float) -> void:
-	print(velocity)
+	#print(velocity)
 	
 	if !target_escape:
 		return
@@ -57,7 +57,7 @@ func calculate_escape_point() -> void:
 	var new_escape_point: Vector2 = target_escape.position
 	
 	while new_escape_point.distance_to(target_escape.global_position) < escape_range:
-		new_escape_point = NavigationServer2D.map_get_random_point(navigation_agent_2d.get_navigation_map(), 1, false)
+		new_escape_point = NavigationServer2D.region_get_random_point(NavigationServer2D.map_get_closest_point_owner(navigation_agent_2d.get_navigation_map(), global_position), 1, false)
 	
 	escape_point = new_escape_point
 	navigation_agent_2d.target_position = escape_point
