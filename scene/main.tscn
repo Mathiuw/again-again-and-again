@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dquef6xj016ys"]
+[gd_scene load_steps=19 format=3 uid="uid://dquef6xj016ys"]
 
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="1_itxqv"]
 [ext_resource type="PackedScene" uid="uid://b24q0q78wlx5d" path="res://scene/hud.tscn" id="2_p1hux"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://8rfa07htx7q8" path="res://scene/room/room_rome_08.tscn" id="12_wscrc"]
 [ext_resource type="PackedScene" uid="uid://b056oyyacy25q" path="res://scene/room/room_rome_09.tscn" id="13_mswub"]
 [ext_resource type="PackedScene" uid="uid://brb4rci4dugk7" path="res://scene/room/room_rome_10.tscn" id="14_hybxs"]
+[ext_resource type="PackedScene" uid="uid://0ofsnw2pls0q" path="res://scene/room/room_rome_12.tscn" id="15_jcbur"]
 [ext_resource type="PackedScene" uid="uid://btul2ajiynlmr" path="res://scene/room/room_rome_11.tscn" id="15_v2gmf"]
 
 [sub_resource type="GDScript" id="GDScript_0ha60"]
@@ -158,6 +159,9 @@ position = Vector2(1280, 384)
 
 [node name="RoomRome11" parent="Map" instance=ExtResource("15_v2gmf")]
 position = Vector2(1280, 768)
+
+[node name="RoomRome12" parent="Map" instance=ExtResource("15_jcbur")]
+position = Vector2(3200, 384)
 
 [node name="PlayerCamera" type="Camera2D" parent="." groups=["camera"]]
 position_smoothing_enabled = true
