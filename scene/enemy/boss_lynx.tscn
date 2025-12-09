@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://b38hnv5xd6mhe"]
+
+[ext_resource type="Script" uid="uid://b5plsjvjoquss" path="res://script/boss_lynx.gd" id="1_113ip"]
+[ext_resource type="Script" uid="uid://cdexjrtyokggn" path="res://script/lynx_head.gd" id="3_hp070"]
+[ext_resource type="PackedScene" uid="uid://uklcnl4i7y4n" path="res://scene/enemy/lynx_segment.tscn" id="4_hp070"]
+[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="6_b3sv2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gpa5e"]
+radius = 13.038404
+
+[node name="BossLynxRoot" type="Node2D"]
+script = ExtResource("1_113ip")
+
+[node name="HealthComponent" parent="." instance=ExtResource("6_b3sv2")]
+unique_name_in_owner = true
+max_hits = 2
+
+[node name="DrawPathTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="LynxHead" type="CharacterBody2D" parent="." groups=["enemy"]]
+disable_mode = 1
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("3_hp070")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LynxHead"]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_gpa5e")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="LynxHead"]
+target_desired_distance = 0.1
+path_max_distance = 500.0
+debug_enabled = true
+
+[node name="LynxSegment" parent="." node_paths=PackedStringArray("lynx_head", "draw_path_timer") instance=ExtResource("4_hp070")]
+position = Vector2(-26, 0)
+lynx_head = NodePath("../LynxHead")
+draw_path_timer = NodePath("../DrawPathTimer")
+
+[node name="LynxSegment2" parent="." node_paths=PackedStringArray("lynx_head", "draw_path_timer", "override_target") instance=ExtResource("4_hp070")]
+position = Vector2(-52, 0)
+lynx_head = NodePath("../LynxHead")
+draw_path_timer = NodePath("../DrawPathTimer")
+override_target = NodePath("../LynxSegment")
+
+[node name="LynxSegment3" parent="." node_paths=PackedStringArray("lynx_head", "draw_path_timer", "override_target") instance=ExtResource("4_hp070")]
+position = Vector2(-78, 0)
+lynx_head = NodePath("../LynxHead")
+draw_path_timer = NodePath("../DrawPathTimer")
+override_target = NodePath("../LynxSegment2")
+
+[connection signal="timeout" from="DrawPathTimer" to="LynxHead" method="_on_draw_path_timer_timeout"]
+[connection signal="velocity_computed" from="LynxHead/NavigationAgent2D" to="LynxHead" method="_on_navigation_agent_2d_velocity_computed"]

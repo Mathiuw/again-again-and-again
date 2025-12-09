@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtt5f7cltubfe"]
+
+[ext_resource type="PackedScene" uid="uid://byk72d1ahusm0" path="res://scene/room/room_rome_boss.tscn" id="1_rsnos"]
+[ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="2_p6vse"]
+[ext_resource type="PackedScene" uid="uid://cshb25yq5ltku" path="res://scene/player_camera.tscn" id="3_vpxaf"]
+
+[node name="BossTest" type="Node"]
+
+[node name="Map" type="Node2D" parent="." groups=["world"]]
+
+[node name="RoomRomeBoss" parent="Map" instance=ExtResource("1_rsnos")]
+
+[node name="Player" parent="Map" instance=ExtResource("2_p6vse")]
+position = Vector2(272, 0)
+
+[node name="PlayerCamera" parent="." instance=ExtResource("3_vpxaf")]

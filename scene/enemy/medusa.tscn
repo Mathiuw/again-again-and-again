@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://dk62nei0etksf"]
 
 [ext_resource type="Texture2D" uid="uid://bejteuurphesn" path="res://sprite/character/Medusahead-Sheet.png" id="1_0srtd"]
-[ext_resource type="Script" uid="uid://cfskjefpr4x5b" path="res://scene/enemy/medusa.gd" id="1_7o4kk"]
+[ext_resource type="Script" uid="uid://cfskjefpr4x5b" path="res://script/medusa.gd" id="1_7o4kk"]
 [ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://shader/damage_flash.gdshader" id="2_10gqf"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon_component.tscn" id="2_i1pib"]
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://scene/AI/ai_shoot_behaviour.tscn" id="3_7o4kk"]
