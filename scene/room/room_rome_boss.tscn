@@ -57,7 +57,7 @@ position = Vector2(-48, -156)
 [node name="TorchPointLight2D9" parent="NavigationRegion2D/Map" instance=ExtResource("4_j7m8x")]
 position = Vector2(-160, -156)
 
-[node name="Zemerlin" parent="NavigationRegion2D" instance=ExtResource("5_prs6n")]
+[node name="BossLynxRoot" parent="NavigationRegion2D" instance=ExtResource("5_prs6n")]
 
 [node name="DoorRight" parent="." instance=ExtResource("5_hlkct")]
 position = Vector2(304, 0)
