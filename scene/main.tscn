@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dquef6xj016ys"]
+[gd_scene load_steps=29 format=3 uid="uid://dquef6xj016ys"]
 
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="1_itxqv"]
 [ext_resource type="PackedScene" uid="uid://b24q0q78wlx5d" path="res://scene/hud.tscn" id="2_p1hux"]
@@ -16,6 +16,16 @@
 [ext_resource type="PackedScene" uid="uid://brb4rci4dugk7" path="res://scene/room/room_rome_10.tscn" id="14_hybxs"]
 [ext_resource type="PackedScene" uid="uid://0ofsnw2pls0q" path="res://scene/room/room_rome_12.tscn" id="15_jcbur"]
 [ext_resource type="PackedScene" uid="uid://btul2ajiynlmr" path="res://scene/room/room_rome_11.tscn" id="15_v2gmf"]
+[ext_resource type="PackedScene" uid="uid://biairg2wwut56" path="res://scene/room/room_rome_13.tscn" id="16_smf0o"]
+[ext_resource type="PackedScene" uid="uid://byk72d1ahusm0" path="res://scene/room/room_rome_boss.tscn" id="17_tv8i1"]
+[ext_resource type="PackedScene" uid="uid://crjixa6ue7cfr" path="res://scene/room/room_rome_14.tscn" id="19_0vlqb"]
+[ext_resource type="PackedScene" uid="uid://bct2wc0yquigf" path="res://scene/room/room_rome_17.tscn" id="20_0d4pv"]
+[ext_resource type="PackedScene" uid="uid://tlgcxnmm6ovg" path="res://scene/room/room_rome_15.tscn" id="20_fdqew"]
+[ext_resource type="PackedScene" uid="uid://d4duljhq10t20" path="res://scene/room/room_rome_16.tscn" id="21_0d4pv"]
+[ext_resource type="PackedScene" uid="uid://dd48ufp885ve0" path="res://scene/room/room_rome_18.tscn" id="23_gtqqq"]
+[ext_resource type="PackedScene" uid="uid://c0lq3ffj8atbe" path="res://scene/room/room_rome_19.tscn" id="24_gn2wi"]
+[ext_resource type="PackedScene" uid="uid://xqg1pxaxj2qm" path="res://scene/room/room_rome_20.tscn" id="25_p8adh"]
+[ext_resource type="PackedScene" uid="uid://cqiny52426b82" path="res://scene/room/room_rome_21.tscn" id="26_oldxj"]
 
 [sub_resource type="GDScript" id="GDScript_0ha60"]
 resource_name = "main"
@@ -149,7 +159,7 @@ position = Vector2(1920, -384)
 position = Vector2(2560, 768)
 
 [node name="RoomRome08" parent="Map" instance=ExtResource("12_wscrc")]
-position = Vector2(3200, 768)
+position = Vector2(4480, 768)
 
 [node name="RoomRome09" parent="Map" instance=ExtResource("13_mswub")]
 position = Vector2(1920, 768)
@@ -161,7 +171,37 @@ position = Vector2(1280, 384)
 position = Vector2(1280, 768)
 
 [node name="RoomRome12" parent="Map" instance=ExtResource("15_jcbur")]
-position = Vector2(3200, 384)
+position = Vector2(4480, 384)
+
+[node name="RoomRome13" parent="Map" instance=ExtResource("16_smf0o")]
+position = Vector2(1920, 384)
+
+[node name="RoomRome14" parent="Map" instance=ExtResource("19_0vlqb")]
+position = Vector2(1920, 0)
+
+[node name="RoomRome15" parent="Map" instance=ExtResource("20_fdqew")]
+position = Vector2(3200, 768)
+
+[node name="RoomRome16" parent="Map" instance=ExtResource("21_0d4pv")]
+position = Vector2(3840, 768)
+
+[node name="RoomRome17" parent="Map" instance=ExtResource("20_0d4pv")]
+position = Vector2(3840, 384)
+
+[node name="RoomRome18" parent="Map" instance=ExtResource("23_gtqqq")]
+position = Vector2(3840, 0)
+
+[node name="RoomRome19" parent="Map" instance=ExtResource("24_gn2wi")]
+position = Vector2(3200, 0)
+
+[node name="RoomRome20" parent="Map" instance=ExtResource("25_p8adh")]
+position = Vector2(3840, -384)
+
+[node name="RoomRome21" parent="Map" instance=ExtResource("26_oldxj")]
+position = Vector2(3200, -384)
+
+[node name="RoomRomeBoss" parent="Map" instance=ExtResource("17_tv8i1")]
+position = Vector2(2560, 0)
 
 [node name="PlayerCamera" type="Camera2D" parent="." groups=["camera"]]
 position_smoothing_enabled = true

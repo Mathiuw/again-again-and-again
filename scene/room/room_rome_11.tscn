@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://btul2ajiynlmr"]
+[gd_scene load_steps=10 format=4 uid="uid://btul2ajiynlmr"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_y3lcl"]
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_vg4c0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="5_01txo"]
 [ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://scene/door_front.tscn" id="6_vg4c0"]
 [ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://scene/enemy/zemerlin.tscn" id="7_m1lml"]
+[ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://scene/enemy/medusa.tscn" id="8_0ug4g"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_m1lml"]
 vertices = PackedVector2Array(278, -129, 278, -134, 284, -134, 284, -100, 202, -129, 154, -100, 154, -106, 118, -6, 278, -6, 278, 63, 74, 140, 284, 63, 284, 140, 74, -134, 118, -106, 202, -134)
@@ -54,5 +55,8 @@ position = Vector2(224, 104)
 
 [node name="Zemerlin3" parent="." instance=ExtResource("7_m1lml")]
 position = Vector2(192, 16)
+
+[node name="Medusa" parent="." instance=ExtResource("8_0ug4g")]
+position = Vector2(181, 65)
 
 [editable path="DoorRight"]

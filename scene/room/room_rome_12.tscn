@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://0ofsnw2pls0q"]
+[gd_scene load_steps=8 format=4 uid="uid://0ofsnw2pls0q"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_xaxx4"]
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_q8vth"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="3_vkrcq"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="4_oqpv0"]
+[ext_resource type="PackedScene" uid="uid://bqyoyuprd01pg" path="res://scene/enemy/franky_mouse.tscn" id="5_q8vth"]
 [ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="5_xaxx4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_h1gx1"]
@@ -54,6 +55,42 @@ position = Vector2(-48, -156)
 
 [node name="TorchPointLight2D9" parent="NavigationRegion2D/Map" instance=ExtResource("4_oqpv0")]
 position = Vector2(-160, -156)
+
+[node name="FrankyMouse" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
+position = Vector2(56, 95)
+
+[node name="FrankyMouse2" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
+position = Vector2(-56, 63)
+
+[node name="FrankyMouse3" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
+position = Vector2(81, -15)
+
+[node name="FrankyMouse4" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
+position = Vector2(165, 77)
+
+[node name="FrankyMouse5" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
+position = Vector2(257, -14)
+
+[node name="FrankyMouse6" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
+position = Vector2(75, -120)
+
+[node name="FrankyMouse7" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
+position = Vector2(-58, -95)
+
+[node name="FrankyMouse8" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
+position = Vector2(-160, -80)
+
+[node name="FrankyMouse9" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
+position = Vector2(-261, 101)
+
+[node name="FrankyMouse10" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
+position = Vector2(-263, -22)
+
+[node name="FrankyMouse11" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
+position = Vector2(-82, -8)
+
+[node name="FrankyMouse12" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
+position = Vector2(-149, 131)
 
 [node name="DoorHorizontal" parent="." instance=ExtResource("5_xaxx4")]
 position = Vector2(-304, -14)

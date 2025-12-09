@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnb6xxaiufcqp"]
+
+[ext_resource type="Texture2D" uid="uid://deb6eroafqfs5" path="res://sprite/chest/Bau_roma.png" id="1_8d0cf"]
+[ext_resource type="Script" uid="uid://ceanf8yvbsrvw" path="res://script/chest.gd" id="1_81ki8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81ki8"]
+atlas = ExtResource("1_8d0cf")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrheh"]
+atlas = ExtResource("1_8d0cf")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yrheh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81ki8")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrheh")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asika"]
+size = Vector2(16, 13)
+
+[node name="Chest" type="StaticBody2D"]
+script = ExtResource("1_81ki8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_yrheh")
+animation = &"closed"
+autoplay = "closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_asika")
