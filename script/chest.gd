@@ -1,11 +1,17 @@
 class_name Chest
 extends StaticBody2D
 
-# Called when the node enters the scene tree for the first time.
+var is_open: bool = false
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var interactable_component: InteractableComponent = $InteractableComponent
+
 func _ready() -> void:
-	pass # Replace with function body.
+	interactable_component.on_interacted.connect(func():
+		open_chest()
+		)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func open_chest() -> void:
+	is_open = true
+	animated_sprite_2d.play("open")
+	print("Chest Opened")

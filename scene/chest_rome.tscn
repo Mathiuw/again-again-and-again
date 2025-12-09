@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnb6xxaiufcqp"]
+[gd_scene load_steps=8 format=3 uid="uid://dnb6xxaiufcqp"]
 
 [ext_resource type="Texture2D" uid="uid://deb6eroafqfs5" path="res://sprite/chest/Bau_roma.png" id="1_8d0cf"]
 [ext_resource type="Script" uid="uid://ceanf8yvbsrvw" path="res://script/chest.gd" id="1_81ki8"]
+[ext_resource type="PackedScene" uid="uid://y34phjayr0ow" path="res://scene/interactable_component.tscn" id="3_yrheh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_81ki8"]
 atlas = ExtResource("1_8d0cf")
@@ -17,7 +18,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_81ki8")
 }],
-"loop": true,
+"loop": false,
 "name": &"closed",
 "speed": 5.0
 }, {
@@ -25,7 +26,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yrheh")
 }],
-"loop": true,
+"loop": false,
 "name": &"open",
 "speed": 5.0
 }]
@@ -34,6 +35,7 @@ animations = [{
 size = Vector2(16, 13)
 
 [node name="Chest" type="StaticBody2D"]
+collision_mask = 0
 script = ExtResource("1_81ki8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -41,6 +43,10 @@ position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_yrheh")
 animation = &"closed"
 autoplay = "closed"
+
+[node name="InteractableComponent" parent="." instance=ExtResource("3_yrheh")]
+position = Vector2(0, -4)
+interactable_once = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4.5)

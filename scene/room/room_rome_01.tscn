@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c6m28at08ltqy"]
+[gd_scene load_steps=11 format=4 uid="uid://c6m28at08ltqy"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_pbxg8"]
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_66bwh"]
@@ -8,10 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://be2ns7nd7wct4" path="res://scene/enemy/catlionidk.tscn" id="6_h67ar"]
 [ext_resource type="PackedScene" uid="uid://bqyoyuprd01pg" path="res://scene/enemy/franky_mouse.tscn" id="7_ffdht"]
 [ext_resource type="PackedScene" uid="uid://b1uw6v7edbscl" path="res://scene/enemy/bunnyale.tscn" id="8_ffdht"]
+[ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://scene/chest_rome.tscn" id="8_pbxg8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ffdht"]
-vertices = PackedVector2Array(278.8125, -128.8125, 278.8125, -63.1875, 272.8125, -63.1875, -278.8125, -128.8125, 272.8125, 68.1875, 278.8125, 68.1875, 278.8125, 134.8125, -278.8125, 134.8125, -278.8125, 68.1875, -272.8125, 68.1875, -272.8125, -63.1875, -278.8125, -63.1875)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(7, 8, 9), PackedInt32Array(4, 7, 9, 2), PackedInt32Array(2, 9, 10), PackedInt32Array(3, 2, 10), PackedInt32Array(3, 10, 11)])
+vertices = PackedVector2Array(278.8125, -128.8125, 278.8125, -63.1875, 272.8125, -63.1875, -136.8125, -78.8125, -136.8125, -122.1875, -278.8125, -128.8125, -183.1875, -122.1875, -183.1875, -78.8125, -184.8125, -78.8125, -184.8125, -122.1875, -271.1875, -122.1875, -278.8125, -63.1875, -271.1875, -78.8125, -272.8125, -63.1875, 272.8125, 68.1875, 278.8125, 68.1875, 278.8125, 134.8125, -278.8125, 134.8125, -278.8125, 68.1875, -272.8125, 68.1875)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 0, 4, 6), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(5, 6, 9), PackedInt32Array(5, 9, 10), PackedInt32Array(11, 5, 10, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(17, 18, 19), PackedInt32Array(2, 14, 17, 19, 3), PackedInt32Array(3, 19, 13, 7), PackedInt32Array(8, 7, 13), PackedInt32Array(13, 12, 8)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-294, -144, 294, -144, 294, -48, 288, -48, 288, 53, 294, 53, 294, 150, -294, 150, -294, 53, -288, 53, -288, -48, -294, -48)])
 agent_radius = 15.19
 
@@ -58,6 +59,15 @@ position = Vector2(80, 0)
 
 [node name="FrankyMouse" parent="NavigationRegion2D" instance=ExtResource("7_ffdht")]
 position = Vector2(-120, 64)
+
+[node name="Chest" parent="NavigationRegion2D" instance=ExtResource("8_pbxg8")]
+position = Vector2(-248, -96)
+
+[node name="Chest2" parent="NavigationRegion2D" instance=ExtResource("8_pbxg8")]
+position = Vector2(-208, -96)
+
+[node name="Chest3" parent="NavigationRegion2D" instance=ExtResource("8_pbxg8")]
+position = Vector2(-160, -96)
 
 [node name="DoorLeft" parent="." instance=ExtResource("2_mtb6u")]
 position = Vector2(-304, 2)
