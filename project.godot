@@ -150,6 +150,7 @@ interact={
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
 textures/canvas_textures/default_texture_filter=0
 textures/lossless_compression/force_png=true
 occlusion_culling/use_occlusion_culling=true
