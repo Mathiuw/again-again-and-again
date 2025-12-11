@@ -8,7 +8,7 @@ signal on_finished_shooting
 @export var bulletAmount: int = 1
 @export var bulletSpeed: float = 300
 @export var bullet_scene: PackedScene = preload("uid://c2jv5crvpeg70")
-#@export var ignore_group: Array[StringName]
+@export var exception_bodies: Array[Node]
 
 @export_group("Audio Settings")
 @export var sound_variant_index: int = 0
@@ -41,7 +41,9 @@ func shoot(direction: Vector2, shooter: Node) -> void:
 		else: 
 			new_bullet.global_position = global_position
 		
-		new_bullet.add_collision_exception_with(get_parent())
+		if exception_bodies.size() > 0:
+			for node in exception_bodies:
+				new_bullet.add_collision_exception_with(node)
 		new_bullet.bullet_speed = bulletSpeed
 		new_bullet.rotation = direction.angle()
 		new_bullet.damage = damage
