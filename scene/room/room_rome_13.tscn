@@ -20,6 +20,5 @@ metadata/_edit_lock_ = true
 position = Vector2(224, -176)
 
 [node name="DoorDown" parent="." instance=ExtResource("3_j7bwa")]
-visible = false
-position = Vector2(258, 160)
+position = Vector2(224, 160)
 rotation = 4.712389

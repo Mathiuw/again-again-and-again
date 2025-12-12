@@ -1,12 +1,10 @@
 [gd_scene load_steps=4 format=4 uid="uid://b38hnv5xd6mhe"]
 
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="1_8su4s"]
-[ext_resource type="Script" uid="uid://dith4apklv734" path="res://scene/enemy/boss_lynx.gd" id="1_hp070"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon_component.tscn" id="1_i5y5g"]
+[ext_resource type="Script" uid="uid://dith4apklv734" path="res://script/lynx_Attack_Ranged.gd" id="2_8su4s"]
 
-[node name="BossLynx" type="Node2D" node_paths=PackedStringArray("weapons")]
-script = ExtResource("1_hp070")
-weapons = [NodePath("FrontHole/Weapon_Component"), NodePath("FrontHole2/Weapon_Component2"), NodePath("FrontHole3/Weapon_Component3"), NodePath("SideHole/Weapon_Component4"), NodePath("SideHole2/Weapon_Component5"), NodePath("SideHole3/Weapon_Component6")]
+[node name="BossLynx" type="Node2D"]
 
 [node name="Map" type="TileMapLayer" parent="."]
 process_mode = 4
@@ -19,8 +17,39 @@ navigation_enabled = false
 navigation_visibility_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="AttackCooldown" type="Timer" parent="."]
+[node name="LynxAttackRanged" type="Node2D" parent="." node_paths=PackedStringArray("weapons")]
+script = ExtResource("2_8su4s")
+weapons = [NodePath("WeaponComponent"), NodePath("WeaponComponent2"), NodePath("WeaponComponent3"), NodePath("WeaponComponent4"), NodePath("WeaponComponent5"), NodePath("WeaponComponent6")]
+
+[node name="AttackCooldown" type="Timer" parent="LynxAttackRanged"]
 autostart = true
+
+[node name="WeaponComponent" parent="LynxAttackRanged" instance=ExtResource("1_i5y5g")]
+position = Vector2(-145, -132)
+rotation = 1.5707964
+add_collision_exception_to_parent = false
+
+[node name="WeaponComponent2" parent="LynxAttackRanged" instance=ExtResource("1_i5y5g")]
+position = Vector2(0, -132)
+rotation = 1.5707964
+add_collision_exception_to_parent = false
+
+[node name="WeaponComponent3" parent="LynxAttackRanged" instance=ExtResource("1_i5y5g")]
+position = Vector2(154, -133)
+rotation = 1.5707964
+add_collision_exception_to_parent = false
+
+[node name="WeaponComponent4" parent="LynxAttackRanged" instance=ExtResource("1_i5y5g")]
+position = Vector2(-284, 0)
+add_collision_exception_to_parent = false
+
+[node name="WeaponComponent5" parent="LynxAttackRanged" instance=ExtResource("1_i5y5g")]
+position = Vector2(-286, 123)
+add_collision_exception_to_parent = false
+
+[node name="WeaponComponent6" parent="LynxAttackRanged" instance=ExtResource("1_i5y5g")]
+position = Vector2(-280, -116)
+add_collision_exception_to_parent = false
 
 [node name="FrontHole" type="ColorRect" parent="."]
 offset_left = -174.0
@@ -29,10 +58,6 @@ offset_right = -117.0
 offset_bottom = -144.0
 color = Color(0.11764706, 0.05490196, 0.05490196, 1)
 
-[node name="Weapon_Component" parent="FrontHole" instance=ExtResource("1_i5y5g")]
-position = Vector2(28, 11)
-rotation = 1.5707964
-
 [node name="FrontHole2" type="ColorRect" parent="."]
 offset_left = -29.0
 offset_top = -169.0
@@ -40,20 +65,12 @@ offset_right = 28.0
 offset_bottom = -144.0
 color = Color(0.11764706, 0.05490196, 0.05490196, 1)
 
-[node name="Weapon_Component2" parent="FrontHole2" instance=ExtResource("1_i5y5g")]
-position = Vector2(29, 11)
-rotation = 1.5707964
-
 [node name="FrontHole3" type="ColorRect" parent="."]
 offset_left = 124.0
 offset_top = -169.0
 offset_right = 181.0
 offset_bottom = -144.0
 color = Color(0.11764706, 0.05490196, 0.05490196, 1)
-
-[node name="Weapon_Component3" parent="FrontHole3" instance=ExtResource("1_i5y5g")]
-position = Vector2(29, 11)
-rotation = 1.5707964
 
 [node name="SideHole" type="ColorRect" parent="."]
 offset_left = -319.0
@@ -63,10 +80,6 @@ offset_bottom = 53.0
 rotation = -1.5707964
 color = Color(0.22362709, 0.12284168, 0.12280875, 1)
 
-[node name="Weapon_Component4" parent="SideHole" instance=ExtResource("1_i5y5g")]
-position = Vector2(28, 11)
-rotation = 1.5707964
-
 [node name="SideHole2" type="ColorRect" parent="."]
 offset_left = -319.0
 offset_top = 150.0
@@ -75,10 +88,6 @@ offset_bottom = 175.0
 rotation = -1.5707964
 color = Color(0.22362709, 0.12284168, 0.12280875, 1)
 
-[node name="Weapon_Component5" parent="SideHole2" instance=ExtResource("1_i5y5g")]
-position = Vector2(28, 11)
-rotation = 1.5707964
-
 [node name="SideHole3" type="ColorRect" parent="."]
 offset_left = -319.0
 offset_top = -87.0
@@ -86,9 +95,3 @@ offset_right = -262.0
 offset_bottom = -62.0
 rotation = -1.5707964
 color = Color(0.22362709, 0.12284168, 0.12280875, 1)
-
-[node name="Weapon_Component6" parent="SideHole3" instance=ExtResource("1_i5y5g")]
-position = Vector2(28, 11)
-rotation = 1.5707964
-
-[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

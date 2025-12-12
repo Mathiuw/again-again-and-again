@@ -138,6 +138,9 @@ position = Vector2(-62, 2.99984)
 [node name="RoomRome01" parent="Map" instance=ExtResource("5_p1hux")]
 position = Vector2(640, 0)
 
+[node name="Chest3" parent="Map/RoomRome01/NavigationRegion2D" index="6"]
+position = Vector2(-168, -96)
+
 [node name="DoorLeft" parent="Map/RoomRome01" index="1" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomStart")
 

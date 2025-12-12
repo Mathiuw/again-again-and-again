@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://brb4rci4dugk7"]
+[gd_scene load_steps=10 format=4 uid="uid://brb4rci4dugk7"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_gt6nl"]
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_a151h"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://scene/door_front.tscn" id="6_cs3m3"]
 [ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://scene/enemy/medusa.tscn" id="6_nt821"]
 [ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="7_ikdgm"]
+[ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://scene/chest_rome.tscn" id="8_k7ck5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_tyrj2"]
 
@@ -77,6 +78,12 @@ position = Vector2(216, 32)
 
 [node name="Medusa7" parent="." instance=ExtResource("6_nt821")]
 position = Vector2(256, 128)
+
+[node name="Chest" parent="." instance=ExtResource("8_k7ck5")]
+position = Vector2(-139, -126)
+
+[node name="Chest2" parent="." instance=ExtResource("8_k7ck5")]
+position = Vector2(275, 33)
 
 [node name="DoorFront" parent="." instance=ExtResource("6_cs3m3")]
 position = Vector2(192, -176)
