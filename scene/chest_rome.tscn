@@ -4,50 +4,51 @@
 [ext_resource type="Script" uid="uid://ceanf8yvbsrvw" path="res://script/chest.gd" id="1_81ki8"]
 [ext_resource type="PackedScene" uid="uid://y34phjayr0ow" path="res://scene/interactable_component.tscn" id="3_yrheh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_81ki8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrheh"]
 atlas = ExtResource("1_8d0cf")
 region = Rect2(0, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yrheh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_asika"]
 atlas = ExtResource("1_8d0cf")
 region = Rect2(16, 0, 16, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_yrheh"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_asika"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_81ki8")
+"texture": SubResource("AtlasTexture_yrheh")
 }],
-"loop": false,
+"loop": true,
 "name": &"closed",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yrheh")
+"texture": SubResource("AtlasTexture_asika")
 }],
-"loop": false,
+"loop": true,
 "name": &"open",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asika"]
-size = Vector2(16, 13)
+size = Vector2(16, 12.5)
 
 [node name="Chest" type="StaticBody2D"]
 collision_mask = 0
 script = ExtResource("1_81ki8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -14)
-sprite_frames = SubResource("SpriteFrames_yrheh")
+sprite_frames = SubResource("SpriteFrames_asika")
 animation = &"closed"
 autoplay = "closed"
+offset = Vector2(0, -16)
 
 [node name="InteractableComponent" parent="." instance=ExtResource("3_yrheh")]
-position = Vector2(0, -4)
+show_behind_parent = true
+position = Vector2(0, -6)
 interactable_once = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4.5)
+position = Vector2(0, -6.25)
 shape = SubResource("RectangleShape2D_asika")

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://db81vgbcmwuoq" path="res://scene/breakable_wall_side.tscn" id="9_yqar7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ffdht"]
-vertices = PackedVector2Array(278.8125, -128.8125, 278.8125, -63.1875, 272.8125, -63.1875, -144.8125, -78.8125, -144.8125, -122.1875, 15.1875, 111.1875, 278.8125, 134.8125, -278.8125, 134.8125, -25.1875, 111.1875, -278.8125, 68.1875, -272.8125, 68.1875, -25.1875, 48.8125, -272.8125, -63.1875, -271.1875, -78.8125, 278.8125, 68.1875, 272.8125, 68.1875, 15.1875, 48.8125, -278.8125, -128.8125, -271.1875, -122.1875, -278.8125, -63.1875)
+vertices = PackedVector2Array(278.8125, -128.8125, 278.8125, -63.1875, 272.8125, -63.1875, -144.8125, -80.8125, -144.8125, -123.6875, 15.1875, 111.1875, 278.8125, 134.8125, -278.8125, 134.8125, -25.1875, 111.1875, -278.8125, 68.1875, -272.8125, 68.1875, -25.1875, 48.8125, -272.8125, -63.1875, -271.1875, -80.8125, 278.8125, 68.1875, 272.8125, 68.1875, 15.1875, 48.8125, -278.8125, -128.8125, -271.1875, -123.6875, -278.8125, -63.1875)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(8, 7, 9, 10), PackedInt32Array(3, 11, 8, 10, 12, 13), PackedInt32Array(14, 6, 5, 15), PackedInt32Array(15, 5, 16, 2), PackedInt32Array(3, 2, 16, 11), PackedInt32Array(17, 0, 4, 18), PackedInt32Array(19, 17, 18, 13, 12)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-294, -144, 294, -144, 294, -48, 288, -48, 288, 53, 294, 53, 294, 150, -294, 150, -294, 53, -288, 53, -288, -48, -294, -48)])
 agent_radius = 15.19
@@ -52,6 +52,15 @@ position = Vector2(256, -156)
 [node name="TorchPointLight2D5" parent="NavigationRegion2D/Map" instance=ExtResource("3_h67ar")]
 position = Vector2(-256, -156)
 
+[node name="Chest" parent="NavigationRegion2D/Map" instance=ExtResource("8_pbxg8")]
+position = Vector2(-248, -96)
+
+[node name="Chest2" parent="NavigationRegion2D/Map" instance=ExtResource("8_pbxg8")]
+position = Vector2(-208, -96)
+
+[node name="Chest3" parent="NavigationRegion2D/Map" instance=ExtResource("8_pbxg8")]
+position = Vector2(-168, -96)
+
 [node name="Bunnyale" parent="NavigationRegion2D" instance=ExtResource("8_ffdht")]
 position = Vector2(-56, -8)
 
@@ -60,15 +69,6 @@ position = Vector2(80, 0)
 
 [node name="FrankyMouse" parent="NavigationRegion2D" instance=ExtResource("7_ffdht")]
 position = Vector2(-120, 64)
-
-[node name="Chest" parent="NavigationRegion2D" instance=ExtResource("8_pbxg8")]
-position = Vector2(-248, -96)
-
-[node name="Chest2" parent="NavigationRegion2D" instance=ExtResource("8_pbxg8")]
-position = Vector2(-208, -96)
-
-[node name="Chest3" parent="NavigationRegion2D" instance=ExtResource("8_pbxg8")]
-position = Vector2(-168, -96)
 
 [node name="BreakableWallSide" parent="NavigationRegion2D" instance=ExtResource("9_yqar7")]
 position = Vector2(-16, 80)
