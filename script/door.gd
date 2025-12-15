@@ -3,6 +3,7 @@ extends Area2D
 
 @export var desired_room: Room
 @export var always_open: bool = false
+@export var secret_door: bool = false
 @onready var desired_position: Marker2D = $DesiredPosition
 @onready var door_static_body: StaticBody2D = $DoorStaticBody
 @onready var open_particle: GPUParticles2D = $OpenParticle
@@ -20,7 +21,8 @@ func set_door_open_state(state: bool) -> void:
 	if state:
 		door_static_body.hide()
 		door_static_body.process_mode = Node.PROCESS_MODE_DISABLED
-		open_particle.emitting = true
+		if !secret_door:
+			open_particle.emitting = true
 	else:
 		if always_open:
 			return

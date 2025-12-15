@@ -48,6 +48,12 @@ position = Vector2(256, -156)
 [node name="Bunnyale" parent="." instance=ExtResource("5_mlmu6")]
 position = Vector2(0, 120)
 
+[node name="Bunnyale2" parent="." instance=ExtResource("5_mlmu6")]
+position = Vector2(45, -90)
+
+[node name="Bunnyale3" parent="." instance=ExtResource("5_mlmu6")]
+position = Vector2(-140, -113)
+
 [node name="DoorRight" parent="." instance=ExtResource("3_4wdb5")]
 position = Vector2(304, 2)
 rotation = 3.14159

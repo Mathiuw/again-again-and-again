@@ -144,9 +144,6 @@ desired_room = NodePath("../../RoomStart")
 [node name="DesiredPosition" parent="Map/RoomRome01/DoorLeft" index="3"]
 position = Vector2(-64, 6)
 
-[node name="DoorRight" parent="Map/RoomRome01" index="2" node_paths=PackedStringArray("desired_room")]
-desired_room = NodePath("../../RoomRome02")
-
 [node name="DesiredPosition" parent="Map/RoomRome01/DoorRight" index="3"]
 position = Vector2(-55.999985, -6.000142)
 

@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="3_dnlai"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="4_j7m8x"]
 [ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="5_hlkct"]
-[ext_resource type="PackedScene" uid="uid://b38hnv5xd6mhe" path="res://scene/enemy/boss_lynx.tscn" id="5_prs6n"]
+[ext_resource type="PackedScene" uid="uid://b38hnv5xd6mhe" path="res://scene/enemy/lynx_base.tscn" id="5_prs6n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ib0vb"]
 radius = 23.021729

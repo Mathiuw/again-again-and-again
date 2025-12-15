@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfdratej2y5ih"]
+
+[ext_resource type="Script" uid="uid://dith4apklv734" path="res://script/lynx_Attack_Ranged.gd" id="1_ebbld"]
+[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon_component.tscn" id="2_xh40o"]
+
+[node name="LynxAttackRanged" type="Node2D" node_paths=PackedStringArray("weapons")]
+script = ExtResource("1_ebbld")
+weapons = [NodePath("WeaponComponent"), NodePath("WeaponComponent2"), NodePath("WeaponComponent3"), NodePath("WeaponComponent4"), NodePath("WeaponComponent5"), NodePath("WeaponComponent6")]
+
+[node name="AttackCooldown" type="Timer" parent="."]
+autostart = true
+
+[node name="WeaponComponent" parent="." instance=ExtResource("2_xh40o")]
+position = Vector2(-145, -132)
+rotation = 1.5707964
+add_collision_exception_to_parent = false
+
+[node name="WeaponComponent2" parent="." instance=ExtResource("2_xh40o")]
+position = Vector2(0, -132)
+rotation = 1.5707964
+add_collision_exception_to_parent = false
+
+[node name="WeaponComponent3" parent="." instance=ExtResource("2_xh40o")]
+position = Vector2(154, -133)
+rotation = 1.5707964
+add_collision_exception_to_parent = false
+
+[node name="WeaponComponent4" parent="." instance=ExtResource("2_xh40o")]
+position = Vector2(-284, 0)
+add_collision_exception_to_parent = false
+
+[node name="WeaponComponent5" parent="." instance=ExtResource("2_xh40o")]
+position = Vector2(-286, 123)
+add_collision_exception_to_parent = false
+
+[node name="WeaponComponent6" parent="." instance=ExtResource("2_xh40o")]
+position = Vector2(-280, -116)
+add_collision_exception_to_parent = false
