@@ -11,6 +11,7 @@ extends Area2D
 func  _ready() -> void:
 	if  always_open:
 		set_door_open_state(true)
+		
 
 func _on_body_entered(body: Node2D) -> void:
 	if desired_room && body is Player:
