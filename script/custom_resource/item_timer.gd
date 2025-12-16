@@ -10,7 +10,6 @@ func activate_item(scene_tree: SceneTree) -> void:
 		add_time_to_loop(loop_timer)
 
 func add_time_to_loop(timer: LoopTimer) -> void:
-	get
 	timer.addTime(time_value_base)
 	pass
 
