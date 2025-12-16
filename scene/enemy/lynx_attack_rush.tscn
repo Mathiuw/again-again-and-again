@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvbbrasaelqhr"]
+
+[ext_resource type="Script" uid="uid://bjfrw8hjbtggj" path="res://script/lynx_attack_rush.gd" id="1_awnag"]
+[ext_resource type="PackedScene" uid="uid://bft146fxu4jge" path="res://scene/enemy/lynx_rush_body.tscn" id="2_j4dvw"]
+
+[sub_resource type="Curve2D" id="Curve2D_j4g73"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -144, -320, 0, 0, 0, 0, -144, 272)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ibtex"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -143.99997, -448, 0, 0, 0, 0, -144.00003, 448)
+}
+point_count = 2
+
+[node name="LynxAttackRush" type="Node2D" node_paths=PackedStringArray("paths")]
+script = ExtResource("1_awnag")
+paths = [NodePath("Path2D"), NodePath("Path2D2"), NodePath("Path2D3"), NodePath("Path2D4"), NodePath("Path2D5"), NodePath("Path2D6")]
+move_speed = 3.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_j4g73")
+
+[node name="LynxRushFront" parent="Path2D" instance=ExtResource("2_j4dvw")]
+unique_name_in_owner = true
+position = Vector2(-144, 272)
+rotation = 1.5707964
+progress = 655.9999
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2(144, 0)
+curve = SubResource("Curve2D_j4g73")
+
+[node name="Path2D3" type="Path2D" parent="."]
+position = Vector2(296, 0)
+curve = SubResource("Curve2D_j4g73")
+
+[node name="Path2D4" type="Path2D" parent="."]
+position = Vector2(0, -264)
+rotation = -1.5707964
+curve = SubResource("Curve2D_ibtex")
+
+[node name="Path2D5" type="Path2D" parent="."]
+position = Vector2(0, -144)
+rotation = -1.5707964
+curve = SubResource("Curve2D_ibtex")
+
+[node name="Path2D6" type="Path2D" parent="."]
+position = Vector2(0, -16)
+rotation = -1.5707964
+curve = SubResource("Curve2D_ibtex")
