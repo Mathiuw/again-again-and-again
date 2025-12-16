@@ -1,7 +1,44 @@
-[gd_scene load_steps=3 format=4 uid="uid://b38hnv5xd6mhe"]
+[gd_scene load_steps=10 format=4 uid="uid://b38hnv5xd6mhe"]
 
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="1_yiwof"]
 [ext_resource type="PackedScene" uid="uid://bfdratej2y5ih" path="res://scene/enemy/lynx_attack_ranged.tscn" id="2_3nww7"]
+[ext_resource type="PackedScene" uid="uid://bft146fxu4jge" path="res://scene/enemy/lynx_rush_body.tscn" id="3_ibtex"]
+
+[sub_resource type="Curve2D" id="Curve2D_j4g73"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -144, -208, 0, 0, 0, 0, -144, 256)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ibtex"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -144, -208, 0, 0, 0, 0, -144, 256)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ep8ee"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -144, -208, 0, 0, 0, 0, -144, 256)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ix17u"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -144, -208, 0, 0, 0, 0, -144.00002, 416)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_bs4or"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -144, -208, 0, 0, 0, 0, -144.00002, 416)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_cqeky"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -144, -208, 0, 0, 0, 0, -144.00002, 416)
+}
+point_count = 2
 
 [node name="LynxBase" type="Node2D"]
 
@@ -17,6 +54,38 @@ navigation_visibility_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="LynxAttackRanged" parent="." instance=ExtResource("2_3nww7")]
+
+[node name="LynxAttackRush" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="LynxAttackRush"]
+curve = SubResource("Curve2D_j4g73")
+
+[node name="LynxRushFront" parent="LynxAttackRush/Path2D" instance=ExtResource("3_ibtex")]
+position = Vector2(-144, -208)
+rotation = 1.5707964
+
+[node name="Path2D3" type="Path2D" parent="LynxAttackRush"]
+position = Vector2(144, 0)
+curve = SubResource("Curve2D_ibtex")
+
+[node name="Path2D4" type="Path2D" parent="LynxAttackRush"]
+position = Vector2(296, 0)
+curve = SubResource("Curve2D_ep8ee")
+
+[node name="Path2D2" type="Path2D" parent="LynxAttackRush"]
+position = Vector2(-152, -256)
+rotation = -1.5707964
+curve = SubResource("Curve2D_ix17u")
+
+[node name="Path2D5" type="Path2D" parent="LynxAttackRush"]
+position = Vector2(-152, -144)
+rotation = -1.5707964
+curve = SubResource("Curve2D_bs4or")
+
+[node name="Path2D6" type="Path2D" parent="LynxAttackRush"]
+position = Vector2(-144, -24)
+rotation = -1.5707964
+curve = SubResource("Curve2D_cqeky")
 
 [node name="FrontHole" type="ColorRect" parent="."]
 offset_left = -174.0
@@ -62,3 +131,5 @@ offset_right = -262.0
 offset_bottom = -62.0
 rotation = -1.5707964
 color = Color(0.22362709, 0.12284168, 0.12280875, 1)
+
+[editable path="LynxAttackRanged"]
