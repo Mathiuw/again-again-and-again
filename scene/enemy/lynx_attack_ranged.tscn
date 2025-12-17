@@ -1,38 +1,75 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfdratej2y5ih"]
+[gd_scene load_steps=9 format=3 uid="uid://bfdratej2y5ih"]
 
 [ext_resource type="Script" uid="uid://dith4apklv734" path="res://script/lynx_Attack_Ranged.gd" id="1_ebbld"]
-[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon_component.tscn" id="2_xh40o"]
+[ext_resource type="PackedScene" uid="uid://ddf0w0oabsmhf" path="res://scene/weapon_area_component.tscn" id="3_xh40o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebbld"]
+size = Vector2(588, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh40o"]
+size = Vector2(589, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxoct"]
+size = Vector2(588, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_na14t"]
+size = Vector2(294, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0b1b"]
+size = Vector2(292, 84.000015)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxood"]
+size = Vector2(293.00003, 85)
 
 [node name="LynxAttackRanged" type="Node2D" node_paths=PackedStringArray("weapons")]
 script = ExtResource("1_ebbld")
-weapons = [NodePath("WeaponComponent"), NodePath("WeaponComponent2"), NodePath("WeaponComponent3"), NodePath("WeaponComponent4"), NodePath("WeaponComponent5"), NodePath("WeaponComponent6")]
+shoot_type = 3
+weapons = [NodePath("WeaponAreaComponent"), NodePath("WeaponAreaComponent2"), NodePath("WeaponAreaComponent3"), NodePath("WeaponAreaComponent4"), NodePath("WeaponAreaComponent5"), NodePath("WeaponAreaComponent6")]
 
 [node name="AttackCooldown" type="Timer" parent="."]
 autostart = true
 
-[node name="WeaponComponent" parent="." instance=ExtResource("2_xh40o")]
+[node name="WeaponAreaComponent" parent="." instance=ExtResource("3_xh40o")]
+position = Vector2(-280, -116)
+add_collision_exception_to_parent = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponAreaComponent"]
+shape = SubResource("RectangleShape2D_ebbld")
+
+[node name="WeaponAreaComponent2" parent="." instance=ExtResource("3_xh40o")]
+position = Vector2(-284, 0)
+add_collision_exception_to_parent = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponAreaComponent2"]
+shape = SubResource("RectangleShape2D_xh40o")
+
+[node name="WeaponAreaComponent3" parent="." instance=ExtResource("3_xh40o")]
+position = Vector2(-286, 123)
+add_collision_exception_to_parent = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponAreaComponent3"]
+shape = SubResource("RectangleShape2D_wxoct")
+
+[node name="WeaponAreaComponent4" parent="." instance=ExtResource("3_xh40o")]
 position = Vector2(-145, -132)
 rotation = 1.5707964
 add_collision_exception_to_parent = false
 
-[node name="WeaponComponent2" parent="." instance=ExtResource("2_xh40o")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponAreaComponent4"]
+shape = SubResource("RectangleShape2D_na14t")
+
+[node name="WeaponAreaComponent5" parent="." instance=ExtResource("3_xh40o")]
 position = Vector2(0, -132)
 rotation = 1.5707964
 add_collision_exception_to_parent = false
 
-[node name="WeaponComponent3" parent="." instance=ExtResource("2_xh40o")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponAreaComponent5"]
+shape = SubResource("RectangleShape2D_r0b1b")
+
+[node name="WeaponAreaComponent6" parent="." instance=ExtResource("3_xh40o")]
 position = Vector2(154, -133)
 rotation = 1.5707964
 add_collision_exception_to_parent = false
 
-[node name="WeaponComponent4" parent="." instance=ExtResource("2_xh40o")]
-position = Vector2(-284, 0)
-add_collision_exception_to_parent = false
-
-[node name="WeaponComponent5" parent="." instance=ExtResource("2_xh40o")]
-position = Vector2(-286, 123)
-add_collision_exception_to_parent = false
-
-[node name="WeaponComponent6" parent="." instance=ExtResource("2_xh40o")]
-position = Vector2(-280, -116)
-add_collision_exception_to_parent = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponAreaComponent6"]
+shape = SubResource("RectangleShape2D_kxood")

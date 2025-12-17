@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddf0w0oabsmhf"]
+
+[ext_resource type="Script" uid="uid://xanhsgwdqagb" path="res://script/weapon_area_component.gd" id="2_2b1o2"]
+
+[node name="WeaponAreaComponent" type="Area2D"]
+disable_mode = 1
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("2_2b1o2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
