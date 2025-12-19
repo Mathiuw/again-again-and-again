@@ -63,6 +63,10 @@ curve = SubResource("Curve2D_y5ekm")
 position = Vector2(-128, 0)
 curve = SubResource("Curve2D_snmwp")
 
+[node name="EnemyPath2D4" parent="." instance=ExtResource("3_j4dvw")]
+rotation = -1.5707964
+curve = SubResource("Curve2D_5jlft")
+
 [node name="EnemyPath2D5" parent="." instance=ExtResource("3_j4dvw")]
 position = Vector2(0, -128)
 rotation = -1.5707964

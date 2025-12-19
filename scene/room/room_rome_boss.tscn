@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://byk72d1ahusm0"]
+[gd_scene load_steps=24 format=4 uid="uid://byk72d1ahusm0"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_ib0vb"]
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_prs6n"]
@@ -40,6 +40,17 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bg1kh"]
 resource_local_to_scene = true
 size = Vector2(92, 320)
+
+[sub_resource type="Curve2D" id="Curve2D_5jlft"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlkct"]
+resource_local_to_scene = true
+size = Vector2(68, 581)
 
 [sub_resource type="Curve2D" id="Curve2D_ex3s3"]
 resource_local_to_scene = true
@@ -235,13 +246,20 @@ curve = SubResource("Curve2D_4cdtk")
 [node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRush/EnemyPath2D3/Area2D" index="0"]
 shape = SubResource("RectangleShape2D_bg1kh")
 
-[node name="EnemyPath2D5" parent="LynxBossBase/LynxAttackRush" index="4"]
+[node name="EnemyPath2D4" parent="LynxBossBase/LynxAttackRush" index="4"]
+curve = SubResource("Curve2D_5jlft")
+
+[node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRush/EnemyPath2D4/Area2D" index="0"]
+position = Vector2(1.4210855e-14, -1.5)
+shape = SubResource("RectangleShape2D_hlkct")
+
+[node name="EnemyPath2D5" parent="LynxBossBase/LynxAttackRush" index="5"]
 curve = SubResource("Curve2D_ex3s3")
 
 [node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRush/EnemyPath2D5/Area2D" index="0"]
 shape = SubResource("RectangleShape2D_1j8fq")
 
-[node name="EnemyPath2D6" parent="LynxBossBase/LynxAttackRush" index="5"]
+[node name="EnemyPath2D6" parent="LynxBossBase/LynxAttackRush" index="6"]
 curve = SubResource("Curve2D_21php")
 
 [node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRush/EnemyPath2D6/Area2D" index="0"]
@@ -348,5 +366,6 @@ color = Color(1, 0.85, 0, 1)
 [editable path="LynxBossBase/LynxAttackRush/EnemyPath2D"]
 [editable path="LynxBossBase/LynxAttackRush/EnemyPath2D2"]
 [editable path="LynxBossBase/LynxAttackRush/EnemyPath2D3"]
+[editable path="LynxBossBase/LynxAttackRush/EnemyPath2D4"]
 [editable path="LynxBossBase/LynxAttackRush/EnemyPath2D5"]
 [editable path="LynxBossBase/LynxAttackRush/EnemyPath2D6"]
