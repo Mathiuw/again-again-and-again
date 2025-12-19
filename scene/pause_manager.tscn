@@ -4,5 +4,5 @@
 
 [node name="PauseManager" type="CanvasLayer"]
 process_mode = 3
-layer = 2
+layer = 99
 script = ExtResource("1_diaio")

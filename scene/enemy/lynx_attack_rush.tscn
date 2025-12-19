@@ -1,56 +1,74 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvbbrasaelqhr"]
+[gd_scene load_steps=9 format=3 uid="uid://dvbbrasaelqhr"]
 
 [ext_resource type="Script" uid="uid://bjfrw8hjbtggj" path="res://script/lynx_attack_rush.gd" id="1_awnag"]
 [ext_resource type="PackedScene" uid="uid://bft146fxu4jge" path="res://scene/enemy/lynx_rush_body.tscn" id="2_j4dvw"]
+[ext_resource type="PackedScene" uid="uid://ewjoxk7u5kn0" path="res://scene/enemy_path_2d.tscn" id="3_j4dvw"]
 
-[sub_resource type="Curve2D" id="Curve2D_j4g73"]
+[sub_resource type="Curve2D" id="Curve2D_j4dvw"]
+resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -144, -320, 0, 0, 0, 0, -144, 272)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_ibtex"]
+[sub_resource type="Curve2D" id="Curve2D_y5ekm"]
+resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -143.99997, -448, 0, 0, 0, 0, -144.00003, 448)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_snmwp"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_5jlft"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_jf6uv"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
 }
 point_count = 2
 
 [node name="LynxAttackRush" type="Node2D" node_paths=PackedStringArray("paths")]
 script = ExtResource("1_awnag")
-paths = [NodePath("Path2D"), NodePath("Path2D2"), NodePath("Path2D3"), NodePath("Path2D4"), NodePath("Path2D5"), NodePath("Path2D6")]
+paths = [NodePath("EnemyPath2D"), NodePath("EnemyPath2D2"), NodePath("EnemyPath2D3"), NodePath("EnemyPath2D5"), NodePath("EnemyPath2D6")]
 move_speed = 3.0
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_j4g73")
+[node name="EnemyPath2D" parent="." instance=ExtResource("3_j4dvw")]
+curve = SubResource("Curve2D_j4dvw")
 
-[node name="LynxRushFront" parent="Path2D" instance=ExtResource("2_j4dvw")]
+[node name="LynxRushFront" parent="EnemyPath2D" instance=ExtResource("2_j4dvw")]
 unique_name_in_owner = true
-position = Vector2(-144, 272)
+position = Vector2(0, -320)
 rotation = 1.5707964
-progress = 655.9999
 
-[node name="Path2D2" type="Path2D" parent="."]
-position = Vector2(144, 0)
-curve = SubResource("Curve2D_j4g73")
+[node name="EnemyPath2D2" parent="." instance=ExtResource("3_j4dvw")]
+position = Vector2(128, 0)
+curve = SubResource("Curve2D_y5ekm")
 
-[node name="Path2D3" type="Path2D" parent="."]
-position = Vector2(296, 0)
-curve = SubResource("Curve2D_j4g73")
+[node name="EnemyPath2D3" parent="." instance=ExtResource("3_j4dvw")]
+position = Vector2(-128, 0)
+curve = SubResource("Curve2D_snmwp")
 
-[node name="Path2D4" type="Path2D" parent="."]
-position = Vector2(0, -264)
+[node name="EnemyPath2D5" parent="." instance=ExtResource("3_j4dvw")]
+position = Vector2(0, -128)
 rotation = -1.5707964
-curve = SubResource("Curve2D_ibtex")
+curve = SubResource("Curve2D_5jlft")
 
-[node name="Path2D5" type="Path2D" parent="."]
-position = Vector2(0, -144)
+[node name="EnemyPath2D6" parent="." instance=ExtResource("3_j4dvw")]
+position = Vector2(0, 128)
 rotation = -1.5707964
-curve = SubResource("Curve2D_ibtex")
-
-[node name="Path2D6" type="Path2D" parent="."]
-position = Vector2(0, -16)
-rotation = -1.5707964
-curve = SubResource("Curve2D_ibtex")
+curve = SubResource("Curve2D_jf6uv")

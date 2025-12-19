@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://byk72d1ahusm0"]
+[gd_scene load_steps=22 format=4 uid="uid://byk72d1ahusm0"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_ib0vb"]
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_prs6n"]
@@ -6,9 +6,174 @@
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="4_j7m8x"]
 [ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="5_hlkct"]
 [ext_resource type="PackedScene" uid="uid://b38hnv5xd6mhe" path="res://scene/enemy/lynx_base.tscn" id="5_prs6n"]
+[ext_resource type="Script" uid="uid://cx4wfruxwn6ja" path="res://script/cutscene_base.gd" id="7_dnlai"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ib0vb"]
-radius = 23.021729
+[sub_resource type="Curve2D" id="Curve2D_dnlai"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7m8x"]
+resource_local_to_scene = true
+size = Vector2(94, 304)
+
+[sub_resource type="Curve2D" id="Curve2D_hlkct"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynr0e"]
+resource_local_to_scene = true
+size = Vector2(96, 320)
+
+[sub_resource type="Curve2D" id="Curve2D_4cdtk"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg1kh"]
+resource_local_to_scene = true
+size = Vector2(92, 320)
+
+[sub_resource type="Curve2D" id="Curve2D_ex3s3"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1.5258789e-05, -448, 0, 0, 0, 0, -2.2888184e-05, 448)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1j8fq"]
+resource_local_to_scene = true
+size = Vector2(68, 576)
+
+[sub_resource type="Curve2D" id="Curve2D_21php"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2.2888184e-05, -448, 0, 0, 0, 0, -1.5258789e-05, 448)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nad2m"]
+resource_local_to_scene = true
+size = Vector2(68, 584)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnlai"]
+size = Vector2(106, 20)
+
+[sub_resource type="Animation" id="Animation_prs6n"]
+resource_name = "boss_intro"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cutscene/lynx_placeholder_anim:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-20, -284), Vector2(-20, -158), Vector2(-20, -284)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cutscene/Totem/ColorRect2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cutscene/Totem:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.0666667, 1.8000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(14, 22), Vector2(14, 22), Vector2(14, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cutscene/Totem:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.0666667, 1.8000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-6, -93), Vector2(-6, -93), Vector2(-6, -71)]
+}
+
+[sub_resource type="Animation" id="Animation_dnlai"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cutscene/lynx_placeholder_anim:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, -284)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cutscene/Totem/ColorRect2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cutscene/Totem:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(14, 22)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cutscene/Totem:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, -93)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dnlai"]
+_data = {
+&"RESET": SubResource("Animation_dnlai"),
+&"boss_intro": SubResource("Animation_prs6n")
+}
 
 [node name="RoomRomeBoss" type="Node2D"]
 y_sort_enabled = true
@@ -50,20 +215,122 @@ position = Vector2(284.5, 2.5)
 [node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRanged/WeaponAreaComponent3" index="0"]
 position = Vector2(286, 2)
 
+[node name="EnemyPath2D" parent="LynxBossBase/LynxAttackRush" index="1"]
+curve = SubResource("Curve2D_dnlai")
+
+[node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRush/EnemyPath2D/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_j7m8x")
+
+[node name="EnemyPath2D2" parent="LynxBossBase/LynxAttackRush" index="2"]
+position = Vector2(145, 0)
+curve = SubResource("Curve2D_hlkct")
+
+[node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRush/EnemyPath2D2/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_ynr0e")
+
+[node name="EnemyPath2D3" parent="LynxBossBase/LynxAttackRush" index="3"]
+position = Vector2(-144, 2)
+curve = SubResource("Curve2D_4cdtk")
+
+[node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRush/EnemyPath2D3/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_bg1kh")
+
+[node name="EnemyPath2D5" parent="LynxBossBase/LynxAttackRush" index="4"]
+curve = SubResource("Curve2D_ex3s3")
+
+[node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRush/EnemyPath2D5/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_1j8fq")
+
+[node name="EnemyPath2D6" parent="LynxBossBase/LynxAttackRush" index="5"]
+curve = SubResource("Curve2D_21php")
+
+[node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRush/EnemyPath2D6/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_nad2m")
+
+[node name="SideHole2" parent="LynxBossBase" index="6"]
+offset_right = -263.94095
+
+[node name="SideHole3" parent="LynxBossBase" index="7"]
+offset_top = -90.09981
+offset_right = -265.0998
+offset_bottom = -65.09981
+
+[node name="SideHole4" parent="LynxBossBase" index="8"]
+offset_left = 294.0
+offset_right = 344.01257
+
+[node name="SideHole5" parent="LynxBossBase" index="9"]
+offset_left = 294.0
+offset_top = -90.287964
+offset_right = 347.71204
+offset_bottom = -65.287964
+
 [node name="DoorRight" parent="." instance=ExtResource("5_hlkct")]
 position = Vector2(304, 0)
 rotation = -3.1415927
 
 [node name="TriggerBossArea" type="Area2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -75)
-metadata/_edit_group_ = true
+collision_layer = 0
+collision_mask = 2
+monitorable = false
 
-[node name="ColorRect" type="ColorRect" parent="TriggerBossArea"]
-offset_left = -7.0
-offset_top = -22.0
-offset_right = 7.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerBossArea"]
+position = Vector2(71, 75)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_dnlai")
 
-[node name="ColorRect2" type="ColorRect" parent="TriggerBossArea/ColorRect"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TriggerBossArea"]
+position = Vector2(145, 6)
+shape = SubResource("RectangleShape2D_dnlai")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="TriggerBossArea"]
+position = Vector2(145, 142)
+shape = SubResource("RectangleShape2D_dnlai")
+
+[node name="Cutscene" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dnlai")
+}
+script = ExtResource("7_dnlai")
+
+[node name="lynx_placeholder_anim" type="ColorRect" parent="Cutscene"]
+offset_left = -20.0
+offset_top = -284.0
+offset_right = 20.0
+offset_bottom = -244.0
+
+[node name="ColorRect2" type="ColorRect" parent="Cutscene/lynx_placeholder_anim"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 27.0
+offset_right = 34.0
+offset_bottom = 65.0
+
+[node name="ColorRect3" type="ColorRect" parent="Cutscene/lynx_placeholder_anim/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 11.0
+offset_bottom = 12.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Cutscene/lynx_placeholder_anim/ColorRect2"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 3.0
+offset_right = 24.0
+offset_bottom = 12.0
+color = Color(0, 0, 0, 1)
+
+[node name="Totem" type="ColorRect" parent="Cutscene"]
+offset_left = -6.0
+offset_top = -93.0
+offset_right = 8.0
+offset_bottom = -71.0
+
+[node name="ColorRect2" type="ColorRect" parent="Cutscene/Totem"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = -3.0
@@ -71,10 +338,15 @@ offset_right = 11.0
 offset_bottom = 5.0
 color = Color(1, 0.85, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerBossArea"]
-position = Vector2(0, -12)
-shape = SubResource("CircleShape2D_ib0vb")
+[connection signal="body_entered" from="TriggerBossArea" to="TriggerBossArea" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerBossArea" to="Cutscene" method="_on_trigger_boss_area_body_entered"]
 
 [editable path="LynxBossBase"]
 [editable path="LynxBossBase/LynxAttackRanged"]
 [editable path="LynxBossBase/LynxAttackRanged/WeaponAreaComponent"]
+[editable path="LynxBossBase/LynxAttackRush"]
+[editable path="LynxBossBase/LynxAttackRush/EnemyPath2D"]
+[editable path="LynxBossBase/LynxAttackRush/EnemyPath2D2"]
+[editable path="LynxBossBase/LynxAttackRush/EnemyPath2D3"]
+[editable path="LynxBossBase/LynxAttackRush/EnemyPath2D5"]
+[editable path="LynxBossBase/LynxAttackRush/EnemyPath2D6"]

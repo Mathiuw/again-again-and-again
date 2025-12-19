@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c6m28at08ltqy"]
+[gd_scene load_steps=11 format=4 uid="uid://c6m28at08ltqy"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_pbxg8"]
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_66bwh"]
@@ -9,14 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://bqyoyuprd01pg" path="res://scene/enemy/franky_mouse.tscn" id="7_ffdht"]
 [ext_resource type="PackedScene" uid="uid://b1uw6v7edbscl" path="res://scene/enemy/bunnyale.tscn" id="8_ffdht"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://scene/chest_rome.tscn" id="8_pbxg8"]
-[ext_resource type="PackedScene" uid="uid://db81vgbcmwuoq" path="res://scene/breakable_wall_side.tscn" id="9_yqar7"]
-[ext_resource type="PackedScene" uid="uid://c7mubhrqcgpn3" path="res://scene/breakable_wall_down.tscn" id="10_idv1l"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ffdht"]
-vertices = PackedVector2Array(278.8125, -128.8125, 278.8125, -63.1875, 272.8125, -63.1875, -144.8125, -80.8125, -144.8125, -123.6875, 87.1875, 103.1875, 278.8125, 134.8125, 15.1875, 111.1875, 24.8125, 103.1875, -278.8125, 134.8125, -25.1875, 111.1875, 15.1875, 48.8125, 24.8125, 62.8125, 278.8125, 68.1875, 272.8125, 68.1875, 87.1875, 62.8125, -278.8125, 68.1875, -272.8125, 68.1875, -25.1875, 48.8125, -272.8125, -63.1875, -271.1875, -80.8125, -278.8125, -128.8125, -271.1875, -123.6875, -278.8125, -63.1875)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(7, 6, 9, 10), PackedInt32Array(8, 7, 11, 12), PackedInt32Array(13, 6, 5, 14), PackedInt32Array(14, 5, 15, 2), PackedInt32Array(10, 9, 16, 17), PackedInt32Array(3, 18, 10, 17, 19, 20), PackedInt32Array(21, 0, 4, 22), PackedInt32Array(23, 21, 22, 20, 19), PackedInt32Array(3, 2, 15, 11), PackedInt32Array(15, 12, 11), PackedInt32Array(18, 3, 11)])
+vertices = PackedVector2Array(-140, -124, 274, -124, 274, -68, 268, -68, -140, -76, 268, 73, 274, 73, 274, 130, -274, 130, -274, 73, -268, 73, -268, -68, -274, -76, -274, -68)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(8, 9, 10), PackedInt32Array(3, 5, 8, 10, 4), PackedInt32Array(4, 10, 11), PackedInt32Array(12, 4, 11, 13)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-294, -144, 294, -144, 294, -48, 288, -48, 288, 53, 294, 53, 294, 150, -294, 150, -294, 53, -288, 53, -288, -48, -294, -48)])
-agent_radius = 15.19
+agent_radius = 20.0
 
 [node name="RoomRome02" type="Node2D" node_paths=PackedStringArray("navigation_region_2D", "enemies_root")]
 y_sort_enabled = true
@@ -70,12 +68,6 @@ position = Vector2(80, 0)
 
 [node name="FrankyMouse" parent="NavigationRegion2D" instance=ExtResource("7_ffdht")]
 position = Vector2(-120, 64)
-
-[node name="BreakableWallSide" parent="NavigationRegion2D" instance=ExtResource("9_yqar7")]
-position = Vector2(-16, 80)
-
-[node name="BreakableWallSide2" parent="NavigationRegion2D" instance=ExtResource("10_idv1l")]
-position = Vector2(56, 72)
 
 [node name="DoorLeft" parent="." instance=ExtResource("2_mtb6u")]
 position = Vector2(-304, 2)

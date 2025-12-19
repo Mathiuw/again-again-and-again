@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bfdratej2y5ih"]
 
-[ext_resource type="Script" uid="uid://dith4apklv734" path="res://script/lynx_Attack_Ranged.gd" id="1_ebbld"]
+[ext_resource type="Script" uid="uid://dith4apklv734" path="res://script/lynx_attack_ranged.gd" id="1_ebbld"]
 [ext_resource type="PackedScene" uid="uid://ddf0w0oabsmhf" path="res://scene/weapon_area_component.tscn" id="3_xh40o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebbld"]
