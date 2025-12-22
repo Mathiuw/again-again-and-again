@@ -82,7 +82,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cutscene/lynx_placeholder_anim:position")
+tracks/0/path = NodePath("CutsceneRoot/lynx_placeholder_anim:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -94,7 +94,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Cutscene/Totem/ColorRect2:visible")
+tracks/1/path = NodePath("CutsceneRoot/Totem/ColorRect2:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -106,7 +106,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Cutscene/Totem:size")
+tracks/2/path = NodePath("CutsceneRoot/Totem:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -118,7 +118,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Cutscene/Totem:position")
+tracks/3/path = NodePath("CutsceneRoot/Totem:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -134,7 +134,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cutscene/lynx_placeholder_anim:position")
+tracks/0/path = NodePath("CutsceneRoot/lynx_placeholder_anim:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -146,7 +146,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Cutscene/Totem/ColorRect2:visible")
+tracks/1/path = NodePath("CutsceneRoot/Totem/ColorRect2:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -158,7 +158,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Cutscene/Totem:size")
+tracks/2/path = NodePath("CutsceneRoot/Totem:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -170,7 +170,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Cutscene/Totem:position")
+tracks/3/path = NodePath("CutsceneRoot/Totem:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -188,6 +188,7 @@ _data = {
 
 [node name="RoomRomeBoss" type="Node2D"]
 y_sort_enabled = true
+position = Vector2(107, -38)
 script = ExtResource("1_ib0vb")
 music_override = ExtResource("2_prs6n")
 
@@ -307,26 +308,22 @@ shape = SubResource("RectangleShape2D_dnlai")
 position = Vector2(145, 142)
 shape = SubResource("RectangleShape2D_dnlai")
 
-[node name="Cutscene" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_dnlai")
-}
-script = ExtResource("7_dnlai")
+[node name="CutsceneRoot" type="Node2D" parent="."]
 
-[node name="lynx_placeholder_anim" type="ColorRect" parent="Cutscene"]
+[node name="lynx_placeholder_anim" type="ColorRect" parent="CutsceneRoot"]
 offset_left = -20.0
 offset_top = -284.0
 offset_right = 20.0
 offset_bottom = -244.0
 
-[node name="ColorRect2" type="ColorRect" parent="Cutscene/lynx_placeholder_anim"]
+[node name="ColorRect2" type="ColorRect" parent="CutsceneRoot/lynx_placeholder_anim"]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 27.0
 offset_right = 34.0
 offset_bottom = 65.0
 
-[node name="ColorRect3" type="ColorRect" parent="Cutscene/lynx_placeholder_anim/ColorRect2"]
+[node name="ColorRect3" type="ColorRect" parent="CutsceneRoot/lynx_placeholder_anim/ColorRect2"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 3.0
@@ -334,7 +331,7 @@ offset_right = 11.0
 offset_bottom = 12.0
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect4" type="ColorRect" parent="Cutscene/lynx_placeholder_anim/ColorRect2"]
+[node name="ColorRect4" type="ColorRect" parent="CutsceneRoot/lynx_placeholder_anim/ColorRect2"]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 3.0
@@ -342,13 +339,13 @@ offset_right = 24.0
 offset_bottom = 12.0
 color = Color(0, 0, 0, 1)
 
-[node name="Totem" type="ColorRect" parent="Cutscene"]
+[node name="Totem" type="ColorRect" parent="CutsceneRoot"]
 offset_left = -6.0
 offset_top = -93.0
 offset_right = 8.0
 offset_bottom = -71.0
 
-[node name="ColorRect2" type="ColorRect" parent="Cutscene/Totem"]
+[node name="ColorRect2" type="ColorRect" parent="CutsceneRoot/Totem"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = -3.0
@@ -356,8 +353,16 @@ offset_right = 11.0
 offset_bottom = 5.0
 color = Color(1, 0.85, 0, 1)
 
+[node name="CutscenePlayer" type="AnimationPlayer" parent="CutsceneRoot"]
+root_node = NodePath("../..")
+root_motion_local = true
+libraries = {
+&"": SubResource("AnimationLibrary_dnlai")
+}
+script = ExtResource("7_dnlai")
+
 [connection signal="body_entered" from="TriggerBossArea" to="TriggerBossArea" method="_on_body_entered"]
-[connection signal="body_entered" from="TriggerBossArea" to="Cutscene" method="_on_trigger_boss_area_body_entered"]
+[connection signal="body_entered" from="TriggerBossArea" to="CutsceneRoot/CutscenePlayer" method="_on_trigger_boss_area_body_entered"]
 
 [editable path="LynxBossBase"]
 [editable path="LynxBossBase/LynxAttackRanged"]

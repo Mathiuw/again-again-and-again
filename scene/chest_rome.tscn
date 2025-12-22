@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnb6xxaiufcqp"]
+[gd_scene load_steps=11 format=3 uid="uid://dnb6xxaiufcqp"]
 
 [ext_resource type="Texture2D" uid="uid://deb6eroafqfs5" path="res://sprite/chest/Bau_roma.png" id="1_8d0cf"]
 [ext_resource type="Script" uid="uid://ceanf8yvbsrvw" path="res://script/chest.gd" id="1_81ki8"]
 [ext_resource type="PackedScene" uid="uid://d0u65yfvvu70i" path="res://scene/item_pickup_animation.tscn" id="2_asika"]
-[ext_resource type="Resource" uid="uid://bls5gxc01pinj" path="res://resource/items/item_timer.tres" id="3_0wrp2"]
+[ext_resource type="Script" uid="uid://3clp6wyrorbg" path="res://script/custom_resource/item_timer.gd" id="3_0wrp2"]
 [ext_resource type="PackedScene" uid="uid://y34phjayr0ow" path="res://scene/interactable_component.tscn" id="3_yrheh"]
+
+[sub_resource type="Resource" id="Resource_h1mxe"]
+script = ExtResource("3_0wrp2")
+metadata/_custom_type_script = "uid://3clp6wyrorbg"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yrheh"]
 atlas = ExtResource("1_8d0cf")
@@ -40,7 +44,7 @@ size = Vector2(16, 12.5)
 collision_mask = 0
 script = ExtResource("1_81ki8")
 item_pickup_animation = ExtResource("2_asika")
-item = ExtResource("3_0wrp2")
+stored_item = SubResource("Resource_h1mxe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_asika")
