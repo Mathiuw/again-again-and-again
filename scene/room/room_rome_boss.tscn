@@ -188,7 +188,6 @@ _data = {
 
 [node name="RoomRomeBoss" type="Node2D"]
 y_sort_enabled = true
-position = Vector2(107, -38)
 script = ExtResource("1_ib0vb")
 music_override = ExtResource("2_prs6n")
 

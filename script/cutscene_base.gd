@@ -6,7 +6,6 @@ class_name  CutsceneBase
 func _on_trigger_boss_area_body_entered(_body: Node2D) -> void:
 	%TriggerBossArea.queue_free()
 	
-	
 	print("Cutscene trigged")
 	
 	#var new_cutscene_border: CutsceneBorder = cutscene_border_scene.instantiate()

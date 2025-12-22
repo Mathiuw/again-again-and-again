@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_pbdvx")
-item_name = "Chronometer"
+item_name = "Pocket Watch"
+sprite_frame_index = 7
 metadata/_custom_type_script = "uid://3clp6wyrorbg"

@@ -1,6 +1,6 @@
 extends Control
 
-var _loop_timer: Timer
+var _loop_timer: LoopTimer
 
 const DAMAGE_PARTICLE_SCENE: PackedScene = preload("uid://d4djleirskoec")
 
@@ -13,7 +13,7 @@ const DAMAGE_PARTICLE_SCENE: PackedScene = preload("uid://d4djleirskoec")
 func _ready() -> void:
 	_loop_timer = get_tree().get_first_node_in_group("loop_timer")
 	if  _loop_timer:
-		progress_bar.max_value = _loop_timer.wait_time
+		progress_bar.max_value = _loop_timer.max_wait_time
 		progress_bar.value = _loop_timer.wait_time
 		
 		damage_bar.max_value = _loop_timer.wait_time

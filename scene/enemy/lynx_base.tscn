@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b38hnv5xd6mhe"]
+[gd_scene load_steps=15 format=3 uid="uid://b38hnv5xd6mhe"]
 
 [ext_resource type="Script" uid="uid://c71u4ufcgcukt" path="res://script/ai_lynx.gd" id="1_ibtex"]
 [ext_resource type="PackedScene" uid="uid://bfdratej2y5ih" path="res://scene/enemy/lynx_attack_ranged.tscn" id="2_3nww7"]
@@ -36,6 +36,13 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix17u"]
 resource_local_to_scene = true
 size = Vector2(68, 320)
+
+[sub_resource type="Curve2D" id="Curve2D_5jlft"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
+}
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_bs4or"]
 resource_local_to_scene = true
@@ -110,14 +117,17 @@ curve = SubResource("Curve2D_ix17u")
 position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_ix17u")
 
-[node name="EnemyPath2D5" parent="LynxAttackRush" index="4"]
+[node name="EnemyPath2D4" parent="LynxAttackRush" index="4"]
+curve = SubResource("Curve2D_5jlft")
+
+[node name="EnemyPath2D5" parent="LynxAttackRush" index="5"]
 curve = SubResource("Curve2D_bs4or")
 
 [node name="CollisionShape2D" parent="LynxAttackRush/EnemyPath2D5/Area2D" index="0"]
 position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_ibtex")
 
-[node name="EnemyPath2D6" parent="LynxAttackRush" index="5"]
+[node name="EnemyPath2D6" parent="LynxAttackRush" index="6"]
 curve = SubResource("Curve2D_cqeky")
 
 [node name="CollisionShape2D" parent="LynxAttackRush/EnemyPath2D6/Area2D" index="0"]

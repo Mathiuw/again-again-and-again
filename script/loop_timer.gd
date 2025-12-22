@@ -40,7 +40,7 @@ func save()-> Dictionary :
 
 func addTime(time: float) -> void:
 	var new_time_left: float = time_left + time
-	clampf(new_time_left, 0, max_wait_time)
+	new_time_left = clampf(new_time_left, 0, max_wait_time)
 	start(new_time_left)
 
 
