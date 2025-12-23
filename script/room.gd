@@ -16,9 +16,9 @@ func _ready() -> void:
 	
 	RoomManager.on_room_change.connect(func(room: Room, _smooth_transition: bool):
 		if room != self:
-			set_room_state(false)
+			set_room_state.call_deferred(false)
 		else:
-			set_room_state(true)
+			set_room_state.call_deferred(true)
 			if music_override:
 				AudioManager.current_music = music_override
 			
@@ -78,8 +78,9 @@ func get_enemy_count(open_effects: bool = true) -> int:
 	return count
 
 func set_room_state(state: bool) -> void:
+	
 	for node: Node in get_children():
 		if  state:
 			node.process_mode = Node.PROCESS_MODE_INHERIT 
 		else:
-			node.process_mode = Node.PROCESS_MODE_WHEN_PAUSED 
+			node.process_mode = Node.PROCESS_MODE_DISABLED
