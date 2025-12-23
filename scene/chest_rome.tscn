@@ -6,29 +6,29 @@
 [ext_resource type="Resource" uid="uid://bls5gxc01pinj" path="res://resource/items/item_timer.tres" id="3_0wrp2"]
 [ext_resource type="PackedScene" uid="uid://y34phjayr0ow" path="res://scene/interactable_component.tscn" id="3_yrheh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yrheh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wrp2"]
 atlas = ExtResource("1_8d0cf")
-region = Rect2(0, 0, 16, 32)
+region = Rect2(0, 13, 16, 19)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_asika"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1mxe"]
 atlas = ExtResource("1_8d0cf")
-region = Rect2(16, 0, 16, 32)
+region = Rect2(16, 13, 16, 19)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_asika"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yrheh")
+"texture": SubResource("AtlasTexture_0wrp2")
 }],
-"loop": true,
+"loop": false,
 "name": &"closed",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_asika")
+"texture": SubResource("AtlasTexture_h1mxe")
 }],
-"loop": true,
+"loop": false,
 "name": &"open",
 "speed": 5.0
 }]
@@ -46,7 +46,7 @@ stored_item = ExtResource("3_0wrp2")
 sprite_frames = SubResource("SpriteFrames_asika")
 animation = &"closed"
 autoplay = "closed"
-offset = Vector2(0, -16)
+offset = Vector2(0, -9)
 
 [node name="InteractableComponent" parent="." instance=ExtResource("3_yrheh")]
 show_behind_parent = true

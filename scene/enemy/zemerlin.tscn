@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dliyelxwg7x8w"]
+[gd_scene load_steps=35 format=3 uid="uid://dliyelxwg7x8w"]
 
 [ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://shader/damage_flash.gdshader" id="1_2mmqe"]
 [ext_resource type="Script" uid="uid://bjfekveea263k" path="res://script/zemerlin.gd" id="1_f87vc"]
@@ -14,6 +14,22 @@ resource_local_to_scene = true
 shader = ExtResource("1_2mmqe")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gk6y"]
+atlas = ExtResource("2_8u16h")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bka5"]
+atlas = ExtResource("2_8u16h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qklf1"]
+atlas = ExtResource("2_8u16h")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc5mm"]
+atlas = ExtResource("2_8u16h")
+region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7koy"]
 atlas = ExtResource("2_8u16h")
@@ -79,12 +95,40 @@ region = Rect2(64, 96, 32, 32)
 atlas = ExtResource("2_8u16h")
 region = Rect2(96, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6bka5"]
-atlas = ExtResource("2_8u16h")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_gg45h"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gk6y")
+}],
+"loop": true,
+"name": &"idle_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bka5")
+}],
+"loop": true,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qklf1")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rc5mm")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b7koy")
@@ -99,7 +143,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_1e552")
 }],
 "loop": true,
-"name": &"Zehmerlin_back",
+"name": &"walk_back",
 "speed": 5.0
 }, {
 "frames": [{
@@ -116,7 +160,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_pw261")
 }],
 "loop": true,
-"name": &"Zehmerlin_front",
+"name": &"walk_front",
 "speed": 5.0
 }, {
 "frames": [{
@@ -133,7 +177,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_un1pk")
 }],
 "loop": true,
-"name": &"Zehmerlin_left",
+"name": &"walk_left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -150,15 +194,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_65i8h")
 }],
 "loop": true,
-"name": &"Zehmerlin_right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6bka5")
-}],
-"loop": true,
-"name": &"idle",
+"name": &"walk_right",
 "speed": 5.0
 }]
 
@@ -213,9 +249,16 @@ move_speed = 90.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_2mmqe")
 sprite_frames = SubResource("SpriteFrames_gg45h")
-animation = &"idle"
-autoplay = "idle"
+animation = &"idle_front"
+autoplay = "idle_front"
 offset = Vector2(0, -16)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 120.0
+path_max_distance = 300.0
+avoidance_enabled = true
+radius = 15.0
+debug_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
@@ -224,15 +267,8 @@ shape = SubResource("CircleShape2D_gpa5e")
 [node name="WeaponComponent" parent="." instance=ExtResource("3_b7koy")]
 position = Vector2(0, -9)
 bullet_scene = ExtResource("5_mb7b2")
-ignore_group = "enemy"
 sound_variant_index = 1
 shootCooldown = 1.0
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-target_desired_distance = 120.0
-path_max_distance = 300.0
-avoidance_enabled = true
-debug_enabled = true
 
 [node name="DrawPathTimer" type="Timer" parent="."]
 wait_time = 0.25
