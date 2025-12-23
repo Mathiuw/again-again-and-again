@@ -34,7 +34,7 @@ func _ready() -> void:
 	if get_enemy_count(false) == 0:
 		return
 	
-	for node in enemies_root.get_children():
+	for node in enemies_root.get_children(true):
 		if node.is_in_group("enemy"):
 			for child in node.get_children():
 				if child is Health && !child.dead:

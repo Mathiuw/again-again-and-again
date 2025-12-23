@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://b38hnv5xd6mhe"]
 
 [ext_resource type="Script" uid="uid://c71u4ufcgcukt" path="res://script/ai_lynx.gd" id="1_ibtex"]
-[ext_resource type="PackedScene" uid="uid://bfdratej2y5ih" path="res://scene/enemy/lynx_attack_ranged.tscn" id="2_3nww7"]
-[ext_resource type="PackedScene" uid="uid://dvbbrasaelqhr" path="res://scene/enemy/lynx_attack_rush.tscn" id="3_ibtex"]
+[ext_resource type="PackedScene" uid="uid://bfdratej2y5ih" path="res://scene/enemy/lynx/lynx_attack_ranged.tscn" id="2_3nww7"]
+[ext_resource type="PackedScene" uid="uid://dvbbrasaelqhr" path="res://scene/enemy/lynx/lynx_attack_rush.tscn" id="3_ibtex"]
 
 [sub_resource type="Curve2D" id="Curve2D_ibtex"]
 resource_local_to_scene = true

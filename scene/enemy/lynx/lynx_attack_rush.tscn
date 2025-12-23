@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dvbbrasaelqhr"]
 
 [ext_resource type="Script" uid="uid://bjfrw8hjbtggj" path="res://script/lynx_attack_rush.gd" id="1_awnag"]
-[ext_resource type="PackedScene" uid="uid://bft146fxu4jge" path="res://scene/enemy/lynx_rush_body.tscn" id="2_j4dvw"]
+[ext_resource type="PackedScene" uid="uid://bft146fxu4jge" path="res://scene/enemy/lynx/lynx_rush_body.tscn" id="2_j4dvw"]
 [ext_resource type="PackedScene" uid="uid://ewjoxk7u5kn0" path="res://scene/enemy_path_2d.tscn" id="3_j4dvw"]
 
 [sub_resource type="Curve2D" id="Curve2D_j4dvw"]
