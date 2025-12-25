@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="4_pwopn"]
 [ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://scene/door_front.tscn" id="6_cs3m3"]
 [ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://scene/enemy/medusa.tscn" id="6_nt821"]
-[ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="7_ikdgm"]
+[ext_resource type="PackedScene" uid="uid://dcg3gmie44c8h" path="res://scene/door_down.tscn" id="8_gt6nl"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://scene/chest_rome.tscn" id="8_k7ck5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_tyrj2"]
@@ -89,8 +89,7 @@ position = Vector2(282, 50)
 position = Vector2(266, 33)
 
 [node name="DoorFront" parent="." instance=ExtResource("6_cs3m3")]
-position = Vector2(192, -176)
+position = Vector2(192, -144)
 
-[node name="DoorHorizontal" parent="." instance=ExtResource("7_ikdgm")]
+[node name="DoorDown" parent="." instance=ExtResource("8_gt6nl")]
 position = Vector2(240, 160)
-rotation = -1.5707964
