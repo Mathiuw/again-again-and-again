@@ -5,7 +5,7 @@ extends Area2D
 @export var always_open: bool = false
 @export var secret_door: bool = false
 @onready var desired_position: Marker2D = $DesiredPosition
-@onready var door_static_body: StaticBody2D = $DoorStaticBody
+@onready var door_layer: TileMapLayer = $DoorLayer
 @onready var open_particle: GPUParticles2D = $OpenParticle
 
 func  _ready() -> void:
@@ -20,13 +20,13 @@ func _on_body_entered(body: Node2D) -> void:
 
 func set_door_open_state(state: bool) -> void:
 	if state:
-		door_static_body.hide()
-		door_static_body.process_mode = Node.PROCESS_MODE_DISABLED
+		door_layer.hide()
+		door_layer.collision_enabled = false
 		if !secret_door:
 			open_particle.emitting = true
 	else:
 		if always_open:
 			return
-		door_static_body.show()
-		door_static_body.process_mode = Node.PROCESS_MODE_INHERIT
+		door_layer.show()
+		door_layer.collision_enabled = true
 		open_particle.emitting = false

@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjf1mdp07gqci"]
+[gd_scene load_steps=10 format=3 uid="uid://c1rdx6jk7oibd"]
 
-[ext_resource type="Script" uid="uid://bx0bv6spxg62p" path="res://script/door.gd" id="1_6iv73"]
-[ext_resource type="Texture2D" uid="uid://cmdvti2y6w1q3" path="res://sprite/projectile/door_particle_sphere.png" id="2_1s0nm"]
-[ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_7nlmn"]
+[ext_resource type="Script" uid="uid://bx0bv6spxg62p" path="res://script/door.gd" id="1_uigt1"]
+[ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_pyfrd"]
+[ext_resource type="Texture2D" uid="uid://cmdvti2y6w1q3" path="res://sprite/projectile/door_particle_sphere.png" id="3_blhnk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x71b1"]
-size = Vector2(3, 41)
+size = Vector2(3, 63)
 
 [sub_resource type="Gradient" id="Gradient_i7qj5"]
 offsets = PackedFloat32Array(0.5322034)
@@ -41,29 +41,22 @@ color_ramp = SubResource("GradientTexture1D_psa10")
 [node name="DoorLeft" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_6iv73")
+script = ExtResource("1_uigt1")
 metadata/_edit_group_ = true
 
-[node name="MapLayer" type="TileMapLayer" parent="."]
-z_index = -1
-tile_map_data = PackedByteArray(0, 0, 0, 0, 253, 255, 0, 0, 3, 0, 4, 0, 0, 0, 0, 0, 254, 255, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 255, 255, 0, 0, 3, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0)
-tile_set = ExtResource("2_7nlmn")
-navigation_enabled = false
-
 [node name="DoorLayer" type="TileMapLayer" parent="."]
-z_index = -1
-tile_map_data = PackedByteArray(0, 0, 0, 0, 253, 255, 3, 0, 4, 0, 15, 0, 0, 0, 0, 0, 254, 255, 3, 0, 4, 0, 16, 0, 0, 0, 0, 0, 255, 255, 3, 0, 4, 0, 17, 0, 0, 0, 0, 0, 0, 0, 3, 0, 4, 0, 18, 0, 0, 0)
-tile_set = ExtResource("2_7nlmn")
+tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 0, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 0, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 0, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 0, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 0)
+tile_set = ExtResource("2_pyfrd")
 navigation_enabled = false
 
 [node name="AreaCollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, -17.5)
+position = Vector2(1.5, 6.5)
 shape = SubResource("RectangleShape2D_x71b1")
 
 [node name="OpenParticle" type="GPUParticles2D" parent="."]
-position = Vector2(5, 0)
+position = Vector2(1, 7)
 emitting = false
-texture = ExtResource("2_1s0nm")
+texture = ExtResource("3_blhnk")
 process_material = SubResource("ParticleProcessMaterial_xt1h0")
 
 [node name="DesiredPosition" type="Marker2D" parent="."]

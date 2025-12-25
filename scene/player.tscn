@@ -29,6 +29,7 @@ gravity = Vector3(0, 0, 0)
 alpha_curve = SubResource("CurveTexture_g2vtq")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2vtq"]
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oh5ij"]
 radius = 12.0

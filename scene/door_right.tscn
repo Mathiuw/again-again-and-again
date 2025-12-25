@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds7eji5rc71gs"]
+
+[ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://scene/door_left.tscn" id="1_xohls"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xohls"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[node name="DoorRight" instance=ExtResource("1_xohls")]
+
+[node name="DoorLayer" parent="." index="0"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16)
+
+[node name="AreaCollisionShape2D" parent="." index="1"]
+position = Vector2(14.5, 6.5)
+shape = SubResource("RectangleShape2D_xohls")
+
+[node name="OpenParticle" parent="." index="2"]
+position = Vector2(15, 7)
+rotation = 3.1415927

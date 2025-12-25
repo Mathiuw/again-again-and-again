@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dquef6xj016ys"]
+[gd_scene load_steps=43 format=3 uid="uid://dquef6xj016ys"]
 
 [ext_resource type="Script" uid="uid://dnte553c7qdnr" path="res://script/loop_timer.gd" id="1_bmc2w"]
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="1_itxqv"]
@@ -44,6 +44,41 @@ func _ready() -> void:
 	PauseManager.can_pause_input = true
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ty4q"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="Gradient" id="Gradient_i7qj5"]
+offsets = PackedFloat32Array(0.5322034)
+colors = PackedColorArray(0.11764706, 0.05490196, 0.05490196, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_psa10"]
+gradient = SubResource("Gradient_i7qj5")
+
+[sub_resource type="Curve" id="Curve_psa10"]
+_data = [Vector2(0, 0.696629), 0.0, 0.0, 0, 0, Vector2(1, 0.348315), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2tyue"]
+curve = SubResource("Curve_psa10")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xt1h0"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 20, 1)
+angle_min = -385.7
+angle_max = 352.5
+spread = 0.0
+flatness = 1.0
+initial_velocity_min = 5.0
+initial_velocity_max = 23.65
+angular_velocity_min = -91.35
+angular_velocity_max = 96.71
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_2tyue")
+color_ramp = SubResource("GradientTexture1D_psa10")
+
 [node name="Main" type="Node" groups=["world"]]
 script = SubResource("GDScript_0ha60")
 
@@ -61,18 +96,33 @@ y_sort_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="Map" instance=ExtResource("1_itxqv")]
-position = Vector2(-64, 104)
+position = Vector2(72, 8)
 
 [node name="RoomStart" parent="Map" instance=ExtResource("6_p1hux")]
 
-[node name="DoorRight" parent="Map/RoomStart" index="2" node_paths=PackedStringArray("desired_room")]
+[node name="DoorRight" parent="Map/RoomStart" index="3" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome01")
 
+[node name="DoorLayer" parent="Map/RoomStart/DoorRight" index="0"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
+
+[node name="AreaCollisionShape2D" parent="Map/RoomStart/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_7ty4q")
+
+[node name="OpenParticle" parent="Map/RoomStart/DoorRight" index="2"]
+process_material = SubResource("ParticleProcessMaterial_xt1h0")
+
 [node name="DesiredPosition" parent="Map/RoomStart/DoorRight" index="3"]
-position = Vector2(-62, 2.99984)
+position = Vector2(72, 24)
 
 [node name="RoomRome01" parent="Map" instance=ExtResource("5_p1hux")]
 position = Vector2(640, 0)
+
+[node name="DoorLeft" parent="Map/RoomRome01" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomStart")
+
+[node name="DesiredPosition" parent="Map/RoomRome01/DoorLeft" index="3"]
+position = Vector2(-56, 24)
 
 [node name="RoomRome02" parent="Map" instance=ExtResource("4_4j5ol")]
 position = Vector2(1280, 0)
@@ -162,7 +212,6 @@ position = Vector2(2560, 0)
 position = Vector2(2560, -384)
 
 [node name="PlayerCamera" type="Camera2D" parent="." groups=["camera"]]
-zoom = Vector2(0.2, 0.2)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("3_wp4xf")
@@ -172,3 +221,4 @@ script = ExtResource("3_wp4xf")
 [editable path="Map/RoomStart"]
 [editable path="Map/RoomStart/DoorRight"]
 [editable path="Map/RoomRome01"]
+[editable path="Map/RoomRome01/DoorLeft"]
