@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c6m28at08ltqy"]
+[gd_scene load_steps=11 format=4 uid="uid://c6m28at08ltqy"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_pbxg8"]
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_66bwh"]
@@ -7,6 +7,7 @@
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="3_yqar7"]
 [ext_resource type="PackedScene" uid="uid://c5pxaov6df4yw" path="res://scene/enemy/tuga.tscn" id="6_ffdht"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://scene/chest_rome.tscn" id="8_pbxg8"]
+[ext_resource type="PackedScene" uid="uid://b1uw6v7edbscl" path="res://scene/enemy/bunnyale.tscn" id="9_pbxg8"]
 [ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://scene/enemy/zemerlin.tscn" id="9_yqar7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ffdht"]
@@ -71,3 +72,6 @@ position = Vector2(-304, 2)
 [node name="DoorRight" parent="." instance=ExtResource("2_mtb6u")]
 position = Vector2(304, 2)
 rotation = 3.14159
+
+[node name="Bunnyale" parent="." instance=ExtResource("9_pbxg8")]
+position = Vector2(-16, 64)

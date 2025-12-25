@@ -13,5 +13,5 @@ fill_from = Vector2(0.5, 0.2)
 metadata/_snap_enabled = true
 
 [node name="TorchPointLight2D" type="PointLight2D"]
-energy = 1.25
+energy = 2.5
 texture = SubResource("GradientTexture2D_h67ar")
