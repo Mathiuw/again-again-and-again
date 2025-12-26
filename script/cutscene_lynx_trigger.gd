@@ -1,10 +1,14 @@
 extends AnimationPlayer
-class_name  CutsceneBase
 
 #var cutscene_border_scene: PackedScene = preload("uid://ce5ld2u2q4it5")
 
+func _ready() -> void:
+	%LynxBossBase.process_mode = Node.PROCESS_MODE_DISABLED
+
+
 func _on_trigger_boss_area_body_entered(_body: Node2D) -> void:
 	%TriggerBossArea.queue_free()
+	%LynxBossBase.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	print("Cutscene trigged")
 	
@@ -13,5 +17,8 @@ func _on_trigger_boss_area_body_entered(_body: Node2D) -> void:
 	#new_cutscene_border.show_border()
 	
 	#PauseManager.can_pause_input = false
-	
 	play("boss_intro")
+
+
+func _on_animation_finished(_anim_name: StringName) -> void:
+	%LynxBossBase.process_mode = Node.PROCESS_MODE_INHERIT

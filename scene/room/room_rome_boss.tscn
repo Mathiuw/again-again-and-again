@@ -1,78 +1,12 @@
-[gd_scene load_steps=24 format=4 uid="uid://byk72d1ahusm0"]
+[gd_scene load_steps=12 format=4 uid="uid://byk72d1ahusm0"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_ib0vb"]
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_prs6n"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="3_dnlai"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="4_j7m8x"]
-[ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="5_hlkct"]
 [ext_resource type="PackedScene" uid="uid://b38hnv5xd6mhe" path="res://scene/enemy/lynx/lynx_base.tscn" id="5_prs6n"]
-[ext_resource type="Script" uid="uid://cx4wfruxwn6ja" path="res://script/cutscene_base.gd" id="7_dnlai"]
-
-[sub_resource type="Curve2D" id="Curve2D_dnlai"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
-}
-point_count = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7m8x"]
-resource_local_to_scene = true
-size = Vector2(94, 304)
-
-[sub_resource type="Curve2D" id="Curve2D_hlkct"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
-}
-point_count = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynr0e"]
-resource_local_to_scene = true
-size = Vector2(96, 320)
-
-[sub_resource type="Curve2D" id="Curve2D_4cdtk"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
-}
-point_count = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg1kh"]
-resource_local_to_scene = true
-size = Vector2(92, 320)
-
-[sub_resource type="Curve2D" id="Curve2D_5jlft"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
-}
-point_count = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlkct"]
-resource_local_to_scene = true
-size = Vector2(68, 581)
-
-[sub_resource type="Curve2D" id="Curve2D_ex3s3"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1.5258789e-05, -448, 0, 0, 0, 0, -2.2888184e-05, 448)
-}
-point_count = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1j8fq"]
-resource_local_to_scene = true
-size = Vector2(68, 576)
-
-[sub_resource type="Curve2D" id="Curve2D_21php"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2.2888184e-05, -448, 0, 0, 0, 0, -1.5258789e-05, 448)
-}
-point_count = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nad2m"]
-resource_local_to_scene = true
-size = Vector2(68, 584)
+[ext_resource type="Script" uid="uid://cx4wfruxwn6ja" path="res://script/cutscene_lynx_trigger.gd" id="7_dnlai"]
+[ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://scene/door_right.tscn" id="7_j7m8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dnlai"]
 size = Vector2(106, 20)
@@ -216,76 +150,7 @@ position = Vector2(-256, -156)
 position = Vector2(-48, -156)
 
 [node name="LynxBossBase" parent="." instance=ExtResource("5_prs6n")]
-
-[node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRanged/WeaponAreaComponent" index="0"]
-position = Vector2(280, -2.5)
-
-[node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRanged/WeaponAreaComponent2" index="0"]
-position = Vector2(284.5, 2.5)
-
-[node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRanged/WeaponAreaComponent3" index="0"]
-position = Vector2(286, 2)
-
-[node name="EnemyPath2D" parent="LynxBossBase/LynxAttackRush" index="1"]
-curve = SubResource("Curve2D_dnlai")
-
-[node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRush/EnemyPath2D/Area2D" index="0"]
-shape = SubResource("RectangleShape2D_j7m8x")
-
-[node name="EnemyPath2D2" parent="LynxBossBase/LynxAttackRush" index="2"]
-position = Vector2(145, 0)
-curve = SubResource("Curve2D_hlkct")
-
-[node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRush/EnemyPath2D2/Area2D" index="0"]
-shape = SubResource("RectangleShape2D_ynr0e")
-
-[node name="EnemyPath2D3" parent="LynxBossBase/LynxAttackRush" index="3"]
-position = Vector2(-144, 2)
-curve = SubResource("Curve2D_4cdtk")
-
-[node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRush/EnemyPath2D3/Area2D" index="0"]
-shape = SubResource("RectangleShape2D_bg1kh")
-
-[node name="EnemyPath2D4" parent="LynxBossBase/LynxAttackRush" index="4"]
-curve = SubResource("Curve2D_5jlft")
-
-[node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRush/EnemyPath2D4/Area2D" index="0"]
-position = Vector2(1.4210855e-14, -1.5)
-shape = SubResource("RectangleShape2D_hlkct")
-
-[node name="EnemyPath2D5" parent="LynxBossBase/LynxAttackRush" index="5"]
-curve = SubResource("Curve2D_ex3s3")
-
-[node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRush/EnemyPath2D5/Area2D" index="0"]
-shape = SubResource("RectangleShape2D_1j8fq")
-
-[node name="EnemyPath2D6" parent="LynxBossBase/LynxAttackRush" index="6"]
-curve = SubResource("Curve2D_21php")
-
-[node name="CollisionShape2D" parent="LynxBossBase/LynxAttackRush/EnemyPath2D6/Area2D" index="0"]
-shape = SubResource("RectangleShape2D_nad2m")
-
-[node name="SideHole2" parent="LynxBossBase" index="6"]
-offset_right = -263.94095
-
-[node name="SideHole3" parent="LynxBossBase" index="7"]
-offset_top = -90.09981
-offset_right = -265.0998
-offset_bottom = -65.09981
-
-[node name="SideHole4" parent="LynxBossBase" index="8"]
-offset_left = 294.0
-offset_right = 344.01257
-
-[node name="SideHole5" parent="LynxBossBase" index="9"]
-offset_left = 294.0
-offset_top = -90.287964
-offset_right = 347.71204
-offset_bottom = -65.287964
-
-[node name="DoorRight" parent="." instance=ExtResource("5_hlkct")]
-position = Vector2(304, 0)
-rotation = -3.1415927
+unique_name_in_owner = true
 
 [node name="TriggerBossArea" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -360,16 +225,9 @@ libraries = {
 }
 script = ExtResource("7_dnlai")
 
+[node name="DoorRight" parent="." instance=ExtResource("7_j7m8x")]
+position = Vector2(288, -16)
+
 [connection signal="body_entered" from="TriggerBossArea" to="TriggerBossArea" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerBossArea" to="CutsceneRoot/CutscenePlayer" method="_on_trigger_boss_area_body_entered"]
-
-[editable path="LynxBossBase"]
-[editable path="LynxBossBase/LynxAttackRanged"]
-[editable path="LynxBossBase/LynxAttackRanged/WeaponAreaComponent"]
-[editable path="LynxBossBase/LynxAttackRush"]
-[editable path="LynxBossBase/LynxAttackRush/EnemyPath2D"]
-[editable path="LynxBossBase/LynxAttackRush/EnemyPath2D2"]
-[editable path="LynxBossBase/LynxAttackRush/EnemyPath2D3"]
-[editable path="LynxBossBase/LynxAttackRush/EnemyPath2D4"]
-[editable path="LynxBossBase/LynxAttackRush/EnemyPath2D5"]
-[editable path="LynxBossBase/LynxAttackRush/EnemyPath2D6"]
+[connection signal="animation_finished" from="CutsceneRoot/CutscenePlayer" to="CutsceneRoot/CutscenePlayer" method="_on_animation_finished"]

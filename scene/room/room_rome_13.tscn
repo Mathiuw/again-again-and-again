@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_blsqj"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_mu11k"]
 [ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://scene/door_front.tscn" id="3_blsqj"]
-[ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="3_j7bwa"]
+[ext_resource type="PackedScene" uid="uid://dcg3gmie44c8h" path="res://scene/door_down.tscn" id="4_blsqj"]
 
 [node name="RoomRome05" type="Node2D"]
 y_sort_enabled = true
@@ -17,8 +17,7 @@ tile_set = ExtResource("2_mu11k")
 metadata/_edit_lock_ = true
 
 [node name="DoorFront" parent="." instance=ExtResource("3_blsqj")]
-position = Vector2(224, -176)
+position = Vector2(224, -144)
 
-[node name="DoorDown" parent="." instance=ExtResource("3_j7bwa")]
+[node name="DoorDown" parent="." instance=ExtResource("4_blsqj")]
 position = Vector2(224, 176)
-rotation = 4.712389

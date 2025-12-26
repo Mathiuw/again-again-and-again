@@ -1,138 +1,174 @@
-[gd_scene load_steps=15 format=3 uid="uid://b38hnv5xd6mhe"]
+[gd_scene load_steps=14 format=3 uid="uid://b38hnv5xd6mhe"]
 
 [ext_resource type="Script" uid="uid://c71u4ufcgcukt" path="res://script/ai_lynx.gd" id="1_ibtex"]
 [ext_resource type="PackedScene" uid="uid://bfdratej2y5ih" path="res://scene/enemy/lynx/lynx_attack_ranged.tscn" id="2_3nww7"]
+[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="2_myteo"]
 [ext_resource type="PackedScene" uid="uid://dvbbrasaelqhr" path="res://scene/enemy/lynx/lynx_attack_rush.tscn" id="3_ibtex"]
+[ext_resource type="PackedScene" uid="uid://d0tk4b077n5w7" path="res://scene/target_area_2d.tscn" id="4_57vn4"]
 
-[sub_resource type="Curve2D" id="Curve2D_ibtex"]
+[sub_resource type="Curve2D" id="Curve2D_vl2gg"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep8ee"]
-resource_local_to_scene = true
-size = Vector2(68, 304)
-
-[sub_resource type="Curve2D" id="Curve2D_ep8ee"]
+[sub_resource type="Curve2D" id="Curve2D_57vn4"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bs4or"]
-resource_local_to_scene = true
-size = Vector2(68, 320)
-
-[sub_resource type="Curve2D" id="Curve2D_ix17u"]
+[sub_resource type="Curve2D" id="Curve2D_myteo"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix17u"]
-resource_local_to_scene = true
-size = Vector2(68, 320)
-
-[sub_resource type="Curve2D" id="Curve2D_5jlft"]
+[sub_resource type="Curve2D" id="Curve2D_v553q"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
+"points": PackedVector2Array(0, 0, 0, 0, -313.49448, 0, 0, 0, 0, 0, 415.12088, 0)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_bs4or"]
+[sub_resource type="Curve2D" id="Curve2D_df8rs"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1.5258789e-05, -448, 0, 0, 0, 0, -2.2888184e-05, 448)
+"points": PackedVector2Array(0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 416.71112, 0)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibtex"]
-resource_local_to_scene = true
-size = Vector2(68, 576)
-
-[sub_resource type="Curve2D" id="Curve2D_cqeky"]
+[sub_resource type="Curve2D" id="Curve2D_b8337"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2.2888184e-05, -448, 0, 0, 0, 0, -1.5258789e-05, 448)
+"points": PackedVector2Array(0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 416.71112, 0)
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_btkmj"]
-resource_local_to_scene = true
-size = Vector2(68, 584)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_myteo"]
+size = Vector2(80, 296)
 
-[node name="LynxBossBase" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df8rs"]
+size = Vector2(592, 64)
+
+[node name="Lynx" type="Node2D" node_paths=PackedStringArray("attacks") groups=["enemy"]]
 script = ExtResource("1_ibtex")
+attacks = [NodePath("LynxAttackRanged"), NodePath("LynxAttackRush")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_myteo")]
+max_hits = 40
 
 [node name="LynxAttackRanged" parent="." instance=ExtResource("2_3nww7")]
-process_mode = 4
-visible = false
+shoot_type = 3
 
-[node name="CollisionShape2D" parent="LynxAttackRanged/WeaponAreaComponent" index="0"]
-position = Vector2(280, 0.5)
+[node name="WeaponAreaComponent" parent="LynxAttackRanged" index="0" node_paths=PackedStringArray("target_area")]
+position = Vector2(-272, -112)
+target_area = NodePath("../../TargetArea2D4")
 
-[node name="CollisionShape2D" parent="LynxAttackRanged/WeaponAreaComponent2" index="0"]
-position = Vector2(284.5, 0)
+[node name="WeaponAreaComponent2" parent="LynxAttackRanged" index="1" node_paths=PackedStringArray("target_area")]
+position = Vector2(-272, 0)
+target_area = NodePath("../../TargetArea2D5")
 
-[node name="CollisionShape2D" parent="LynxAttackRanged/WeaponAreaComponent3" index="0"]
-position = Vector2(286, -1.5)
+[node name="WeaponAreaComponent3" parent="LynxAttackRanged" index="2" node_paths=PackedStringArray("target_area")]
+position = Vector2(-272, 120)
+target_area = NodePath("../../TargetArea2D6")
 
-[node name="CollisionShape2D" parent="LynxAttackRanged/WeaponAreaComponent4" index="0"]
-position = Vector2(135, 0)
+[node name="WeaponAreaComponent4" parent="LynxAttackRanged" index="3" node_paths=PackedStringArray("target_area")]
+position = Vector2(-144, -120)
+target_area = NodePath("../../TargetArea2D3")
 
-[node name="CollisionShape2D" parent="LynxAttackRanged/WeaponAreaComponent5" index="0"]
-position = Vector2(136, 3.1832315e-12)
+[node name="WeaponAreaComponent5" parent="LynxAttackRanged" index="4" node_paths=PackedStringArray("target_area")]
+position = Vector2(0, -120)
+target_area = NodePath("../../TargetArea2D")
 
-[node name="CollisionShape2D" parent="LynxAttackRanged/WeaponAreaComponent6" index="0"]
-position = Vector2(137, 3.5)
+[node name="WeaponAreaComponent6" parent="LynxAttackRanged" index="5" node_paths=PackedStringArray("target_area")]
+position = Vector2(152, -120)
+target_area = NodePath("../../TargetArea2D2")
 
 [node name="LynxAttackRush" parent="." instance=ExtResource("3_ibtex")]
 attack_type = 1
 move_speed = 1.2
-attack_cooldown = 4.0
 
-[node name="EnemyPath2D" parent="LynxAttackRush" index="1"]
-curve = SubResource("Curve2D_ibtex")
+[node name="EnemyPath2D" parent="LynxAttackRush" index="0" node_paths=PackedStringArray("target_area")]
+curve = SubResource("Curve2D_vl2gg")
+target_area = NodePath("../../TargetArea2D")
 
-[node name="CollisionShape2D" parent="LynxAttackRush/EnemyPath2D/Area2D" index="0"]
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_ep8ee")
+[node name="EnemyPath2D2" parent="LynxAttackRush" index="1" node_paths=PackedStringArray("target_area")]
+position = Vector2(152, 0)
+curve = SubResource("Curve2D_57vn4")
+target_area = NodePath("../../TargetArea2D2")
 
-[node name="EnemyPath2D2" parent="LynxAttackRush" index="2"]
-curve = SubResource("Curve2D_ep8ee")
+[node name="EnemyPath2D3" parent="LynxAttackRush" index="2" node_paths=PackedStringArray("target_area")]
+position = Vector2(-144, 0)
+curve = SubResource("Curve2D_myteo")
+target_area = NodePath("../../TargetArea2D3")
 
-[node name="CollisionShape2D" parent="LynxAttackRush/EnemyPath2D2/Area2D" index="0"]
-position = Vector2(0, 0)
-shape = SubResource("RectangleShape2D_bs4or")
+[node name="EnemyPath2D4" parent="LynxAttackRush" index="3" node_paths=PackedStringArray("target_area")]
+position = Vector2(-62.48651, -112)
+scale = Vector2(1.2297298, 1)
+curve = SubResource("Curve2D_v553q")
+target_area = NodePath("../../TargetArea2D4")
 
-[node name="EnemyPath2D3" parent="LynxAttackRush" index="3"]
-curve = SubResource("Curve2D_ix17u")
+[node name="EnemyPath2D5" parent="LynxAttackRush" index="4" node_paths=PackedStringArray("target_area")]
+position = Vector2(-58.81082, 0)
+scale = Vector2(1.2162162, 1)
+curve = SubResource("Curve2D_df8rs")
+target_area = NodePath("../../TargetArea2D5")
 
-[node name="CollisionShape2D" parent="LynxAttackRush/EnemyPath2D3/Area2D" index="0"]
-position = Vector2(0, 0)
-shape = SubResource("RectangleShape2D_ix17u")
+[node name="EnemyPath2D6" parent="LynxAttackRush" index="5" node_paths=PackedStringArray("target_area")]
+position = Vector2(-58.81082, 128)
+scale = Vector2(1.2162162, 1)
+curve = SubResource("Curve2D_b8337")
+target_area = NodePath("../../TargetArea2D6")
 
-[node name="EnemyPath2D4" parent="LynxAttackRush" index="4"]
-curve = SubResource("Curve2D_5jlft")
+[node name="TargetArea2D" parent="." instance=ExtResource("4_57vn4")]
+metadata/_edit_group_ = true
 
-[node name="EnemyPath2D5" parent="LynxAttackRush" index="5"]
-curve = SubResource("Curve2D_bs4or")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_myteo")
 
-[node name="CollisionShape2D" parent="LynxAttackRush/EnemyPath2D5/Area2D" index="0"]
-position = Vector2(0, 0)
-shape = SubResource("RectangleShape2D_ibtex")
+[node name="TargetArea2D2" parent="." instance=ExtResource("4_57vn4")]
+position = Vector2(152, 0)
+metadata/_edit_group_ = true
 
-[node name="EnemyPath2D6" parent="LynxAttackRush" index="6"]
-curve = SubResource("Curve2D_cqeky")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D2"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_myteo")
 
-[node name="CollisionShape2D" parent="LynxAttackRush/EnemyPath2D6/Area2D" index="0"]
-position = Vector2(7.6293945e-06, -4)
-shape = SubResource("RectangleShape2D_btkmj")
+[node name="TargetArea2D3" parent="." instance=ExtResource("4_57vn4")]
+position = Vector2(-144, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D3"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_myteo")
+
+[node name="TargetArea2D4" parent="." instance=ExtResource("4_57vn4")]
+position = Vector2(0, -104)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D4"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_df8rs")
+
+[node name="TargetArea2D5" parent="." instance=ExtResource("4_57vn4")]
+position = Vector2(0, 16)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D5"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_df8rs")
+
+[node name="TargetArea2D6" parent="." instance=ExtResource("4_57vn4")]
+position = Vector2(0, 120)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D6"]
+shape = SubResource("RectangleShape2D_df8rs")
 
 [node name="FrontHole" type="ColorRect" parent="."]
 offset_left = -187.0
@@ -196,10 +232,4 @@ rotation = -1.5707964
 color = Color(0.22362709, 0.12284168, 0.12280875, 1)
 
 [editable path="LynxAttackRanged"]
-[editable path="LynxAttackRanged/WeaponAreaComponent"]
 [editable path="LynxAttackRush"]
-[editable path="LynxAttackRush/EnemyPath2D"]
-[editable path="LynxAttackRush/EnemyPath2D2"]
-[editable path="LynxAttackRush/EnemyPath2D3"]
-[editable path="LynxAttackRush/EnemyPath2D5"]
-[editable path="LynxAttackRush/EnemyPath2D6"]

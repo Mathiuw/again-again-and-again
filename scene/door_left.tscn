@@ -54,7 +54,7 @@ position = Vector2(1.5, 6.5)
 shape = SubResource("RectangleShape2D_x71b1")
 
 [node name="OpenParticle" type="GPUParticles2D" parent="."]
-position = Vector2(1, 7)
+position = Vector2(1, 10)
 emitting = false
 texture = ExtResource("3_blhnk")
 process_material = SubResource("ParticleProcessMaterial_xt1h0")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://mcvwj4qveyb4"]
+[gd_scene load_steps=7 format=4 uid="uid://mcvwj4qveyb4"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_pabja"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_d2s2m"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="3_fxe75"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://scene/chest_rome.tscn" id="4_pabja"]
-[ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="5_gii6b"]
+[ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://scene/door_left.tscn" id="5_d2s2m"]
+[ext_resource type="PackedScene" uid="uid://dcg3gmie44c8h" path="res://scene/door_down.tscn" id="6_d2s2m"]
 
 [node name="RoomRome21" type="Node2D"]
 y_sort_enabled = true
@@ -42,9 +43,8 @@ position = Vector2(157, -39)
 [node name="Chest3" parent="NavigationRegion2D/ground" instance=ExtResource("4_pabja")]
 position = Vector2(174, -65)
 
-[node name="DoorDown" parent="." instance=ExtResource("5_gii6b")]
-position = Vector2(224, 160)
-rotation = 4.712389
+[node name="DoorLeft" parent="." instance=ExtResource("5_d2s2m")]
+position = Vector2(-304, -16)
 
-[node name="DoorLeft" parent="." instance=ExtResource("5_gii6b")]
-position = Vector2(-304, 2)
+[node name="DoorDown" parent="." instance=ExtResource("6_d2s2m")]
+position = Vector2(224, 160)

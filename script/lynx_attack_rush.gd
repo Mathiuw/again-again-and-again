@@ -1,22 +1,27 @@
-extends Node2D
+extends AttackBase
 
 enum AttackType {Random, Targeted}
 
 @export_group("Lynx Rush Attack Settings")
 @export var attack_type: AttackType = AttackType.Random
-@export var paths:Array[EnemyPath2D]
-@export var move_speed: float = 10
-@export var attack_cooldown: float = 3
+@export var paths: Array[EnemyPath2D]
+@export var move_speed: float = 3
 var is_attacking: bool = false
 
 @onready var lynx_rush_body: PathFollow2D = %LynxRushFront
-@onready var timer: Timer = $Timer
 
 func _ready() -> void:
 	lynx_rush_body.progress_ratio = 0.0
+
+
+func attack() -> void:
+	lynx_rush_body.progress_ratio = 0.0
 	
-	timer.timeout.connect(on_timeout)
-	timer.start(attack_cooldown)
+	match attack_type:
+		AttackType.Random:
+			random_attack()
+		AttackType.Targeted:
+			targeted_attack()
 
 
 func _process(delta: float) -> void:
@@ -31,20 +36,8 @@ func _process(delta: float) -> void:
 	
 	if lynx_rush_body.progress_ratio >= 1.0:
 		lynx_rush_body.progress_ratio = 0.0
-		timer.start(attack_cooldown)
 		is_attacking = false
-
-
-func on_timeout() -> void: 
-	lynx_rush()
-
-
-func lynx_rush() -> void:
-	match attack_type:
-		AttackType.Random:
-			random_attack()
-		AttackType.Targeted:
-			targeted_attack()
+		on_attack_end.emit()
 
 
 func random_attack(enable_atack: bool = true) -> void:
@@ -54,9 +47,6 @@ func random_attack(enable_atack: bool = true) -> void:
 	if  new_path:
 		lynx_rush_body.reparent(new_path)
 	
-	# reset path progress
-	lynx_rush_body.progress_ratio = 0.0
-	
 	is_attacking = enable_atack
 
 func targeted_attack(enable_atack: bool = true) -> void:
@@ -65,7 +55,7 @@ func targeted_attack(enable_atack: bool = true) -> void:
 	var on_area_attacks: Array[EnemyPath2D]
 	
 	for path in paths:
-		if path.enemy_on_area:
+		if path.target_area.target:
 			on_area_attacks.push_back(path)
 	
 	if on_area_attacks.size() == 0:
@@ -75,15 +65,11 @@ func targeted_attack(enable_atack: bool = true) -> void:
 	var index_to_attack: int = randi_range(0,on_area_attacks.size()-1)
 	lynx_rush_body.reparent(on_area_attacks[index_to_attack])
 	
-		# reset path progress
-	lynx_rush_body.progress_ratio = 0.0
-	
 	is_attacking = enable_atack
 
 
 func select_random_path() -> Path2D:
 	if paths.size() == 0: return null
-	
 	if paths.size() == 1: return paths[0]
 	
 	var index: int = randi_range(0, paths.size()-1)
