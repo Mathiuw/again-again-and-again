@@ -4,12 +4,9 @@
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_prs6n"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="3_dnlai"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="4_j7m8x"]
-[ext_resource type="PackedScene" uid="uid://b38hnv5xd6mhe" path="res://scene/enemy/lynx/lynx_base.tscn" id="5_prs6n"]
+[ext_resource type="PackedScene" uid="uid://b38hnv5xd6mhe" path="res://scene/enemy/lynx/lynx.tscn" id="5_prs6n"]
 [ext_resource type="Script" uid="uid://cx4wfruxwn6ja" path="res://script/cutscene_lynx_trigger.gd" id="7_dnlai"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://scene/door_right.tscn" id="7_j7m8x"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnlai"]
-size = Vector2(106, 20)
 
 [sub_resource type="Animation" id="Animation_dnlai"]
 length = 0.001
@@ -120,6 +117,9 @@ _data = {
 &"boss_intro": SubResource("Animation_prs6n")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnlai"]
+size = Vector2(106, 20)
+
 [node name="RoomRomeBoss" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ib0vb")
@@ -151,26 +151,7 @@ position = Vector2(-48, -156)
 
 [node name="LynxBossBase" parent="." instance=ExtResource("5_prs6n")]
 unique_name_in_owner = true
-
-[node name="TriggerBossArea" type="Area2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(0, -75)
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerBossArea"]
-position = Vector2(71, 75)
-rotation = -1.5707964
-shape = SubResource("RectangleShape2D_dnlai")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="TriggerBossArea"]
-position = Vector2(145, 6)
-shape = SubResource("RectangleShape2D_dnlai")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="TriggerBossArea"]
-position = Vector2(145, 142)
-shape = SubResource("RectangleShape2D_dnlai")
+active = false
 
 [node name="CutsceneRoot" type="Node2D" parent="."]
 
@@ -225,9 +206,29 @@ libraries = {
 }
 script = ExtResource("7_dnlai")
 
+[node name="TriggerBossArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -75)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerBossArea"]
+position = Vector2(71, 75)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_dnlai")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TriggerBossArea"]
+position = Vector2(145, 6)
+shape = SubResource("RectangleShape2D_dnlai")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="TriggerBossArea"]
+position = Vector2(145, 142)
+shape = SubResource("RectangleShape2D_dnlai")
+
 [node name="DoorRight" parent="." instance=ExtResource("7_j7m8x")]
 position = Vector2(288, -16)
 
+[connection signal="animation_finished" from="CutsceneRoot/CutscenePlayer" to="CutsceneRoot/CutscenePlayer" method="_on_animation_finished"]
 [connection signal="body_entered" from="TriggerBossArea" to="TriggerBossArea" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerBossArea" to="CutsceneRoot/CutscenePlayer" method="_on_trigger_boss_area_body_entered"]
-[connection signal="animation_finished" from="CutsceneRoot/CutscenePlayer" to="CutsceneRoot/CutscenePlayer" method="_on_animation_finished"]

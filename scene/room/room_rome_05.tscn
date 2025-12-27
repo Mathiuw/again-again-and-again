@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_4rirv"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_s2e46"]
-[ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="3_0vtpu"]
+[ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://scene/door_right.tscn" id="4_0vtpu"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://scene/chest_rome.tscn" id="4_s2e46"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s2e46"]
@@ -31,9 +31,8 @@ position = Vector2(208, 104)
 [node name="Chest4" parent="." instance=ExtResource("4_s2e46")]
 position = Vector2(200, 64)
 
-[node name="DoorRight" parent="." instance=ExtResource("3_0vtpu")]
-position = Vector2(304, 2)
-rotation = 3.14159
+[node name="DoorRight" parent="." instance=ExtResource("4_0vtpu")]
+position = Vector2(288, -16)
 
 [node name="Label" type="Label" parent="."]
 offset_left = -112.0
@@ -42,5 +41,3 @@ offset_right = 124.0
 offset_bottom = 14.0
 text = "ARTE MUITO PICA AQUI"
 label_settings = SubResource("LabelSettings_s2e46")
-
-[editable path="DoorRight"]

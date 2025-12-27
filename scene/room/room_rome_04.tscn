@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://bw650n1ie2vmr"]
+[gd_scene load_steps=8 format=4 uid="uid://bw650n1ie2vmr"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_0qnvi"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="2_2bkw1"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_w0nvy"]
-[ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="3_2bkw1"]
+[ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://scene/door_left.tscn" id="4_0qnvi"]
+[ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://scene/door_right.tscn" id="5_w0nvy"]
+[ext_resource type="PackedScene" uid="uid://dcg3gmie44c8h" path="res://scene/door_down.tscn" id="6_ajrqq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0qnvi"]
 vertices = PackedVector2Array(138, 10, 150, -54, 278, -54, 278, 63, 250, 86, 186, 54, 138, -74, 150, -122, -132, -134, -132, -100, -198, -100, -198, -106, -284, -134, -234, -106, -284, -58, -278, -58, -234, -38, -278, 63, -54, -90, -60, -90, -60, -134, 220, -134, 220, -116, 186, -116, 186, -122, 102, -74, 102, -68, 42, -68, 42, -74, 6, -22, 12, -22, 12, -10, 6, -10, 150, 54, 90, 42, 90, 10, 284, 63, 284, 140, 250, 138, 244, 140, 244, 138, 214, 86, 214, 92, 186, 92, 150, 60, 138, 60, 138, 54, 102, 54, 102, 92, 74, 92, 74, 86, 38, 138, 44, 138, 44, 140, -38, 140, -38, 134, 38, 86, -74, 134, -74, 140, -86, 140, -86, 134, -122, 134, -122, 140, -124, 140, -124, 90, -70, 90, -106, 22, -106, 28, -198, 28, -198, 22, -234, 90, -164, 90, -164, 140, -284, 140, -284, 63, -234, 22, -54, -38, -70, 22, 6, 42, 6, -74)
@@ -40,18 +42,11 @@ position = Vector2(48, -156)
 [node name="TorchPointLight2D5" parent="NavigationRegion2D/ground" instance=ExtResource("2_2bkw1")]
 position = Vector2(176, -156)
 
-[node name="DoorRight" parent="." instance=ExtResource("3_2bkw1")]
-position = Vector2(304, 2)
-rotation = 3.14159
+[node name="DoorLeft" parent="." instance=ExtResource("4_0qnvi")]
+position = Vector2(-304, -16)
 
-[node name="DoorDown" parent="." instance=ExtResource("3_2bkw1")]
-position = Vector2(-80, 162)
-rotation = 4.712389
+[node name="DoorRight" parent="." instance=ExtResource("5_w0nvy")]
+position = Vector2(288, -16)
 
-[node name="DoorRight3" parent="." instance=ExtResource("3_2bkw1")]
-position = Vector2(-304, 2)
-rotation = 6.2831855
-
-[editable path="DoorRight"]
-[editable path="DoorDown"]
-[editable path="DoorRight3"]
+[node name="DoorDown" parent="." instance=ExtResource("6_ajrqq")]
+position = Vector2(-80, 160)

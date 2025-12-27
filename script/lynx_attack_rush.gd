@@ -1,22 +1,18 @@
 extends AttackBase
 
+const LYNX_RUSH_BODY: PackedScene = preload("uid://bft146fxu4jge")
+
 enum AttackType {Random, Targeted}
 
 @export_group("Lynx Rush Attack Settings")
 @export var attack_type: AttackType = AttackType.Random
 @export var paths: Array[EnemyPath2D]
 @export var move_speed: float = 3
+
 var is_attacking: bool = false
-
-@onready var lynx_rush_body: PathFollow2D = %LynxRushFront
-
-func _ready() -> void:
-	lynx_rush_body.progress_ratio = 0.0
-
+var current_lynx_rush_body: PathFollow2D
 
 func attack() -> void:
-	lynx_rush_body.progress_ratio = 0.0
-	
 	match attack_type:
 		AttackType.Random:
 			random_attack()
@@ -30,24 +26,33 @@ func _process(delta: float) -> void:
 	
 	#print("attacking")
 	
-	var new_progress_ratio: float = lynx_rush_body.progress_ratio + move_speed * delta
-	new_progress_ratio = clampf(new_progress_ratio, 0.0, 1.0)
-	lynx_rush_body.progress_ratio = new_progress_ratio
+	if current_lynx_rush_body == null:
+		push_error("lynx body not found")
 	
-	if lynx_rush_body.progress_ratio >= 1.0:
-		lynx_rush_body.progress_ratio = 0.0
+	var new_progress_ratio: float = current_lynx_rush_body.progress_ratio + move_speed * delta
+	new_progress_ratio = clampf(new_progress_ratio, 0.0, 1.0)
+	current_lynx_rush_body.progress_ratio = new_progress_ratio
+	
+	if current_lynx_rush_body.progress_ratio >= 1.0:
+		current_lynx_rush_body.queue_free()
+		current_lynx_rush_body = null
 		is_attacking = false
 		on_attack_end.emit()
 
+
+func spawn_lynx_body(path_to_spawn:EnemyPath2D) -> void:
+	current_lynx_rush_body = LYNX_RUSH_BODY.instantiate()
+	path_to_spawn.add_child(current_lynx_rush_body)
 
 func random_attack(enable_atack: bool = true) -> void:
 	print("Random Attack")
 	# selects a random path and attach lynx body to it
 	var new_path: Path2D = select_random_path()
 	if  new_path:
-		lynx_rush_body.reparent(new_path)
+		spawn_lynx_body(new_path)
 	
 	is_attacking = enable_atack
+
 
 func targeted_attack(enable_atack: bool = true) -> void:
 	print("Targeted Attack")
@@ -63,7 +68,8 @@ func targeted_attack(enable_atack: bool = true) -> void:
 		return
 	
 	var index_to_attack: int = randi_range(0,on_area_attacks.size()-1)
-	lynx_rush_body.reparent(on_area_attacks[index_to_attack])
+	
+	spawn_lynx_body(on_area_attacks[index_to_attack])
 	
 	is_attacking = enable_atack
 

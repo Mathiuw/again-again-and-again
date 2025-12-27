@@ -1,16 +1,22 @@
 extends Node2D
 class_name AILynx
 
-@export_group("Boss settings")
 @export var attacks: Array[AttackBase]
 @export var attack_cooldown: float = 4.0
+@export var active: bool = true: 
+	set(value):
+		active = value
+		if value == true:
+			on_attack_end()
+			print("Activated lynx")
 
 
 func _ready() -> void:
 	for attack in attacks:
 		attack.on_attack_end.connect(on_attack_end)
 	
-	on_attack_end()
+	if active:
+		on_attack_end()
 
 
 func get_random_attack() -> AttackBase:

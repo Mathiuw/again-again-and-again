@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://b38hnv5xd6mhe"]
 
-[ext_resource type="Script" uid="uid://c71u4ufcgcukt" path="res://script/ai_lynx.gd" id="1_ibtex"]
-[ext_resource type="PackedScene" uid="uid://bfdratej2y5ih" path="res://scene/enemy/lynx/lynx_attack_ranged.tscn" id="2_3nww7"]
-[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="2_myteo"]
-[ext_resource type="PackedScene" uid="uid://dvbbrasaelqhr" path="res://scene/enemy/lynx/lynx_attack_rush.tscn" id="3_ibtex"]
-[ext_resource type="PackedScene" uid="uid://d0tk4b077n5w7" path="res://scene/target_area_2d.tscn" id="4_57vn4"]
+[ext_resource type="Script" uid="uid://c71u4ufcgcukt" path="res://script/ai_lynx.gd" id="1_i5xpl"]
+[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="2_j2mhn"]
+[ext_resource type="PackedScene" uid="uid://bfdratej2y5ih" path="res://scene/enemy/lynx/lynx_attack_ranged.tscn" id="3_6gwe6"]
+[ext_resource type="PackedScene" uid="uid://dvbbrasaelqhr" path="res://scene/enemy/lynx/lynx_attack_rush.tscn" id="4_fhuqs"]
+[ext_resource type="PackedScene" uid="uid://d0tk4b077n5w7" path="res://scene/target_area_2d.tscn" id="5_agdc3"]
 
 [sub_resource type="Curve2D" id="Curve2D_vl2gg"]
 resource_local_to_scene = true
@@ -30,21 +30,21 @@ point_count = 2
 [sub_resource type="Curve2D" id="Curve2D_v553q"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -313.49448, 0, 0, 0, 0, 0, 415.12088, 0)
+"points": PackedVector2Array(0, 0, 0, 0, -312.26373, 0, 0, 0, 0, 0, 416.35162, 0)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_df8rs"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 416.71112, 0)
+"points": PackedVector2Array(0, 0, 0, 0, -322.31113, 0, 0, 0, 0, 0, 414.4, 0)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_b8337"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 416.71112, 0)
+"points": PackedVector2Array(0, 0, 0, 0, -322.31113, 0, 0, 0, 0, 0, 414.4, 0)
 }
 point_count = 2
 
@@ -55,13 +55,14 @@ size = Vector2(80, 296)
 size = Vector2(592, 64)
 
 [node name="Lynx" type="Node2D" node_paths=PackedStringArray("attacks") groups=["enemy"]]
-script = ExtResource("1_ibtex")
-attacks = [NodePath("LynxAttackRanged"), NodePath("LynxAttackRush")]
+script = ExtResource("1_i5xpl")
+attacks = [NodePath("LynxAttackRush")]
+attack_cooldown = 0.1
 
-[node name="HealthComponent" parent="." instance=ExtResource("2_myteo")]
+[node name="HealthComponent" parent="." instance=ExtResource("2_j2mhn")]
 max_hits = 40
 
-[node name="LynxAttackRanged" parent="." instance=ExtResource("2_3nww7")]
+[node name="LynxAttackRanged" parent="." instance=ExtResource("3_6gwe6")]
 shoot_type = 3
 
 [node name="WeaponAreaComponent" parent="LynxAttackRanged" index="0" node_paths=PackedStringArray("target_area")]
@@ -88,7 +89,7 @@ target_area = NodePath("../../TargetArea2D")
 position = Vector2(152, -120)
 target_area = NodePath("../../TargetArea2D2")
 
-[node name="LynxAttackRush" parent="." instance=ExtResource("3_ibtex")]
+[node name="LynxAttackRush" parent="." instance=ExtResource("4_fhuqs")]
 attack_type = 1
 move_speed = 1.2
 
@@ -107,31 +108,31 @@ curve = SubResource("Curve2D_myteo")
 target_area = NodePath("../../TargetArea2D3")
 
 [node name="EnemyPath2D4" parent="LynxAttackRush" index="3" node_paths=PackedStringArray("target_area")]
-position = Vector2(-62.48651, -112)
+position = Vector2(-64, -112)
 scale = Vector2(1.2297298, 1)
 curve = SubResource("Curve2D_v553q")
 target_area = NodePath("../../TargetArea2D4")
 
 [node name="EnemyPath2D5" parent="LynxAttackRush" index="4" node_paths=PackedStringArray("target_area")]
-position = Vector2(-58.81082, 0)
+position = Vector2(-56, 0)
 scale = Vector2(1.2162162, 1)
 curve = SubResource("Curve2D_df8rs")
 target_area = NodePath("../../TargetArea2D5")
 
 [node name="EnemyPath2D6" parent="LynxAttackRush" index="5" node_paths=PackedStringArray("target_area")]
-position = Vector2(-58.81082, 128)
+position = Vector2(-56, 120)
 scale = Vector2(1.2162162, 1)
 curve = SubResource("Curve2D_b8337")
 target_area = NodePath("../../TargetArea2D6")
 
-[node name="TargetArea2D" parent="." instance=ExtResource("4_57vn4")]
+[node name="TargetArea2D" parent="." instance=ExtResource("5_agdc3")]
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D"]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_myteo")
 
-[node name="TargetArea2D2" parent="." instance=ExtResource("4_57vn4")]
+[node name="TargetArea2D2" parent="." instance=ExtResource("5_agdc3")]
 position = Vector2(152, 0)
 metadata/_edit_group_ = true
 
@@ -139,7 +140,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_myteo")
 
-[node name="TargetArea2D3" parent="." instance=ExtResource("4_57vn4")]
+[node name="TargetArea2D3" parent="." instance=ExtResource("5_agdc3")]
 position = Vector2(-144, 0)
 metadata/_edit_group_ = true
 
@@ -147,7 +148,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_myteo")
 
-[node name="TargetArea2D4" parent="." instance=ExtResource("4_57vn4")]
+[node name="TargetArea2D4" parent="." instance=ExtResource("5_agdc3")]
 position = Vector2(0, -104)
 metadata/_edit_group_ = true
 
@@ -155,7 +156,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_df8rs")
 
-[node name="TargetArea2D5" parent="." instance=ExtResource("4_57vn4")]
+[node name="TargetArea2D5" parent="." instance=ExtResource("5_agdc3")]
 position = Vector2(0, 16)
 metadata/_edit_group_ = true
 
@@ -163,7 +164,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_df8rs")
 
-[node name="TargetArea2D6" parent="." instance=ExtResource("4_57vn4")]
+[node name="TargetArea2D6" parent="." instance=ExtResource("5_agdc3")]
 position = Vector2(0, 120)
 metadata/_edit_group_ = true
 

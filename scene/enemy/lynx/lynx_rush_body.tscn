@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://bft146fxu4jge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5ckt"]
-size = Vector2(160, 48)
+size = Vector2(160, 64)
 
 [node name="LynxRushBody" type="PathFollow2D"]
+loop = false
 
 [node name="Area2D" type="Area2D" parent="."]
 
