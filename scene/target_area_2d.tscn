@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d0tk4b077n5w7"]
 
-[ext_resource type="Script" uid="uid://dw4c1p8n4uhnd" path="res://sprite/target_area_2d.gd" id="1_cc6fk"]
+[ext_resource type="Script" uid="uid://dw4c1p8n4uhnd" path="res://script/target_area_2d.gd" id="1_cc6fk"]
 
 [node name="TargetArea2D" type="Area2D"]
 disable_mode = 2

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="3_3xlsm"]
 [ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://scene/door_front.tscn" id="4_bhxun"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://scene/chest_rome.tscn" id="4_y0dr6"]
-[ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="5_6ycvv"]
+[ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://scene/door_right.tscn" id="6_y0dr6"]
 
 [node name="RoomRome17" type="Node2D"]
 y_sort_enabled = true
@@ -53,8 +53,7 @@ position = Vector2(88, 115)
 position = Vector2(95, 137)
 
 [node name="DoorFront" parent="." instance=ExtResource("4_bhxun")]
-position = Vector2(224, -176)
+position = Vector2(224, -144)
 
-[node name="DoorDown" parent="." instance=ExtResource("5_6ycvv")]
-position = Vector2(304, 2)
-rotation = 3.1415927
+[node name="DoorRight" parent="." instance=ExtResource("6_y0dr6")]
+position = Vector2(288, -16)

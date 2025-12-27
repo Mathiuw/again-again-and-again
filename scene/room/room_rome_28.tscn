@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_ocduq"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="3_a1b7x"]
 [ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://scene/door_front.tscn" id="4_fxtdm"]
-[ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="5_1u8uc"]
+[ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://scene/door_left.tscn" id="5_io65y"]
 
 [node name="RoomRome18" type="Node2D"]
 y_sort_enabled = true
@@ -28,7 +28,7 @@ position = Vector2(-128, -156)
 position = Vector2(-32, -156)
 
 [node name="DoorFront" parent="." instance=ExtResource("4_fxtdm")]
-position = Vector2(-80, -176)
+position = Vector2(-80, -144)
 
-[node name="DoorLeft" parent="." instance=ExtResource("5_1u8uc")]
-position = Vector2(-304, -30)
+[node name="DoorLeft" parent="." instance=ExtResource("5_io65y")]
+position = Vector2(-304, -48)
