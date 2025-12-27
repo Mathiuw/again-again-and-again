@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=34 format=3 uid="uid://dah4dbx8ikesr"]
+[gd_resource type="TileSet" load_steps=36 format=3 uid="uid://dah4dbx8ikesr"]
 
 [ext_resource type="Texture2D" uid="uid://bbwm1sdwg3me2" path="res://sprite/TileSet-Final.png" id="1_1n71p"]
 [ext_resource type="Texture2D" uid="uid://bnsaloironx8m" path="res://sprite/Torch-Wall-Anim-Tile.png" id="2_7kbgn"]
 [ext_resource type="Texture2D" uid="uid://budwkgbsmoaf3" path="res://sprite/Cam-Wall-Anim-Tile.png" id="3_ng4s5"]
 [ext_resource type="Texture2D" uid="uid://gf4v1e16c2q8" path="res://sprite/TileSet-v2.png" id="4_fve5b"]
+[ext_resource type="Texture2D" uid="uid://bp3kwm7f1r3rj" path="res://sprite/room-door.png" id="4_xes5a"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_1n71p"]
 tile_data = PackedInt32Array(0, 196608, 3, 65536, 196608, 4, 131072, 196608, 5, 327680, 196608, 0, 393216, 196608, 1, 458752, 196608, 2)
@@ -831,6 +832,25 @@ texture = ExtResource("3_ng4s5")
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ee821"]
+texture = ExtResource("4_xes5a")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xes5a"]
 texture = ExtResource("4_fve5b")
 0:0/0 = 0
@@ -1152,6 +1172,7 @@ sources/0 = SubResource("TileSetAtlasSource_wp4xf")
 sources/1 = SubResource("TileSetAtlasSource_ng4s5")
 sources/2 = SubResource("TileSetAtlasSource_fve5b")
 sources/4 = SubResource("TileSetAtlasSource_xes5a")
+sources/3 = SubResource("TileSetAtlasSource_ee821")
 pattern_0 = SubResource("TileMapPattern_1n71p")
 pattern_1 = SubResource("TileMapPattern_7kbgn")
 pattern_2 = SubResource("TileMapPattern_ng4s5")
