@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bmiq1asksa6xj"]
+[gd_scene load_steps=12 format=4 uid="uid://bmiq1asksa6xj"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_gnsy2"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_e4rqd"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://scene/enemy/medusa.tscn" id="4_e4rqd"]
 [ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://scene/enemy/zemerlin.tscn" id="4_r022u"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://scene/chest_rome.tscn" id="5_7uxg4"]
-[ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="5_r022u"]
+[ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://scene/door_left.tscn" id="7_7uxg4"]
+[ext_resource type="PackedScene" uid="uid://dcg3gmie44c8h" path="res://scene/door_down.tscn" id="8_544go"]
+[ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://scene/door_right.tscn" id="10_jmv8s"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_544go"]
 vertices = PackedVector2Array(145.6875, -93.78906, 148, -102.421875, 148, -68, 70, 52, 70, -94.9375, 70.3125, -93.78906, 105.6875, -93.78906, 108, -102.421875, 110.3125, -93.78906, 77.78906, -86.3125, 138.21094, -86.3125, -124, -102, -196.45313, -102, -194.57813, -109, -124, -108, 88, -83.578125, 76, 52, -84, -108, -6, -132, -6, 52, -12, 52, -84, -52, 154, -68, 154, 138, 76, 108, -36, 138, -36, 132, -12, 108, -124, 132, -124, 138, -282, 138, -282, 60, -276, 60, -172, 108, -276, -36, -166, -36, -172, 52, -166, 52, -84, 108, -84, 52, -90, 52, -90, -52, 128, -83.578125, -202.21875, -124.11719, -200.10938, -132, -197.3125, -119.21094, 98.21094, -86.3125, 117.78906, -86.3125, 148, -124, 148, -105.57031, 145.6875, -114.21094, 70.3125, -114.21094, 70, -113.046875, 70, -132, 110.3125, -114.21094, 108, -105.57031, 105.6875, -114.21094, 77.78906, -121.6875, 138.21094, -121.6875, 282, -132, 282, -60, 276, -60, 236, -68, 236, -124, 276, 68, 282, 68, 282, 138, 273, 138, 273, 104.5, 233, 104.5, 233, 138, 230, 138, 230, -68, 196, -124, 196, -118, 188, -118, 188, -124, 128, -124.421875, 88, -124.421875, 117.78906, -121.6875, 98.21094, -121.6875, -235.42188, -109, -233.54688, -102, -243, -102, -243, -132, -239.89063, -132, -237.6875, -123.78906, -232.77344, -118.86719)
@@ -76,16 +78,14 @@ position = Vector2(-263, -109)
 [node name="Chest2" parent="NavigationRegion2D" instance=ExtResource("5_7uxg4")]
 position = Vector2(253, 129)
 
-[node name="DoorFront" parent="." instance=ExtResource("4_544go")]
-position = Vector2(-80, -176)
+[node name="DoorLeft" parent="." instance=ExtResource("7_7uxg4")]
+position = Vector2(-304, -16)
 
-[node name="DoorDown" parent="." instance=ExtResource("5_r022u")]
+[node name="DoorDown" parent="." instance=ExtResource("8_544go")]
 position = Vector2(-80, 160)
-rotation = 4.712389
 
-[node name="DoorLeft" parent="." instance=ExtResource("5_r022u")]
-position = Vector2(-304, 2)
+[node name="DoorFront" parent="." instance=ExtResource("4_544go")]
+position = Vector2(-80, -144)
 
-[node name="DoorRight" parent="." instance=ExtResource("5_r022u")]
-position = Vector2(304, 2)
-rotation = 3.1415927
+[node name="DoorRight" parent="." instance=ExtResource("10_jmv8s")]
+position = Vector2(288, -16)
