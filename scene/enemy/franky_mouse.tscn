@@ -67,6 +67,7 @@ _data = {
 }
 
 [node name="FrankyMouse" type="CharacterBody2D" groups=["enemy"]]
+disable_mode = 2
 motion_mode = 1
 script = ExtResource("1_xpy6e")
 move_speed = 800.0
