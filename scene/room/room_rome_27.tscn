@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=4 uid="uid://dmdi54lspqfdd"]
+[gd_scene load_steps=7 format=4 uid="uid://dmdi54lspqfdd"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_su0xd"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_baxgw"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="3_gjfvq"]
 [ext_resource type="PackedScene" uid="uid://c7mubhrqcgpn3" path="res://scene/breakable_wall_down.tscn" id="4_su0xd"]
-[ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="5_85oht"]
+[ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://scene/door_left.tscn" id="5_su0xd"]
+[ext_resource type="PackedScene" uid="uid://dcg3gmie44c8h" path="res://scene/door_down.tscn" id="6_baxgw"]
 
-[node name="RoomRome21" type="Node2D"]
+[node name="RoomRome" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_su0xd")
 
@@ -33,5 +34,15 @@ position = Vector2(48, -156)
 [node name="BreakableWallSide" parent="NavigationRegion2D" instance=ExtResource("4_su0xd")]
 position = Vector2(-80, 64)
 
-[node name="DoorLeft" parent="." instance=ExtResource("5_85oht")]
-position = Vector2(-304, 2)
+[node name="DoorLeft" parent="." instance=ExtResource("5_su0xd")]
+position = Vector2(-304, -16)
+
+[node name="DoorDown" parent="." instance=ExtResource("6_baxgw")]
+position = Vector2(-80, 80)
+always_open = true
+secret_door = true
+
+[node name="DoorLayer" parent="DoorDown" index="0"]
+visible = false
+
+[editable path="DoorDown"]

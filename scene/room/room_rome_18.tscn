@@ -75,6 +75,7 @@ position = Vector2(-304, -16)
 
 [node name="DoorRight" parent="." instance=ExtResource("8_as3im")]
 position = Vector2(288, -48)
+always_open = true
 
 [node name="DoorDown" parent="." instance=ExtResource("9_oennm")]
 position = Vector2(224, 160)

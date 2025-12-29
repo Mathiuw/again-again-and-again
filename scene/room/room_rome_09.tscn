@@ -40,16 +40,19 @@ position = Vector2(192, -28)
 position = Vector2(-272, -28)
 
 [node name="Tuga" parent="." instance=ExtResource("8_2xvut")]
-position = Vector2(-80, -96)
+position = Vector2(-112, -96)
 
 [node name="Tuga2" parent="." instance=ExtResource("8_2xvut")]
 position = Vector2(216, 104)
 
+[node name="Tuga3" parent="." instance=ExtResource("8_2xvut")]
+position = Vector2(-64, 104)
+
 [node name="Chest" parent="." instance=ExtResource("6_w2d4i")]
-position = Vector2(184, -107)
+position = Vector2(176, -120)
 
 [node name="Chest2" parent="." instance=ExtResource("6_w2d4i")]
-position = Vector2(216, -114)
+position = Vector2(168, -80)
 
 [node name="DoorRight" parent="." instance=ExtResource("8_r7dk8")]
 position = Vector2(288, -16)

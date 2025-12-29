@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cmdvti2y6w1q3" path="res://sprite/projectile/door_particle_sphere.png" id="3_v51rx"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="5_0bcff"]
 [ext_resource type="PackedScene" uid="uid://bhe30cbxewbj" path="res://scene/bullet/bullet_medusa.tscn" id="5_7frci"]
-[ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="9_tbr1f"]
+[ext_resource type="Script" uid="uid://d1d8xsllqqno1" path="res://script/damage_shader_player.gd" id="9_10gqf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w63sr"]
 shader = ExtResource("2_10gqf")
@@ -185,9 +185,10 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="DamageShaderPlayer" parent="." instance=ExtResource("9_tbr1f")]
+[node name="DamageShaderPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_laftw")
 }
+script = ExtResource("9_10gqf")
 
 [connection signal="on_ai_shoot" from="AIShootBehaviour" to="." method="_on_ai_shoot_behaviour_on_ai_shoot"]

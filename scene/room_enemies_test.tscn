@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bycvm4aeg04bh"]
+
+[ext_resource type="PackedScene" uid="uid://c6m28at08ltqy" path="res://scene/room/room_rome_01.tscn" id="1_hhuiu"]
+[ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="2_4wv86"]
+[ext_resource type="PackedScene" uid="uid://cshb25yq5ltku" path="res://scene/player_camera.tscn" id="3_fryba"]
+
+[node name="RoomEnemiesTest" type="Node"]
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="RoomRome02" parent="Map" instance=ExtResource("1_hhuiu")]
+
+[node name="Player" parent="Map" instance=ExtResource("2_4wv86")]
+
+[node name="PlayerCamera" parent="." instance=ExtResource("3_fryba")]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://d4duljhq10t20"]
+[gd_scene load_steps=8 format=4 uid="uid://d4duljhq10t20"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_pc8kr"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_1xqv0"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="3_utbda"]
 [ext_resource type="PackedScene" uid="uid://b1uw6v7edbscl" path="res://scene/enemy/bunnyale.tscn" id="4_pc8kr"]
-[ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="5_lkvmv"]
+[ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://scene/door_left.tscn" id="5_pc8kr"]
+[ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://scene/door_right.tscn" id="6_1xqv0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1xqv0"]
 vertices = PackedVector2Array(234, 106, 284, 140, 36, 140, 86, 106, 284, 63, 278, 63, 234, 54, 278, -58, 36, 74, 42, 74, 86, 54, 42, 22, -278.21094, 6, -278.2578, -6, -212, -6, -278, 6, -212, 54, -218, 54, -278, 52.96875, -277.96094, 63, -218, 106, 284, -134, 284, -58, 234, -70, 234, -122, 228, 54, 228, -70, 36, -134, 198, -122, 198, -116, 122, -116, 122, -122, 86, -122, 36, -58, 86, -70, 42, -58, 42, -6, 92, -70, 92, 54, 6, 22, -92, -6, 6, 28, -6, 28, -6, 22, -42, 22, -92, 54, -86, 54, -42, 74, -86, 106, -36, 74, -36, 140, -284, 140, -284, 63)
@@ -51,9 +52,8 @@ position = Vector2(89, 119)
 [node name="Bunnyale3" parent="NavigationRegion2D" instance=ExtResource("4_pc8kr")]
 position = Vector2(252, -63)
 
-[node name="DoorRight" parent="." instance=ExtResource("5_lkvmv")]
-position = Vector2(304, 2)
-rotation = 3.1415927
+[node name="DoorLeft" parent="." instance=ExtResource("5_pc8kr")]
+position = Vector2(-304, -16)
 
-[node name="DoorLeft" parent="." instance=ExtResource("5_lkvmv")]
-position = Vector2(-304, 2)
+[node name="DoorRight" parent="." instance=ExtResource("6_1xqv0")]
+position = Vector2(288, -16)

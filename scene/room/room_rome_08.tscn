@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://scene/enemy/medusa.tscn" id="6_p4xpp"]
 [ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://scene/enemy/zemerlin.tscn" id="7_t86hv"]
 [ext_resource type="PackedScene" uid="uid://c5pxaov6df4yw" path="res://scene/enemy/tuga.tscn" id="8_m3bnr"]
-[ext_resource type="PackedScene" uid="uid://bjf1mdp07gqci" path="res://scene/door_horizontal.tscn" id="9_bjxhh"]
+[ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://scene/door_left.tscn" id="9_e82fx"]
 [ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://scene/door_front.tscn" id="9_yrtgy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vmh3j"]
@@ -68,8 +68,8 @@ position = Vector2(-236, -105)
 [node name="Zemerlin3" parent="NavigationRegion2D" instance=ExtResource("7_t86hv")]
 position = Vector2(117, 30)
 
-[node name="DoorLeft" parent="." instance=ExtResource("9_bjxhh")]
-position = Vector2(-304, 2)
-
 [node name="DoorFront" parent="." instance=ExtResource("9_yrtgy")]
-position = Vector2(144, -176)
+position = Vector2(144, -145)
+
+[node name="DoorLeft" parent="." instance=ExtResource("9_e82fx")]
+position = Vector2(-304, -16)

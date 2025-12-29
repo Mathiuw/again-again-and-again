@@ -17,9 +17,11 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(
 outlines = Array[PackedVector2Array]([PackedVector2Array(-294, 150, -294, 53, -288, 53, -288, -48, -294, -48, -294, -144, 294, -144, 292, 17, 288, 17, 288, 53, 294, 53, 294, 150)])
 agent_radius = 22.0
 
-[node name="RoomRome15" type="Node2D"]
+[node name="RoomRome15" type="Node2D" node_paths=PackedStringArray("navigation_region_2D", "enemies_root")]
 y_sort_enabled = true
 script = ExtResource("1_kaljo")
+navigation_region_2D = NodePath("NavigationRegion2D")
+enemies_root = NodePath("NavigationRegion2D")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_6ohq0")

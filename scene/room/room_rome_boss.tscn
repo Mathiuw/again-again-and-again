@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://byk72d1ahusm0"]
+[gd_scene load_steps=11 format=4 uid="uid://byk72d1ahusm0"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_ib0vb"]
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_prs6n"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="4_j7m8x"]
 [ext_resource type="PackedScene" uid="uid://b38hnv5xd6mhe" path="res://scene/enemy/lynx/lynx.tscn" id="5_prs6n"]
 [ext_resource type="Script" uid="uid://cx4wfruxwn6ja" path="res://script/cutscene_lynx_trigger.gd" id="7_dnlai"]
-[ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://scene/door_right.tscn" id="7_j7m8x"]
 
 [sub_resource type="Animation" id="Animation_dnlai"]
 length = 0.001
@@ -226,9 +225,12 @@ shape = SubResource("RectangleShape2D_dnlai")
 position = Vector2(145, 142)
 shape = SubResource("RectangleShape2D_dnlai")
 
-[node name="DoorRight" parent="." instance=ExtResource("7_j7m8x")]
+[node name="DoorLayer" type="TileMapLayer" parent="."]
 position = Vector2(288, -16)
+tile_map_data = PackedByteArray("AAAAAP7/BAADABEAABAAAP//BAADABIAADAAAAAABAADABIAADAAAAIABAADABMAABAAAAEABAADABIAADA=")
+tile_set = ExtResource("3_dnlai")
+navigation_enabled = false
 
 [connection signal="animation_finished" from="CutsceneRoot/CutscenePlayer" to="CutsceneRoot/CutscenePlayer" method="_on_animation_finished"]
-[connection signal="body_entered" from="TriggerBossArea" to="TriggerBossArea" method="_on_body_entered"]
 [connection signal="body_entered" from="TriggerBossArea" to="CutsceneRoot/CutscenePlayer" method="_on_trigger_boss_area_body_entered"]
+[connection signal="body_entered" from="TriggerBossArea" to="TriggerBossArea" method="_on_body_entered"]

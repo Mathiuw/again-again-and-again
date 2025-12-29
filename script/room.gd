@@ -14,6 +14,11 @@ func _ready() -> void:
 	if enemies_root == null:
 		enemies_root = self
 	
+	# y sort fix hopefully
+	y_sort_enabled = true
+	if navigation_region_2D:
+		navigation_region_2D.y_sort_enabled = true
+	
 	RoomManager.on_room_change.connect(func(room: Room, _smooth_transition: bool):
 		if room != self:
 			set_room_state.call_deferred(false)
