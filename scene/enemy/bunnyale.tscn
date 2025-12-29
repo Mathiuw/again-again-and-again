@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="6_jp0fl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rtdwv"]
+resource_local_to_scene = true
 shader = ExtResource("2_mvmwx")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
@@ -87,6 +88,7 @@ shape = SubResource("CircleShape2D_8ggyp")
 path_max_distance = 500.0
 avoidance_enabled = true
 radius = 25.0
+neighbor_distance = 10.0
 max_speed = 1000.0
 debug_enabled = true
 debug_use_custom = true

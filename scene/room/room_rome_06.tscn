@@ -49,8 +49,9 @@ position = Vector2(224, -92)
 [node name="TorchPointLight2D8" parent="NavigationRegion2D/ground" instance=ExtResource("2_m7usy")]
 position = Vector2(16, 4)
 
-[node name="BreakableWallSide" parent="NavigationRegion2D" instance=ExtResource("4_j38ae")]
+[node name="BreakableWallSide" parent="NavigationRegion2D" node_paths=PackedStringArray("desired_door") instance=ExtResource("4_j38ae")]
 position = Vector2(-80, 144)
+desired_door = NodePath("../../DoorDown")
 
 [node name="Chest" parent="NavigationRegion2D" instance=ExtResource("5_cei67")]
 position = Vector2(224, 120)

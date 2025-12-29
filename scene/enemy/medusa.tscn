@@ -8,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cmdvti2y6w1q3" path="res://sprite/projectile/door_particle_sphere.png" id="3_v51rx"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="5_0bcff"]
 [ext_resource type="PackedScene" uid="uid://bhe30cbxewbj" path="res://scene/bullet/bullet_medusa.tscn" id="5_7frci"]
-[ext_resource type="Script" uid="uid://d1d8xsllqqno1" path="res://script/damage_shader_player.gd" id="9_10gqf"]
+[ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="9_10gqf"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w63sr"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_10gqf"]
+resource_local_to_scene = true
 shader = ExtResource("2_10gqf")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
@@ -102,7 +103,7 @@ _data = {
 &"shoot": SubResource("Animation_10gqf")
 }
 
-[sub_resource type="Animation" id="Animation_uwws3"]
+[sub_resource type="Animation" id="Animation_w63sr"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -117,9 +118,8 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_pu5ri"]
-resource_name = "damage_flash"
-length = 0.25
+[sub_resource type="Animation" id="Animation_tbr1f"]
+resource_name = "damage_play"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -127,24 +127,24 @@ tracks/0/path = NodePath("MedusaSprite2D:material:shader_parameter/flash_value")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.0008544326, 0.12414557, 0.24914557),
+"times": PackedFloat32Array(0, 0.125, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_laftw"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w63sr"]
 _data = {
-&"RESET": SubResource("Animation_uwws3"),
-&"damage_flash": SubResource("Animation_pu5ri")
+&"RESET": SubResource("Animation_w63sr"),
+&"damage_flash": SubResource("Animation_tbr1f")
 }
 
 [node name="Medusa" type="StaticBody2D" groups=["enemy"]]
-disable_mode = 1
+disable_mode = 2
 script = ExtResource("1_7o4kk")
 
 [node name="MedusaSprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_w63sr")
+material = SubResource("ShaderMaterial_10gqf")
 position = Vector2(0, -24)
 texture = ExtResource("1_0srtd")
 hframes = 4
@@ -161,7 +161,7 @@ position = Vector2(0, -16)
 shape = SubResource("CircleShape2D_0srtd")
 
 [node name="ShootTransform" type="Marker2D" parent="."]
-position = Vector2(0, -12)
+position = Vector2(0, -11)
 
 [node name="Weapon_Component" parent="." node_paths=PackedStringArray("transformOverrides") groups=["enemy"] instance=ExtResource("2_i1pib")]
 bulletSpeed = 400.0
@@ -185,10 +185,9 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="DamageShaderPlayer" type="AnimationPlayer" parent="."]
+[node name="DamageShaderPlayer" parent="." instance=ExtResource("9_10gqf")]
 libraries = {
-&"": SubResource("AnimationLibrary_laftw")
+&"": SubResource("AnimationLibrary_w63sr")
 }
-script = ExtResource("9_10gqf")
 
 [connection signal="on_ai_shoot" from="AIShootBehaviour" to="." method="_on_ai_shoot_behaviour_on_ai_shoot"]

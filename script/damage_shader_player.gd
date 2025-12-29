@@ -7,8 +7,11 @@ func _ready() -> void:
 	
 	# Damage function connect
 	if health_component:
-		health_component.on_health_changed.connect(func(_current_hits):
-			play("damage_flash")
-		)
+		health_component.on_health_changed.connect(on_health_change)
 	else:
 		push_error("Cant find health_componenent")
+
+
+func on_health_change(_current_hits) -> void:
+	play("damage_flash")
+	

@@ -10,9 +10,9 @@ var current_break_index: int = 0
 @onready var health_component: Health = $HealthComponent
 @onready var wall_layer: TileMapLayer = $WallLayer
 
-func _ready() -> void:
-	if desired_door:
-		desired_door.open_particle.emitting = false
+#func _ready() -> void:
+	#if desired_door:
+		#desired_door.open_particle.emitting = false
 
 func damage(damageAmount: int) -> void:
 	health_component.remove_health(damageAmount)

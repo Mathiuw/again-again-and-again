@@ -82,8 +82,9 @@ position = Vector2(111, -42)
 [node name="zemerlin3" parent="NavigationRegion2D" instance=ExtResource("3_j55g4")]
 position = Vector2(-49, 135)
 
-[node name="BreakableWallSide" parent="." instance=ExtResource("5_k6nox")]
+[node name="BreakableWallSide" parent="." node_paths=PackedStringArray("desired_door") instance=ExtResource("5_k6nox")]
 position = Vector2(288, 64)
+desired_door = NodePath("../DoorRight")
 
 [node name="DoorLeft" parent="." instance=ExtResource("7_2d5rg")]
 position = Vector2(-304, -16)

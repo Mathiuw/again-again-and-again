@@ -9,7 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://scene/AI/ai_shoot_behaviour.tscn" id="5_teoyt"]
 [ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="7_lbuii"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pvhdl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lbuii"]
+resource_local_to_scene = true
 shader = ExtResource("2_gckpa")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_value = 0.0
@@ -143,7 +144,7 @@ disable_mode = 1
 script = ExtResource("1_b5dlg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_pvhdl")
+material = SubResource("ShaderMaterial_lbuii")
 position = Vector2(0, -16)
 texture = ExtResource("1_antqy")
 hframes = 8

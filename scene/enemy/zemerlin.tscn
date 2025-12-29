@@ -257,7 +257,7 @@ offset = Vector2(0, -16)
 target_desired_distance = 120.0
 path_max_distance = 300.0
 avoidance_enabled = true
-radius = 15.0
+neighbor_distance = 10.0
 debug_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

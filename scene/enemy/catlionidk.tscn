@@ -8,6 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_asvjx"]
 
 [node name="Catlionidk" type="CharacterBody2D" groups=["enemy"]]
+disable_mode = 2
 motion_mode = 1
 script = ExtResource("1_asvjx")
 move_speed = 150.0
