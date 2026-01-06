@@ -49,10 +49,10 @@ position = Vector2(48, -156)
 position = Vector2(256, -156)
 
 [node name="Catlionidk" parent="NavigationRegion2D" instance=ExtResource("4_yinwu")]
-position = Vector2(16, 120)
+position = Vector2(-136, 144)
 
 [node name="Catlionidk2" parent="NavigationRegion2D" instance=ExtResource("4_yinwu")]
-position = Vector2(96, -96)
+position = Vector2(-64, -48)
 
 [node name="Zemerlin" parent="NavigationRegion2D" instance=ExtResource("5_wyl67")]
 position = Vector2(-120, -64)
@@ -64,10 +64,10 @@ position = Vector2(-128, 80)
 position = Vector2(136, -8)
 
 [node name="Medusa" parent="NavigationRegion2D" instance=ExtResource("4_wyl67")]
-position = Vector2(256, -72)
+position = Vector2(0, -96)
 
 [node name="Medusa2" parent="NavigationRegion2D" instance=ExtResource("4_wyl67")]
-position = Vector2(256, 96)
+position = Vector2(8, 128)
 
 [node name="DoorLeft" parent="." instance=ExtResource("7_cx0oa")]
 position = Vector2(-304, -16)

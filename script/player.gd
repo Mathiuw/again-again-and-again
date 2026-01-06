@@ -7,11 +7,17 @@ const SPEED: float = 150.0
 @onready var _weapon: Weapon = $Weapon
 @onready var _interact_component: InteractComponent = $InteractComponent
 @onready var _roll_component: Roll = $RollComponent
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 var _loop_timer: Timer
 
 # knockback variables
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
+
+# damage variables
+@export var invencible_frames_amount: int = 15
+var can_take_damage: bool = true
+var current_invencible_frames: int = 0
 
 signal on_player_die
 signal on_player_damage(damageAmount: int)
@@ -26,14 +32,8 @@ func _ready() -> void:
 	else:
 		push_warning("No loop timer found")
 	
-	SignalBus.on_dialog_enter.connect(func(_dialogue_steps: Array[DialogueBase]):
-		set_move_state(false)
-		)
-	
-	SignalBus.on_dialog_end.connect(func():
-		await get_tree().create_timer(0.1).timeout
-		set_move_state(true)
-		)
+	SignalBus.on_dialog_enter.connect(on_dialogue_enter)
+	SignalBus.on_dialog_end.connect(on_dialogue_exit)
 
 
 func _process(_delta: float) -> void:
@@ -52,6 +52,14 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		if !_interact_component.try_to_interact():
 			_roll_component.start_dash()
+	
+	# invencible frames check
+	if current_invencible_frames > 0:
+		current_invencible_frames -= 1
+		if current_invencible_frames == 0:
+			can_take_damage = true
+			animation_player.play("RESET")
+			print("Invicibility frames over")
 
 
 func _physics_process(delta: float) -> void:
@@ -76,6 +84,13 @@ func set_move_state(state: bool) -> void:
 	set_process(state)
 	_set_player_idle()
 
+
+func on_dialogue_enter(_dialogue_steps: Array[DialogueBase]) -> void:
+	set_move_state(false)
+
+func on_dialogue_exit() -> void:
+	await get_tree().create_timer(0.1).timeout
+	set_move_state(true)
 
 func _set_player_animation(desiredDirection: Vector2) -> void:
 	#TODO implement player shoot animation
@@ -102,8 +117,12 @@ func _set_player_idle() -> void:
 
 
 func damage(damageAmount: int) -> void:
+	if !can_take_damage: return
+	
+	# apply camera shake
 	SignalBus.on_camera_shake.emit(3)
 	
+	# apply damage to loop timer if has one
 	if _loop_timer && _loop_timer.time_left > 0:
 		var new_loop_timer_time: float = _loop_timer.time_left - damageAmount
 		
@@ -113,6 +132,12 @@ func damage(damageAmount: int) -> void:
 		_loop_timer.start(new_loop_timer_time)
 		
 		on_player_damage.emit(damageAmount)
+	
+	# activate invencible frames
+	current_invencible_frames = invencible_frames_amount
+	can_take_damage = false
+	animation_player.play("invencibility")
+	print("Invicibility frames start")
 
 
 # On loop end function
