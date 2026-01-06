@@ -9,6 +9,10 @@ const SPEED: float = 150.0
 @onready var _roll_component: Roll = $RollComponent
 var _loop_timer: Timer
 
+# knockback variables
+var knockback: Vector2 = Vector2.ZERO
+var knockback_timer: float = 0.0
+
 signal on_player_die
 signal on_player_damage(damageAmount: int)
 
@@ -16,15 +20,9 @@ func _ready() -> void:
 	# Hide and confine mouse
 	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	
-	# On loop end function
 	_loop_timer = get_tree().get_first_node_in_group("loop_timer")
 	if _loop_timer:
-		_loop_timer.timeout.connect(func():
-			set_move_state(false)
-			_animated_sprite_2d.play("die")
-			await get_tree().create_timer(3).timeout
-			on_player_die.emit()
-			)
+		_loop_timer.timeout.connect(on_loop_timer_timeout)
 	else:
 		push_warning("No loop timer found")
 	
@@ -56,12 +54,21 @@ func _process(_delta: float) -> void:
 			_roll_component.start_dash()
 
 
-func _physics_process(_delta: float) -> void:
-	# Move logic
-	var multiplier: float = _roll_component.dash_speed_multiplier
-	var desired_direction: Vector2 = Input.get_vector("move left", "move right", "move up", "move down");
-	velocity = desired_direction * (SPEED * multiplier)
-	move_and_slide();
+func _physics_process(delta: float) -> void:
+	if knockback_timer > 0:
+		# knockback logic
+		velocity = knockback
+		knockback_timer -= delta
+		if knockback_timer <= 0:
+			knockback = Vector2.ZERO
+			knockback_timer = 0
+	else:
+		# Move logic
+		var multiplier: float = _roll_component.dash_speed_multiplier
+		var desired_direction: Vector2 = Input.get_vector("move left", "move right", "move up", "move down");
+		velocity = desired_direction * (SPEED * multiplier)
+	# apply movement
+	move_and_slide()
 
 
 func set_move_state(state: bool) -> void:
@@ -106,3 +113,16 @@ func damage(damageAmount: int) -> void:
 		_loop_timer.start(new_loop_timer_time)
 		
 		on_player_damage.emit(damageAmount)
+
+
+# On loop end function
+func on_loop_timer_timeout() -> void:
+	set_move_state(false)
+	_animated_sprite_2d.play("die")
+	await get_tree().create_timer(3).timeout
+	on_player_die.emit()
+
+
+func apply_knockback(direction: Vector2, force: float, knockback_duration: float) -> void:
+	knockback = direction * force
+	knockback_timer = knockback_duration
