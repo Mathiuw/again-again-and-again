@@ -179,7 +179,6 @@ metadata/_edit_lock_ = true
 
 [node name="LynxBossBase" parent="." instance=ExtResource("5_prs6n")]
 unique_name_in_owner = true
-visible = false
 active = false
 
 [node name="EnemyPath2D" parent="LynxBossBase/LynxAttackRush" index="0"]

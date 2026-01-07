@@ -135,13 +135,15 @@ size = Vector2(160, 64)
 [node name="LynxBody" type="PathFollow2D"]
 loop = false
 script = ExtResource("1_8o57x")
+knockback_force = 500.0
+knockback_duration = 0.3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 rotation = -0.002169434
 sprite_frames = SubResource("SpriteFrames_p17v0")
 animation = &"running_horizontal"
-frame_progress = 0.9316527
+frame_progress = 0.93628126
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

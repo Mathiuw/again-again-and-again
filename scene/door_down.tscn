@@ -9,7 +9,7 @@ size = Vector2(44, 3)
 
 [node name="DoorLayer" parent="." index="0"]
 rotation = -1.5707964
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 19, 0, 0, 32, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 0, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 0, 0, 0, 1, 0, 4, 0, 3, 0, 19, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 5, 0, 4, 0, 19, 0, 0, 32, 0, 0, 255, 255, 5, 0, 4, 0, 18, 0, 0, 0, 0, 0, 0, 0, 5, 0, 4, 0, 18, 0, 0, 0, 0, 0, 1, 0, 5, 0, 4, 0, 19, 0, 0, 0)
 
 [node name="AreaCollisionShape2D" parent="." index="1"]
 position = Vector2(0, -1.5)

@@ -52,4 +52,3 @@ position = Vector2(-304, 48)
 
 [node name="DoorDown" parent="." instance=ExtResource("7_fifjg")]
 position = Vector2(224.00002, 160.00002)
-rotation = -0.005667453

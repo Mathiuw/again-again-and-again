@@ -51,7 +51,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_hp4bs"]
 resource_name = "invencibility"
-length = 0.5
+length = 0.3
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -60,7 +60,7 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
+"times": PackedFloat32Array(0, 0.15, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -73,7 +73,6 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-y_sort_enabled = true
 collision_layer = 2
 collision_mask = 7
 motion_mode = 1
@@ -97,7 +96,6 @@ animated_sprite = NodePath("../AnimatedSprite2D")
 roll_component = NodePath("../RollComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
 sprite_frames = ExtResource("5_hp4bs")
 animation = &"idle_front"
 autoplay = "idle_front"
