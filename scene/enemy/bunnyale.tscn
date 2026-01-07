@@ -71,7 +71,7 @@ _data = {
 disable_mode = 2
 motion_mode = 1
 script = ExtResource("1_8ggyp")
-move_speed = 600.0
+move_speed = 500.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_rtdwv")
@@ -85,10 +85,10 @@ position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_8ggyp")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_max_distance = 500.0
+path_desired_distance = 5.0
+path_max_distance = 10.0
 avoidance_enabled = true
-radius = 25.0
-neighbor_distance = 10.0
+time_horizon_obstacles = 1.0
 max_speed = 1000.0
 debug_enabled = true
 debug_use_custom = true

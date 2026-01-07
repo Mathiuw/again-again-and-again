@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://be2ns7nd7wct4"]
+[gd_scene load_steps=7 format=3 uid="uid://be2ns7nd7wct4"]
 
 [ext_resource type="Script" uid="uid://bbim12t1u8d40" path="res://script/catlionidk.gd" id="1_asvjx"]
 [ext_resource type="Texture2D" uid="uid://dsra6h7i3ciqm" path="res://sprite/character/Catlionidk-Sheet.png" id="1_n3eyp"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="3_n1omm"]
-[ext_resource type="PackedScene" uid="uid://cgy5ipfx6ohjl" path="res://scene/roll_component.tscn" id="3_yfmbt"]
+[ext_resource type="PackedScene" uid="uid://cgy5ipfx6ohjl" path="res://scene/dash_component.tscn" id="3_yfmbt"]
+[ext_resource type="PackedScene" uid="uid://l2r7c2wi8ojn" path="res://scene/dash_particle_sprite_2D.tscn" id="4_myhiq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_asvjx"]
 
@@ -30,9 +31,13 @@ vframes = 9
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_asvjx")
 
-[node name="RollComponent" parent="." instance=ExtResource("3_yfmbt")]
+[node name="DashComponent" parent="." instance=ExtResource("3_yfmbt")]
+unique_name_in_owner = true
 dash_length = 0.2
 dash_cooldown = 2.0
+
+[node name="DashParticleSprite2D" parent="." node_paths=PackedStringArray("sprite_2d") instance=ExtResource("4_myhiq")]
+sprite_2d = NodePath("../Sprite2D")
 
 [node name="DrawPathTimer" type="Timer" parent="." groups=["enemy"]]
 wait_time = 0.25

@@ -1,20 +1,16 @@
-@tool
 extends GPUParticles2D
-class_name DashParticle
+class_name DashParticleAnimatedSprite2D
 
 @export var character_owner: CharacterBody2D
 @export var animated_sprite: AnimatedSprite2D
-@export var roll_component: Roll
+@onready var dash_component: DashComponent = %DashComponent
 
 func _process(_delta: float) -> void:
-	
-	if !Engine.is_editor_hint():
-		if roll_component.is_dashing:
-			emitting = true
-		else:
-			emitting = false
-	
-	if !emitting: return
+	if dash_component.is_dashing:
+		emitting = true
+	else:
+		emitting = false
+		return
 	
 	if !character_owner:
 		push_error("charcter_owner not assigned/ not found")

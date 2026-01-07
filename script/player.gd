@@ -6,7 +6,7 @@ const SPEED: float = 150.0
 @onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _weapon: Weapon = $Weapon
 @onready var _interact_component: InteractComponent = $InteractComponent
-@onready var _roll_component: Roll = $RollComponent
+@onready var _roll_component: DashComponent = $DashComponent
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var _loop_timer: Timer
 

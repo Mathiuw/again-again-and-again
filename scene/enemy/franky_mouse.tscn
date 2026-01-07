@@ -71,9 +71,9 @@ _data = {
 disable_mode = 2
 motion_mode = 1
 script = ExtResource("1_xpy6e")
-move_speed = 800.0
+move_speed = 300.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." groups=["enemy"]]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_rtdwv")
 position = Vector2(0, -16)
 texture = ExtResource("3_xpy6e")
@@ -87,9 +87,11 @@ position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_8ggyp")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_max_distance = 500.0
+path_desired_distance = 5.0
+path_max_distance = 10.0
 avoidance_enabled = true
-neighbor_distance = 13.0
+max_neighbors = 20
+time_horizon_obstacles = 1.0
 max_speed = 1000.0
 debug_enabled = true
 debug_use_custom = true

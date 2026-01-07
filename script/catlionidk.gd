@@ -8,7 +8,7 @@ extends CharacterBody2D
 var target: Node2D = null
 
 @onready var _health: Health = $HealthComponent
-@onready var roll_component: Roll = $RollComponent
+@onready var dash_component: DashComponent = $DashComponent
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
 func _ready() -> void:
@@ -33,10 +33,11 @@ func _physics_process(_delta: float) -> void:
 	
 	if  target.global_position.distance_to(global_position) < dash_target_distance:
 		#print("can dash")
-		roll_component.start_dash()
+		dash_component.start_dash()
 		return
 	
 	var move_direction: Vector2 = navigation_agent_2d.get_next_path_position()
+	#var new_velocity: Vector2 = global_position.direction_to(move_direction) * move_speed * dash_component.dash_speed_multiplier
 	var new_velocity: Vector2 = global_position.direction_to(move_direction) * move_speed
 	
 	if  navigation_agent_2d.avoidance_enabled:
