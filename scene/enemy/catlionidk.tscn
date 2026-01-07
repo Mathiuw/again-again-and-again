@@ -1,10 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://be2ns7nd7wct4"]
 
 [ext_resource type="Script" uid="uid://bbim12t1u8d40" path="res://script/catlionidk.gd" id="1_asvjx"]
-[ext_resource type="Texture2D" uid="uid://dsra6h7i3ciqm" path="res://sprite/character/Catlionidk-Sheet.png" id="1_n3eyp"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="3_n1omm"]
 [ext_resource type="PackedScene" uid="uid://cgy5ipfx6ohjl" path="res://scene/dash_component.tscn" id="3_yfmbt"]
-[ext_resource type="PackedScene" uid="uid://l2r7c2wi8ojn" path="res://scene/dash_particle_sprite_2D.tscn" id="4_myhiq"]
+[ext_resource type="PackedScene" uid="uid://c6m0uqjs8vsix" path="res://scene/dash_particle_animated_sprite_2D.tscn" id="4_myhiq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yfmbt"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_asvjx"]
 
@@ -14,18 +21,16 @@ motion_mode = 1
 script = ExtResource("1_asvjx")
 move_speed = 150.0
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yfmbt")
+animation = &"idle"
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 40.0
 avoidance_enabled = true
 radius = 20.0
 max_speed = 10000.0
 debug_enabled = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -16)
-texture = ExtResource("1_n3eyp")
-hframes = 4
-vframes = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
@@ -36,8 +41,8 @@ unique_name_in_owner = true
 dash_length = 0.2
 dash_cooldown = 2.0
 
-[node name="DashParticleSprite2D" parent="." node_paths=PackedStringArray("sprite_2d") instance=ExtResource("4_myhiq")]
-sprite_2d = NodePath("../Sprite2D")
+[node name="DashParticleAnimatedSprite2D" parent="." node_paths=PackedStringArray("character_owner") instance=ExtResource("4_myhiq")]
+character_owner = NodePath("..")
 
 [node name="DrawPathTimer" type="Timer" parent="." groups=["enemy"]]
 wait_time = 0.25

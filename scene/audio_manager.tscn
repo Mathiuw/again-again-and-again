@@ -9,21 +9,16 @@
 
 [sub_resource type="Resource" id="Resource_o1am0"]
 script = ExtResource("2_8jnrl")
-limit = 5
-type = 0
 sound_effects = Array[AudioStream]([ExtResource("3_o1am0")])
 volume = -10.0
-pitch_scale = 1.0
 pitch_randomness = 0.3
 metadata/_custom_type_script = "uid://dhuujfbdmx3ku"
 
 [sub_resource type="Resource" id="Resource_tdpk3"]
 script = ExtResource("2_8jnrl")
-limit = 5
 type = 1
 sound_effects = Array[AudioStream]([ExtResource("3_8jnrl"), ExtResource("5_tdpk3")])
 volume = -9.486
-pitch_scale = 1.0
 pitch_randomness = 0.1
 metadata/_custom_type_script = "uid://dhuujfbdmx3ku"
 
@@ -33,8 +28,6 @@ limit = 1
 type = 2
 sound_effects = Array[AudioStream]([ExtResource("6_fgttd")])
 volume = -8.971
-pitch_scale = 1.0
-pitch_randomness = 0.0
 metadata/_custom_type_script = "uid://dhuujfbdmx3ku"
 
 [node name="AudioManager" type="Node2D"]

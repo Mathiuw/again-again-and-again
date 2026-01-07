@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=4 uid="uid://c0lq3ffj8atbe"]
+[gd_scene load_steps=8 format=4 uid="uid://c0lq3ffj8atbe"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_mhatv"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_c6p40"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="3_nx5lv"]
+[ext_resource type="PackedScene" uid="uid://cashvt3sqfcys" path="res://scene/music_changer_area_2d.tscn" id="4_c6p40"]
 [ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://scene/door_left.tscn" id="4_nx5lv"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://scene/door_right.tscn" id="5_mhatv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ne5gq"]
+size = Vector2(94, 134)
 
 [node name="RoomRome18" type="Node2D"]
 y_sort_enabled = true
@@ -44,6 +48,13 @@ position = Vector2(192, -76)
 
 [node name="TorchPointLight2D9" parent="ground" instance=ExtResource("3_nx5lv")]
 position = Vector2(256, -76)
+
+[node name="MusicChangerArea2D" parent="ground" instance=ExtResource("4_c6p40")]
+position = Vector2(248, 7)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground/MusicChangerArea2D"]
+shape = SubResource("RectangleShape2D_ne5gq")
 
 [node name="DoorLeft" parent="." instance=ExtResource("4_nx5lv")]
 position = Vector2(-304, -16)

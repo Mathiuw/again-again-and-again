@@ -18,6 +18,11 @@ func _ready() -> void:
 
 
 func set_music(new_music):
+	if new_music == null:
+		_music_stream_player.stop()
+		_music_stream_player.stream = null
+		return
+	
 	if new_music == current_music : return
 	current_music = new_music
 	_music_stream_player.stream = current_music
@@ -51,6 +56,7 @@ func create_audio(type: SoundEffect.SOUND_EFFECT_TYPE, variant: int = 0) -> void
 			sound_effect.change_audio_count(1)
 			var new_audio: AudioStreamPlayer = AudioStreamPlayer.new()
 			add_child(new_audio)
+			new_audio.bus = "Sfx"
 			new_audio.stream = sound_effect.sound_effects[variant]
 			new_audio.volume_db = sound_effect.volume
 			new_audio.pitch_scale = sound_effect.pitch_scale
