@@ -49,17 +49,18 @@ _data = {
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_myteo"]
-size = Vector2(80, 296)
+size = Vector2(96, 296)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_df8rs"]
-size = Vector2(592, 64)
+size = Vector2(592, 56)
 
 [node name="Lynx" type="Node2D" node_paths=PackedStringArray("attacks") groups=["enemy"]]
 script = ExtResource("1_i5xpl")
-attacks = [NodePath("LynxAttackRush")]
-attack_cooldown = 0.1
+attacks = [NodePath("LynxAttackRush"), NodePath("LynxAttackRanged")]
+attack_cooldown = 1.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_j2mhn")]
+unique_name_in_owner = true
 max_hits = 40
 
 [node name="LynxAttackRanged" parent="." instance=ExtResource("3_6gwe6")]
@@ -126,7 +127,6 @@ curve = SubResource("Curve2D_b8337")
 target_area = NodePath("../../TargetArea2D6")
 
 [node name="TargetArea2D" parent="." instance=ExtResource("5_agdc3")]
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D"]
 position = Vector2(0, 4)
@@ -134,7 +134,6 @@ shape = SubResource("RectangleShape2D_myteo")
 
 [node name="TargetArea2D2" parent="." instance=ExtResource("5_agdc3")]
 position = Vector2(152, 0)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D2"]
 position = Vector2(0, 4)
@@ -142,7 +141,6 @@ shape = SubResource("RectangleShape2D_myteo")
 
 [node name="TargetArea2D3" parent="." instance=ExtResource("5_agdc3")]
 position = Vector2(-144, 0)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D3"]
 position = Vector2(0, 4)
@@ -150,7 +148,6 @@ shape = SubResource("RectangleShape2D_myteo")
 
 [node name="TargetArea2D4" parent="." instance=ExtResource("5_agdc3")]
 position = Vector2(0, -104)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D4"]
 position = Vector2(0, -12)
@@ -158,7 +155,6 @@ shape = SubResource("RectangleShape2D_df8rs")
 
 [node name="TargetArea2D5" parent="." instance=ExtResource("5_agdc3")]
 position = Vector2(0, 16)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D5"]
 position = Vector2(0, -16)
@@ -166,7 +162,6 @@ shape = SubResource("RectangleShape2D_df8rs")
 
 [node name="TargetArea2D6" parent="." instance=ExtResource("5_agdc3")]
 position = Vector2(0, 120)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D6"]
 shape = SubResource("RectangleShape2D_df8rs")
@@ -192,13 +187,34 @@ offset_right = 193.0
 offset_bottom = -144.0
 color = Color(0.11764706, 0.05490196, 0.05490196, 1)
 
+[node name="FrontHole4" type="ColorRect" parent="."]
+offset_left = -184.0
+offset_top = 152.0
+offset_right = -104.0
+offset_bottom = 192.0
+color = Color(0.11764706, 0.05490196, 0.05490196, 1)
+
+[node name="FrontHole5" type="ColorRect" parent="."]
+offset_left = -40.0
+offset_top = 152.0
+offset_right = 40.0
+offset_bottom = 192.0
+color = Color(0.11764706, 0.05490196, 0.05490196, 1)
+
+[node name="FrontHole6" type="ColorRect" parent="."]
+offset_left = 112.0
+offset_top = 152.0
+offset_right = 192.0
+offset_bottom = 192.0
+color = Color(0.11764706, 0.05490196, 0.05490196, 1)
+
 [node name="SideHole" type="ColorRect" parent="."]
 offset_left = -319.0
 offset_top = 29.618729
 offset_right = -259.30212
 offset_bottom = 54.61873
 rotation = -1.5707964
-color = Color(0.22362709, 0.12284168, 0.12280875, 1)
+color = Color(0.11764706, 0.05490196, 0.05490196, 1)
 
 [node name="SideHole2" type="ColorRect" parent="."]
 offset_left = -319.0
@@ -206,7 +222,7 @@ offset_top = 150.0
 offset_right = -262.0
 offset_bottom = 175.0
 rotation = -1.5707964
-color = Color(0.22362709, 0.12284168, 0.12280875, 1)
+color = Color(0.11764706, 0.05490196, 0.05490196, 1)
 
 [node name="SideHole3" type="ColorRect" parent="."]
 offset_left = -319.0
@@ -214,7 +230,7 @@ offset_top = -87.0
 offset_right = -262.0
 offset_bottom = -62.0
 rotation = -1.5707964
-color = Color(0.22362709, 0.12284168, 0.12280875, 1)
+color = Color(0.11764706, 0.05490196, 0.05490196, 1)
 
 [node name="SideHole4" type="ColorRect" parent="."]
 offset_left = 295.0
@@ -222,7 +238,7 @@ offset_top = 150.0
 offset_right = 352.0
 offset_bottom = 175.0
 rotation = -1.5707964
-color = Color(0.22362709, 0.12284168, 0.12280875, 1)
+color = Color(0.11764706, 0.05490196, 0.05490196, 1)
 
 [node name="SideHole5" type="ColorRect" parent="."]
 offset_left = 295.0
@@ -230,7 +246,7 @@ offset_top = -87.0
 offset_right = 352.0
 offset_bottom = -62.0
 rotation = -1.5707964
-color = Color(0.22362709, 0.12284168, 0.12280875, 1)
+color = Color(0.11764706, 0.05490196, 0.05490196, 1)
 
 [editable path="LynxAttackRanged"]
 [editable path="LynxAttackRush"]

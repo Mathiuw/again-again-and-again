@@ -220,9 +220,6 @@ max_wait_time = 400.0
 y_sort_enabled = true
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="Map" instance=ExtResource("1_itxqv")]
-position = Vector2(72, 8)
-
 [node name="RoomStart" parent="Map" instance=ExtResource("6_p1hux")]
 
 [node name="DoorRight" parent="Map/RoomStart" index="3" node_paths=PackedStringArray("desired_room")]
@@ -863,6 +860,9 @@ position = Vector2(2560, 0)
 
 [node name="RoomRomeKey" parent="Map" instance=ExtResource("26_4jm02")]
 position = Vector2(2560, -384)
+
+[node name="Player" parent="Map" instance=ExtResource("1_itxqv")]
+position = Vector2(72, 8)
 
 [node name="PlayerCamera" type="Camera2D" parent="." groups=["camera"]]
 position_smoothing_enabled = true

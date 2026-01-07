@@ -11,7 +11,6 @@ var target: Node2D = null
 @onready var roll_component: Roll = $RollComponent
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
-
 func _ready() -> void:
 	# Die function connect
 	_health.on_die.connect(func(): queue_free())
@@ -33,7 +32,7 @@ func _physics_process(_delta: float) -> void:
 #		return
 	
 	if  target.global_position.distance_to(global_position) < dash_target_distance:
-		print("can dash")
+		#print("can dash")
 		roll_component.start_dash()
 		return
 	

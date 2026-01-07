@@ -47,6 +47,16 @@ project/assembly_name="AAA"
 
 movie_writer/movie_file="D:/mateu/Videos/Godot/footage.avi"
 
+[file_customization]
+
+folder_colors={
+"res://scene/": "orange",
+"res://script/": "green",
+"res://shader/": "teal",
+"res://sound/": "yellow",
+"res://sprite/": "pink"
+}
+
 [global_group]
 
 player=""

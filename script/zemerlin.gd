@@ -22,7 +22,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	print(velocity.normalized())
+	#print(velocity.normalized())
 	set_animations()
 
 

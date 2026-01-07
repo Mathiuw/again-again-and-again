@@ -8,9 +8,10 @@ enum AttackType {Random, Targeted}
 @export var attack_type: AttackType = AttackType.Random
 @export var paths: Array[EnemyPath2D]
 @export var move_speed: float = 3
+@onready var health_component: Health = %HealthComponent
 
 var is_attacking: bool = false
-var current_lynx_rush_body: PathFollow2D
+var current_lynx_rush_body: LynxBody
 
 func attack() -> void:
 	match attack_type:
@@ -42,6 +43,7 @@ func _process(delta: float) -> void:
 
 func spawn_lynx_body(path_to_spawn:EnemyPath2D) -> void:
 	current_lynx_rush_body = LYNX_RUSH_BODY.instantiate()
+	current_lynx_rush_body.health_component = health_component
 	path_to_spawn.add_child(current_lynx_rush_body)
 
 func random_attack(enable_atack: bool = true) -> void:
