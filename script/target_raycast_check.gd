@@ -2,7 +2,7 @@ extends RayCast2D
 class_name TargetRaycastCheck2D
 
 signal on_target_in_sight(target: Object)
-
+var target_on_sight: bool = false
 var target: Node2D
 
 
