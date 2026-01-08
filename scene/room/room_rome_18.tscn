@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://dd48ufp885ve0"]
+[gd_scene load_steps=11 format=4 uid="uid://dd48ufp885ve0"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_020bn"]
+[ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_fod2o"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_lf2td"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="3_eslgf"]
 [ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://scene/door_front.tscn" id="4_as3im"]
@@ -13,6 +14,7 @@
 [node name="RoomRome18" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_020bn")
+music_override = ExtResource("2_fod2o")
 
 [node name="ground" type="TileMapLayer" parent="."]
 z_index = -1

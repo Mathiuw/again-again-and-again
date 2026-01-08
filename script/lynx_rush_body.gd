@@ -29,6 +29,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		print("No player detected")
 
 
-func damage(damage_amount)-> void:
+func damage(damage_taken)-> void:
 	if health_component:
-		health_component.remove_health(damage_amount)
+		health_component.remove_health(damage_taken)

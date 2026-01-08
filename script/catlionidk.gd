@@ -1,55 +1,43 @@
 class_name Catliondk
 extends CharacterBody2D
 
-@export_group("AI Dasher Settings")
-@export var move_speed: float = 100;
-@export var dash_target_distance: float = 125.0
 
-var target: Node2D = null
+@export var move_speed: float = 100
+@export_group("Attack Settings")
+@export var damage_amount: float = 5
+@export var knockback_force: float = 230
+@export var knockback_duration: float = 0.15
+
 
 @onready var _health: Health = $HealthComponent
 @onready var dash_component: DashComponent = $DashComponent
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
+
 func _ready() -> void:
-	# Die function connect
-	_health.on_die.connect(func(): queue_free())
-	
-	target = get_tree().get_first_node_in_group("player")
-	if  !target:
-		push_error("Couldnt find player")
+	_health.on_die.connect(on_die)
 
 
 func _physics_process(_delta: float) -> void:
-	if !target:
-		return
-	
 	# Do not query when the map has never synchronized and is empty.
 	if NavigationServer2D.map_get_iteration_id(navigation_agent_2d.get_navigation_map()) == 0:
 		return
 	
-#	if navigation_agent_2d.is_navigation_finished():
-#		return
+	if !dash_component.can_dash:
+		velocity = Vector2.ZERO
+		return
 	
-	if  target.global_position.distance_to(global_position) < dash_target_distance:
-		#print("can dash")
-		dash_component.start_dash()
+	if navigation_agent_2d.is_navigation_finished():
+		dash_component.stop_dash()
 		return
 	
 	var move_direction: Vector2 = navigation_agent_2d.get_next_path_position()
-	#var new_velocity: Vector2 = global_position.direction_to(move_direction) * move_speed * dash_component.dash_speed_multiplier
-	var new_velocity: Vector2 = global_position.direction_to(move_direction) * move_speed
+	var new_velocity: Vector2 = global_position.direction_to(move_direction) * move_speed * dash_component.dash_speed_multiplier
 	
 	if  navigation_agent_2d.avoidance_enabled:
 		navigation_agent_2d.velocity = new_velocity
 	else:
 		_on_navigation_agent_2d_velocity_computed(new_velocity)
-
-
-# Timer calculate cooldown
-func _on_draw_path_timer_timeout() -> void:
-	if target:
-		navigation_agent_2d.target_position = target.global_position
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
@@ -59,3 +47,19 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 
 func damage(damageAmount: int):
 	_health.remove_health(damageAmount)
+
+
+func on_die() -> void:
+	queue_free()
+
+
+func _on_target_raycast_check_2d_on_target_in_sight(target: Object) -> void:
+	navigation_agent_2d.target_position = target.global_position
+	dash_component.start_dash()
+
+
+func _on_damage_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player:
+		var knockback_direction: Vector2 = (body.global_position - global_position).normalized()
+		body.apply_knockback(knockback_direction, knockback_force, knockback_duration)
+		body.damage(damage_amount)

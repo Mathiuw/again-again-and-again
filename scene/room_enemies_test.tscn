@@ -56,9 +56,7 @@ position = Vector2(-256, -156)
 
 [node name="Catlionidk" parent="World/Room/NavigationRegion2D" instance=ExtResource("5_620s6")]
 
-[node name="Catlionidk2" parent="World/Room/NavigationRegion2D" instance=ExtResource("5_620s6")]
-
 [node name="Player" parent="World" instance=ExtResource("2_4wv86")]
-position = Vector2(-256, 24)
+position = Vector2(-208, 104)
 
 [node name="PlayerCamera" parent="." instance=ExtResource("3_fryba")]
