@@ -191,6 +191,9 @@ tile_set = ExtResource("3_dnlai")
 unique_name_in_owner = true
 active = false
 
+[node name="LynxAttackRush" parent="LynxBossBase" index="2"]
+move_speed = 0.1
+
 [node name="EnemyPath2D" parent="LynxBossBase/LynxAttackRush" index="0"]
 curve = SubResource("Curve2D_prs6n")
 

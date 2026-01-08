@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bw650n1ie2vmr"]
+[gd_scene load_steps=11 format=4 uid="uid://bw650n1ie2vmr"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_0qnvi"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="2_2bkw1"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://scene/door_left.tscn" id="4_0qnvi"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://scene/chest_rome.tscn" id="4_8gl7q"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://scene/door_right.tscn" id="5_w0nvy"]
+[ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://scene/enemy/medusa.tscn" id="5_wp3fu"]
 [ext_resource type="PackedScene" uid="uid://dcg3gmie44c8h" path="res://scene/door_down.tscn" id="6_ajrqq"]
+[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://scene/enemy/zemerlin.tscn" id="6_wqk53"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0qnvi"]
 vertices = PackedVector2Array(138, 10, 150, -54, 278, -54, 278, 63, 250, 86, 186, 54, 138, -74, 150, -122, -162, -102, -132, -102, -132, -100, -198, -100, -198, -106, -162, -134, -284, -134, -234, -106, -284, -58, -278, -58, -234, -38, -278, 63, -54, -90, -60, -90, -60, -134, 220, -134, 220, -116, 186, -116, 186, -122, 102, -74, 102, -68, 42, -68, 42, -74, 6, -22, 12, -22, 12, -10, 6, -10, 150, 54, 90, 42, 90, 10, 284, 63, 284, 140, 250, 138, 244, 140, 244, 138, 214, 86, 214, 92, 186, 92, 150, 60, 138, 60, 138, 54, 102, 54, 102, 92, 74, 92, 74, 86, 38, 138, 44, 138, 44, 140, -38, 140, -38, 134, 38, 86, -74, 134, -74, 140, -86, 140, -86, 134, -122, 134, -122, 140, -124, 140, -124, 90, -70, 90, -106, 22, -106, 28, -198, 28, -198, 22, -234, 90, -194, 90, -194, 122, -284, 140, -164, 122, -164, 140, -284, 63, -234, 22, -54, -38, -70, 22, 6, 42, 6, -74)
@@ -48,6 +50,21 @@ position = Vector2(-176, 112)
 
 [node name="Chest2" parent="NavigationRegion2D" instance=ExtResource("4_8gl7q")]
 position = Vector2(-144, -112)
+
+[node name="Medusa" parent="NavigationRegion2D" instance=ExtResource("5_wp3fu")]
+position = Vector2(-152, -24)
+
+[node name="Medusa2" parent="NavigationRegion2D" instance=ExtResource("5_wp3fu")]
+position = Vector2(-152, 8)
+
+[node name="Zemerlin" parent="NavigationRegion2D" instance=ExtResource("6_wqk53")]
+position = Vector2(200, -16)
+
+[node name="Zemerlin2" parent="NavigationRegion2D" instance=ExtResource("6_wqk53")]
+position = Vector2(32, -96)
+
+[node name="Zemerlin3" parent="NavigationRegion2D" instance=ExtResource("6_wqk53")]
+position = Vector2(176, 24)
 
 [node name="DoorLeft" parent="." instance=ExtResource("4_0qnvi")]
 position = Vector2(-304, -16)

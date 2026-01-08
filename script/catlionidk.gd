@@ -19,6 +19,15 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	var collision: KinematicCollision2D = get_last_slide_collision()
+	if collision:
+		var body: Node2D = collision.get_collider()
+		if body is Player:
+			var knockback_direction: Vector2 = (body.global_position - global_position).normalized()
+			if body.can_take_damage:
+				body.apply_knockback(knockback_direction, knockback_force, knockback_duration)
+			body.damage(damage_amount)
+	
 	# Do not query when the map has never synchronized and is empty.
 	if NavigationServer2D.map_get_iteration_id(navigation_agent_2d.get_navigation_map()) == 0:
 		return
@@ -56,10 +65,3 @@ func on_die() -> void:
 func _on_target_raycast_check_2d_on_target_in_sight(target: Object) -> void:
 	navigation_agent_2d.target_position = target.global_position
 	dash_component.start_dash()
-
-
-func _on_damage_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player:
-		var knockback_direction: Vector2 = (body.global_position - global_position).normalized()
-		body.apply_knockback(knockback_direction, knockback_force, knockback_duration)
-		body.damage(damage_amount)
