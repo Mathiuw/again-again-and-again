@@ -226,9 +226,6 @@ metadata/_edit_lock_ = true
 desired_room = NodePath("../../RoomRome01")
 metadata/_edit_group_ = true
 
-[node name="DoorLayer" parent="Map/RoomStart/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
-
 [node name="AreaCollisionShape2D" parent="Map/RoomStart/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_7ty4q")
 
@@ -250,9 +247,6 @@ position = Vector2(-56, 24)
 [node name="DoorRight" parent="Map/RoomRome01" index="2" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome02")
 metadata/_edit_group_ = true
-
-[node name="DoorLayer" parent="Map/RoomRome01/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
 
 [node name="AreaCollisionShape2D" parent="Map/RoomRome01/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_7xrs8")
@@ -309,9 +303,6 @@ position = Vector2(0, 104)
 [node name="DoorRight" parent="Map/RoomRome03" index="5" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome21")
 
-[node name="DoorLayer" parent="Map/RoomRome03/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
-
 [node name="AreaCollisionShape2D" parent="Map/RoomRome03/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_ntge4")
 
@@ -330,9 +321,6 @@ position = Vector2(-64, 24)
 [node name="DoorRight" parent="Map/RoomRome04" index="2" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome06")
 
-[node name="DoorLayer" parent="Map/RoomRome04/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
-
 [node name="AreaCollisionShape2D" parent="Map/RoomRome04/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_jey2d")
 
@@ -350,9 +338,6 @@ position = Vector2(640, -384)
 
 [node name="DoorRight" parent="Map/RoomRome05" index="5" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome04")
-
-[node name="DoorLayer" parent="Map/RoomRome05/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
 
 [node name="AreaCollisionShape2D" parent="Map/RoomRome05/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_mbros")
@@ -396,9 +381,6 @@ position = Vector2(-64, 24)
 [node name="DoorRight" parent="Map/RoomRome07" index="2" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome15")
 
-[node name="DoorLayer" parent="Map/RoomRome07/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
-
 [node name="AreaCollisionShape2D" parent="Map/RoomRome07/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_p2s8b")
 
@@ -428,9 +410,6 @@ position = Vector2(1920, 768)
 
 [node name="DoorRight" parent="Map/RoomRome09" index="6" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome07")
-
-[node name="DoorLayer" parent="Map/RoomRome09/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
 
 [node name="AreaCollisionShape2D" parent="Map/RoomRome09/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_76meg")
@@ -485,9 +464,6 @@ position = Vector2(0, -112)
 
 [node name="DoorRight" parent="Map/RoomRome11" index="2" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome09")
-
-[node name="DoorLayer" parent="Map/RoomRome11/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
 
 [node name="AreaCollisionShape2D" parent="Map/RoomRome11/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_2km5d")
@@ -567,9 +543,6 @@ position = Vector2(0, -112)
 [node name="DoorRight" parent="Map/RoomRome15" index="2" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome16")
 
-[node name="DoorLayer" parent="Map/RoomRome15/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
-
 [node name="AreaCollisionShape2D" parent="Map/RoomRome15/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_km826")
 
@@ -594,9 +567,6 @@ position = Vector2(-64, 24)
 [node name="DoorRight" parent="Map/RoomRome16" index="2" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome08")
 
-[node name="DoorLayer" parent="Map/RoomRome16/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
-
 [node name="AreaCollisionShape2D" parent="Map/RoomRome16/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_vhvp1")
 
@@ -617,9 +587,6 @@ position = Vector2(0, -112)
 
 [node name="DoorRight" parent="Map/RoomRome17" index="2" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome12")
-
-[node name="DoorLayer" parent="Map/RoomRome17/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
 
 [node name="AreaCollisionShape2D" parent="Map/RoomRome17/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_f460h")
@@ -648,9 +615,6 @@ position = Vector2(-64, 24)
 [node name="DoorRight" parent="Map/RoomRome18" index="7" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome28")
 
-[node name="DoorLayer" parent="Map/RoomRome18/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
-
 [node name="AreaCollisionShape2D" parent="Map/RoomRome18/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_o6p74")
 
@@ -675,9 +639,6 @@ position = Vector2(-64, 16)
 [node name="DoorRight" parent="Map/RoomRome19" index="2" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome18")
 
-[node name="DoorLayer" parent="Map/RoomRome19/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
-
 [node name="AreaCollisionShape2D" parent="Map/RoomRome19/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_ron3d")
 
@@ -696,9 +657,6 @@ position = Vector2(-64, 24)
 [node name="DoorRight" parent="Map/RoomRome20" index="2" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome24")
 
-[node name="DoorLayer" parent="Map/RoomRome20/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
-
 [node name="AreaCollisionShape2D" parent="Map/RoomRome20/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_5b52o")
 
@@ -716,9 +674,6 @@ position = Vector2(-64, 24)
 
 [node name="DoorRight" parent="Map/RoomRome21" index="2" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome20")
-
-[node name="DoorLayer" parent="Map/RoomRome21/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
 
 [node name="AreaCollisionShape2D" parent="Map/RoomRome21/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_1s8x8")
@@ -746,9 +701,6 @@ position = Vector2(2560, 384)
 
 [node name="DoorRight" parent="Map/RoomRome23" index="13" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome22")
-
-[node name="DoorLayer" parent="Map/RoomRome23/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
 
 [node name="AreaCollisionShape2D" parent="Map/RoomRome23/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_667b8")
@@ -798,9 +750,6 @@ position = Vector2(0, -112)
 [node name="DoorRight" parent="Map/RoomRome25" index="4" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome27")
 
-[node name="DoorLayer" parent="Map/RoomRome25/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
-
 [node name="AreaCollisionShape2D" parent="Map/RoomRome25/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_aq5ln")
 
@@ -812,9 +761,6 @@ position = Vector2(3200, -384)
 
 [node name="DoorRight" parent="Map/RoomRome26" index="1" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome25")
-
-[node name="DoorLayer" parent="Map/RoomRome26/DoorRight" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
 
 [node name="AreaCollisionShape2D" parent="Map/RoomRome26/DoorRight" index="1"]
 shape = SubResource("RectangleShape2D_o3wqe")

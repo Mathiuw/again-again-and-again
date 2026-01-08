@@ -1,13 +1,15 @@
 class_name Player
 extends CharacterBody2D
 
+signal on_player_die
+signal on_player_damage(damageAmount: int)
+
 const SPEED: float = 150.0
 
 @onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _weapon: Weapon = $Weapon
 @onready var _interact_component: InteractComponent = $InteractComponent
 @onready var _roll_component: DashComponent = $DashComponent
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 var _loop_timer: Timer
 
 # knockback variables
@@ -17,10 +19,7 @@ var knockback_timer: float = 0.0
 # damage variables
 @export var invencible_frames_amount: int = 15
 var can_take_damage: bool = true
-var current_invencible_frames: int = 0
 
-signal on_player_die
-signal on_player_damage(damageAmount: int)
 
 func _ready() -> void:
 	# Hide and confine mouse
@@ -52,14 +51,6 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		if !_interact_component.try_to_interact():
 			_roll_component.start_dash()
-	
-	# invencible frames check
-	if current_invencible_frames > 0:
-		current_invencible_frames -= 1
-		if current_invencible_frames == 0:
-			can_take_damage = true
-			animation_player.play("RESET")
-			print("Invicibility frames over")
 
 
 func _physics_process(delta: float) -> void:
@@ -134,10 +125,21 @@ func damage(damageAmount: int) -> void:
 		on_player_damage.emit(damageAmount)
 	
 	# activate invencible frames
-	current_invencible_frames = invencible_frames_amount
 	can_take_damage = false
-	animation_player.play("invencibility")
 	print("Invicibility frames start")
+	
+	# invencible tween
+	var invencible_tween = create_tween().set_trans(Tween.TRANS_SINE)
+	invencible_tween.tween_property($AnimatedSprite2D, "modulate:a", 0.1, invencible_frames_amount/4.0)
+	invencible_tween.chain().tween_property($AnimatedSprite2D, "modulate:a", 1.0, invencible_frames_amount/4.0)
+	invencible_tween.chain().chain().tween_property($AnimatedSprite2D, "modulate:a", 0.1, invencible_frames_amount/4.0)
+	invencible_tween.chain().chain().chain().tween_property($AnimatedSprite2D, "modulate:a", 1.0, invencible_frames_amount/4.0).finished.connect(on_invencible_frames_over)
+	#animation_player.play("invencibility")
+
+
+func on_invencible_frames_over() -> void:
+	can_take_damage = true
+	print("Invicibility frames over")
 
 
 # On loop end function
