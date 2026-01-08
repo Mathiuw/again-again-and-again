@@ -23,7 +23,7 @@ func _physics_process(_delta: float) -> void:
 	if NavigationServer2D.map_get_iteration_id(navigation_agent_2d.get_navigation_map()) == 0:
 		return
 	
-	if !dash_component.can_dash:
+	if !dash_component.is_dashing:
 		velocity = Vector2.ZERO
 		return
 	

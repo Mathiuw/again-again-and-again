@@ -7,6 +7,7 @@
 [node name="BossTest" type="Node"]
 
 [node name="Map" type="Node2D" parent="." groups=["world"]]
+y_sort_enabled = true
 
 [node name="Player" parent="Map" instance=ExtResource("2_p6vse")]
 position = Vector2(272, 0)

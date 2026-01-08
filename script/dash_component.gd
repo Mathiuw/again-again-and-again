@@ -29,13 +29,16 @@ func start_dash() -> void:
 		return
 	start()
 	on_dash_start.emit()
+	print("started dash")
 
 
 func stop_dash() -> void:
 	is_dashing = false
 	can_dash = false
+	print("started dash")
 	await get_tree().create_timer(dash_cooldown).timeout
 	can_dash = true
+	print("can dash again")
 
  
 func _on_timeout() -> void:
