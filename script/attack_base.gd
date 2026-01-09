@@ -4,7 +4,7 @@ class_name AttackBase
 @warning_ignore("unused_signal")
 signal on_attack_end
 
-@export var boss_health_component: Health
+@onready var boss_health_component: Health = %HealthComponent
 
 func attack() -> void:
 	pass

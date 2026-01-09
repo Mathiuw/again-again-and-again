@@ -10,8 +10,11 @@ class_name AILynx
 			on_attack_end()
 			print("Activated lynx")
 
+@onready var health_component: Health = %HealthComponent
 
 func _ready() -> void:
+	health_component.on_die.connect(on_die)
+	
 	for attack in attacks:
 		attack.on_attack_end.connect(on_attack_end)
 	
@@ -43,3 +46,7 @@ func on_attack_end() -> void:
 		selected_attack.attack()
 	else:
 		push_warning("No attack was selected")
+
+
+func on_die() -> void:
+	queue_free()

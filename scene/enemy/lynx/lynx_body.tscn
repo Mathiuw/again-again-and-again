@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bft146fxu4jge"]
+[gd_scene load_steps=23 format=3 uid="uid://bft146fxu4jge"]
 
 [ext_resource type="Script" uid="uid://dko0tcwes0486" path="res://script/lynx_rush_body.gd" id="1_8o57x"]
 [ext_resource type="Texture2D" uid="uid://cd0qc48rh8kjx" path="res://sprite/character/lynx/SideBossRun-Sheet.png" id="2_8t2ka"]
@@ -129,6 +129,14 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_8o57x"]
+script/source = "extends Area2D
+
+func damage(damageAmount: int) -> void:
+	if get_parent().health_component:
+		get_parent().health_component.remove_health(damageAmount)
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5ckt"]
 size = Vector2(160, 64)
 
@@ -139,16 +147,17 @@ knockback_force = 500.0
 knockback_duration = 0.3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -8)
 rotation = -0.002169434
 sprite_frames = SubResource("SpriteFrames_p17v0")
 animation = &"running_horizontal"
-frame_progress = 0.93628126
+frame_progress = 0.7605741
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 input_pickable = false
+script = SubResource("GDScript_8o57x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_k5ckt")

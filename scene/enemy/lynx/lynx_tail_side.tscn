@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" uid="uid://bc0bue5sa7rmd" path="res://script/lynx_tail.gd" id="1_ap7sq"]
 [ext_resource type="Texture2D" uid="uid://dn33mr1usr4c1" path="res://sprite/character/lynx/TailSide-Sheet.png" id="2_kxtjj"]
-[ext_resource type="PackedScene" uid="uid://ddf0w0oabsmhf" path="res://scene/weapon_area_component.tscn" id="3_r401c"]
+[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon_component.tscn" id="3_ap7sq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8ry6"]
-size = Vector2(64, 80)
+size = Vector2(56, 48)
 
-[node name="LynxTailSide" type="StaticBody2D"]
+[node name="LynxTailSide" type="Area2D"]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_ap7sq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(24, 0)
+position = Vector2(24, -16)
 texture = ExtResource("2_kxtjj")
 flip_h = true
 hframes = 9
@@ -21,9 +21,11 @@ vframes = 8
 frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 0)
+position = Vector2(12, -8)
 shape = SubResource("RectangleShape2D_n8ry6")
 
-[node name="WeaponAreaComponent" parent="." instance=ExtResource("3_r401c")]
-position = Vector2(40, -8)
+[node name="WeaponComponent" parent="." instance=ExtResource("3_ap7sq")]
+position = Vector2(56, -24)
 add_collision_exception_to_parent = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

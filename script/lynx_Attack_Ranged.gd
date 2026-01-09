@@ -3,7 +3,8 @@ extends AttackBase
 enum ShootType {Random, Line, LineTargeted, Targeted } 
 
 @export var shoot_type:ShootType = ShootType.Random
-@export var weapons:Array[WeaponArea]
+@export var lynx_tail_side_scene: PackedScene
+@export var spawn_markers:Array[TargetMarker2D]
 var target: Node2D
 
 # Called when the node enters the scene tree for the first time.
@@ -28,9 +29,17 @@ func attack() -> void:
 func shoot_random() -> void:
 	print("Shoot random")
 	
-	var index_to_shoot: int = randi_range(0,weapons.size()-1)
-	weapons[index_to_shoot].shoot(weapons[index_to_shoot].transform.x, self)
+	var index_to_spawn: int = randi_range(0,spawn_markers.size()-1)
+	#weapons[index_to_shoot].shoot(weapons[index_to_shoot].transform.x, self)
+	var new_lynx_tail: Node2D = lynx_tail_side_scene.instantiate()
+	new_lynx_tail.global_position = spawn_markers[index_to_spawn].global_position
+	add_child(new_lynx_tail)
+	
+	await get_tree().create_timer(4.0).timeout
+	
+	new_lynx_tail.queue_free()
 	on_attack_end.emit()
+	
 
 
 func shoot_targeted() -> void:
@@ -38,7 +47,7 @@ func shoot_targeted() -> void:
 	
 	var targeted_weapons: Array[WeaponArea]
 	
-	for weapon in weapons:
+	for weapon in spawn_markers:
 		if weapon.target_area.target:
 			targeted_weapons.push_back(weapon)
 	

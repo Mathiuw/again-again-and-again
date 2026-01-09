@@ -66,30 +66,6 @@ max_hits = 40
 [node name="LynxAttackRanged" parent="." instance=ExtResource("3_6gwe6")]
 shoot_type = 3
 
-[node name="WeaponAreaComponent" parent="LynxAttackRanged" index="0" node_paths=PackedStringArray("target_area")]
-position = Vector2(-272, -112)
-target_area = NodePath("../../TargetArea2D4")
-
-[node name="WeaponAreaComponent2" parent="LynxAttackRanged" index="1" node_paths=PackedStringArray("target_area")]
-position = Vector2(-272, 0)
-target_area = NodePath("../../TargetArea2D5")
-
-[node name="WeaponAreaComponent3" parent="LynxAttackRanged" index="2" node_paths=PackedStringArray("target_area")]
-position = Vector2(-272, 120)
-target_area = NodePath("../../TargetArea2D6")
-
-[node name="WeaponAreaComponent4" parent="LynxAttackRanged" index="3" node_paths=PackedStringArray("target_area")]
-position = Vector2(-144, -120)
-target_area = NodePath("../../TargetArea2D3")
-
-[node name="WeaponAreaComponent5" parent="LynxAttackRanged" index="4" node_paths=PackedStringArray("target_area")]
-position = Vector2(0, -120)
-target_area = NodePath("../../TargetArea2D")
-
-[node name="WeaponAreaComponent6" parent="LynxAttackRanged" index="5" node_paths=PackedStringArray("target_area")]
-position = Vector2(152, -120)
-target_area = NodePath("../../TargetArea2D2")
-
 [node name="LynxAttackRush" parent="." instance=ExtResource("4_fhuqs")]
 attack_type = 1
 move_speed = 1.2

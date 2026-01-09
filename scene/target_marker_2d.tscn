@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cibce7gmgf3k0"]
+
+[ext_resource type="Script" uid="uid://040u2m3kwtnr" path="res://script/target_marker.gd" id="1_mlsvc"]
+
+[node name="TargetMarker2D" type="Marker2D"]
+script = ExtResource("1_mlsvc")
