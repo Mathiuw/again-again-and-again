@@ -7,6 +7,7 @@ var shooter: Node
 var ignore_group: Array[StringName]
 
 func _physics_process(_delta: float) -> void:
+	
 	var collision: KinematicCollision2D = move_and_collide(transform.x * bullet_speed * _delta)
 	if collision:
 		var body: Node = collision.get_collider() as Node
