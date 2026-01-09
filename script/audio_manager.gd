@@ -1,6 +1,4 @@
-extends Node2D 
-@export var current_music: AudioStream:
-	set = set_music
+extends Node2D
 
 @export var sound_effects: Array[SoundEffect]
 var sound_effect_dict: Dictionary = {}
@@ -9,24 +7,29 @@ var sound_effect_dict: Dictionary = {}
 
 
 func _ready() -> void:
-	if current_music:
-		_music_stream_player.stream = current_music
+	if _music_stream_player.stream:
 		_music_stream_player.play()
 	
 	for sound_effect : SoundEffect in sound_effects:
 		sound_effect_dict[sound_effect.type] = sound_effect
 
 
-func set_music(new_music):
+func set_music(new_music: AudioStream):
 	if new_music == null:
 		_music_stream_player.stop()
 		_music_stream_player.stream = null
+		print("music stopped")
 		return
 	
-	if new_music == current_music : return
-	current_music = new_music
-	_music_stream_player.stream = current_music
+	if new_music == _music_stream_player.stream: 
+		if _music_stream_player.stream_paused:
+			_music_stream_player.stream_paused = false
+		print("same music")
+		return
+	
+	_music_stream_player.stream = new_music
 	_music_stream_player.play()
+	print("music started")
 
 
 func create_2d_audio_at_location(location: Vector2, type: SoundEffect.SOUND_EFFECT_TYPE, variant: int = 0) -> void:

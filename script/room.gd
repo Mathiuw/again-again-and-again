@@ -25,7 +25,7 @@ func _ready() -> void:
 		else:
 			set_room_state.call_deferred(true)
 			if music_override:
-				AudioManager.current_music = music_override
+				AudioManager.set_music(music_override)
 			
 			if navigation_region_2D:
 				navigation_region_2D.bake_navigation_polygon(true)
