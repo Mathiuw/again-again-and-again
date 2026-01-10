@@ -208,7 +208,7 @@ position = Vector2(-304, 128)
 target_area = NodePath("../../TargetArea2D6")
 
 [node name="LynxAttackRush" parent="LynxBossBase" index="2"]
-move_speed = 0.1
+move_speed = 0.9
 
 [node name="EnemyPath2D" parent="LynxBossBase/LynxAttackRush" index="0"]
 curve = SubResource("Curve2D_prs6n")

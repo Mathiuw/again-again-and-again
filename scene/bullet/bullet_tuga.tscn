@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkkymdqija6rj"]
+[gd_scene load_steps=10 format=3 uid="uid://dkkymdqija6rj"]
 
 [ext_resource type="PackedScene" uid="uid://c2jv5crvpeg70" path="res://scene/bullet/bullet_base.tscn" id="1_kx4ek"]
 [ext_resource type="Texture2D" uid="uid://cjg07dc6qw0ts" path="res://sprite/projectile/AchooPellet-Sheet.png" id="2_3ssiv"]
@@ -42,6 +42,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ssiv"]
 size = Vector2(9, 9)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fscni"]
+resource_local_to_scene = true
+size = Vector2(7, 7)
+
 [node name="BulletTuga" instance=ExtResource("1_kx4ek")]
 
 [node name="AnimatedSprite2D" parent="." index="0"]
@@ -53,3 +57,7 @@ frame_progress = 0.35246375
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_3ssiv")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_fscni")

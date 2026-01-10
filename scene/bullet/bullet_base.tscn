@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cyyrvtx7bgcoq" path="res://script/bullet.gd" id="1_xw300"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xw300"]
+resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,

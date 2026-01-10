@@ -61,7 +61,7 @@ attack_cooldown = 1.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_j2mhn")]
 unique_name_in_owner = true
-max_hits = 40
+max_hits = 60
 
 [node name="LynxAttackRanged" parent="." instance=ExtResource("3_6gwe6")]
 shoot_type = 3

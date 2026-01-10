@@ -49,4 +49,5 @@ func on_attack_end() -> void:
 
 
 func on_die() -> void:
+	AudioManager.set_music(null)
 	queue_free()

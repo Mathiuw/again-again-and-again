@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2uhi6ia23jpa"]
+[gd_scene load_steps=12 format=3 uid="uid://d2uhi6ia23jpa"]
 
 [ext_resource type="PackedScene" uid="uid://c2jv5crvpeg70" path="res://scene/bullet/bullet_base.tscn" id="1_ldyl3"]
 [ext_resource type="Texture2D" uid="uid://cnw1igwot1bsr" path="res://sprite/projectile/bullet.png" id="2_lk2av"]
@@ -53,6 +53,14 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm8pl"]
+resource_local_to_scene = true
+size = Vector2(13, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y45un"]
+resource_local_to_scene = true
+size = Vector2(11, 3)
+
 [node name="bullet" instance=ExtResource("1_ldyl3")]
 
 [node name="AnimatedSprite2D" parent="." index="0"]
@@ -61,3 +69,9 @@ scale = Vector2(0.53125, 0.5)
 sprite_frames = SubResource("SpriteFrames_ow715")
 frame = 1
 frame_progress = 0.246306
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_sm8pl")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_y45un")

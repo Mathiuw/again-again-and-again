@@ -31,11 +31,11 @@ func shoot_random() -> void:
 	
 	var index_to_spawn: int = randi_range(0,spawn_markers.size()-1)
 	#weapons[index_to_shoot].shoot(weapons[index_to_shoot].transform.x, self)
-	var new_lynx_tail: Node2D = lynx_tail_side_scene.instantiate()
+	var new_lynx_tail: LynxTail = lynx_tail_side_scene.instantiate()
 	new_lynx_tail.global_position = spawn_markers[index_to_spawn].global_position
 	add_child(new_lynx_tail)
 	
-	await get_tree().create_timer(4.0).timeout
+	await new_lynx_tail.on_tail_attack_end
 	
 	new_lynx_tail.queue_free()
 	on_attack_end.emit()

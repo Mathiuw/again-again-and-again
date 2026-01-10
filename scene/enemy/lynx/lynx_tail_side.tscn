@@ -1,11 +1,83 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4lnojegywv2t"]
+[gd_scene load_steps=10 format=3 uid="uid://d4lnojegywv2t"]
 
 [ext_resource type="Script" uid="uid://bc0bue5sa7rmd" path="res://script/lynx_tail.gd" id="1_ap7sq"]
 [ext_resource type="Texture2D" uid="uid://dn33mr1usr4c1" path="res://sprite/character/lynx/TailSide-Sheet.png" id="2_kxtjj"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon_component.tscn" id="3_ap7sq"]
+[ext_resource type="PackedScene" uid="uid://brtsasl3e6ene" path="res://scene/bullet/bullet_lynx.tscn" id="4_kxtjj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8ry6"]
 size = Vector2(56, 48)
+
+[sub_resource type="Animation" id="Animation_ap7sq"]
+resource_name = "tail_appear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333333, 0.20000002, 0.26666668, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"tail_shoot"
+}, {
+"args": [],
+"method": &"transition_end"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_kxtjj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_r401c"]
+resource_name = "tail_retract"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [59, 60, 61, 62, 63, 64, 65, 66, 67, 68]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r401c"]
+_data = {
+&"RESET": SubResource("Animation_kxtjj"),
+&"tail_appear": SubResource("Animation_ap7sq"),
+&"tail_retract": SubResource("Animation_r401c")
+}
 
 [node name="LynxTailSide" type="Area2D"]
 collision_layer = 2
@@ -18,14 +90,20 @@ texture = ExtResource("2_kxtjj")
 flip_h = true
 hframes = 9
 vframes = 8
-frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(12, -8)
 shape = SubResource("RectangleShape2D_n8ry6")
 
 [node name="WeaponComponent" parent="." instance=ExtResource("3_ap7sq")]
-position = Vector2(56, -24)
+position = Vector2(56, -8)
+bullet_scene = ExtResource("4_kxtjj")
 add_collision_exception_to_parent = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_r401c")
+}
+autoplay = "tail_appear"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
