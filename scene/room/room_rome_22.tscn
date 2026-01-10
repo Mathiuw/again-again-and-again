@@ -1,15 +1,20 @@
-[gd_scene load_steps=7 format=4 uid="uid://mcvwj4qveyb4"]
+[gd_scene load_steps=10 format=4 uid="uid://mcvwj4qveyb4"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_pabja"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_d2s2m"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="3_fxe75"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://scene/chest_rome.tscn" id="4_pabja"]
 [ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://scene/door_left.tscn" id="5_d2s2m"]
+[ext_resource type="PackedScene" uid="uid://c5pxaov6df4yw" path="res://scene/enemy/tuga.tscn" id="5_vb1nr"]
 [ext_resource type="PackedScene" uid="uid://dcg3gmie44c8h" path="res://scene/door_down.tscn" id="6_d2s2m"]
+[ext_resource type="PackedScene" uid="uid://b1uw6v7edbscl" path="res://scene/enemy/bunnyale.tscn" id="6_gii6b"]
+[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://scene/enemy/zemerlin.tscn" id="7_gii6b"]
 
-[node name="RoomRome21" type="Node2D"]
+[node name="RoomRome21" type="Node2D" node_paths=PackedStringArray("navigation_region_2D", "enemies_root")]
 y_sort_enabled = true
 script = ExtResource("1_pabja")
+navigation_region_2D = NodePath("NavigationRegion2D")
+enemies_root = NodePath("NavigationRegion2D")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 metadata/_edit_lock_ = true
@@ -34,14 +39,29 @@ position = Vector2(-32, -156)
 [node name="TorchPointLight2D6" parent="NavigationRegion2D/ground" instance=ExtResource("3_fxe75")]
 position = Vector2(256, -156)
 
-[node name="Chest" parent="NavigationRegion2D/ground" instance=ExtResource("4_pabja")]
+[node name="Chest" parent="NavigationRegion2D" instance=ExtResource("4_pabja")]
 position = Vector2(120, -42)
 
-[node name="Chest2" parent="NavigationRegion2D/ground" instance=ExtResource("4_pabja")]
+[node name="Chest2" parent="NavigationRegion2D" instance=ExtResource("4_pabja")]
 position = Vector2(157, -39)
 
-[node name="Chest3" parent="NavigationRegion2D/ground" instance=ExtResource("4_pabja")]
+[node name="Chest3" parent="NavigationRegion2D" instance=ExtResource("4_pabja")]
 position = Vector2(174, -65)
+
+[node name="Tuga" parent="NavigationRegion2D" instance=ExtResource("5_vb1nr")]
+position = Vector2(-64, -88)
+
+[node name="Tuga2" parent="NavigationRegion2D" instance=ExtResource("5_vb1nr")]
+position = Vector2(256, -64)
+
+[node name="Bunnyale" parent="NavigationRegion2D" instance=ExtResource("6_gii6b")]
+position = Vector2(-16, 16)
+
+[node name="Bunnyale2" parent="NavigationRegion2D" instance=ExtResource("6_gii6b")]
+position = Vector2(-128, 88)
+
+[node name="Zemerlin" parent="NavigationRegion2D" instance=ExtResource("7_gii6b")]
+position = Vector2(-8, 128)
 
 [node name="DoorLeft" parent="." instance=ExtResource("5_d2s2m")]
 position = Vector2(-304, -16)

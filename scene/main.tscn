@@ -210,7 +210,6 @@ script = SubResource("GDScript_0ha60")
 wait_time = 360.0
 one_shot = true
 script = ExtResource("1_bmc2w")
-max_wait_time = 400.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

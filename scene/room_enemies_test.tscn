@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bycvm4aeg04bh"]
+[gd_scene load_steps=10 format=4 uid="uid://bycvm4aeg04bh"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_0dcst"]
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="2_4wv86"]
@@ -6,7 +6,8 @@
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="3_1eaym"]
 [ext_resource type="PackedScene" uid="uid://cshb25yq5ltku" path="res://scene/player_camera.tscn" id="3_fryba"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="4_voe12"]
-[ext_resource type="PackedScene" uid="uid://be2ns7nd7wct4" path="res://scene/enemy/catlionidk.tscn" id="5_620s6"]
+[ext_resource type="PackedScene" uid="uid://c5pxaov6df4yw" path="res://scene/enemy/tuga.tscn" id="5_620s6"]
+[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://scene/enemy/zemerlin.tscn" id="6_g4xd7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ffdht"]
 vertices = PackedVector2Array(207, 127, 279, 135, -279, 135, 113, 127, -113, 127, -207, 127, 207, -17, 207, -127, 273, -63, 273, 68, 279, 68, 207, 17, -279, 68, -273, 68, -207, 17, -273, -63, 279, -129, 279, -63, -279, -129, 161, -127, 161, -121, 159, -121, 159, -127, 113, -127, 113, -17, -113, -17, -113, -127, -159, -127, -159, -121, -161, -121, -161, -127, -207, -127, -279, -63, -207, -17, -161, 17, 161, 17, 161, 23, 159, 23, 159, 17, 113, 17, -113, 17, -159, 17, -159, 23, -161, 23)
@@ -54,7 +55,11 @@ position = Vector2(256, -156)
 [node name="TorchPointLight2D5" parent="World/Room/NavigationRegion2D/MapLayer" instance=ExtResource("4_voe12")]
 position = Vector2(-256, -156)
 
-[node name="Catlionidk" parent="World/Room/NavigationRegion2D" instance=ExtResource("5_620s6")]
+[node name="Tuga" parent="World/Room/NavigationRegion2D" instance=ExtResource("5_620s6")]
+position = Vector2(0, 16)
+
+[node name="Zemerlin" parent="World/Room/NavigationRegion2D" instance=ExtResource("6_g4xd7")]
+position = Vector2(-40, -24)
 
 [node name="Player" parent="World" instance=ExtResource("2_4wv86")]
 position = Vector2(-208, 104)

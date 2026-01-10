@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dliyelxwg7x8w"]
+[gd_scene load_steps=36 format=3 uid="uid://dliyelxwg7x8w"]
 
 [ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://shader/damage_flash.gdshader" id="1_2mmqe"]
 [ext_resource type="Script" uid="uid://bjfekveea263k" path="res://script/zemerlin.gd" id="1_f87vc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="3_8u16h"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon_component.tscn" id="3_b7koy"]
 [ext_resource type="PackedScene" uid="uid://d2uhi6ia23jpa" path="res://scene/bullet/bullet_zemerlin.tscn" id="5_mb7b2"]
+[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://scene/target_raycast_check_2d.tscn" id="6_1gk6y"]
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://scene/AI/ai_shoot_behaviour.tscn" id="7_cv5gn"]
 [ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="8_qklf1"]
 
@@ -270,6 +271,9 @@ bullet_scene = ExtResource("5_mb7b2")
 sound_variant_index = 1
 shootCooldown = 1.0
 
+[node name="TargetRaycastCheck2D" parent="." instance=ExtResource("6_1gk6y")]
+position = Vector2(0, -9)
+
 [node name="DrawPathTimer" type="Timer" parent="."]
 wait_time = 0.25
 autostart = true
@@ -278,8 +282,9 @@ autostart = true
 unique_name_in_owner = true
 max_hits = 2
 
-[node name="AIShootBehaviour" parent="." node_paths=PackedStringArray("weapon_component", "root_node") instance=ExtResource("7_cv5gn")]
+[node name="AIShootBehaviour" parent="." node_paths=PackedStringArray("weapon_component", "target_raycast_check_2d", "root_node") instance=ExtResource("7_cv5gn")]
 weapon_component = NodePath("../WeaponComponent")
+target_raycast_check_2d = NodePath("../TargetRaycastCheck2D")
 root_node = NodePath("..")
 
 [node name="DamageShaderPlayer" parent="." instance=ExtResource("8_qklf1")]

@@ -18,4 +18,7 @@ func _on_timer_timeout() -> void:
 	force_raycast_update()
 	if get_collider() == target:
 		on_target_in_sight.emit(get_collider())
+		target_on_sight = true
 		print("Player on sight")
+	else:
+		target_on_sight = false

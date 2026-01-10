@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dk62nei0etksf"]
+[gd_scene load_steps=20 format=3 uid="uid://dk62nei0etksf"]
 
 [ext_resource type="Texture2D" uid="uid://bejteuurphesn" path="res://sprite/character/Medusahead-Sheet.png" id="1_0srtd"]
 [ext_resource type="Script" uid="uid://cfskjefpr4x5b" path="res://script/medusa.gd" id="1_7o4kk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cmdvti2y6w1q3" path="res://sprite/projectile/door_particle_sphere.png" id="3_v51rx"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="5_0bcff"]
 [ext_resource type="PackedScene" uid="uid://bhe30cbxewbj" path="res://scene/bullet/bullet_medusa.tscn" id="5_7frci"]
+[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://scene/target_raycast_check_2d.tscn" id="7_tbr1f"]
 [ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="9_10gqf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_10gqf"]
@@ -169,10 +170,14 @@ bullet_scene = ExtResource("5_7frci")
 shootCooldown = 0.0
 transformOverrides = [NodePath("../ShootTransform")]
 
-[node name="AIShootBehaviour" parent="." node_paths=PackedStringArray("weapon_component", "root_node") instance=ExtResource("3_7o4kk")]
+[node name="TargetRaycastCheck2D" parent="." instance=ExtResource("7_tbr1f")]
+position = Vector2(0, -16)
+
+[node name="AIShootBehaviour" parent="." node_paths=PackedStringArray("weapon_component", "target_raycast_check_2d", "root_node") instance=ExtResource("3_7o4kk")]
 shoot_cooldown = 1.5
 shoot_weapon_component = false
 weapon_component = NodePath("../Weapon_Component")
+target_raycast_check_2d = NodePath("../TargetRaycastCheck2D")
 root_node = NodePath("..")
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_0bcff")]

@@ -12,6 +12,7 @@ signal on_ai_shoot
 @export var shoot_weapon_component: bool = true
 # nodes
 @export var weapon_component: Weapon
+@export var target_raycast_check_2d: TargetRaycastCheck2D
 @export var root_node: Node2D
 
 var target: Node2D = null
@@ -43,6 +44,10 @@ func _process(delta: float) -> void:
 	current_cooldown -= delta
 	
 	if current_cooldown <= 0 && can_shoot:
+		if target_raycast_check_2d:
+			if !target_raycast_check_2d.target_on_sight:
+				#print("Target not on sight")
+				return
 		ai_shoot()
 
 
