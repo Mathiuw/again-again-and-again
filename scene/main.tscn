@@ -648,26 +648,6 @@ position = Vector2(81, 24)
 [node name="RoomRome20" parent="Map" instance=ExtResource("25_p8adh")]
 position = Vector2(3200, -768)
 
-[node name="Catlionidk" parent="Map/RoomRome20/NavigationRegion2D" index="4"]
-damage_amount = 5.0
-knockback_force = 230.0
-knockback_duration = 0.15
-
-[node name="Catlionidk2" parent="Map/RoomRome20/NavigationRegion2D" index="5"]
-damage_amount = 5.0
-knockback_force = 230.0
-knockback_duration = 0.15
-
-[node name="Catlionidk3" parent="Map/RoomRome20/NavigationRegion2D" index="6"]
-damage_amount = 5.0
-knockback_force = 230.0
-knockback_duration = 0.15
-
-[node name="Catlionidk4" parent="Map/RoomRome20/NavigationRegion2D" index="7"]
-damage_amount = 5.0
-knockback_force = 230.0
-knockback_duration = 0.15
-
 [node name="DoorLeft" parent="Map/RoomRome20" index="1" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome21")
 
@@ -685,16 +665,6 @@ position = Vector2(80, 24)
 
 [node name="RoomRome21" parent="Map" instance=ExtResource("26_oldxj")]
 position = Vector2(2560, -768)
-
-[node name="Catlionidk" parent="Map/RoomRome21/NavigationRegion2D" index="1"]
-damage_amount = 5.0
-knockback_force = 230.0
-knockback_duration = 0.15
-
-[node name="Catlionidk2" parent="Map/RoomRome21/NavigationRegion2D" index="2"]
-damage_amount = 5.0
-knockback_force = 230.0
-knockback_duration = 0.15
 
 [node name="DoorLeft" parent="Map/RoomRome21" index="1" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome03")

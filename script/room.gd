@@ -1,12 +1,11 @@
 class_name Room
 extends Node2D
 
-@export_group("Room Settings")
 @export var initial_room: bool = false
 @export var pause_timer: bool = false
 @export var music_override: AudioStream
 @export var navigation_region_2D: NavigationRegion2D
-@export var enemies_root: Node = self
+@export var enemies_root: Node2D = self
 
 signal on_no_enemies_left
 
@@ -18,6 +17,8 @@ func _ready() -> void:
 	y_sort_enabled = true
 	if navigation_region_2D:
 		navigation_region_2D.y_sort_enabled = true
+	if enemies_root:
+		enemies_root.y_sort_enabled = true
 	
 	RoomManager.on_room_change.connect(func(room: Room, _smooth_transition: bool):
 		if room != self:

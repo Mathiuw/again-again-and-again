@@ -1,9 +1,13 @@
 extends AnimationPlayer
 
-@onready var health_component: Health = %HealthComponent
+var health_component: Health
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if !health_component:
+		for child in get_parent().get_children():
+			if child is Health:
+				health_component = child
 	
 	# Damage function connect
 	if health_component:
