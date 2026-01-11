@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://frfhml2058ny"]
+[gd_scene load_steps=13 format=3 uid="uid://frfhml2058ny"]
 
 [ext_resource type="Texture2D" uid="uid://clkwsuqqr6hvo" path="res://sprite/MainMenu/Title.png" id="2_1o50l"]
 [ext_resource type="PackedScene" uid="uid://tmiaggulr37f" path="res://scene/buttom_menu.tscn" id="3_dclss"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dy4xln85fwx18" path="res://sprite/MainMenu/ExitButton.png" id="7_unisd"]
 [ext_resource type="Texture2D" uid="uid://8dg12odh4obl" path="res://sprite/MainMenu/ExitButtonPressed.png" id="8_2nbnt"]
 [ext_resource type="FontFile" uid="uid://orwn5asl7m13" path="res://font/ari-w9500-display.ttf" id="9_ceq6q"]
+[ext_resource type="PackedScene" uid="uid://mwaxn6ft2wpi" path="res://scene/ui_fade.tscn" id="9_hmxu4"]
+[ext_resource type="Resource" uid="uid://x6crraliku50" path="res://resource/fade_out_black.tres" id="10_ictww"]
 [ext_resource type="PackedScene" uid="uid://db1gfatlflk0u" path="res://scene/blinking_label.tscn" id="11_s7uu8"]
 
 [sub_resource type="GDScript" id="GDScript_du31s"]
@@ -15,7 +17,7 @@ script/source = "extends Control
 
 func _ready() -> void:
 	PauseManager.can_pause_input = false
-	AudioManager.current_music = preload(\"uid://74xuctaer14g\")
+	AudioManager.set_music(preload(\"uid://74xuctaer14g\"))
 
 
 func _on_play_button_pressed() -> void:
@@ -72,6 +74,7 @@ offset_right = 100.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(100, 112)
 texture = ExtResource("2_1o50l")
 expand_mode = 1
 stretch_mode = 4
@@ -171,6 +174,9 @@ text = "Press Any Key to Continue"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = SubResource("GDScript_v5jny")
+
+[node name="UIFade" parent="." instance=ExtResource("9_hmxu4")]
+fade_settings = ExtResource("10_ictww")
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionButtom" to="." method="_on_option_buttom_pressed"]

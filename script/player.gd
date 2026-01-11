@@ -134,7 +134,6 @@ func damage(damageAmount: int) -> void:
 	invencible_tween.chain().tween_property($AnimatedSprite2D, "modulate:a", 1.0, invencible_frames_amount/4.0)
 	invencible_tween.chain().chain().tween_property($AnimatedSprite2D, "modulate:a", 0.1, invencible_frames_amount/4.0)
 	invencible_tween.chain().chain().chain().tween_property($AnimatedSprite2D, "modulate:a", 1.0, invencible_frames_amount/4.0).finished.connect(on_invencible_frames_over)
-	#animation_player.play("invencibility")
 
 
 func on_invencible_frames_over() -> void:

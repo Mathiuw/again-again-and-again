@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx2joiy5tdfss"]
+
+[ext_resource type="Texture2D" uid="uid://buuu4jvjsu1vi" path="res://sprite/items-sheet.png" id="1_rlkcy"]
+
+[sub_resource type="GDScript" id="GDScript_prs6n"]
+script/source = "extends Node2D
+
+const FADE_SCENE = preload(\"uid://mwaxn6ft2wpi\")
+const END_DEMO = preload(\"uid://qj66b2ooca6h\")
+@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
+
+
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	collision_shape_2d.disabled = true
+	
+	var new_fade: UIFade = FADE_SCENE.instantiate()
+	get_tree().root.add_child(new_fade)
+	
+	await new_fade.on_fade_end
+	
+	get_tree().change_scene_to_packed(END_DEMO)
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dnlai"]
+radius = 16.0
+
+[node name="AfterLynxFight" type="Node2D"]
+script = SubResource("GDScript_prs6n")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_rlkcy")
+hframes = 3
+vframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_dnlai")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

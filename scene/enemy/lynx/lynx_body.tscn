@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://shader/damage_flash.gdshader" id="2_bly3y"]
 [ext_resource type="Texture2D" uid="uid://bel7nxh0mfmvp" path="res://sprite/character/lynx/VerticalBossRun-Sheet.png" id="3_5hcag"]
 [ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="4_8t2ka"]
-[ext_resource type="Script" uid="uid://cur3q6k1ybtr5" path="res://scene/damage_shader_player_lynx_body.gd" id="5_5hcag"]
+[ext_resource type="Script" uid="uid://cur3q6k1ybtr5" path="res://script/damage_shader_player_lynx_body.gd" id="5_5hcag"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xh0j7"]
 shader = ExtResource("2_bly3y")
