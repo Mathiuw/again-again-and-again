@@ -1,10 +1,9 @@
-[gd_scene load_steps=18 format=4 uid="uid://byk72d1ahusm0"]
+[gd_scene load_steps=17 format=4 uid="uid://byk72d1ahusm0"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_ib0vb"]
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_prs6n"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="3_dnlai"]
 [ext_resource type="PackedScene" uid="uid://b38hnv5xd6mhe" path="res://scene/enemy/lynx/lynx.tscn" id="5_prs6n"]
-[ext_resource type="PackedScene" uid="uid://cx2joiy5tdfss" path="res://scene/after_lynx_fight.tscn" id="6_prs6n"]
 [ext_resource type="Script" uid="uid://cx4wfruxwn6ja" path="res://script/cutscene_lynx_trigger.gd" id="7_dnlai"]
 
 [sub_resource type="Curve2D" id="Curve2D_prs6n"]
@@ -312,8 +311,6 @@ shape = SubResource("RectangleShape2D_dnlai")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="TriggerBossArea"]
 position = Vector2(144, 131)
 shape = SubResource("RectangleShape2D_dnlai")
-
-[node name="AfterLynxFight" parent="." instance=ExtResource("6_prs6n")]
 
 [connection signal="animation_finished" from="CutsceneRoot/CutscenePlayer" to="CutsceneRoot/CutscenePlayer" method="_on_animation_finished"]
 [connection signal="body_entered" from="TriggerBossArea" to="CutsceneRoot/CutscenePlayer" method="_on_trigger_boss_area_body_entered"]

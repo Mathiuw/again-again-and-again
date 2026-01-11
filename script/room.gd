@@ -13,7 +13,7 @@ func _ready() -> void:
 	if enemies_root == null:
 		enemies_root = self
 	
-	# y sort fix hopefully
+	# y sort setup
 	y_sort_enabled = true
 	if navigation_region_2D:
 		navigation_region_2D.y_sort_enabled = true
@@ -31,9 +31,6 @@ func _ready() -> void:
 			if navigation_region_2D:
 				navigation_region_2D.bake_navigation_polygon(true)
 		)
-	
-	#call_deferred("check_initial_room")
-	
 	# check initial room at the end of the frame
 	check_initial_room.call_deferred()
 	

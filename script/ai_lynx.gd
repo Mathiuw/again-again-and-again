@@ -1,6 +1,8 @@
 extends Node2D
 class_name AILynx
 
+const AFTER_LYNX_FIGHT = preload("uid://cx2joiy5tdfss")
+
 @export var attacks: Array[AttackBase]
 @export var attack_cooldown: float = 4.0
 @export var active: bool = true: 
@@ -50,4 +52,8 @@ func on_attack_end() -> void:
 
 func on_die() -> void:
 	AudioManager.set_music(null)
+	
+	# spawn after lynx fight scene
+	get_parent().add_child(AFTER_LYNX_FIGHT.instantiate()) 
+	
 	queue_free()

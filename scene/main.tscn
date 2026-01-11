@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://dquef6xj016ys"]
+[gd_scene load_steps=73 format=3 uid="uid://dquef6xj016ys"]
 
 [ext_resource type="Script" uid="uid://dnte553c7qdnr" path="res://script/loop_timer.gd" id="1_bmc2w"]
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="1_itxqv"]
@@ -26,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://dd48ufp885ve0" path="res://scene/room/room_rome_18.tscn" id="23_gtqqq"]
 [ext_resource type="PackedScene" uid="uid://c0lq3ffj8atbe" path="res://scene/room/room_rome_19.tscn" id="24_gn2wi"]
 [ext_resource type="PackedScene" uid="uid://xqg1pxaxj2qm" path="res://scene/room/room_rome_20.tscn" id="25_p8adh"]
-[ext_resource type="PackedScene" uid="uid://82aohiw0lhd6" path="res://scene/room/room_rome_Key.tscn" id="26_4jm02"]
 [ext_resource type="PackedScene" uid="uid://cqiny52426b82" path="res://scene/room/room_rome_21.tscn" id="26_oldxj"]
 [ext_resource type="PackedScene" uid="uid://clr4bp8hq0hg7" path="res://scene/room/room_rome_23.tscn" id="26_rg6nf"]
 [ext_resource type="PackedScene" uid="uid://mcvwj4qveyb4" path="res://scene/room/room_rome_22.tscn" id="27_vneqc"]
@@ -802,9 +801,6 @@ position = Vector2(-64, 24)
 
 [node name="RoomRomeBoss" parent="Map" instance=ExtResource("17_tv8i1")]
 position = Vector2(2560, 0)
-
-[node name="RoomRomeKey" parent="Map" instance=ExtResource("26_4jm02")]
-position = Vector2(2560, -384)
 
 [node name="Player" parent="Map" instance=ExtResource("1_itxqv")]
 position = Vector2(72, 8)
