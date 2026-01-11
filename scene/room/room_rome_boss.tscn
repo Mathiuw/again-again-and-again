@@ -192,9 +192,6 @@ unique_name_in_owner = true
 attacks = [NodePath("LynxAttackRanged"), NodePath("LynxAttackRush")]
 active = false
 
-[node name="LynxAttackRanged" parent="LynxBossBase" index="1"]
-shoot_type = 0
-
 [node name="TargetMarker2D" parent="LynxBossBase/LynxAttackRanged" index="0" node_paths=PackedStringArray("target_area")]
 position = Vector2(-304, -112)
 target_area = NodePath("../../TargetArea2D4")

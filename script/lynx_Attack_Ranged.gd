@@ -45,16 +45,23 @@ func shoot_random() -> void:
 func shoot_targeted() -> void:
 	print("Shoot targeted")
 	
-	var targeted_weapons: Array[WeaponArea]
+	var targeted_markers: Array[TargetMarker2D]
 	
-	for weapon in spawn_markers:
-		if weapon.target_area.target:
-			targeted_weapons.push_back(weapon)
+	for marker in spawn_markers:
+		if marker.target_area.target:
+			targeted_markers.push_back(marker)
 	
-	if targeted_weapons.size() == 0:
-		print("no weapons targeted")
+	if targeted_markers.size() == 0:
+		print("no weapons targeted, shooting random!")
+		shoot_random()
 		return
 	
-	var index_to_shoot: int = randi_range(0,targeted_weapons.size()-1)
-	targeted_weapons[index_to_shoot].shoot(targeted_weapons[index_to_shoot].transform.x, self)
+	var index_to_shoot: int = randi_range(0,targeted_markers.size()-1)
+	var new_lynx_tail: LynxTail = lynx_tail_side_scene.instantiate()
+	new_lynx_tail.global_position = targeted_markers[index_to_shoot].global_position
+	add_child(new_lynx_tail)
+	
+	await new_lynx_tail.on_tail_attack_end
+	
+	new_lynx_tail.queue_free()
 	on_attack_end.emit()
