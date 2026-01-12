@@ -143,9 +143,17 @@ func on_invencible_frames_over() -> void:
 
 # On loop end function
 func on_loop_timer_timeout() -> void:
+	const UI_FADE = preload("uid://mwaxn6ft2wpi")
+	
 	set_move_state(false)
 	_animated_sprite_2d.play("die")
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(2).timeout
+	
+	var new_fade: UIFade = UI_FADE.instantiate()
+	new_fade.fade_settings.destroy_on_end = false
+	add_child(new_fade)
+	await new_fade.on_fade_end
+	
 	on_player_die.emit()
 
 

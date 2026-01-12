@@ -9,8 +9,13 @@ resource_name = "letter"
 script/source = "extends Control
 
 func _input(_event: InputEvent) -> void:
-		
 	if Input.is_anything_pressed():
+		const UI_FADE = preload(\"uid://mwaxn6ft2wpi\")
+		
+		var new_fade: UIFade = UI_FADE.instantiate()
+		new_fade.fade_settings.destroy_on_end = false
+		add_child(new_fade)
+		await new_fade.on_fade_end
 		get_tree().change_scene_to_file(\"uid://dquef6xj016ys\")
 "
 

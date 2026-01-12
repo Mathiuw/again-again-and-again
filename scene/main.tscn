@@ -1,8 +1,10 @@
-[gd_scene load_steps=73 format=3 uid="uid://dquef6xj016ys"]
+[gd_scene load_steps=75 format=3 uid="uid://dquef6xj016ys"]
 
 [ext_resource type="Script" uid="uid://dnte553c7qdnr" path="res://script/loop_timer.gd" id="1_bmc2w"]
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="1_itxqv"]
+[ext_resource type="PackedScene" uid="uid://mwaxn6ft2wpi" path="res://scene/ui_fade.tscn" id="2_7xrs8"]
 [ext_resource type="PackedScene" uid="uid://b24q0q78wlx5d" path="res://scene/ui_hud.tscn" id="2_p1hux"]
+[ext_resource type="Resource" uid="uid://d3e08yoyh6yhv" path="res://resource/fade_out_white.tres" id="3_kpobt"]
 [ext_resource type="Script" uid="uid://bvibwp2q2iop7" path="res://script/player_Camera.gd" id="3_wp4xf"]
 [ext_resource type="PackedScene" uid="uid://c5hxh0i0l2p4i" path="res://scene/room/room_rome_02.tscn" id="4_4j5ol"]
 [ext_resource type="PackedScene" uid="uid://ci0kv3c6au21s" path="res://scene/room/room_rome_03.tscn" id="5_of57s"]
@@ -39,8 +41,18 @@
 resource_name = "main"
 script/source = "extends Node
 
+
 func _ready() -> void:
+	# activate input pause
 	PauseManager.can_pause_input = true
+	
+	#const UI_FADE = preload(\"uid://mwaxn6ft2wpi\")
+	#const FADE_OUT_WHITE = preload(\"uid://d3e08yoyh6yhv\")
+	#
+	## instantiate start fade out
+	#var new_fade: UIFade = UI_FADE.instantiate()
+	#new_fade.fade_settings = FADE_OUT_WHITE
+	#await new_fade.on_fade_end
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ty4q"]
@@ -209,6 +221,10 @@ script = SubResource("GDScript_0ha60")
 wait_time = 360.0
 one_shot = true
 script = ExtResource("1_bmc2w")
+max_wait_time = 120.0
+
+[node name="UIFade" parent="." instance=ExtResource("2_7xrs8")]
+fade_settings = ExtResource("3_kpobt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -220,7 +236,7 @@ metadata/_edit_lock_ = true
 
 [node name="RoomStart" parent="Map" instance=ExtResource("6_p1hux")]
 
-[node name="DoorRight" parent="Map/RoomStart" index="3" node_paths=PackedStringArray("desired_room")]
+[node name="DoorRight" parent="Map/RoomStart" index="4" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome01")
 metadata/_edit_group_ = true
 
@@ -803,7 +819,6 @@ position = Vector2(-64, 24)
 position = Vector2(2560, 0)
 
 [node name="Player" parent="Map" instance=ExtResource("1_itxqv")]
-position = Vector2(72, 8)
 
 [node name="PlayerCamera" type="Camera2D" parent="." groups=["camera"]]
 position_smoothing_enabled = true

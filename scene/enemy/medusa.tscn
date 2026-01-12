@@ -165,6 +165,7 @@ shape = SubResource("CircleShape2D_0srtd")
 position = Vector2(0, -11)
 
 [node name="Weapon_Component" parent="." node_paths=PackedStringArray("transformOverrides") groups=["enemy"] instance=ExtResource("2_i1pib")]
+damage = 10
 bulletSpeed = 400.0
 bullet_scene = ExtResource("5_7frci")
 shootCooldown = 0.0

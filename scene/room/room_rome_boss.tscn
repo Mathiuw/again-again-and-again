@@ -166,6 +166,7 @@ size = Vector2(106, 16)
 [node name="RoomRomeBoss" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ib0vb")
+pause_timer = true
 music_override = ExtResource("2_prs6n")
 
 [node name="MapLayer" type="TileMapLayer" parent="."]

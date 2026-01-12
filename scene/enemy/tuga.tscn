@@ -157,6 +157,7 @@ rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_r6lkd")
 
 [node name="WeaponComponent" parent="." node_paths=PackedStringArray("transformOverrides") instance=ExtResource("2_k5jd2")]
+damage = 30
 bulletAmount = 2
 bulletSpeed = 250.0
 bullet_scene = ExtResource("4_r6lkd")
