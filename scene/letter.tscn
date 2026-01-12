@@ -16,7 +16,9 @@ func _input(_event: InputEvent) -> void:
 		new_fade.fade_settings.destroy_on_end = false
 		add_child(new_fade)
 		await new_fade.on_fade_end
-		get_tree().change_scene_to_file(\"uid://dquef6xj016ys\")
+		
+		const MAIN = preload(\"uid://dquef6xj016ys\")
+		get_tree().change_scene_to_packed(MAIN)
 "
 
 [sub_resource type="Animation" id="Animation_46uil"]
