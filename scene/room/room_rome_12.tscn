@@ -78,20 +78,11 @@ position = Vector2(75, -120)
 [node name="FrankyMouse7" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
 position = Vector2(-58, -95)
 
-[node name="FrankyMouse8" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
-position = Vector2(-160, -80)
-
 [node name="FrankyMouse9" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
 position = Vector2(-261, 101)
 
-[node name="FrankyMouse10" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
-position = Vector2(-263, -22)
-
 [node name="FrankyMouse11" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
 position = Vector2(-82, -8)
-
-[node name="FrankyMouse12" parent="NavigationRegion2D" instance=ExtResource("5_q8vth")]
-position = Vector2(-149, 131)
 
 [node name="DoorLeft" parent="." instance=ExtResource("6_q8vth")]
 position = Vector2(-304, -16)

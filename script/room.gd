@@ -29,7 +29,8 @@ func _ready() -> void:
 				AudioManager.set_music(music_override)
 			
 			if navigation_region_2D:
-				navigation_region_2D.bake_navigation_polygon(true)
+				if !navigation_region_2D.is_baking():
+					navigation_region_2D.bake_navigation_polygon(true)
 		)
 	# check initial room at the end of the frame
 	check_initial_room.call_deferred()

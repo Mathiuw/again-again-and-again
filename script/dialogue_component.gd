@@ -1,6 +1,8 @@
 class_name DialogueComponent
 extends InteractableComponent
 
+signal on_dialogue_start
+
 @export var dialogue_steps: Array[DialogueBase]
 
 func interact():
@@ -11,3 +13,4 @@ func interact():
 	super()
 	
 	SignalBus.on_dialog_enter.emit(dialogue_steps)
+	on_dialogue_start.emit()
