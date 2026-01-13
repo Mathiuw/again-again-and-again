@@ -14,9 +14,30 @@ const AFTER_LYNX_FIGHT = preload("uid://cx2joiy5tdfss")
 
 @onready var health_component: Health = %HealthComponent
 
+var target_areas: Array[TargetArea2D]
+
 func _ready() -> void:
+	for node in get_parent().get_children():
+		if node is TargetArea2D:
+			target_areas.push_back(node)
+			print(target_areas)
+	
+	var desired_ranged_ids: Array[int] = [3,4,5]
+	var lynx_attack_ranged: AttackLynxRanged = $LynxAttackRanged
+	for spawn_marker in lynx_attack_ranged.spawn_markers:
+		for target_area: TargetArea2D in target_areas:
+			for id in desired_ranged_ids:
+				if target_area.id == id:
+					spawn_marker.target_area = target_area
+	
 	health_component.on_die.connect(on_die)
 	
+	var lynx_attack_rush: AttackLynxRush = $LynxAttackRush
+	var index: int = 0
+	for path in lynx_attack_rush.paths:
+		path.target_area = target_areas[index]
+		index += 1
+
 	for attack in attacks:
 		attack.on_attack_end.connect(on_attack_end)
 	

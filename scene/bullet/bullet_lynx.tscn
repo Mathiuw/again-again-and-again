@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://brtsasl3e6ene"]
 
 [ext_resource type="PackedScene" uid="uid://c2jv5crvpeg70" path="res://scene/bullet/bullet_base.tscn" id="1_lmk8u"]
-[ext_resource type="Texture2D" uid="uid://bihvmaqr3ycvu" path="res://sprite/FreezePellet-Sheet.png" id="2_bymlj"]
+[ext_resource type="Texture2D" uid="uid://bihvmaqr3ycvu" path="res://sprite/projectile/FreezePellet-Sheet.png" id="2_bymlj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_etkcw"]
 atlas = ExtResource("2_bymlj")

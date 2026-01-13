@@ -10,7 +10,7 @@ const SPEED: float = 115.0
 @onready var _weapon: Weapon = $Weapon
 @onready var _interact_component: InteractComponent = $InteractComponent
 @onready var _roll_component: DashComponent = $DashComponent
-var _loop_timer: Timer
+var _loop_timer: LoopTimer
 
 # knockback variables
 var knockback: Vector2 = Vector2.ZERO
@@ -114,26 +114,23 @@ func damage(damageAmount: int) -> void:
 	SignalBus.on_camera_shake.emit(3)
 	
 	# apply damage to loop timer if has one
-	if _loop_timer && _loop_timer.time_left > 0:
-		var new_loop_timer_time: float = _loop_timer.time_left - damageAmount
-		
-		if new_loop_timer_time > _loop_timer.time_left: return
-		
-		new_loop_timer_time = clampf(new_loop_timer_time, 0.1, new_loop_timer_time)
-		_loop_timer.start(new_loop_timer_time)
-		
+	if _loop_timer:
+		var result_damage: float = _loop_timer.remove_time(damageAmount)
 		on_player_damage.emit(damageAmount)
-	
-	# activate invencible frames
-	can_take_damage = false
-	print("Invicibility frames start")
-	
-	# invencible tween
-	var invencible_tween = create_tween().set_trans(Tween.TRANS_SINE)
-	invencible_tween.tween_property($AnimatedSprite2D, "modulate:a", 0.1, invencible_frames_amount/4.0)
-	invencible_tween.chain().tween_property($AnimatedSprite2D, "modulate:a", 1.0, invencible_frames_amount/4.0)
-	invencible_tween.chain().chain().tween_property($AnimatedSprite2D, "modulate:a", 0.1, invencible_frames_amount/4.0)
-	invencible_tween.chain().chain().chain().tween_property($AnimatedSprite2D, "modulate:a", 1.0, invencible_frames_amount/4.0).finished.connect(on_invencible_frames_over)
+		
+		if result_damage == 0:
+			return
+		
+		# activate invencible frames
+		can_take_damage = false
+		print("Invicibility frames start")
+		# invencible tween
+		var invencible_tween = create_tween().set_trans(Tween.TRANS_SINE)
+		invencible_tween.tween_property($AnimatedSprite2D, "modulate:a", 0.1, invencible_frames_amount/4.0)
+		invencible_tween.chain().tween_property($AnimatedSprite2D, "modulate:a", 1.0, invencible_frames_amount/4.0)
+		invencible_tween.chain().chain().tween_property($AnimatedSprite2D, "modulate:a", 0.1, invencible_frames_amount/4.0)
+		invencible_tween.chain().chain().chain().tween_property($AnimatedSprite2D, "modulate:a", 1.0, invencible_frames_amount/4.0).finished.connect(
+			on_invencible_frames_over)
 
 
 func on_invencible_frames_over() -> void:
@@ -145,6 +142,7 @@ func on_invencible_frames_over() -> void:
 func on_loop_timer_timeout() -> void:
 	const UI_FADE = preload("uid://mwaxn6ft2wpi")
 	
+	can_take_damage = false
 	set_move_state(false)
 	_animated_sprite_2d.play("die")
 	await get_tree().create_timer(2).timeout

@@ -1,4 +1,5 @@
 extends AttackBase
+class_name AttackLynxRanged
 
 enum ShootType {Random, Line, LineTargeted, Targeted } 
 
@@ -30,10 +31,10 @@ func shoot_random() -> void:
 	print("Shoot random")
 	
 	var index_to_spawn: int = randi_range(0,spawn_markers.size()-1)
-	#weapons[index_to_shoot].shoot(weapons[index_to_shoot].transform.x, self)
 	var new_lynx_tail: LynxTail = lynx_tail_side_scene.instantiate()
 	new_lynx_tail.global_position = spawn_markers[index_to_spawn].global_position
 	add_child(new_lynx_tail)
+	
 	
 	await new_lynx_tail.on_tail_attack_end
 	
@@ -58,8 +59,8 @@ func shoot_targeted() -> void:
 	
 	var index_to_shoot: int = randi_range(0,targeted_markers.size()-1)
 	var new_lynx_tail: LynxTail = lynx_tail_side_scene.instantiate()
-	new_lynx_tail.global_position = targeted_markers[index_to_shoot].global_position
 	add_child(new_lynx_tail)
+	new_lynx_tail.global_position = targeted_markers[index_to_shoot].global_position
 	
 	await new_lynx_tail.on_tail_attack_end
 	

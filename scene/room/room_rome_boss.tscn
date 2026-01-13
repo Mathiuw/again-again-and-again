@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=4 uid="uid://byk72d1ahusm0"]
+[gd_scene load_steps=57 format=4 uid="uid://byk72d1ahusm0"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_ib0vb"]
-[ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://sound/music/primeira fase master.mp3" id="2_prs6n"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="3_dnlai"]
+[ext_resource type="PackedScene" uid="uid://d0tk4b077n5w7" path="res://scene/target_area_2d.tscn" id="3_prs6n"]
+[ext_resource type="Texture2D" uid="uid://dl4jvdphnjb82" path="res://sprite/character/lynx/IntroBoss-Sheet.png" id="5_dnlai"]
 [ext_resource type="PackedScene" uid="uid://b38hnv5xd6mhe" path="res://scene/enemy/lynx/lynx.tscn" id="5_prs6n"]
 [ext_resource type="Script" uid="uid://cx4wfruxwn6ja" path="res://script/cutscene_lynx_trigger.gd" id="7_dnlai"]
 
@@ -48,126 +49,303 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_myteo"]
+size = Vector2(96, 296)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df8rs"]
+size = Vector2(592, 56)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_prs6n"]
 size = Vector2(592, 72)
 
-[sub_resource type="Animation" id="Animation_dnlai"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CutsceneRoot/lynx_placeholder_anim:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-20, -284)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CutsceneRoot/Totem/ColorRect2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CutsceneRoot/Totem:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(14, 22)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CutsceneRoot/Totem:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-6, -93)]
-}
-
-[sub_resource type="Animation" id="Animation_prs6n"]
-resource_name = "boss_intro"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CutsceneRoot/lynx_placeholder_anim:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-20, -284), Vector2(-20, -158), Vector2(-20, -284)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CutsceneRoot/Totem/ColorRect2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CutsceneRoot/Totem:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.0666667, 1.8000001),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(14, 22), Vector2(14, 22), Vector2(14, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CutsceneRoot/Totem:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.0666667, 1.8000001),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-6, -93), Vector2(-6, -93), Vector2(-6, -71)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dnlai"]
-_data = {
-&"RESET": SubResource("Animation_dnlai"),
-&"boss_intro": SubResource("Animation_prs6n")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dnlai"]
 size = Vector2(106, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7m8x"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(0, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlkct"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(96, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynr0e"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(192, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cdtk"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(288, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg1kh"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(384, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ex3s3"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(480, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j8fq"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(576, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21php"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(672, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nad2m"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(768, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwhty"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(864, 0, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qwy5"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(0, 144, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcl5j"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(96, 144, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bai2r"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(192, 144, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru1e1"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(288, 144, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slwq7"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(384, 144, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0rtt"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(480, 144, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wensg"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(576, 144, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_287bi"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(672, 144, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5xil"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(768, 144, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72vfi"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(864, 144, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc0um"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(0, 288, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv83v"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(96, 288, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgeuy"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(192, 288, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeosm"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(288, 288, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlbps"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(384, 288, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyhca"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(480, 288, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhxrr"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(576, 288, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66p6l"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(672, 288, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46vgq"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(768, 288, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swfx5"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(864, 288, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul34t"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(0, 432, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8q3q"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(96, 432, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbbnf"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(192, 432, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwmut"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(288, 432, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euhcd"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(384, 432, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qpm7"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(480, 432, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dyex"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(576, 432, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlcja"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(672, 432, 96, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew7ei"]
+atlas = ExtResource("5_dnlai")
+region = Rect2(768, 432, 96, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_of8hy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7m8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlkct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynr0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cdtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg1kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ex3s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1j8fq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21php")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nad2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwhty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qwy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcl5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bai2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru1e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slwq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0rtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wensg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_287bi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5xil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72vfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc0um")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qv83v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgeuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeosm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlbps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyhca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhxrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66p6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46vgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swfx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul34t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8q3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbbnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwmut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_euhcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qpm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dyex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlcja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew7ei")
+}],
+"loop": false,
+"name": &"default",
+"speed": 25.0
+}]
 
 [node name="RoomRomeBoss" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ib0vb")
 pause_timer = true
-music_override = ExtResource("2_prs6n")
 
 [node name="MapLayer" type="TileMapLayer" parent="."]
 z_index = -1
@@ -188,31 +366,23 @@ z_index = 1
 tile_map_data = PackedByteArray("AADs//T/AAADABYAAADs//X/AAADABYAAADs//b/AAADABYAAADs//f/AAADABYAAADs//j/AAADABYAAADs//n/AAADABYAAADs//r/AAADABYAAADs//v/AAADABYAAADs//z/AAADABYAAADs//3/AAADABYAAADs//7/AAADABYAAADs////AAADABYAAADs/wAAAAADABYAAADs/wEAAAADABYAAADs/wIAAAADABYAAADs/wMAAAADABYAAADs/wQAAAADABYAAADs/wUAAAADABYAAADs/wYAAAADABYAAADs/wcAAAADABYAAADs/wgAAAADABYAAADs/wkAAAADABYAAADs/woAAAADABYAAADs/wsAAAADABYAAADt/wsAAAADABYAAADu/wsAAAADABYAAADv/wsAAAADABYAAADw/wsAAAADABYAAADx/wsAAAADABYAAADy/wsAAAADABYAAADz/wsAAAADABYAAAD0/wsAAAADABYAAAD1/wsAAAADABYAAAD2/wsAAAADABYAAAD3/wsAAAADABYAAAD4/wsAAAADABYAAAD5/wsAAAADABYAAAD6/wsAAAADABYAAAD7/wsAAAADABYAAAD8/wsAAAADABYAAAD9/wsAAAADABYAAAD+/wsAAAADABYAAAD//wsAAAADABYAAAAAAAsAAAADABYAAAABAAsAAAADABYAAAACAAsAAAADABYAAAADAAsAAAADABYAAAAEAAsAAAADABYAAAAFAAsAAAADABYAAAAGAAsAAAADABYAAAAHAAsAAAADABYAAAAIAAsAAAADABYAAAAJAAsAAAADABYAAAAKAAsAAAADABYAAAALAAsAAAADABYAAAAMAAsAAAADABYAAAANAAsAAAADABYAAAAOAAsAAAADABYAAAAPAAsAAAADABYAAAAQAAsAAAADABYAAAARAAsAAAADABYAAAASAAsAAAADABYAAAATAAsAAAADABYAAADt/woAAAADABYAAADu/woAAAADABYAAADv/woAAAADABYAAADw/woAAAADABYAAADx/woAAAADABYAAADy/woAAAADABYAAADz/woAAAADABYAAAD0/woAAAADABYAAAD1/woAAAADABYAAAD2/woAAAADABYAAAD3/woAAAADABYAAAD4/woAAAADABYAAAD5/woAAAADABYAAAD6/woAAAADABYAAAD7/woAAAADABYAAAD8/woAAAADABYAAAD9/woAAAADABYAAAD+/woAAAADABYAAAD//woAAAADABYAAAAAAAoAAAADABYAAAABAAoAAAADABYAAAACAAoAAAADABYAAAADAAoAAAADABYAAAAEAAoAAAADABYAAAAFAAoAAAADABYAAAAGAAoAAAADABYAAAAHAAoAAAADABYAAAAIAAoAAAADABYAAAAJAAoAAAADABYAAAAKAAoAAAADABYAAAALAAoAAAADABYAAAAMAAoAAAADABYAAAANAAoAAAADABYAAAAOAAoAAAADABYAAAAPAAoAAAADABYAAAAQAAoAAAADABYAAAARAAoAAAADABYAAAASAAoAAAADABYAAAATAAoAAAADABYAAAATAAkAAAADABYAAAATAAgAAAADABYAAAATAAcAAAADABYAAAATAAYAAAADABYAAAATAAUAAAADABYAAAATAAQAAAADABYAAAATAAMAAAADABYAAAATAAIAAAADABYAAAATAAEAAAADABYAAAATAAAAAAADABYAAAATAP//AAADABYAAAATAP7/AAADABYAAAATAP3/AAADABYAAAATAPz/AAADABYAAAATAPv/AAADABYAAAATAPr/AAADABYAAAATAPn/AAADABYAAAATAPj/AAADABYAAAATAPf/AAADABYAAAATAPb/AAADABYAAAATAPX/AAADABYAAAATAPT/AAADABYAAAASAPT/AAADABYAAAARAPT/AAADABYAAAAQAPT/AAADABYAAAAPAPT/AAADABYAAAAOAPT/AAADABYAAAANAPT/AAADABYAAAAMAPT/AAADABYAAAALAPT/AAADABYAAAAKAPT/AAADABYAAAAJAPT/AAADABYAAAAIAPT/AAADABYAAAAHAPT/AAADABYAAAAGAPT/AAADABYAAAAFAPT/AAADABYAAAAEAPT/AAADABYAAAADAPT/AAADABYAAAACAPT/AAADABYAAAABAPT/AAADABYAAAAAAPT/AAADABYAAAD///T/AAADABYAAAD+//T/AAADABYAAAD9//T/AAADABYAAAD8//T/AAADABYAAAD7//T/AAADABYAAAD6//T/AAADABYAAAD5//T/AAADABYAAAD4//T/AAADABYAAAD3//T/AAADABYAAAD2//T/AAADABYAAAD1//T/AAADABYAAAD0//T/AAADABYAAADz//T/AAADABYAAADy//T/AAADABYAAADx//T/AAADABYAAADw//T/AAADABYAAADv//T/AAADABYAAADu//T/AAADABYAAADt//T/AAADABYAAAA=")
 tile_set = ExtResource("3_dnlai")
 
-[node name="LynxBossBase" parent="." node_paths=PackedStringArray("attacks") instance=ExtResource("5_prs6n")]
+[node name="LynxBossBase" parent="." instance=ExtResource("5_prs6n")]
 unique_name_in_owner = true
-attacks = [NodePath("LynxAttackRanged"), NodePath("LynxAttackRush")]
 active = false
 
-[node name="TargetMarker2D" parent="LynxBossBase/LynxAttackRanged" index="0" node_paths=PackedStringArray("target_area")]
-position = Vector2(-304, -112)
-target_area = NodePath("../../TargetArea2D4")
+[node name="TargetMarker2D" parent="LynxBossBase/LynxAttackRanged" index="0"]
+position = Vector2(-312, -112)
 
-[node name="TargetMarker2D2" parent="LynxBossBase/LynxAttackRanged" index="1" node_paths=PackedStringArray("target_area")]
-position = Vector2(-304, 8)
-target_area = NodePath("../../TargetArea2D5")
+[node name="TargetMarker2D2" parent="LynxBossBase/LynxAttackRanged" index="1"]
+position = Vector2(-312, 16)
 
-[node name="TargetMarker2D3" parent="LynxBossBase/LynxAttackRanged" index="2" node_paths=PackedStringArray("target_area")]
+[node name="TargetMarker2D3" parent="LynxBossBase/LynxAttackRanged" index="2"]
 position = Vector2(-304, 128)
-target_area = NodePath("../../TargetArea2D6")
-
-[node name="LynxAttackRush" parent="LynxBossBase" index="2"]
-move_speed = 0.9
 
 [node name="EnemyPath2D" parent="LynxBossBase/LynxAttackRush" index="0"]
 curve = SubResource("Curve2D_prs6n")
 
 [node name="EnemyPath2D2" parent="LynxBossBase/LynxAttackRush" index="1"]
-position = Vector2(144, 0)
 curve = SubResource("Curve2D_dnlai")
 
 [node name="EnemyPath2D3" parent="LynxBossBase/LynxAttackRush" index="2"]
@@ -227,68 +397,51 @@ curve = SubResource("Curve2D_ynr0e")
 [node name="EnemyPath2D6" parent="LynxBossBase/LynxAttackRush" index="5"]
 curve = SubResource("Curve2D_4cdtk")
 
-[node name="TargetArea2D2" parent="LynxBossBase" index="4"]
-position = Vector2(144, 0)
+[node name="TargetArea2D" parent="." instance=ExtResource("3_prs6n")]
 
-[node name="CollisionShape2D" parent="LynxBossBase/TargetArea2D5" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_myteo")
+
+[node name="TargetArea2D2" parent="." instance=ExtResource("3_prs6n")]
+position = Vector2(144, 0)
+id = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D2"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_myteo")
+
+[node name="TargetArea2D3" parent="." instance=ExtResource("3_prs6n")]
+position = Vector2(-144, 0)
+id = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D3"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_myteo")
+
+[node name="TargetArea2D4" parent="." instance=ExtResource("3_prs6n")]
+position = Vector2(0, -104)
+id = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D4"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_df8rs")
+
+[node name="TargetArea2D5" parent="." instance=ExtResource("3_prs6n")]
+position = Vector2(0, 16)
+id = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D5"]
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_prs6n")
 
-[node name="CollisionShape2D" parent="LynxBossBase/TargetArea2D6" index="0"]
+[node name="TargetArea2D6" parent="." instance=ExtResource("3_prs6n")]
+position = Vector2(0, 120)
+id = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D6"]
 position = Vector2(0, 4)
-
-[node name="CutsceneRoot" type="Node2D" parent="."]
-
-[node name="lynx_placeholder_anim" type="ColorRect" parent="CutsceneRoot"]
-offset_left = -20.0
-offset_top = -284.0
-offset_right = 20.0
-offset_bottom = -244.0
-
-[node name="ColorRect2" type="ColorRect" parent="CutsceneRoot/lynx_placeholder_anim"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 27.0
-offset_right = 34.0
-offset_bottom = 65.0
-
-[node name="ColorRect3" type="ColorRect" parent="CutsceneRoot/lynx_placeholder_anim/ColorRect2"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 3.0
-offset_right = 11.0
-offset_bottom = 12.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="CutsceneRoot/lynx_placeholder_anim/ColorRect2"]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 3.0
-offset_right = 24.0
-offset_bottom = 12.0
-color = Color(0, 0, 0, 1)
-
-[node name="Totem" type="ColorRect" parent="CutsceneRoot"]
-offset_left = -6.0
-offset_top = -93.0
-offset_right = 8.0
-offset_bottom = -71.0
-
-[node name="ColorRect2" type="ColorRect" parent="CutsceneRoot/Totem"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = -3.0
-offset_right = 11.0
-offset_bottom = 5.0
-color = Color(1, 0.85, 0, 1)
-
-[node name="CutscenePlayer" type="AnimationPlayer" parent="CutsceneRoot"]
-root_node = NodePath("../..")
-root_motion_local = true
-libraries = {
-&"": SubResource("AnimationLibrary_dnlai")
-}
-script = ExtResource("7_dnlai")
+shape = SubResource("RectangleShape2D_df8rs")
 
 [node name="TriggerBossArea" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -298,7 +451,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerBossArea"]
-position = Vector2(80, 75)
+position = Vector2(160, 75)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_dnlai")
 
@@ -310,9 +463,17 @@ shape = SubResource("RectangleShape2D_dnlai")
 position = Vector2(144, 131)
 shape = SubResource("RectangleShape2D_dnlai")
 
-[connection signal="animation_finished" from="CutsceneRoot/CutscenePlayer" to="CutsceneRoot/CutscenePlayer" method="_on_animation_finished"]
-[connection signal="body_entered" from="TriggerBossArea" to="CutsceneRoot/CutscenePlayer" method="_on_trigger_boss_area_body_entered"]
-[connection signal="body_entered" from="TriggerBossArea" to="TriggerBossArea" method="_on_body_entered"]
+[node name="CutsceneRoot" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("7_dnlai")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CutsceneRoot"]
+position = Vector2(0, -48)
+sprite_frames = SubResource("SpriteFrames_of8hy")
+offset = Vector2(0, -56)
+
+[connection signal="body_entered" from="TriggerBossArea" to="CutsceneRoot" method="_on_trigger_boss_area_body_entered"]
+[connection signal="animation_finished" from="CutsceneRoot/AnimatedSprite2D" to="CutsceneRoot" method="_on_animated_sprite_2d_animation_finished"]
 
 [editable path="LynxBossBase"]
 [editable path="LynxBossBase/LynxAttackRanged"]

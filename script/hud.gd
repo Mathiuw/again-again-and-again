@@ -10,9 +10,13 @@ const DAMAGE_PARTICLE_SCENE: PackedScene = preload("uid://d4djleirskoec")
 @onready var _repeat_amount: Label = $RepeatAmount
 @onready var _time_bar_animation_player: AnimationPlayer = $TimerBar/ProgressBar/TimeBarAnimationPlayer
 
+var timeout: bool = false
+
 func _ready() -> void:
 	_loop_timer = get_tree().get_first_node_in_group("loop_timer")
 	if  _loop_timer:
+		_loop_timer.timeout.connect(on_loop_timer_timeout)
+		
 		progress_bar.max_value = _loop_timer.max_wait_time
 		progress_bar.value = _loop_timer.wait_time
 		
@@ -30,23 +34,33 @@ func _ready() -> void:
 		push_error("HUD: cant find loop timer")
 		return
 	
-	
-	RoomManager.on_room_change.connect(func(room:Room, _smooth_trasition):
-		if  room.pause_timer:
-			_time_bar_animation_player.play("timer_paused")
-		else:
-			_time_bar_animation_player.play("RESET")
-		)
+	RoomManager.on_room_change.connect(on_room_change)
+
 
 
 func _process(_delta: float) -> void:
-	_set_progress_bar()
+	if !timeout:
+		_set_progress_bar(_loop_timer.time_left)
+	
+	# damage bar value lerp
+	damage_bar.value = lerp(damage_bar.value, progress_bar.value, 1.0 - exp(-5 * get_process_delta_time()))
 
 
-func _set_progress_bar() -> void:
+func on_room_change(room:Room, _smooth_trasition) -> void:
+	if  room.pause_timer:
+		_time_bar_animation_player.play("timer_paused")
+	else:
+		_time_bar_animation_player.play("RESET")
+
+
+func on_loop_timer_timeout() -> void:
+	timeout = true
+	_set_progress_bar(0)
+
+
+func _set_progress_bar(value: float) -> void:
 	if _loop_timer:
-		progress_bar.value = _loop_timer.time_left
-		damage_bar.value = lerp(damage_bar.value, _loop_timer.time_left, 1.0 - exp(-5 * get_process_delta_time())) 
+		progress_bar.value = value
 
 
 func _spawn_damage_particle(damage_amount: int):

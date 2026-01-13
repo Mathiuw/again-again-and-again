@@ -10,32 +10,28 @@ func _ready() -> void:
 	
 	var player: Player = get_tree().get_first_node_in_group("player")
 	if  player:
-		player.on_player_die.connect(func():
-			end_loop()
-			)
+		player.on_player_die.connect(on_player_die)
 	
-	RoomManager.on_room_change.connect(func(room: Room, _smooth_transition: bool):
-		if  room.pause_timer:
-			paused = true
-		else:
-			paused = false
-		)
-	
+	RoomManager.on_room_change.connect(on_room_change)
+
 	# Start loop
 	start(max_wait_time)
 	print("Loop started")
 
 
-#func _process(_delta: float) -> void:
-	#print(time_left)
+func _process(_delta: float) -> void:
+	print(time_left)
 
 
-func save()-> Dictionary :
-	var save_dict = {
-		"loop_amount": loop_amount
-	}
-	
-	return save_dict
+func on_player_die() -> void:
+	end_loop()
+
+
+func on_room_change(room: Room, _smooth_transition: bool) -> void:
+	if  room.pause_timer:
+		paused = true
+	else:
+		paused = false
 
 
 func addTime(time: float) -> void:
@@ -44,11 +40,34 @@ func addTime(time: float) -> void:
 	start(new_time_left)
 
 
+func remove_time(time: float) -> float:
+	var new_time_left: float = time_left - time
+	new_time_left = clampf(new_time_left, 0, max_wait_time)
+	print(new_time_left)
+	
+	#if new_time_left > time_left: return new_time_left
+	
+	if new_time_left == 0:
+		timeout.emit()
+		return new_time_left
+
+	start(new_time_left)
+	return new_time_left
+
+
 func end_loop() -> void:
 	loop_amount += 1
 	save_game()
 	get_tree().reload_current_scene()
 	print("Loop ended")
+
+
+func save()-> Dictionary :
+	var save_dict = {
+		"loop_amount": loop_amount
+	}
+	
+	return save_dict
 
 
 func save_game() -> void :

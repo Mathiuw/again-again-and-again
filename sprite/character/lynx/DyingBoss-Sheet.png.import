@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bihvmaqr3ycvu"
-path="res://.godot/imported/FreezePellet-Sheet.png-07f6cc3349a274a1ba2c741a23908364.ctex"
+uid="uid://dshshei42ak4j"
+path="res://.godot/imported/DyingBoss-Sheet.png-9da62c57f8b2a3d90b137af39f2df4ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/FreezePellet-Sheet.png"
-dest_files=["res://.godot/imported/FreezePellet-Sheet.png-07f6cc3349a274a1ba2c741a23908364.ctex"]
+source_file="res://sprite/character/lynx/DyingBoss-Sheet.png"
+dest_files=["res://.godot/imported/DyingBoss-Sheet.png-9da62c57f8b2a3d90b137af39f2df4ad.ctex"]
 
 [params]
 

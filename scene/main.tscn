@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://dquef6xj016ys"]
+[gd_scene load_steps=81 format=3 uid="uid://dquef6xj016ys"]
 
 [ext_resource type="Script" uid="uid://dnte553c7qdnr" path="res://script/loop_timer.gd" id="1_bmc2w"]
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="1_itxqv"]
@@ -214,6 +214,48 @@ size = Vector2(3, 63)
 resource_local_to_scene = true
 size = Vector2(32, 6)
 
+[sub_resource type="Curve2D" id="Curve2D_7xrs8"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_kpobt"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_216wm"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_jey2d"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -312.26373, 0, 0, 0, 0, 0, 416.35162, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_vc5kc"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -322.31113, 0, 0, 0, 0, 0, 414.4, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_cv4lv"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -322.31113, 0, 0, 0, 0, 0, 414.4, 0)
+}
+point_count = 2
+
 [node name="Main" type="Node" groups=["world"]]
 script = SubResource("GDScript_0ha60")
 
@@ -221,7 +263,7 @@ script = SubResource("GDScript_0ha60")
 wait_time = 360.0
 one_shot = true
 script = ExtResource("1_bmc2w")
-max_wait_time = 120.0
+max_wait_time = 180.0
 
 [node name="UIFade" parent="." instance=ExtResource("2_7xrs8")]
 fade_settings = ExtResource("3_kpobt")
@@ -234,7 +276,11 @@ fade_settings = ExtResource("3_kpobt")
 y_sort_enabled = true
 metadata/_edit_lock_ = true
 
+[node name="Player" parent="Map" instance=ExtResource("1_itxqv")]
+position = Vector2(3792, 8)
+
 [node name="RoomStart" parent="Map" instance=ExtResource("6_p1hux")]
+initial_room = false
 
 [node name="DoorRight" parent="Map/RoomStart" index="4" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome01")
@@ -252,13 +298,7 @@ position = Vector2(72, 24)
 [node name="RoomRome01" parent="Map" instance=ExtResource("5_p1hux")]
 position = Vector2(640, 0)
 
-[node name="DoorLeft" parent="Map/RoomRome01" index="1" node_paths=PackedStringArray("desired_room")]
-desired_room = NodePath("../../RoomStart")
-
-[node name="DesiredPosition" parent="Map/RoomRome01/DoorLeft" index="3"]
-position = Vector2(-56, 24)
-
-[node name="DoorRight" parent="Map/RoomRome01" index="2" node_paths=PackedStringArray("desired_room")]
+[node name="DoorRight" parent="Map/RoomRome01" index="1" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome02")
 metadata/_edit_group_ = true
 
@@ -422,7 +462,7 @@ position = Vector2(-64, 24)
 [node name="RoomRome09" parent="Map" instance=ExtResource("13_mswub")]
 position = Vector2(1920, 768)
 
-[node name="DoorRight" parent="Map/RoomRome09" index="6" node_paths=PackedStringArray("desired_room")]
+[node name="DoorRight" parent="Map/RoomRome09" index="8" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome07")
 
 [node name="AreaCollisionShape2D" parent="Map/RoomRome09/DoorRight" index="1"]
@@ -431,7 +471,7 @@ shape = SubResource("RectangleShape2D_76meg")
 [node name="DesiredPosition" parent="Map/RoomRome09/DoorRight" index="3"]
 position = Vector2(80, 24)
 
-[node name="DoorFront" parent="Map/RoomRome09" index="7" node_paths=PackedStringArray("desired_room")]
+[node name="DoorFront" parent="Map/RoomRome09" index="9" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome13")
 
 [node name="AreaCollisionShape2D" parent="Map/RoomRome09/DoorFront" index="1"]
@@ -440,7 +480,7 @@ shape = SubResource("RectangleShape2D_cv4lv")
 [node name="DesiredPosition" parent="Map/RoomRome09/DoorFront" index="3"]
 position = Vector2(0, -96)
 
-[node name="DoorLeft" parent="Map/RoomRome09" index="8" node_paths=PackedStringArray("desired_room")]
+[node name="DoorLeft" parent="Map/RoomRome09" index="10" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome11")
 
 [node name="DesiredPosition" parent="Map/RoomRome09/DoorLeft" index="3"]
@@ -610,6 +650,7 @@ position = Vector2(80, 24)
 
 [node name="RoomRome18" parent="Map" instance=ExtResource("23_gtqqq")]
 position = Vector2(3840, 0)
+initial_room = true
 
 [node name="DoorFront" parent="Map/RoomRome18" index="5" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome25")
@@ -816,9 +857,25 @@ desired_room = NodePath("../../RoomRome18")
 position = Vector2(-64, 24)
 
 [node name="RoomRomeBoss" parent="Map" instance=ExtResource("17_tv8i1")]
-position = Vector2(2560, 0)
+position = Vector2(2559.9592, -0.37342834)
 
-[node name="Player" parent="Map" instance=ExtResource("1_itxqv")]
+[node name="EnemyPath2D" parent="Map/RoomRomeBoss/LynxBossBase/LynxAttackRush" index="0"]
+curve = SubResource("Curve2D_7xrs8")
+
+[node name="EnemyPath2D2" parent="Map/RoomRomeBoss/LynxBossBase/LynxAttackRush" index="1"]
+curve = SubResource("Curve2D_kpobt")
+
+[node name="EnemyPath2D3" parent="Map/RoomRomeBoss/LynxBossBase/LynxAttackRush" index="2"]
+curve = SubResource("Curve2D_216wm")
+
+[node name="EnemyPath2D4" parent="Map/RoomRomeBoss/LynxBossBase/LynxAttackRush" index="3"]
+curve = SubResource("Curve2D_jey2d")
+
+[node name="EnemyPath2D5" parent="Map/RoomRomeBoss/LynxBossBase/LynxAttackRush" index="4"]
+curve = SubResource("Curve2D_vc5kc")
+
+[node name="EnemyPath2D6" parent="Map/RoomRomeBoss/LynxBossBase/LynxAttackRush" index="5"]
+curve = SubResource("Curve2D_cv4lv")
 
 [node name="PlayerCamera" type="Camera2D" parent="." groups=["camera"]]
 position_smoothing_enabled = true
@@ -830,7 +887,6 @@ script = ExtResource("3_wp4xf")
 [editable path="Map/RoomStart"]
 [editable path="Map/RoomStart/DoorRight"]
 [editable path="Map/RoomRome01"]
-[editable path="Map/RoomRome01/DoorLeft"]
 [editable path="Map/RoomRome01/DoorRight"]
 [editable path="Map/RoomRome02"]
 [editable path="Map/RoomRome02/DoorLeft"]
@@ -921,3 +977,7 @@ script = ExtResource("3_wp4xf")
 [editable path="Map/RoomRome28"]
 [editable path="Map/RoomRome28/DoorFront"]
 [editable path="Map/RoomRome28/DoorLeft"]
+[editable path="Map/RoomRomeBoss"]
+[editable path="Map/RoomRomeBoss/LynxBossBase"]
+[editable path="Map/RoomRomeBoss/LynxBossBase/LynxAttackRanged"]
+[editable path="Map/RoomRomeBoss/LynxBossBase/LynxAttackRush"]

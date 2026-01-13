@@ -1,4 +1,5 @@
 extends AttackBase
+class_name AttackLynxRush
 
 const LYNX_RUSH_BODY: PackedScene = preload("uid://bft146fxu4jge")
 
