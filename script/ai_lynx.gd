@@ -74,6 +74,13 @@ func on_attack_end() -> void:
 func on_die() -> void:
 	AudioManager.set_music(null)
 	
+	const UI_BLINK = preload("uid://dj3tmo5quukha")
+	
+	var new_blink: UIBlink = UI_BLINK.instantiate()
+	get_parent().add_child(new_blink)
+	
+	await  new_blink.on_full_blink
+	
 	# spawn after lynx fight scene
 	get_parent().add_child(AFTER_LYNX_FIGHT.instantiate()) 
 	

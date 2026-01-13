@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://ddw81iiesgdev" path="res://sprite/character/RestRoomGuyRome.png" id="1_vfub0"]
 [ext_resource type="PackedScene" uid="uid://xlm0m144kl1c" path="res://scene/dialogue_component.tscn" id="2_vfub0"]
-[ext_resource type="Resource" uid="uid://ctef3ngvhdhtr" path="res://resource/dialogue_test.tres" id="3_jv7ca"]
-[ext_resource type="Script" uid="uid://cuetc258gthhy" path="res://script/custom_resource/dialogue_base.gd" id="3_ognfk"]
+[ext_resource type="Resource" uid="uid://ctef3ngvhdhtr" path="res://resource/dialogue/dialogue_test.tres" id="3_jv7ca"]
+[ext_resource type="Script" uid="uid://cuetc258gthhy" path="res://script/resource/dialogue_base.gd" id="3_ognfk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wu0w0"]
 radius = 16.0

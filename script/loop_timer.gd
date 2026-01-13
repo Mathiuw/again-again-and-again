@@ -19,8 +19,8 @@ func _ready() -> void:
 	print("Loop started")
 
 
-func _process(_delta: float) -> void:
-	print(time_left)
+#func _process(_delta: float) -> void:
+	#print(time_left)
 
 
 func on_player_die() -> void:

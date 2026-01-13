@@ -63,37 +63,31 @@ shoot_type = 3
 attack_type = 1
 move_speed = 1.2
 
-[node name="EnemyPath2D" parent="LynxAttackRush" index="0" node_paths=PackedStringArray("target_area")]
+[node name="EnemyPath2D" parent="LynxAttackRush" index="0"]
 curve = SubResource("Curve2D_vl2gg")
-target_area = NodePath("")
 
-[node name="EnemyPath2D2" parent="LynxAttackRush" index="1" node_paths=PackedStringArray("target_area")]
+[node name="EnemyPath2D2" parent="LynxAttackRush" index="1"]
 position = Vector2(152, 0)
 curve = SubResource("Curve2D_57vn4")
-target_area = NodePath("")
 
-[node name="EnemyPath2D3" parent="LynxAttackRush" index="2" node_paths=PackedStringArray("target_area")]
+[node name="EnemyPath2D3" parent="LynxAttackRush" index="2"]
 position = Vector2(-144, 0)
 curve = SubResource("Curve2D_myteo")
-target_area = NodePath("")
 
-[node name="EnemyPath2D4" parent="LynxAttackRush" index="3" node_paths=PackedStringArray("target_area")]
+[node name="EnemyPath2D4" parent="LynxAttackRush" index="3"]
 position = Vector2(-64, -112)
 scale = Vector2(1.2297298, 1)
 curve = SubResource("Curve2D_v553q")
-target_area = NodePath("")
 
-[node name="EnemyPath2D5" parent="LynxAttackRush" index="4" node_paths=PackedStringArray("target_area")]
+[node name="EnemyPath2D5" parent="LynxAttackRush" index="4"]
 position = Vector2(-56, 0)
 scale = Vector2(1.2162162, 1)
 curve = SubResource("Curve2D_df8rs")
-target_area = NodePath("")
 
-[node name="EnemyPath2D6" parent="LynxAttackRush" index="5" node_paths=PackedStringArray("target_area")]
+[node name="EnemyPath2D6" parent="LynxAttackRush" index="5"]
 position = Vector2(-56, 120)
 scale = Vector2(1.2162162, 1)
 curve = SubResource("Curve2D_b8337")
-target_area = NodePath("")
 
 [editable path="LynxAttackRanged"]
 [editable path="LynxAttackRush"]

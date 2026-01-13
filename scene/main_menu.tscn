@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://8dg12odh4obl" path="res://sprite/MainMenu/ExitButtonPressed.png" id="8_2nbnt"]
 [ext_resource type="FontFile" uid="uid://orwn5asl7m13" path="res://font/ari-w9500-display.ttf" id="9_ceq6q"]
 [ext_resource type="PackedScene" uid="uid://mwaxn6ft2wpi" path="res://scene/ui_fade.tscn" id="9_hmxu4"]
-[ext_resource type="Resource" uid="uid://x6crraliku50" path="res://resource/fade_out_black.tres" id="10_ictww"]
+[ext_resource type="Resource" uid="uid://x6crraliku50" path="res://resource/fade/fade_out_black.tres" id="10_ictww"]
 [ext_resource type="PackedScene" uid="uid://db1gfatlflk0u" path="res://scene/blinking_label.tscn" id="11_s7uu8"]
 
 [sub_resource type="GDScript" id="GDScript_du31s"]

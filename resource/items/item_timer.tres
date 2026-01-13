@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemTimer" load_steps=2 format=3 uid="uid://bls5gxc01pinj"]
 
-[ext_resource type="Script" uid="uid://3clp6wyrorbg" path="res://script/custom_resource/item_timer.gd" id="1_pbdvx"]
+[ext_resource type="Script" uid="uid://3clp6wyrorbg" path="res://script/resource/item_timer.gd" id="1_pbdvx"]
 
 [resource]
 script = ExtResource("1_pbdvx")

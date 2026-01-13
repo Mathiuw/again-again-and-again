@@ -31,16 +31,12 @@ func shoot_random() -> void:
 	print("Shoot random")
 	
 	var index_to_spawn: int = randi_range(0,spawn_markers.size()-1)
-	var new_lynx_tail: LynxTail = lynx_tail_side_scene.instantiate()
-	new_lynx_tail.global_position = spawn_markers[index_to_spawn].global_position
-	add_child(new_lynx_tail)
-	
+	var new_lynx_tail: LynxTail = spawn_tail(spawn_markers[index_to_spawn].global_position)
 	
 	await new_lynx_tail.on_tail_attack_end
 	
 	new_lynx_tail.queue_free()
 	on_attack_end.emit()
-	
 
 
 func shoot_targeted() -> void:
@@ -58,11 +54,16 @@ func shoot_targeted() -> void:
 		return
 	
 	var index_to_shoot: int = randi_range(0,targeted_markers.size()-1)
-	var new_lynx_tail: LynxTail = lynx_tail_side_scene.instantiate()
-	add_child(new_lynx_tail)
-	new_lynx_tail.global_position = targeted_markers[index_to_shoot].global_position
+	var new_lynx_tail: LynxTail = spawn_tail(targeted_markers[index_to_shoot].global_position)
 	
 	await new_lynx_tail.on_tail_attack_end
 	
 	new_lynx_tail.queue_free()
 	on_attack_end.emit()
+
+
+func spawn_tail(spawn_global_position: Vector2) -> LynxTail:
+	var new_lynx_tail: LynxTail = lynx_tail_side_scene.instantiate()
+	add_child(new_lynx_tail)
+	new_lynx_tail.global_position = spawn_global_position
+	return new_lynx_tail

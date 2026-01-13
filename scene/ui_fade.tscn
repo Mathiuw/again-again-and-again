@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://mwaxn6ft2wpi"]
 
 [ext_resource type="Script" uid="uid://dfebpoxxnk65f" path="res://script/ui_fade.gd" id="1_r0hkk"]
-[ext_resource type="Resource" uid="uid://bbxwrdyj6tr5l" path="res://resource/fade_in_white.tres" id="2_mvwi2"]
+[ext_resource type="Resource" uid="uid://bbxwrdyj6tr5l" path="res://resource/fade/fade_in_white.tres" id="2_mvwi2"]
 
 [node name="UIFade" type="CanvasLayer"]
 layer = 9

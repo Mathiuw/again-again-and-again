@@ -57,11 +57,14 @@ func check_initial_room() -> void:
 
 
 func open_room_doors(open_effects: bool = true) -> void:
+	var door_count: int = 0
+	
 	for node in get_children():
 		if node is Door:
 			node.set_door_open_state(true)
+			door_count += 1
 	
-	if open_effects:
+	if open_effects && door_count > 0:
 		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ROOM_OPEN)
 		SignalBus.on_camera_shake.emit(6)
 

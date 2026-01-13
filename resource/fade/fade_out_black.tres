@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FadeSettings" load_steps=2 format=3 uid="uid://x6crraliku50"]
 
-[ext_resource type="Script" uid="uid://b4qbudh87jk5b" path="res://script/custom_resource/fade_settings.gd" id="1_ygred"]
+[ext_resource type="Script" uid="uid://b4qbudh87jk5b" path="res://script/resource/fade_settings.gd" id="1_ygred"]
 
 [resource]
 script = ExtResource("1_ygred")

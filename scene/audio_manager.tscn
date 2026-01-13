@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://15chkvrx0hgw"]
 
 [ext_resource type="Script" uid="uid://b0u26g4tgch7a" path="res://script/audio_manager.gd" id="1_pgo6v"]
-[ext_resource type="Script" uid="uid://dhuujfbdmx3ku" path="res://script/custom_resource/sound_effect.gd" id="2_8jnrl"]
+[ext_resource type="Script" uid="uid://dhuujfbdmx3ku" path="res://script/resource/sound_effect.gd" id="2_8jnrl"]
 [ext_resource type="AudioStream" uid="uid://bstw5pt5dnycu" path="res://sound/sfx/ARCO FLECHA.MP3" id="3_8jnrl"]
 [ext_resource type="AudioStream" uid="uid://cxoulhifxa1s" path="res://sound/sfx/HIT.wav" id="3_o1am0"]
 [ext_resource type="AudioStream" uid="uid://d1wf2imnjwee2" path="res://sound/sfx/TIRO - ZÉ MERLIN.wav" id="5_tdpk3"]

@@ -12,9 +12,10 @@ const END_DEMO = preload(\"uid://qj66b2ooca6h\")
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	collision_shape_2d.disabled = true
+	$AnimatedSprite2D.hide()
 	
 	var new_fade: UIFade = FADE_SCENE.instantiate()
-	get_tree().root.add_child(new_fade)
+	add_child(new_fade)
 	
 	await new_fade.on_fade_end
 	

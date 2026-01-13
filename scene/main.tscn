@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="1_itxqv"]
 [ext_resource type="PackedScene" uid="uid://mwaxn6ft2wpi" path="res://scene/ui_fade.tscn" id="2_7xrs8"]
 [ext_resource type="PackedScene" uid="uid://b24q0q78wlx5d" path="res://scene/ui_hud.tscn" id="2_p1hux"]
-[ext_resource type="Resource" uid="uid://d3e08yoyh6yhv" path="res://resource/fade_out_white.tres" id="3_kpobt"]
+[ext_resource type="Resource" uid="uid://d3e08yoyh6yhv" path="res://resource/fade/fade_out_white.tres" id="3_kpobt"]
 [ext_resource type="Script" uid="uid://bvibwp2q2iop7" path="res://script/player_Camera.gd" id="3_wp4xf"]
 [ext_resource type="PackedScene" uid="uid://c5hxh0i0l2p4i" path="res://scene/room/room_rome_02.tscn" id="4_4j5ol"]
 [ext_resource type="PackedScene" uid="uid://ci0kv3c6au21s" path="res://scene/room/room_rome_03.tscn" id="5_of57s"]
