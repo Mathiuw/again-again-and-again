@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name Bunnyale
+class_name FrankyMouse
 
 # Variables to control speed and detection range
 @export_group("AI Escape Settings")
@@ -72,15 +72,14 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 	move_and_slide()
 
-
 func set_animations() -> void:
 	if velocity.length() > 0:
-		set__animation(velocity.normalized())
+		set_walk_animation(velocity.normalized())
 	else:
-		animated_sprite_2d.play("idle")
+		animated_sprite_2d.play("walk_front")
 
 
-func set__animation(desiredDirection: Vector2) -> void:
+func set_walk_animation(desiredDirection: Vector2) -> void:
 	var margin: float = 0.4
 	
 	if desiredDirection.y <= margin && desiredDirection.y >= -margin && desiredDirection.x > 0:
@@ -107,11 +106,6 @@ func calculate_escape_point() -> void:
 
 func damage(damageAmount: int)-> void:
 	health_component.remove_health(damageAmount)
-	
-	if !health_component.dead:
-		var damage_tween = create_tween().set_trans(Tween.TRANS_SINE)
-		damage_tween.tween_property($AnimatedSprite2D, "material:shader_parameter/flash_value", 1, 0.125)
-		damage_tween.chain().tween_property($AnimatedSprite2D, "material:shader_parameter/flash_value", 0, 0.125)
 
 
 func _on_get_escape_point_timer_timeout() -> void:

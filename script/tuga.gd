@@ -7,7 +7,23 @@ extends StaticBody2D
 
 func _ready() -> void:
 	# Die function connect
-	_health.on_die.connect(func(): queue_free())
+	_health.on_die.connect(on_die)
+
+
+func on_die() -> void:
+	if animation_player.current_animation == "die": return
+	
+	var ai_shoot_behaviour: AIShootBehaviour = $AIShootBehaviour
+	ai_shoot_behaviour.queue_free()
+	
+	set_process(false)
+	set_physics_process(false)
+
+	animation_player.play("die")
+	
+	await animation_player.animation_finished
+	
+	queue_free()
 
 
 func damage(damageAmount: int):

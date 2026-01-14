@@ -1,86 +1,200 @@
-[gd_scene load_steps=15 format=3 uid="uid://bqyoyuprd01pg"]
+[gd_scene load_steps=28 format=3 uid="uid://bqyoyuprd01pg"]
 
-[ext_resource type="Script" uid="uid://c45ygg03xydtb" path="res://script/bunnyale.gd" id="1_xpy6e"]
-[ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://shader/damage_flash.gdshader" id="2_t6cjt"]
+[ext_resource type="Script" uid="uid://cfdpoov7yk2uh" path="res://script/franky_mouse.gd" id="1_h5rvr"]
 [ext_resource type="Texture2D" uid="uid://iu33kude3xkk" path="res://sprite/character/Frankymouse.png" id="3_xpy6e"]
 [ext_resource type="Script" uid="uid://fjtqgm701i1c" path="res://script/ai_run_away_behaviour.gd" id="4_oto10"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="5_refap"]
-[ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="6_lmukf"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rtdwv"]
-resource_local_to_scene = true
-shader = ExtResource("2_t6cjt")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_value = 0.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ofww"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbp41"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wioym"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orqey"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c6ta"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfmns"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u84c"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76cri"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms1xp"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmukf"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwwso"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt3fk"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehfw2"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpy6e"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6cjt"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqdjq"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oto10"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_refap"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2epry"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le0gi"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq6kn"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rqdjq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ofww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbp41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wioym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orqey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c6ta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfmns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u84c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76cri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms1xp")
+}],
+"loop": false,
+"name": &"die",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmukf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwwso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt3fk")
+}],
+"loop": true,
+"name": &"walk_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehfw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpy6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6cjt")
+}],
+"loop": true,
+"name": &"walk_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqdjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oto10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_refap")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2epry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le0gi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq6kn")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ggyp"]
 radius = 8.0
 
-[sub_resource type="Animation" id="Animation_tcpcj"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_3rus2"]
-resource_name = "idle"
-length = 0.1
-loop_mode = 1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_r4plt"]
-_data = {
-&"RESET": SubResource("Animation_tcpcj"),
-&"idle": SubResource("Animation_3rus2")
-}
-
-[sub_resource type="Animation" id="Animation_m770v"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_uoi8m"]
-resource_name = "damage_flash"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sbj51"]
-_data = {
-&"RESET": SubResource("Animation_m770v"),
-&"damage_flash": SubResource("Animation_uoi8m")
-}
-
 [node name="FrankyMouse" type="CharacterBody2D" groups=["enemy"]]
 disable_mode = 2
 motion_mode = 1
-script = ExtResource("1_xpy6e")
+script = ExtResource("1_h5rvr")
 move_speed = 300.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_rtdwv")
-position = Vector2(0, -16)
-texture = ExtResource("3_xpy6e")
-hframes = 3
-vframes = 4
-region_enabled = true
-region_rect = Rect2(0, 0, 96, 128)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rqdjq")
+animation = &"die"
+frame = 8
+frame_progress = 1.0
+offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
@@ -107,17 +221,6 @@ script = ExtResource("4_oto10")
 [node name="HealthComponent" parent="." instance=ExtResource("5_refap")]
 unique_name_in_owner = true
 max_hits = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_r4plt")
-}
-autoplay = "idle"
-
-[node name="DamageShaderPlayer" parent="." instance=ExtResource("6_lmukf")]
-libraries = {
-&"": SubResource("AnimationLibrary_sbj51")
-}
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="GetEscapePointTimer" to="." method="_on_get_escape_point_timer_timeout"]
