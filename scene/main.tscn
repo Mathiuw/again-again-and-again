@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://dquef6xj016ys"]
+[gd_scene load_steps=75 format=3 uid="uid://dquef6xj016ys"]
 
 [ext_resource type="Script" uid="uid://dnte553c7qdnr" path="res://script/loop_timer.gd" id="1_bmc2w"]
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://scene/player.tscn" id="1_itxqv"]
@@ -213,48 +213,6 @@ size = Vector2(3, 63)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_803pr"]
 resource_local_to_scene = true
 size = Vector2(32, 6)
-
-[sub_resource type="Curve2D" id="Curve2D_7xrs8"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_kpobt"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_216wm"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, 0, 272)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_jey2d"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -312.26373, 0, 0, 0, 0, 0, 416.35162, 0)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_vc5kc"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -322.31113, 0, 0, 0, 0, 0, 414.4, 0)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_cv4lv"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -322.31113, 0, 0, 0, 0, 0, 414.4, 0)
-}
-point_count = 2
 
 [node name="Main" type="Node" groups=["world"]]
 script = SubResource("GDScript_0ha60")
@@ -857,24 +815,6 @@ position = Vector2(-64, 24)
 [node name="RoomRomeBoss" parent="Map" instance=ExtResource("17_tv8i1")]
 position = Vector2(2559.9592, -0.37342834)
 
-[node name="EnemyPath2D" parent="Map/RoomRomeBoss/LynxBossBase/LynxAttackRush" index="0"]
-curve = SubResource("Curve2D_7xrs8")
-
-[node name="EnemyPath2D2" parent="Map/RoomRomeBoss/LynxBossBase/LynxAttackRush" index="1"]
-curve = SubResource("Curve2D_kpobt")
-
-[node name="EnemyPath2D3" parent="Map/RoomRomeBoss/LynxBossBase/LynxAttackRush" index="2"]
-curve = SubResource("Curve2D_216wm")
-
-[node name="EnemyPath2D4" parent="Map/RoomRomeBoss/LynxBossBase/LynxAttackRush" index="3"]
-curve = SubResource("Curve2D_jey2d")
-
-[node name="EnemyPath2D5" parent="Map/RoomRomeBoss/LynxBossBase/LynxAttackRush" index="4"]
-curve = SubResource("Curve2D_vc5kc")
-
-[node name="EnemyPath2D6" parent="Map/RoomRomeBoss/LynxBossBase/LynxAttackRush" index="5"]
-curve = SubResource("Curve2D_cv4lv")
-
 [node name="PlayerCamera" type="Camera2D" parent="." groups=["camera"]]
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
@@ -975,7 +915,3 @@ script = ExtResource("3_wp4xf")
 [editable path="Map/RoomRome28"]
 [editable path="Map/RoomRome28/DoorFront"]
 [editable path="Map/RoomRome28/DoorLeft"]
-[editable path="Map/RoomRomeBoss"]
-[editable path="Map/RoomRomeBoss/LynxBossBase"]
-[editable path="Map/RoomRomeBoss/LynxBossBase/LynxAttackRanged"]
-[editable path="Map/RoomRomeBoss/LynxBossBase/LynxAttackRush"]

@@ -22,13 +22,12 @@ func _ready() -> void:
 			target_areas.push_back(node)
 			print(target_areas)
 	
-	var desired_ranged_ids: Array[int] = [3,4,5]
 	var lynx_attack_ranged: AttackLynxRanged = $LynxAttackRanged
-	for spawn_marker in lynx_attack_ranged.spawn_markers:
-		for target_area: TargetArea2D in target_areas:
-			for id in desired_ranged_ids:
-				if target_area.id == id:
-					spawn_marker.target_area = target_area
+	
+	for target_area in target_areas:
+		for child in target_area.get_children():
+			if child is Marker2D:
+				lynx_attack_ranged.spawn_markers.push_back(child)
 	
 	health_component.on_die.connect(on_die)
 	

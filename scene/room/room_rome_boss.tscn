@@ -370,15 +370,6 @@ tile_set = ExtResource("3_dnlai")
 unique_name_in_owner = true
 active = false
 
-[node name="TargetMarker2D" parent="LynxBossBase/LynxAttackRanged" index="0"]
-position = Vector2(-312, -112)
-
-[node name="TargetMarker2D2" parent="LynxBossBase/LynxAttackRanged" index="1"]
-position = Vector2(-312, 16)
-
-[node name="TargetMarker2D3" parent="LynxBossBase/LynxAttackRanged" index="2"]
-position = Vector2(-304, 128)
-
 [node name="EnemyPath2D" parent="LynxBossBase/LynxAttackRush" index="0"]
 curve = SubResource("Curve2D_prs6n")
 
@@ -405,7 +396,6 @@ shape = SubResource("RectangleShape2D_myteo")
 
 [node name="TargetArea2D2" parent="." instance=ExtResource("3_prs6n")]
 position = Vector2(144, 0)
-id = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D2"]
 position = Vector2(0, 4)
@@ -413,7 +403,6 @@ shape = SubResource("RectangleShape2D_myteo")
 
 [node name="TargetArea2D3" parent="." instance=ExtResource("3_prs6n")]
 position = Vector2(-144, 0)
-id = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D3"]
 position = Vector2(0, 4)
@@ -421,27 +410,33 @@ shape = SubResource("RectangleShape2D_myteo")
 
 [node name="TargetArea2D4" parent="." instance=ExtResource("3_prs6n")]
 position = Vector2(0, -104)
-id = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D4"]
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_df8rs")
 
+[node name="Marker2D" type="Marker2D" parent="TargetArea2D4"]
+position = Vector2(-312, -8)
+
 [node name="TargetArea2D5" parent="." instance=ExtResource("3_prs6n")]
 position = Vector2(0, 16)
-id = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D5"]
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_prs6n")
 
+[node name="Marker2D2" type="Marker2D" parent="TargetArea2D5"]
+position = Vector2(-312, 0)
+
 [node name="TargetArea2D6" parent="." instance=ExtResource("3_prs6n")]
 position = Vector2(0, 120)
-id = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D6"]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_df8rs")
+
+[node name="Marker2D3" type="Marker2D" parent="TargetArea2D6"]
+position = Vector2(-304, 8)
 
 [node name="TriggerBossArea" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -476,5 +471,4 @@ offset = Vector2(0, -56)
 [connection signal="animation_finished" from="CutsceneRoot/AnimatedSprite2D" to="CutsceneRoot" method="_on_animated_sprite_2d_animation_finished"]
 
 [editable path="LynxBossBase"]
-[editable path="LynxBossBase/LynxAttackRanged"]
 [editable path="LynxBossBase/LynxAttackRush"]

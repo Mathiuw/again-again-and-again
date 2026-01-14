@@ -5,17 +5,14 @@ enum ShootType {Random, Line, LineTargeted, Targeted }
 
 @export var shoot_type:ShootType = ShootType.Random
 @export var lynx_tail_side_scene: PackedScene
-@export var spawn_markers:Array[TargetMarker2D]
-var target: Node2D
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	target = get_tree().get_first_node_in_group("player")
-	if  !target:
-		push_error("Couldnt find player")
+var spawn_markers:Array[Marker2D]
 
 
 func attack() -> void:
+	if spawn_markers.size() == 0:
+		push_warning("spawn markers size is 0!")
+		return
+	
 	match shoot_type:
 		ShootType.Random:
 			shoot_random()
@@ -42,10 +39,10 @@ func shoot_random() -> void:
 func shoot_targeted() -> void:
 	print("Shoot targeted")
 	
-	var targeted_markers: Array[TargetMarker2D]
+	var targeted_markers: Array[Marker2D]
 	
 	for marker in spawn_markers:
-		if marker.target_area.target:
+		if marker.get_parent().target:
 			targeted_markers.push_back(marker)
 	
 	if targeted_markers.size() == 0:
