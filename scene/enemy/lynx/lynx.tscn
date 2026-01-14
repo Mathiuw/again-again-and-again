@@ -19,6 +19,7 @@ shoot_type = 3
 
 [node name="LynxAttackRush" parent="." instance=ExtResource("4_fhuqs")]
 attack_type = 1
+move_speed = 0.9
 
 [editable path="LynxAttackRanged"]
 [editable path="LynxAttackRush"]

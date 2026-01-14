@@ -20,7 +20,6 @@ func _ready() -> void:
 	for node in get_parent().get_children():
 		if node is TargetArea2D:
 			target_areas.push_back(node)
-			print(target_areas)
 	
 	var lynx_attack_ranged: AttackLynxRanged = $LynxAttackRanged
 	

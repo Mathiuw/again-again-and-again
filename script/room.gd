@@ -20,36 +20,19 @@ func _ready() -> void:
 	if enemies_root:
 		enemies_root.y_sort_enabled = true
 	
-	RoomManager.on_room_change.connect(func(room: Room, _smooth_transition: bool):
-		if room != self:
-			set_room_state.call_deferred(false)
-		else:
-			set_room_state.call_deferred(true)
-			if music_override:
-				AudioManager.set_music(music_override)
-			
-			if navigation_region_2D:
-				if !navigation_region_2D.is_baking():
-					navigation_region_2D.bake_navigation_polygon(true)
-		)
+	RoomManager.on_room_change.connect(on_room_change)
 	# check initial room at the end of the frame
 	check_initial_room.call_deferred()
 	
 	if get_enemy_count(false) == 0:
 		return
 	
+	# on enemy die function connect
 	for node in enemies_root.get_children(true):
 		if node.is_in_group("enemy"):
 			for child in node.get_children():
 				if child is Health && !child.dead:
-					child.on_die.connect(func():
-						get_enemy_count()
-						
-						# update navigation region if have
-						if navigation_region_2D:
-							await get_tree().process_frame
-							navigation_region_2D.bake_navigation_polygon(true)
-						)
+					child.on_die.connect(on_enemy_die)
 
 
 func check_initial_room() -> void:
@@ -84,8 +67,29 @@ func get_enemy_count(open_effects: bool = true) -> int:
 	
 	return count
 
+
+func on_enemy_die() -> void:
+	get_enemy_count()
+	# update navigation region if have
+	if navigation_region_2D:
+		await get_tree().process_frame
+		navigation_region_2D.bake_navigation_polygon(true)
+
+
+func on_room_change(room: Room, _smooth_transition: bool) -> void:
+	if room != self:
+		set_room_state.call_deferred(false)
+	else:
+		set_room_state.call_deferred(true)
+		if music_override:
+			AudioManager.set_music(music_override)
+		
+		if navigation_region_2D:
+			if !navigation_region_2D.is_baking():
+				navigation_region_2D.bake_navigation_polygon()
+
+
 func set_room_state(state: bool) -> void:
-	
 	for node: Node in get_children():
 		if  state:
 			node.process_mode = Node.PROCESS_MODE_INHERIT 

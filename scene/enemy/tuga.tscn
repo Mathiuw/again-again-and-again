@@ -155,7 +155,6 @@ position = Vector2(0, -13)
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_og3h1")]
 unique_name_in_owner = true
-max_hits = 3
 
 [node name="AIShootBehaviour" parent="." node_paths=PackedStringArray("weapon_component", "target_raycast_check_2d", "root_node") instance=ExtResource("5_teoyt")]
 start_shooting_cooldown = 0.5

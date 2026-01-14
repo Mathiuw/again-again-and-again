@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_pbdvx")
+time_value_base = 25.0
 item_name = "Pocket Watch"
 sprite_frame_index = 7
 metadata/_custom_type_script = "uid://3clp6wyrorbg"

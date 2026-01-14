@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://c0lq3ffj8atbe"]
+[gd_scene load_steps=9 format=4 uid="uid://c0lq3ffj8atbe"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_mhatv"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_c6p40"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cashvt3sqfcys" path="res://scene/music_changer_area_2d.tscn" id="4_c6p40"]
 [ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://scene/door_left.tscn" id="4_nx5lv"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://scene/door_right.tscn" id="5_mhatv"]
+[ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://scene/chest_rome.tscn" id="7_ne5gq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne5gq"]
 size = Vector2(94, 134)
@@ -63,3 +64,6 @@ position = Vector2(-304, -16)
 
 [node name="DoorRight" parent="." instance=ExtResource("5_mhatv")]
 position = Vector2(288, -16)
+
+[node name="Chest" parent="." instance=ExtResource("7_ne5gq")]
+position = Vector2(144, -56)

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://deb6eroafqfs5" path="res://sprite/chest/Bau_roma.png" id="1_8d0cf"]
 [ext_resource type="Script" uid="uid://ceanf8yvbsrvw" path="res://script/chest.gd" id="1_81ki8"]
 [ext_resource type="PackedScene" uid="uid://d0u65yfvvu70i" path="res://scene/item_pickup_animation.tscn" id="2_asika"]
-[ext_resource type="Resource" uid="uid://bls5gxc01pinj" path="res://resource/items/item_timer.tres" id="3_0wrp2"]
+[ext_resource type="Resource" uid="uid://bls5gxc01pinj" path="res://resource/items/item_pocketwatch.tres" id="3_0wrp2"]
 [ext_resource type="PackedScene" uid="uid://y34phjayr0ow" path="res://scene/interactable_component.tscn" id="3_yrheh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0wrp2"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://d4duljhq10t20"]
+[gd_scene load_steps=9 format=4 uid="uid://d4duljhq10t20"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://script/room.gd" id="1_pc8kr"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://tileset/tileset_level.tres" id="2_1xqv0"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://scene/torch_point_light_2d.tscn" id="3_utbda"]
 [ext_resource type="PackedScene" uid="uid://b1uw6v7edbscl" path="res://scene/enemy/bunnyale.tscn" id="4_pc8kr"]
 [ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://scene/door_left.tscn" id="5_pc8kr"]
+[ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://scene/chest_rome.tscn" id="5_utbda"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://scene/door_right.tscn" id="6_1xqv0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1xqv0"]
@@ -53,6 +54,9 @@ position = Vector2(89, 119)
 
 [node name="Bunnyale3" parent="NavigationRegion2D" instance=ExtResource("4_pc8kr")]
 position = Vector2(252, -63)
+
+[node name="Chest" parent="NavigationRegion2D" instance=ExtResource("5_utbda")]
+position = Vector2(160, 104)
 
 [node name="DoorLeft" parent="." instance=ExtResource("5_pc8kr")]
 position = Vector2(-304, -16)
