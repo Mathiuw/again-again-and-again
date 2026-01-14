@@ -15,11 +15,13 @@ func on_die() -> void:
 	
 	var ai_shoot_behaviour: AIShootBehaviour = $AIShootBehaviour
 	ai_shoot_behaviour.queue_free()
+	$CollisionShape2D.queue_free()
 	
 	set_process(false)
 	set_physics_process(false)
 
 	animation_player.play("die")
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DIE)
 	
 	await animation_player.animation_finished
 	

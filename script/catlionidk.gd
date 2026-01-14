@@ -12,7 +12,7 @@ extends CharacterBody2D
 @onready var _health: Health = $HealthComponent
 @onready var dash_component: DashComponent = $DashComponent
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
-
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	_health.on_die.connect(on_die)
@@ -64,9 +64,24 @@ func damage(damageAmount: int):
 
 
 func on_die() -> void:
+	if animated_sprite_2d.animation == "die": return
+	
+	%DashComponent.stop_dash()
+	navigation_agent_2d.queue_free()
+	$CollisionShape2D.queue_free()
+	
+	set_process(false)
+	set_physics_process(false)
+	
+	animated_sprite_2d.play("die")
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DIE)
+	
+	await animated_sprite_2d.animation_finished
+	
 	queue_free()
 
 
 func _on_target_raycast_check_2d_on_target_in_sight(target: Object) -> void:
-	navigation_agent_2d.target_position = target.global_position
-	dash_component.start_dash()
+	if navigation_agent_2d:
+		navigation_agent_2d.target_position = target.global_position
+		dash_component.start_dash()

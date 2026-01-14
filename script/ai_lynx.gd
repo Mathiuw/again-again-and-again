@@ -32,10 +32,11 @@ func _ready() -> void:
 	health_component.on_die.connect(on_die)
 	
 	var lynx_attack_rush: AttackLynxRush = $LynxAttackRush
-	var index: int = 0
-	for path in lynx_attack_rush.paths:
-		path.target_area = target_areas[index]
-		index += 1
+
+	for target_area in target_areas:
+		for child in target_area.get_children():
+			if child is Path2D:
+				lynx_attack_rush.paths.push_back(child)
 
 	for attack in attacks:
 		attack.on_attack_end.connect(on_attack_end)
@@ -72,6 +73,7 @@ func on_attack_end() -> void:
 
 func on_die() -> void:
 	AudioManager.set_music(null)
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DIE)
 	
 	const UI_BLINK = preload("uid://dj3tmo5quukha")
 	
@@ -82,5 +84,4 @@ func on_die() -> void:
 	
 	# spawn after lynx fight scene
 	get_parent().add_child(AFTER_LYNX_FIGHT.instantiate()) 
-	
 	queue_free()

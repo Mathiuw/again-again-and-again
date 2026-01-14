@@ -61,6 +61,7 @@ func shoot_targeted() -> void:
 
 func spawn_tail(spawn_global_position: Vector2) -> LynxTail:
 	var new_lynx_tail: LynxTail = lynx_tail_side_scene.instantiate()
-	add_child(new_lynx_tail)
+	get_parent().get_parent().add_child(new_lynx_tail)
+	new_lynx_tail.attack_root = self
 	new_lynx_tail.global_position = spawn_global_position
 	return new_lynx_tail

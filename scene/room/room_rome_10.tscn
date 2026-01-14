@@ -66,16 +66,16 @@ position = Vector2(-256, 64)
 position = Vector2(64, 120)
 
 [node name="Medusa5" parent="." instance=ExtResource("6_nt821")]
-position = Vector2(216, 32)
+position = Vector2(192, 40)
 
 [node name="Chest" parent="." instance=ExtResource("8_k7ck5")]
 position = Vector2(-139, -126)
 
 [node name="Chest2" parent="." instance=ExtResource("8_k7ck5")]
-position = Vector2(282, 50)
+position = Vector2(272, 56)
 
 [node name="Chest3" parent="." instance=ExtResource("8_k7ck5")]
-position = Vector2(266, 33)
+position = Vector2(264, 32)
 
 [node name="DoorFront" parent="." instance=ExtResource("6_cs3m3")]
 position = Vector2(240, -144)

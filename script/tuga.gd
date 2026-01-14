@@ -20,6 +20,7 @@ func on_die() -> void:
 	set_physics_process(false)
 
 	animation_player.play("die")
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DIE)
 	
 	await animation_player.animation_finished
 	

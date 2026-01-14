@@ -10,7 +10,7 @@
 y_sort_enabled = true
 
 [node name="Player" parent="Map" instance=ExtResource("2_p6vse")]
-position = Vector2(272, 0)
+position = Vector2(280, 16)
 
 [node name="RoomRomeBoss" parent="Map" instance=ExtResource("1_rsnos")]
 

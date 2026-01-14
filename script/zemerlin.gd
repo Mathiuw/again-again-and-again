@@ -50,12 +50,15 @@ func on_die() -> void:
 	if _animated_sprite_2d.animation == "die": return
 	
 	$NavigationAgent2D.queue_free()
+	$AIShootBehaviour.queue_free()
 	$WeaponComponent.queue_free()
-
+	$CollisionShape2D.queue_free()
+	
 	set_process(false)
 	set_physics_process(false)
 
 	_animated_sprite_2d.play("die")
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DIE)
 	
 	await _animated_sprite_2d.animation_finished
 	

@@ -61,7 +61,7 @@ func weapon_component_shoot() -> void:
 
 func ai_shoot() -> void:
 	if !weapon_component || !root_node:
-		push_error("cant find weapon conponent or root node")
+		#push_error("cant find weapon conponent or root node")
 		return
 	
 	on_ai_shoot.emit()

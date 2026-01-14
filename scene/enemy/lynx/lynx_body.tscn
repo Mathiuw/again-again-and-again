@@ -1,15 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://bft146fxu4jge"]
+[gd_scene load_steps=24 format=3 uid="uid://bft146fxu4jge"]
 
 [ext_resource type="Script" uid="uid://dko0tcwes0486" path="res://script/lynx_rush_body.gd" id="1_8o57x"]
+[ext_resource type="Material" uid="uid://cenkdihc6dw7h" path="res://material/damage_flash_material.tres" id="2_5hcag"]
 [ext_resource type="Texture2D" uid="uid://cd0qc48rh8kjx" path="res://sprite/character/lynx/SideBossRun-Sheet.png" id="2_8t2ka"]
-[ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://shader/damage_flash.gdshader" id="2_bly3y"]
 [ext_resource type="Texture2D" uid="uid://bel7nxh0mfmvp" path="res://sprite/character/lynx/VerticalBossRun-Sheet.png" id="3_5hcag"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xh0j7"]
-resource_local_to_scene = true
-shader = ExtResource("2_bly3y")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_value = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yto4u"]
 atlas = ExtResource("2_8t2ka")
@@ -104,7 +98,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"running_horizontal",
-"speed": 24.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -133,7 +127,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"running_vertical",
-"speed": 24.0
+"speed": 16.0
 }]
 
 [sub_resource type="GDScript" id="GDScript_8o57x"]
@@ -154,26 +148,30 @@ func damage(damageAmount: int) -> void:
 size = Vector2(160, 64)
 
 [node name="LynxBody" type="PathFollow2D"]
+z_as_relative = false
+y_sort_enabled = true
 loop = false
 script = ExtResource("1_8o57x")
 knockback_force = 500.0
 knockback_duration = 0.3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_xh0j7")
-position = Vector2(0, -8)
-rotation = -0.002169434
+material = ExtResource("2_5hcag")
+position = Vector2(-0.13463214, 23.737103)
 sprite_frames = SubResource("SpriteFrames_p17v0")
 animation = &"running_horizontal"
-frame_progress = 0.7605741
+frame_progress = 0.61816853
+offset = Vector2(0.13463488, -39.737106)
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-0.08620453, -8.000206)
 collision_layer = 2
 collision_mask = 2
 input_pickable = false
 script = SubResource("GDScript_8o57x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.24288177)
 shape = SubResource("RectangleShape2D_k5ckt")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

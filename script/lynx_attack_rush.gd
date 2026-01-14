@@ -7,7 +7,7 @@ enum AttackType {Random, Targeted}
 
 @export_group("Lynx Rush Attack Settings")
 @export var attack_type: AttackType = AttackType.Random
-@export var paths: Array[EnemyPath2D]
+@export var paths: Array[Path2D]
 @export var move_speed: float = 3
 
 var is_attacking: bool = false
@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 		on_attack_end.emit()
 
 
-func spawn_lynx_body(path_to_spawn:EnemyPath2D) -> void:
+func spawn_lynx_body(path_to_spawn:Path2D) -> void:
 	current_lynx_rush_body = LYNX_RUSH_BODY.instantiate()
 	current_lynx_rush_body.health_component = boss_health_component
 	path_to_spawn.add_child(current_lynx_rush_body)
@@ -60,10 +60,10 @@ func random_attack(enable_atack: bool = true) -> void:
 func targeted_attack(enable_atack: bool = true) -> void:
 	print("Targeted Attack")
 	
-	var on_area_attacks: Array[EnemyPath2D]
+	var on_area_attacks: Array[Path2D]
 	
 	for path in paths:
-		if path.target_area.target:
+		if path.get_parent().target:
 			on_area_attacks.push_back(path)
 	
 	if on_area_attacks.size() == 0:

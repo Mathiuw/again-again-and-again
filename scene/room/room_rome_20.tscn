@@ -57,19 +57,22 @@ position = Vector2(72, 128)
 position = Vector2(0, 72)
 
 [node name="Catlionidk" parent="NavigationRegion2D" instance=ExtResource("5_5yakt")]
-position = Vector2(-56, 16)
+position = Vector2(-64, -48)
 
 [node name="Catlionidk2" parent="NavigationRegion2D" instance=ExtResource("5_5yakt")]
-position = Vector2(72, 24)
+position = Vector2(56, 32)
 
 [node name="Catlionidk3" parent="NavigationRegion2D" instance=ExtResource("5_5yakt")]
-position = Vector2(152, -104)
+position = Vector2(224, -88)
 
 [node name="Catlionidk4" parent="NavigationRegion2D" instance=ExtResource("5_5yakt")]
-position = Vector2(248, -64)
+position = Vector2(224, 56)
 
 [node name="Chest" parent="NavigationRegion2D" instance=ExtResource("6_5yakt")]
 position = Vector2(-184, 48)
+
+[node name="Chest2" parent="NavigationRegion2D" instance=ExtResource("6_5yakt")]
+position = Vector2(176, 128)
 
 [node name="DoorLeft" parent="." instance=ExtResource("4_f1vjw")]
 position = Vector2(-304, -16)

@@ -60,8 +60,10 @@ func on_die() -> void:
 	set_physics_process(false)
 	
 	navigation_agent_2d.queue_free()
-
+	$CollisionShape2D.queue_free()
+	
 	animated_sprite_2d.play("die")
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DIE)
 	
 	await animated_sprite_2d.animation_finished
 	
