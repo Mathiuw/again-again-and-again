@@ -1,20 +1,13 @@
-[gd_scene load_steps=45 format=3 uid="uid://dliyelxwg7x8w"]
+[gd_scene load_steps=40 format=3 uid="uid://dliyelxwg7x8w"]
 
-[ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://shader/damage_flash.gdshader" id="1_2mmqe"]
 [ext_resource type="Script" uid="uid://bjfekveea263k" path="res://script/zemerlin.gd" id="1_f87vc"]
 [ext_resource type="Texture2D" uid="uid://bwpg6wl7nkl0v" path="res://sprite/character/Zehmerlin-Sheet.png" id="2_8u16h"]
+[ext_resource type="Material" uid="uid://cenkdihc6dw7h" path="res://material/damage_flash_material.tres" id="2_qklf1"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="3_8u16h"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://scene/weapon_component.tscn" id="3_b7koy"]
 [ext_resource type="PackedScene" uid="uid://d2uhi6ia23jpa" path="res://scene/bullet/bullet_zemerlin.tscn" id="5_mb7b2"]
 [ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://scene/target_raycast_check_2d.tscn" id="6_1gk6y"]
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://scene/AI/ai_shoot_behaviour.tscn" id="7_cv5gn"]
-[ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="8_qklf1"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2mmqe"]
-resource_local_to_scene = true
-shader = ExtResource("1_2mmqe")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_value = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2lkbx"]
 atlas = ExtResource("2_8u16h")
@@ -269,43 +262,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gpa5e"]
 
-[sub_resource type="Animation" id="Animation_1gk6y"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_qklf1"]
-resource_name = "damage_flash"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1gk6y"]
-_data = {
-&"RESET": SubResource("Animation_1gk6y"),
-&"damage_flash": SubResource("Animation_qklf1")
-}
-
 [node name="Zemerlin" type="CharacterBody2D" groups=["enemy"]]
 disable_mode = 1
 collision_layer = 2
@@ -316,7 +272,7 @@ script = ExtResource("1_f87vc")
 move_speed = 90.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_2mmqe")
+material = ExtResource("2_qklf1")
 sprite_frames = SubResource("SpriteFrames_gg45h")
 animation = &"idle_front"
 autoplay = "idle_front"
@@ -355,11 +311,6 @@ max_hits = 2
 weapon_component = NodePath("../WeaponComponent")
 target_raycast_check_2d = NodePath("../TargetRaycastCheck2D")
 root_node = NodePath("..")
-
-[node name="DamageShaderPlayer" parent="." instance=ExtResource("8_qklf1")]
-libraries = {
-&"": SubResource("AnimationLibrary_1gk6y")
-}
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="DrawPathTimer" to="." method="_on_draw_path_timer_timeout"]

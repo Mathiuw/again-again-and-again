@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dk62nei0etksf"]
+[gd_scene load_steps=17 format=3 uid="uid://dk62nei0etksf"]
 
 [ext_resource type="Texture2D" uid="uid://bejteuurphesn" path="res://sprite/character/Medusahead-Sheet.png" id="1_0srtd"]
 [ext_resource type="Script" uid="uid://cfskjefpr4x5b" path="res://script/medusa.gd" id="1_7o4kk"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="5_0bcff"]
 [ext_resource type="PackedScene" uid="uid://bhe30cbxewbj" path="res://scene/bullet/bullet_medusa.tscn" id="5_7frci"]
 [ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://scene/target_raycast_check_2d.tscn" id="7_tbr1f"]
-[ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="9_10gqf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_10gqf"]
 resource_local_to_scene = true
@@ -121,42 +120,6 @@ _data = {
 &"shoot": SubResource("Animation_10gqf")
 }
 
-[sub_resource type="Animation" id="Animation_w63sr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MedusaSprite2D:material:shader_parameter/flash_value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_tbr1f"]
-resource_name = "damage_play"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MedusaSprite2D:material:shader_parameter/flash_value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w63sr"]
-_data = {
-&"RESET": SubResource("Animation_w63sr"),
-&"damage_flash": SubResource("Animation_tbr1f")
-}
-
 [node name="Medusa" type="StaticBody2D" groups=["enemy"]]
 disable_mode = 2
 script = ExtResource("1_7o4kk")
@@ -207,10 +170,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_tbr1f")
 }
 autoplay = "idle"
-
-[node name="DamageShaderPlayer" parent="." instance=ExtResource("9_10gqf")]
-libraries = {
-&"": SubResource("AnimationLibrary_w63sr")
-}
 
 [connection signal="on_ai_shoot" from="AIShootBehaviour" to="." method="_on_ai_shoot_behaviour_on_ai_shoot"]

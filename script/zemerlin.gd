@@ -49,9 +49,9 @@ func _physics_process(_delta: float) -> void:
 func on_die() -> void:
 	if _animated_sprite_2d.animation == "die": return
 	
-	var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
-	navigation_agent_2d.queue_free()
-	
+	$NavigationAgent2D.queue_free()
+	$WeaponComponent.queue_free()
+
 	set_process(false)
 	set_physics_process(false)
 
@@ -86,6 +86,7 @@ func _set_zemerlin_idle() -> void:
 		"walk_right":
 			_animated_sprite_2d.play("idle_right")
 
+
 # Timer calculate cooldown
 func _on_draw_path_timer_timeout() -> void:
 	if target && _navigation_agent_2d:
@@ -106,3 +107,8 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 
 func damage(damageAmount: int):
 	_health.remove_health(damageAmount)
+	
+	if !_health.dead:
+		var damage_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		damage_tween.tween_property($AnimatedSprite2D, "material:shader_parameter/flash_value", 1, 0.125)
+		damage_tween.chain().tween_property($AnimatedSprite2D, "material:shader_parameter/flash_value", 0, 0.125)

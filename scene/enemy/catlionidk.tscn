@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://be2ns7nd7wct4"]
+[gd_scene load_steps=44 format=3 uid="uid://be2ns7nd7wct4"]
 
 [ext_resource type="Script" uid="uid://bbim12t1u8d40" path="res://script/catlionidk.gd" id="1_asvjx"]
 [ext_resource type="Material" uid="uid://cenkdihc6dw7h" path="res://material/damage_flash_material.tres" id="1_kq2sb"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cgy5ipfx6ohjl" path="res://scene/dash_component.tscn" id="3_yfmbt"]
 [ext_resource type="PackedScene" uid="uid://c6m0uqjs8vsix" path="res://scene/dash_particle_animated_sprite_2D.tscn" id="4_myhiq"]
 [ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://scene/target_raycast_check_2d.tscn" id="6_fminb"]
-[ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="7_68fjm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fn2xi"]
 atlas = ExtResource("1_n3eyp")
@@ -267,43 +266,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_asvjx"]
 
-[sub_resource type="Animation" id="Animation_sbkpc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_kq2sb"]
-resource_name = "damage_flash"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1148, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sbkpc"]
-_data = {
-&"RESET": SubResource("Animation_sbkpc"),
-&"damage_flash": SubResource("Animation_kq2sb")
-}
-
 [node name="Catlionidk" type="CharacterBody2D" groups=["enemy"]]
 disable_mode = 2
 collision_layer = 2
@@ -346,11 +308,6 @@ animated_sprite = NodePath("../AnimatedSprite2D")
 max_hits = 2
 
 [node name="TargetRaycastCheck2D" parent="." instance=ExtResource("6_fminb")]
-
-[node name="DamageShaderPlayer" parent="." instance=ExtResource("7_68fjm")]
-libraries = {
-&"": SubResource("AnimationLibrary_sbkpc")
-}
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="on_target_in_sight" from="TargetRaycastCheck2D" to="." method="_on_target_raycast_check_2d_on_target_in_sight"]

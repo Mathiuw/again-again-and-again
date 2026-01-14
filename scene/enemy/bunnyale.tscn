@@ -1,11 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://b1uw6v7edbscl"]
+[gd_scene load_steps=35 format=3 uid="uid://b1uw6v7edbscl"]
 
 [ext_resource type="Script" uid="uid://fjtqgm701i1c" path="res://script/ai_run_away_behaviour.gd" id="1_1shr2"]
 [ext_resource type="Script" uid="uid://c45ygg03xydtb" path="res://script/bunnyale.gd" id="1_8ggyp"]
 [ext_resource type="Material" uid="uid://cenkdihc6dw7h" path="res://material/damage_flash_material.tres" id="2_mvmwx"]
 [ext_resource type="Texture2D" uid="uid://dskkr445w4tl2" path="res://sprite/character/BunnyaleDNew-Sheet.png" id="2_r4plt"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://scene/health_component.tscn" id="4_3rus2"]
-[ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="6_jp0fl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k48km"]
 atlas = ExtResource("2_r4plt")
@@ -232,19 +231,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ggyp"]
 radius = 8.0
 
-[sub_resource type="Animation" id="Animation_m770v"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_uoi8m"]
-resource_name = "damage_flash"
-length = 0.25
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sbj51"]
-_data = {
-&"RESET": SubResource("Animation_m770v"),
-&"damage_flash": SubResource("Animation_uoi8m")
-}
-
 [node name="Bunnyale" type="CharacterBody2D" groups=["enemy"]]
 disable_mode = 2
 motion_mode = 1
@@ -281,11 +267,6 @@ script = ExtResource("1_1shr2")
 [node name="HealthComponent" parent="." instance=ExtResource("4_3rus2")]
 unique_name_in_owner = true
 max_hits = 2
-
-[node name="DamageShaderPlayer" parent="." instance=ExtResource("6_jp0fl")]
-libraries = {
-&"": SubResource("AnimationLibrary_sbj51")
-}
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="GetEscapePointTimer" to="." method="_on_get_escape_point_timer_timeout"]

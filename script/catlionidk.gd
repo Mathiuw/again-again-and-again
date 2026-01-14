@@ -56,6 +56,11 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 
 func damage(damageAmount: int):
 	_health.remove_health(damageAmount)
+	
+	if !_health.dead:
+		var damage_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		damage_tween.tween_property($AnimatedSprite2D, "material:shader_parameter/flash_value", 1, 0.125)
+		damage_tween.chain().tween_property($AnimatedSprite2D, "material:shader_parameter/flash_value", 0, 0.125)
 
 
 func on_die() -> void:

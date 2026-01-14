@@ -1,11 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://bft146fxu4jge"]
+[gd_scene load_steps=25 format=3 uid="uid://bft146fxu4jge"]
 
 [ext_resource type="Script" uid="uid://dko0tcwes0486" path="res://script/lynx_rush_body.gd" id="1_8o57x"]
 [ext_resource type="Texture2D" uid="uid://cd0qc48rh8kjx" path="res://sprite/character/lynx/SideBossRun-Sheet.png" id="2_8t2ka"]
 [ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://shader/damage_flash.gdshader" id="2_bly3y"]
 [ext_resource type="Texture2D" uid="uid://bel7nxh0mfmvp" path="res://sprite/character/lynx/VerticalBossRun-Sheet.png" id="3_5hcag"]
-[ext_resource type="PackedScene" uid="uid://b8813j66n8scq" path="res://scene/damage_shader_player.tscn" id="4_8t2ka"]
-[ext_resource type="Script" uid="uid://cur3q6k1ybtr5" path="res://script/damage_shader_player_lynx_body.gd" id="5_5hcag"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xh0j7"]
 resource_local_to_scene = true
@@ -142,61 +140,18 @@ animations = [{
 script/source = "extends Area2D
 
 func damage(damageAmount: int) -> void:
-	if get_parent().health_component:
-		get_parent().health_component.remove_health(damageAmount)
+	var health_component: Health = get_parent().health_component
+	
+	if health_component:
+		health_component.remove_health(damageAmount)
+		if !health_component.dead:
+			var damage_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+			damage_tween.tween_property($\"../AnimatedSprite2D\", \"material:shader_parameter/flash_value\", 1, 0.125)
+			damage_tween.chain().tween_property($\"../AnimatedSprite2D\", \"material:shader_parameter/flash_value\", 0, 0.125)
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5ckt"]
 size = Vector2(160, 64)
-
-[sub_resource type="Animation" id="Animation_bly3y"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:material")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("ShaderMaterial_xh0j7")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_5hcag"]
-resource_name = "damage_flash"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bly3y"]
-_data = {
-&"RESET": SubResource("Animation_bly3y"),
-&"damage_flash": SubResource("Animation_5hcag")
-}
 
 [node name="LynxBody" type="PathFollow2D"]
 loop = false
@@ -220,11 +175,5 @@ script = SubResource("GDScript_8o57x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_k5ckt")
-
-[node name="DamageShaderPlayer" parent="." instance=ExtResource("4_8t2ka")]
-libraries = {
-&"": SubResource("AnimationLibrary_bly3y")
-}
-script = ExtResource("5_5hcag")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

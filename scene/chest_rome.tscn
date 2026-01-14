@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnb6xxaiufcqp"]
+[gd_scene load_steps=11 format=3 uid="uid://dnb6xxaiufcqp"]
 
 [ext_resource type="Texture2D" uid="uid://deb6eroafqfs5" path="res://sprite/chest/Bau_roma.png" id="1_8d0cf"]
 [ext_resource type="Script" uid="uid://ceanf8yvbsrvw" path="res://script/chest.gd" id="1_81ki8"]
@@ -33,6 +33,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0wrp2"]
+radius = 13.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asika"]
 size = Vector2(16, 12.5)
 
@@ -52,6 +55,9 @@ offset = Vector2(0, -9)
 show_behind_parent = true
 position = Vector2(0, -6)
 interactable_once = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+shape = SubResource("CircleShape2D_0wrp2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6.25)

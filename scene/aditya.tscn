@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://e1scgkiciot6"]
+[gd_scene load_steps=21 format=3 uid="uid://e1scgkiciot6"]
 
 [ext_resource type="Script" uid="uid://dbr8713g7yhdj" path="res://script/aditya.gd" id="1_06dl2"]
 [ext_resource type="Texture2D" uid="uid://xyyrrafvg71p" path="res://sprite/character/Aditya-Sheet.png" id="1_0564f"]
@@ -106,6 +106,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkl8i"]
 size = Vector2(29, 61.999996)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06dl2"]
+size = Vector2(38, 20)
+
 [node name="Aditya" type="StaticBody2D"]
 script = ExtResource("1_06dl2")
 
@@ -125,8 +128,9 @@ shape = SubResource("RectangleShape2D_rkl8i")
 position = Vector2(0, -14)
 dialogue_steps = Array[ExtResource("3_ognfk")]([ExtResource("3_jv7ca")])
 
-[node name="CollisionShape2D" parent="DialogueComponent" index="0"]
-position = Vector2(0, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueComponent"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_06dl2")
 
 [connection signal="on_dialogue_start" from="DialogueComponent" to="." method="_on_dialogue_component_on_dialogue_start"]
 

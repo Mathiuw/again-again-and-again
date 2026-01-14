@@ -12,6 +12,10 @@ func damage(damageAmount: int) -> void:
 	var attack_root: AttackBase = get_parent() as AttackBase
 	if attack_root:
 		attack_root.boss_health_component.remove_health(damageAmount)
+		if !attack_root.boss_health_component.dead:
+			var damage_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+			damage_tween.tween_property($Sprite2D, "material:shader_parameter/flash_value", 1, 0.125)
+			damage_tween.chain().tween_property($Sprite2D, "material:shader_parameter/flash_value", 0, 0.125)
 
 
 @warning_ignore("unused_parameter")
