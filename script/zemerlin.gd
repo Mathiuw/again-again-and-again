@@ -14,7 +14,7 @@ var target: Node2D = null
 
 func _ready() -> void:
 	# Die function connect
-	_health.on_die.connect(func(): queue_free())
+	_health.on_die.connect(on_die)
 	
 	target = get_tree().get_first_node_in_group("player")
 	if  !target:
@@ -46,6 +46,22 @@ func _physics_process(_delta: float) -> void:
 		_on_navigation_agent_2d_velocity_computed(new_velocity)
 
 
+func on_die() -> void:
+	if _animated_sprite_2d.animation == "die": return
+	
+	var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+	navigation_agent_2d.queue_free()
+	
+	set_process(false)
+	set_physics_process(false)
+
+	_animated_sprite_2d.play("die")
+	
+	await _animated_sprite_2d.animation_finished
+	
+	queue_free()
+
+
 func _set_zemerlin_animation(desiredDirection: Vector2) -> void:
 	var margin: float = 0.4
 	
@@ -72,7 +88,7 @@ func _set_zemerlin_idle() -> void:
 
 # Timer calculate cooldown
 func _on_draw_path_timer_timeout() -> void:
-	if target:
+	if target && _navigation_agent_2d:
 		_navigation_agent_2d.target_position = target.global_position
 
 
