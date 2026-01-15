@@ -122,6 +122,8 @@ _data = {
 
 [node name="Tuga" type="StaticBody2D" groups=["enemy"]]
 disable_mode = 1
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_b5dlg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -141,6 +143,7 @@ damage = 20
 bulletAmount = 2
 bulletSpeed = 250.0
 bullet_scene = ExtResource("4_r6lkd")
+sound_variant_index = 1
 shootCooldown = 0.0
 transformOverrides = [NodePath("../ShootPosition1"), NodePath("../ShootPosition2")]
 

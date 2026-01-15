@@ -122,6 +122,8 @@ _data = {
 
 [node name="Medusa" type="StaticBody2D" groups=["enemy"]]
 disable_mode = 2
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_7o4kk")
 
 [node name="MedusaSprite2D" type="Sprite2D" parent="."]
@@ -148,6 +150,7 @@ position = Vector2(0, -11)
 damage = 10
 bulletSpeed = 400.0
 bullet_scene = ExtResource("5_7frci")
+sound_variant_index = 2
 shootCooldown = 0.0
 transformOverrides = [NodePath("../ShootTransform")]
 

@@ -113,6 +113,8 @@ func damage(damageAmount: int) -> void:
 	# apply camera shake
 	SignalBus.on_camera_shake.emit(3)
 	
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.HURT)
+	
 	# apply damage to loop timer if has one
 	if _loop_timer:
 		var result_damage: float = _loop_timer.remove_time(damageAmount)

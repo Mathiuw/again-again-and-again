@@ -79,7 +79,7 @@ func on_enemy_die() -> void:
 	# update navigation region if have
 	if navigation_region_2D:
 		await get_tree().process_frame
-		if navigation_region_2D.is_baking():
+		if !navigation_region_2D.is_baking():
 			navigation_region_2D.bake_navigation_polygon(true)
 
 

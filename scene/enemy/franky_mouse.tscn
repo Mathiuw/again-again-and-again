@@ -185,6 +185,8 @@ radius = 8.0
 
 [node name="FrankyMouse" type="CharacterBody2D" groups=["enemy"]]
 disable_mode = 2
+collision_layer = 2
+collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_h5rvr")
 move_speed = 300.0
