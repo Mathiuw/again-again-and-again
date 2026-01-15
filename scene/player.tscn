@@ -24,7 +24,7 @@ invencible_frames_amount = 1
 sprite_frames = ExtResource("5_hp4bs")
 animation = &"idle_front"
 autoplay = "idle_front"
-frame_progress = 0.311848
+frame_progress = 0.9141729
 offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

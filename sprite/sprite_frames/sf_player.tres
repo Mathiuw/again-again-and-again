@@ -237,7 +237,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_back",
-"speed": 6.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -254,7 +254,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_front",
-"speed": 6.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -271,7 +271,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_left",
-"speed": 6.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -288,5 +288,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_right",
-"speed": 6.0
+"speed": 7.0
 }]

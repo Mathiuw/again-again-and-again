@@ -305,13 +305,19 @@ position = Vector2(0, 104)
 [node name="RoomRome03" parent="Map" instance=ExtResource("5_of57s")]
 position = Vector2(1920, -768)
 
-[node name="DoorDown" parent="Map/RoomRome03" index="4" node_paths=PackedStringArray("desired_room")]
+[node name="Bunnyale2" parent="Map/RoomRome03/NavigationRegion2D" index="3"]
+position = Vector2(128, -104)
+
+[node name="Bunnyale3" parent="Map/RoomRome03/NavigationRegion2D" index="4"]
+position = Vector2(-96, -104)
+
+[node name="DoorDown" parent="Map/RoomRome03" index="1" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome06")
 
 [node name="DesiredPosition" parent="Map/RoomRome03/DoorDown" index="3"]
 position = Vector2(0, 104)
 
-[node name="DoorRight" parent="Map/RoomRome03" index="5" node_paths=PackedStringArray("desired_room")]
+[node name="DoorRight" parent="Map/RoomRome03" index="2" node_paths=PackedStringArray("desired_room")]
 desired_room = NodePath("../../RoomRome21")
 
 [node name="AreaCollisionShape2D" parent="Map/RoomRome03/DoorRight" index="1"]

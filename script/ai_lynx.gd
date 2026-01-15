@@ -57,6 +57,10 @@ func on_attack_end() -> void:
 	for attack in attacks:
 		attack.process_mode = Node.PROCESS_MODE_DISABLED
 	
+	if health_component.dead:
+		print("lynx is dead, attack canceled")
+		return
+	
 	print("attack cooldown start")
 	await get_tree().create_timer(attack_cooldown).timeout
 	print("attack cooldown end")

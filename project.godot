@@ -13,9 +13,10 @@ config_version=5
 config/name="AgainAgainAndAgain"
 config/version="0.1.0"
 config/tags=PackedStringArray("top_down_2d")
-run/main_scene="uid://dquef6xj016ys"
+run/main_scene="uid://frfhml2058ny"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 run/max_fps=60
+boot_splash/show_image=false
 config/icon="uid://cyi5ukmu5845v"
 
 [audio]
@@ -34,6 +35,7 @@ SignalBus="*res://script/signal_bus.gd"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=3
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="viewport"

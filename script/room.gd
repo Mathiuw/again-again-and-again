@@ -27,6 +27,12 @@ func _ready() -> void:
 	if get_enemy_count(false) == 0:
 		return
 	
+	for child in get_children():
+		if child is NavigationAgent2D:
+			if navigation_region_2D == null:
+				navigation_region_2D = child
+				enemies_root = child
+
 	# on enemy die function connect
 	for node in enemies_root.get_children(true):
 		if node.is_in_group("enemy"):
@@ -73,7 +79,8 @@ func on_enemy_die() -> void:
 	# update navigation region if have
 	if navigation_region_2D:
 		await get_tree().process_frame
-		navigation_region_2D.bake_navigation_polygon(true)
+		if navigation_region_2D.is_baking():
+			navigation_region_2D.bake_navigation_polygon(true)
 
 
 func on_room_change(room: Room, _smooth_transition: bool) -> void:

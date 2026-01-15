@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://m3isck864wt7"]
+[gd_scene load_steps=31 format=3 uid="uid://m3isck864wt7"]
 
 [ext_resource type="PackedScene" uid="uid://bbdklpf1hb3ar" path="res://scene/room/room_start.tscn" id="1_1ywty"]
 [ext_resource type="PackedScene" uid="uid://c6m28at08ltqy" path="res://scene/room/room_rome_01.tscn" id="2_f871f"]
@@ -30,7 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://dmdi54lspqfdd" path="res://scene/room/room_rome_27.tscn" id="28_ji1jc"]
 [ext_resource type="PackedScene" uid="uid://5mv2gasuhs2x" path="res://scene/room/room_rome_28.tscn" id="29_alb3o"]
 [ext_resource type="PackedScene" uid="uid://byk72d1ahusm0" path="res://scene/room/room_rome_boss.tscn" id="30_nf4g8"]
-[ext_resource type="PackedScene" uid="uid://82aohiw0lhd6" path="res://scene/room/room_rome_Key.tscn" id="31_4p3a2"]
 
 [node name="MapLayout" type="Node"]
 
@@ -122,6 +121,3 @@ position = Vector2(4480, 0)
 
 [node name="RoomRomeBoss" parent="." instance=ExtResource("30_nf4g8")]
 position = Vector2(2560, 0)
-
-[node name="RoomRomeKey" parent="." instance=ExtResource("31_4p3a2")]
-position = Vector2(2560, -384)

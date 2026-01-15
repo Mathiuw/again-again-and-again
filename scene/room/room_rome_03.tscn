@@ -9,14 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://scene/door_right.tscn" id="6_23umb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ik6pw"]
-vertices = PackedVector2Array(241, 97, 271, 70, 277, 70, 277, 133, 241, 31, 271, -65, 277, -111, 277, -65, 241, -97, 235, 31, 235, -31, 241, -31, -245, -111, 191, -97, 191, -91, 97, -91, 97, -97, 47, -97, 47, -31, 53, -31, 53, 31, 47, 31, 47, 97, 151, 97, 151, 105, -63, 127, -15, 97, -63, 133, -15, 31, -15, -31, -21, 31, -21, -31, -15, -97, -65, -97, -65, -91, -159, -91, -159, -97, -209, -97, -245, 133, -209, -31, -203, -31, -203, 31, -209, 31, -209, 97, -161, 133, -161, 127, 201, 105, 201, 97)
+vertices = PackedVector2Array(244, 100, 268, 73, 274, 73, 274, 130, 244, 28, 268, -68, 274, -108, 274, -68, 244, -100, 238, 28, 238, -28, 244, -28, -242, -108, 188, -100, 188, -94, 100, -94, 100, -100, 44, -100, 44, -28, 50, -28, 50, 28, 44, 28, 44, 100, 124, 100, 124, 108, -60, 124, -12, 100, -60, 130, -12, 28, -12, -28, -18, 28, -18, -28, -12, -100, -68, -100, -68, -94, -156, -94, -156, -100, -212, -100, -242, 130, -212, -28, -206, -28, -206, 28, -212, 28, -212, 100, -164, 130, -164, 124, 180, 108, 180, 100)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4, 5), PackedInt32Array(6, 7, 5, 8), PackedInt32Array(4, 9, 10, 11), PackedInt32Array(5, 4, 11), PackedInt32Array(5, 11, 8), PackedInt32Array(12, 6, 8, 13), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(12, 13, 16), PackedInt32Array(12, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(22, 23, 24), PackedInt32Array(25, 26, 22, 24, 3, 27), PackedInt32Array(21, 22, 26, 28), PackedInt32Array(18, 21, 28, 29), PackedInt32Array(28, 30, 31, 29), PackedInt32Array(17, 18, 29, 32), PackedInt32Array(12, 17, 32), PackedInt32Array(12, 32, 33), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(12, 33, 36), PackedInt32Array(12, 36, 37), PackedInt32Array(38, 12, 37, 39), PackedInt32Array(39, 40, 41, 42), PackedInt32Array(38, 39, 42), PackedInt32Array(38, 42, 43), PackedInt32Array(44, 38, 43, 45), PackedInt32Array(45, 43, 26, 25), PackedInt32Array(46, 47, 0, 3), PackedInt32Array(3, 24, 46)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-294, -144, -294, 150, -140, 150, -140, 144, -84, 144, -84, 150, 294, 150, 294, 53, 288, 53, 288, -48, 294, -48, 294, -144)])
-agent_radius = 17.0
+agent_radius = 20.0
 
-[node name="RoomRome03" type="Node2D"]
+[node name="RoomRome03" type="Node2D" node_paths=PackedStringArray("navigation_region_2D", "enemies_root")]
 y_sort_enabled = true
 script = ExtResource("1_ik6pw")
+navigation_region_2D = NodePath("NavigationRegion2D")
+enemies_root = NodePath("NavigationRegion2D")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_ik6pw")
@@ -58,16 +60,16 @@ position = Vector2(-96, 68)
 position = Vector2(-144, 68)
 
 [node name="Chest" parent="NavigationRegion2D" instance=ExtResource("4_8jk44")]
-position = Vector2(176, 88)
+position = Vector2(152, 88)
 
-[node name="Bunnyale" parent="." instance=ExtResource("5_mlmu6")]
+[node name="Bunnyale" parent="NavigationRegion2D" instance=ExtResource("5_mlmu6")]
 position = Vector2(-40, 128)
 
-[node name="Bunnyale2" parent="." instance=ExtResource("5_mlmu6")]
-position = Vector2(128, -88)
+[node name="Bunnyale2" parent="NavigationRegion2D" instance=ExtResource("5_mlmu6")]
+position = Vector2(192, -104)
 
-[node name="Bunnyale3" parent="." instance=ExtResource("5_mlmu6")]
-position = Vector2(-88, -88)
+[node name="Bunnyale3" parent="NavigationRegion2D" instance=ExtResource("5_mlmu6")]
+position = Vector2(-88, -96)
 
 [node name="DoorDown" parent="." instance=ExtResource("5_23umb")]
 position = Vector2(-112, 160)
