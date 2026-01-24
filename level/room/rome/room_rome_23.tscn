@@ -61,38 +61,20 @@ position = Vector2(-266, 88)
 [node name="Tuga" parent="." instance=ExtResource("4_53cje")]
 position = Vector2(239, -100)
 
-[node name="Tuga2" parent="." instance=ExtResource("4_53cje")]
-position = Vector2(178, -103)
-
 [node name="Tuga3" parent="." instance=ExtResource("4_53cje")]
-position = Vector2(104, -98)
-
-[node name="Tuga4" parent="." instance=ExtResource("4_53cje")]
-position = Vector2(39, -103)
+position = Vector2(104, -88)
 
 [node name="Tuga5" parent="." instance=ExtResource("4_53cje")]
 position = Vector2(-34, -98)
 
-[node name="Tuga6" parent="." instance=ExtResource("4_53cje")]
-position = Vector2(-96, -90)
-
 [node name="Tuga7" parent="." instance=ExtResource("4_53cje")]
-position = Vector2(-92, 139)
-
-[node name="Tuga8" parent="." instance=ExtResource("4_53cje")]
-position = Vector2(-24, 140)
+position = Vector2(-88, 136)
 
 [node name="Tuga9" parent="." instance=ExtResource("4_53cje")]
-position = Vector2(39, 132)
-
-[node name="Tuga10" parent="." instance=ExtResource("4_53cje")]
-position = Vector2(104, 140)
+position = Vector2(64, 128)
 
 [node name="Tuga11" parent="." instance=ExtResource("4_53cje")]
-position = Vector2(171, 132)
-
-[node name="Tuga12" parent="." instance=ExtResource("4_53cje")]
-position = Vector2(247, 139)
+position = Vector2(216, 136)
 
 [node name="DoorRight" parent="." instance=ExtResource("6_6orpp")]
 position = Vector2(288, -16)
