@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FadeSettings" load_steps=2 format=3 uid="uid://x6crraliku50"]
+
+[ext_resource type="Script" uid="uid://b4qbudh87jk5b" path="res://UI/fade/fade_settings.gd" id="1_ygred"]
+
+[resource]
+script = ExtResource("1_ygred")
+fade_color = Color(0, 0, 0, 1)
+fade_type = 1
+fade_duration = 1.0
+destroy_on_end = true
+metadata/_custom_type_script = "uid://b4qbudh87jk5b"

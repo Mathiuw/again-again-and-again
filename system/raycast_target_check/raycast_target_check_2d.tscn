@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5f1h0j03pxre"]
+
+[ext_resource type="Script" uid="uid://du2fo50tyfioc" path="res://system/raycast_target_check/raycast_target_check_2d.gd" id="1_guya5"]
+
+[node name="RaycastTargetCheck2D" type="RayCast2D"]
+enabled = false
+collision_mask = 3
+script = ExtResource("1_guya5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,144 @@
+[gd_scene load_steps=23 format=3 uid="uid://e1scgkiciot6"]
+
+[ext_resource type="Script" uid="uid://dbr8713g7yhdj" path="res://entity/character/aditya/aditya.gd" id="1_06dl2"]
+[ext_resource type="Texture2D" uid="uid://xyyrrafvg71p" path="res://entity/character/aditya/Aditya-Sheet.png" id="1_0564f"]
+[ext_resource type="PackedScene" uid="uid://xlm0m144kl1c" path="res://system/dialogue/dialogue_component.tscn" id="2_vfub0"]
+[ext_resource type="Script" uid="uid://cuetc258gthhy" path="res://system/dialogue/dialogue_base.gd" id="3_ognfk"]
+[ext_resource type="JSON" path="res://entity/character/aditya/dialogue_aditya.json" id="5_bu7ub"]
+[ext_resource type="Script" uid="uid://d0h030br5xrrj" path="res://system/dialogue/dialogue_text.gd" id="6_i2sag"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06dl2"]
+atlas = ExtResource("1_0564f")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmp63"]
+atlas = ExtResource("1_0564f")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck200"]
+atlas = ExtResource("1_0564f")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx4q4"]
+atlas = ExtResource("1_0564f")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61ur2"]
+atlas = ExtResource("1_0564f")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohrd3"]
+atlas = ExtResource("1_0564f")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbuo1"]
+atlas = ExtResource("1_0564f")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3qcr"]
+atlas = ExtResource("1_0564f")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbryb"]
+atlas = ExtResource("1_0564f")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x78iw"]
+atlas = ExtResource("1_0564f")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0564f"]
+atlas = ExtResource("1_0564f")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csmq1"]
+atlas = ExtResource("1_0564f")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_csmq1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06dl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmp63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ck200")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx4q4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61ur2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohrd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbuo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3qcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbryb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x78iw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0564f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csmq1")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkl8i"]
+size = Vector2(29, 61.999996)
+
+[sub_resource type="Resource" id="Resource_1ts7f"]
+script = ExtResource("6_i2sag")
+json_file = ExtResource("5_bu7ub")
+key = "keep_keys"
+metadata/_custom_type_script = "uid://d0h030br5xrrj"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06dl2"]
+size = Vector2(38, 20)
+
+[node name="Aditya" type="StaticBody2D"]
+script = ExtResource("1_06dl2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_csmq1")
+animation = &"talking"
+autoplay = "idle"
+frame_progress = 0.13300394
+offset = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.9999965, -14.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_rkl8i")
+
+[node name="DialogueComponent" parent="." instance=ExtResource("2_vfub0")]
+position = Vector2(0, -14)
+dialogue_steps = Array[ExtResource("3_ognfk")]([SubResource("Resource_1ts7f")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueComponent"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_06dl2")
+
+[connection signal="on_dialogue_start" from="DialogueComponent" to="." method="_on_dialogue_component_on_dialogue_start"]
+
+[editable path="DialogueComponent"]

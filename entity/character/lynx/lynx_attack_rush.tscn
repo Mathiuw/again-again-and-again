@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvbbrasaelqhr"]
+
+[ext_resource type="Script" uid="uid://bjfrw8hjbtggj" path="res://entity/character/lynx/lynx_attack_rush.gd" id="1_awnag"]
+
+[node name="LynxAttackRush" type="Node2D"]
+script = ExtResource("1_awnag")
+move_speed = 1.2

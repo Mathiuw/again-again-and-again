@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfdratej2y5ih"]
+
+[ext_resource type="Script" uid="uid://dith4apklv734" path="res://entity/character/lynx/lynx_attack_ranged.gd" id="1_ebbld"]
+[ext_resource type="PackedScene" uid="uid://d4lnojegywv2t" path="res://entity/character/lynx/lynx_tail_side.tscn" id="2_6jeap"]
+
+[node name="LynxAttackRanged" type="Node2D"]
+script = ExtResource("1_ebbld")
+lynx_tail_side_scene = ExtResource("2_6jeap")

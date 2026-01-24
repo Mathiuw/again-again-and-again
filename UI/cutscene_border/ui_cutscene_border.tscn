@@ -1,0 +1,125 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce5ld2u2q4it5"]
+
+[ext_resource type="Script" uid="uid://dulafcv7db601" path="res://UI/cutscene_border/ui_cutscene_border.gd" id="1_g153i"]
+
+[sub_resource type="Animation" id="Animation_g153i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Border2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 320)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Border:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wsflj"]
+resource_name = "idle_shown"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Border2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 320), Vector2(0, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Border:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -40)]
+}
+
+[sub_resource type="Animation" id="Animation_4iywt"]
+resource_name = "idle_shown"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Border2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 360), Vector2(0, 320)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Border:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -40), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cl52l"]
+_data = {
+&"RESET": SubResource("Animation_g153i"),
+&"hide_border": SubResource("Animation_wsflj"),
+&"show_border": SubResource("Animation_4iywt")
+}
+
+[node name="UICutsceneBorder" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_g153i")
+metadata/_edit_lock_ = true
+
+[node name="Reference" type="ReferenceRect" parent="."]
+show_behind_parent = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 2.0
+metadata/_edit_lock_ = true
+
+[node name="Border" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 40.0
+color = Color(0.11372549, 0.06666667, 0.06666667, 1)
+
+[node name="Border2" type="ColorRect" parent="."]
+offset_top = 320.0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.11372549, 0.06666667, 0.06666667, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cl52l")
+}
+autoplay = "RESET"

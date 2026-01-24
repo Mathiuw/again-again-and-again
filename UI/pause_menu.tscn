@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://ce55cnahm7gfg"]
+
+[ext_resource type="PackedScene" uid="uid://tmiaggulr37f" path="res://UI/button/ui_buttom.tscn" id="1_xv4gp"]
+[ext_resource type="Texture2D" uid="uid://b34wv3wmgtye0" path="res://UI/button/ContinueButton.png" id="2_mxjhc"]
+[ext_resource type="Texture2D" uid="uid://b5ib1njf6h6pc" path="res://UI/button/ContinueButtonPressed.png" id="3_k6dah"]
+[ext_resource type="Texture2D" uid="uid://dk2c7qedpsage" path="res://UI/button/OptionsButton.png" id="4_mexjk"]
+[ext_resource type="Texture2D" uid="uid://d8m1b4wipnhr" path="res://UI/button/OptionsButtonPressed.png" id="5_fu28r"]
+[ext_resource type="Texture2D" uid="uid://dy4xln85fwx18" path="res://UI/button/ExitButton.png" id="6_pwekk"]
+[ext_resource type="Texture2D" uid="uid://8dg12odh4obl" path="res://UI/button/ExitButtonPressed.png" id="7_onkq6"]
+
+[sub_resource type="GDScript" id="GDScript_et5lo"]
+resource_name = "pause_menu"
+script/source = "extends ColorRect
+
+func _ready() -> void:
+	PauseManager.on_pause_state_changed.connect(func(state: bool):
+		if !state:
+			queue_free()
+		)
+
+func _on_continue_buttom_pressed() -> void:
+	PauseManager.set_pause_state(false)
+
+
+func _on_options_buttom_pressed() -> void:
+	PauseManager.spawn_options_menu()
+
+func _on_exit_buttom_pressed() -> void:
+	PauseManager.set_pause_state(false)
+	get_tree().change_scene_to_file(\"uid://frfhml2058ny\")
+"
+
+[node name="PauseMenu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3529412)
+script = SubResource("GDScript_et5lo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -28.0
+offset_right = 88.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ContinueButtom" parent="VBoxContainer" instance=ExtResource("1_xv4gp")]
+layout_mode = 2
+texture_normal = ExtResource("2_mxjhc")
+texture_pressed = ExtResource("3_k6dah")
+
+[node name="OptionsButtom" parent="VBoxContainer" instance=ExtResource("1_xv4gp")]
+layout_mode = 2
+texture_normal = ExtResource("4_mexjk")
+texture_pressed = ExtResource("5_fu28r")
+
+[node name="ExitButtom" parent="VBoxContainer" instance=ExtResource("1_xv4gp")]
+layout_mode = 2
+texture_normal = ExtResource("6_pwekk")
+texture_pressed = ExtResource("7_onkq6")
+
+[connection signal="pressed" from="VBoxContainer/ContinueButtom" to="." method="_on_continue_buttom_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButtom" to="." method="_on_options_buttom_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButtom" to="." method="_on_exit_buttom_pressed"]

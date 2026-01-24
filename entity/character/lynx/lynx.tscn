@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b38hnv5xd6mhe"]
+
+[ext_resource type="Script" uid="uid://c71u4ufcgcukt" path="res://entity/character/lynx/ai_lynx.gd" id="1_i5xpl"]
+[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="2_j2mhn"]
+[ext_resource type="PackedScene" uid="uid://bfdratej2y5ih" path="res://entity/character/lynx/lynx_attack_ranged.tscn" id="3_6gwe6"]
+[ext_resource type="PackedScene" uid="uid://dvbbrasaelqhr" path="res://entity/character/lynx/lynx_attack_rush.tscn" id="4_fhuqs"]
+
+[node name="Lynx" type="Node2D" node_paths=PackedStringArray("attacks") groups=["enemy"]]
+script = ExtResource("1_i5xpl")
+attacks = [NodePath("LynxAttackRanged"), NodePath("LynxAttackRush")]
+attack_cooldown = 1.0
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_j2mhn")]
+unique_name_in_owner = true
+max_hits = 60
+
+[node name="LynxAttackRanged" parent="." instance=ExtResource("3_6gwe6")]
+shoot_type = 3
+
+[node name="LynxAttackRush" parent="." instance=ExtResource("4_fhuqs")]
+attack_type = 1
+move_speed = 0.9
+
+[editable path="LynxAttackRanged"]
+[editable path="LynxAttackRush"]

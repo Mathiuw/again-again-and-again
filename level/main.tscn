@@ -1,0 +1,920 @@
+[gd_scene load_steps=75 format=3 uid="uid://dquef6xj016ys"]
+
+[ext_resource type="Script" uid="uid://dnte553c7qdnr" path="res://system/global/loop_timer.gd" id="1_bmc2w"]
+[ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://entity/character/player/player.tscn" id="1_itxqv"]
+[ext_resource type="PackedScene" uid="uid://mwaxn6ft2wpi" path="res://UI/fade/ui_fade.tscn" id="2_7xrs8"]
+[ext_resource type="PackedScene" uid="uid://b24q0q78wlx5d" path="res://UI/hud/ui_hud.tscn" id="2_p1hux"]
+[ext_resource type="Resource" uid="uid://d3e08yoyh6yhv" path="res://UI/fade/fade_out_white.tres" id="3_kpobt"]
+[ext_resource type="PackedScene" uid="uid://c5hxh0i0l2p4i" path="res://level/room/rome/room_rome_02.tscn" id="4_4j5ol"]
+[ext_resource type="PackedScene" uid="uid://ci0kv3c6au21s" path="res://level/room/rome/room_rome_03.tscn" id="5_of57s"]
+[ext_resource type="PackedScene" uid="uid://c6m28at08ltqy" path="res://level/room/rome/room_rome_01.tscn" id="5_p1hux"]
+[ext_resource type="PackedScene" uid="uid://bbdklpf1hb3ar" path="res://level/room/rome/room_rome_start.tscn" id="6_p1hux"]
+[ext_resource type="PackedScene" uid="uid://t0e88xjt3bae" path="res://level/room/rome/room_rome_05.tscn" id="8_b5f6u"]
+[ext_resource type="PackedScene" uid="uid://bw650n1ie2vmr" path="res://level/room/rome/room_rome_04.tscn" id="8_of57s"]
+[ext_resource type="PackedScene" uid="uid://8luo5dcpmybm" path="res://level/room/rome/room_rome_06.tscn" id="9_tqoya"]
+[ext_resource type="PackedScene" uid="uid://cqf4my004uu8l" path="res://level/room/rome/room_rome_07.tscn" id="11_k65ib"]
+[ext_resource type="PackedScene" uid="uid://8rfa07htx7q8" path="res://level/room/rome/room_rome_08.tscn" id="12_wscrc"]
+[ext_resource type="PackedScene" uid="uid://b056oyyacy25q" path="res://level/room/rome/room_rome_09.tscn" id="13_mswub"]
+[ext_resource type="PackedScene" uid="uid://brb4rci4dugk7" path="res://level/room/rome/room_rome_10.tscn" id="14_hybxs"]
+[ext_resource type="PackedScene" uid="uid://0ofsnw2pls0q" path="res://level/room/rome/room_rome_12.tscn" id="15_jcbur"]
+[ext_resource type="PackedScene" uid="uid://btul2ajiynlmr" path="res://level/room/rome/room_rome_11.tscn" id="15_v2gmf"]
+[ext_resource type="PackedScene" uid="uid://biairg2wwut56" path="res://level/room/rome/room_rome_13.tscn" id="16_smf0o"]
+[ext_resource type="PackedScene" uid="uid://byk72d1ahusm0" path="res://level/room/rome/room_rome_boss.tscn" id="17_tv8i1"]
+[ext_resource type="PackedScene" uid="uid://crjixa6ue7cfr" path="res://level/room/rome/room_rome_14.tscn" id="19_0vlqb"]
+[ext_resource type="PackedScene" uid="uid://bct2wc0yquigf" path="res://level/room/rome/room_rome_17.tscn" id="20_0d4pv"]
+[ext_resource type="PackedScene" uid="uid://tlgcxnmm6ovg" path="res://level/room/rome/room_rome_15.tscn" id="20_fdqew"]
+[ext_resource type="PackedScene" uid="uid://d4duljhq10t20" path="res://level/room/rome/room_rome_16.tscn" id="21_0d4pv"]
+[ext_resource type="PackedScene" uid="uid://dd48ufp885ve0" path="res://level/room/rome/room_rome_18.tscn" id="23_gtqqq"]
+[ext_resource type="PackedScene" uid="uid://c0lq3ffj8atbe" path="res://level/room/rome/room_rome_19.tscn" id="24_gn2wi"]
+[ext_resource type="PackedScene" uid="uid://xqg1pxaxj2qm" path="res://level/room/rome/room_rome_20.tscn" id="25_p8adh"]
+[ext_resource type="PackedScene" uid="uid://cqiny52426b82" path="res://level/room/rome/room_rome_21.tscn" id="26_oldxj"]
+[ext_resource type="PackedScene" uid="uid://clr4bp8hq0hg7" path="res://level/room/rome/room_rome_23.tscn" id="26_rg6nf"]
+[ext_resource type="PackedScene" uid="uid://mcvwj4qveyb4" path="res://level/room/rome/room_rome_22.tscn" id="27_vneqc"]
+[ext_resource type="PackedScene" uid="uid://byyoaxavor6kf" path="res://level/room/rome/room_rome_24.tscn" id="29_mjuaj"]
+[ext_resource type="PackedScene" uid="uid://dmdi54lspqfdd" path="res://level/room/rome/room_rome_27.tscn" id="30_bmc2w"]
+[ext_resource type="PackedScene" uid="uid://bmiq1asksa6xj" path="res://level/room/rome/room_rome_25.tscn" id="30_gj7ui"]
+[ext_resource type="PackedScene" uid="uid://du06pk10kkyht" path="res://level/room/rome/room_rome_26.tscn" id="32_mjuaj"]
+[ext_resource type="PackedScene" uid="uid://5mv2gasuhs2x" path="res://level/room/rome/room_rome_28.tscn" id="34_7ty4q"]
+[ext_resource type="PackedScene" uid="uid://cshb25yq5ltku" path="res://entity/game_camera/game_camera.tscn" id="36_p0u2v"]
+
+[sub_resource type="GDScript" id="GDScript_0ha60"]
+resource_name = "main"
+script/source = "extends Node
+
+
+func _ready() -> void:
+	# activate input pause
+	PauseManager.can_pause_input = true
+	
+	#const UI_FADE = preload(\"uid://mwaxn6ft2wpi\")
+	#const FADE_OUT_WHITE = preload(\"uid://d3e08yoyh6yhv\")
+	#
+	## instantiate start fade out
+	#var new_fade: UIFade = UI_FADE.instantiate()
+	#new_fade.fade_settings = FADE_OUT_WHITE
+	#await new_fade.on_fade_end
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ty4q"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="Gradient" id="Gradient_i7qj5"]
+offsets = PackedFloat32Array(0.5322034)
+colors = PackedColorArray(0.11764706, 0.05490196, 0.05490196, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_psa10"]
+gradient = SubResource("Gradient_i7qj5")
+
+[sub_resource type="Curve" id="Curve_psa10"]
+_data = [Vector2(0, 0.696629), 0.0, 0.0, 0, 0, Vector2(1, 0.348315), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2tyue"]
+curve = SubResource("Curve_psa10")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xt1h0"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 20, 1)
+angle_min = -385.7
+angle_max = 352.5
+spread = 0.0
+flatness = 1.0
+initial_velocity_min = 5.0
+initial_velocity_max = 23.65
+angular_velocity_min = -91.35
+angular_velocity_max = 96.71
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_2tyue")
+color_ramp = SubResource("GradientTexture1D_psa10")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xrs8"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_216wm"]
+resource_local_to_scene = true
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpobt"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntge4"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jey2d"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbros"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abiby"]
+resource_local_to_scene = true
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2s8b"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhhrp"]
+resource_local_to_scene = true
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76meg"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cv4lv"]
+resource_local_to_scene = true
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyltn"]
+resource_local_to_scene = true
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhsrv"]
+resource_local_to_scene = true
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2km5d"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ie7le"]
+resource_local_to_scene = true
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc5kc"]
+resource_local_to_scene = true
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouh5b"]
+resource_local_to_scene = true
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_km826"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvp1"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycj0v"]
+resource_local_to_scene = true
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f460h"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgd47"]
+resource_local_to_scene = true
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6p74"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ron3d"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5b52o"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1s8x8"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_667b8"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eeklj"]
+resource_local_to_scene = true
+size = Vector2(32, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq5ln"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3wqe"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_803pr"]
+resource_local_to_scene = true
+size = Vector2(32, 6)
+
+[node name="Main" type="Node" groups=["world"]]
+script = SubResource("GDScript_0ha60")
+
+[node name="LoopTimer" type="Timer" parent="." groups=["loop_timer"]]
+wait_time = 360.0
+one_shot = true
+script = ExtResource("1_bmc2w")
+max_wait_time = 180.0
+
+[node name="UIFade" parent="." instance=ExtResource("2_7xrs8")]
+fade_settings = ExtResource("3_kpobt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("2_p1hux")]
+
+[node name="Map" type="Node2D" parent="."]
+y_sort_enabled = true
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="Map" instance=ExtResource("1_itxqv")]
+position = Vector2(64, 0)
+
+[node name="RoomStart" parent="Map" instance=ExtResource("6_p1hux")]
+
+[node name="DoorRight" parent="Map/RoomStart" index="4" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome01")
+metadata/_edit_group_ = true
+
+[node name="AreaCollisionShape2D" parent="Map/RoomStart/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_7ty4q")
+
+[node name="OpenParticle" parent="Map/RoomStart/DoorRight" index="2"]
+process_material = SubResource("ParticleProcessMaterial_xt1h0")
+
+[node name="DesiredPosition" parent="Map/RoomStart/DoorRight" index="3"]
+position = Vector2(72, 24)
+
+[node name="RoomRome01" parent="Map" instance=ExtResource("5_p1hux")]
+position = Vector2(640, 0)
+
+[node name="DoorRight" parent="Map/RoomRome01" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome02")
+metadata/_edit_group_ = true
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome01/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_7xrs8")
+
+[node name="DesiredPosition" parent="Map/RoomRome01/DoorRight" index="3"]
+position = Vector2(80, 24)
+
+[node name="RoomRome02" parent="Map" instance=ExtResource("4_4j5ol")]
+position = Vector2(1280, 0)
+
+[node name="DoorLeft" parent="Map/RoomRome02" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome01")
+
+[node name="DesiredPosition" parent="Map/RoomRome02/DoorLeft" index="3"]
+position = Vector2(-64, 24)
+
+[node name="DoorFront" parent="Map/RoomRome02" index="3" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome04")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome02/DoorFront" index="1"]
+shape = SubResource("RectangleShape2D_216wm")
+
+[node name="DesiredPosition" parent="Map/RoomRome02/DoorFront" index="3"]
+position = Vector2(0, -104)
+
+[node name="DoorRight" parent="Map/RoomRome02" index="4" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome14")
+
+[node name="DoorLayer" parent="Map/RoomRome02/DoorRight" index="0"]
+visible = false
+tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 4, 0, 3, 0, 17, 0, 0, 16, 0, 0, 255, 255, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 0, 0, 4, 0, 3, 0, 18, 0, 0, 48, 0, 0, 2, 0, 4, 0, 3, 0, 19, 0, 0, 16, 0, 0, 1, 0, 4, 0, 3, 0, 18, 0, 0, 48)
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome02/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_kpobt")
+
+[node name="DesiredPosition" parent="Map/RoomRome02/DoorRight" index="3"]
+position = Vector2(72, 16)
+
+[node name="DoorDown" parent="Map/RoomRome02" index="5" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome10")
+
+[node name="DesiredPosition" parent="Map/RoomRome02/DoorDown" index="3"]
+position = Vector2(0, 104)
+
+[node name="RoomRome03" parent="Map" instance=ExtResource("5_of57s")]
+position = Vector2(1920, -768)
+
+[node name="Bunnyale2" parent="Map/RoomRome03/NavigationRegion2D" index="3"]
+position = Vector2(128, -104)
+
+[node name="Bunnyale3" parent="Map/RoomRome03/NavigationRegion2D" index="4"]
+position = Vector2(-96, -104)
+
+[node name="DoorDown" parent="Map/RoomRome03" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome06")
+
+[node name="DesiredPosition" parent="Map/RoomRome03/DoorDown" index="3"]
+position = Vector2(0, 104)
+
+[node name="DoorRight" parent="Map/RoomRome03" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome21")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome03/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_ntge4")
+
+[node name="DesiredPosition" parent="Map/RoomRome03/DoorRight" index="3"]
+position = Vector2(80, 24)
+
+[node name="RoomRome04" parent="Map" instance=ExtResource("8_of57s")]
+position = Vector2(1280, -384)
+
+[node name="DoorLeft" parent="Map/RoomRome04" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome05")
+
+[node name="DesiredPosition" parent="Map/RoomRome04/DoorLeft" index="3"]
+position = Vector2(-64, 24)
+
+[node name="DoorRight" parent="Map/RoomRome04" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome06")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome04/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_jey2d")
+
+[node name="DesiredPosition" parent="Map/RoomRome04/DoorRight" index="3"]
+position = Vector2(80, 24)
+
+[node name="DoorDown" parent="Map/RoomRome04" index="3" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome02")
+
+[node name="DesiredPosition" parent="Map/RoomRome04/DoorDown" index="3"]
+position = Vector2(0, 96)
+
+[node name="RoomRome05" parent="Map" instance=ExtResource("8_b5f6u")]
+position = Vector2(640, -384)
+
+[node name="DoorRight" parent="Map/RoomRome05" index="3" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome04")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome05/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_mbros")
+
+[node name="DesiredPosition" parent="Map/RoomRome05/DoorRight" index="3"]
+position = Vector2(80, 24)
+
+[node name="RoomRome06" parent="Map" instance=ExtResource("9_tqoya")]
+position = Vector2(1920, -384)
+
+[node name="DoorLeft" parent="Map/RoomRome06" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome04")
+
+[node name="DesiredPosition" parent="Map/RoomRome06/DoorLeft" index="3"]
+position = Vector2(-72, 24)
+
+[node name="DoorDown" parent="Map/RoomRome06" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome14")
+
+[node name="DesiredPosition" parent="Map/RoomRome06/DoorDown" index="3"]
+position = Vector2(0, 104)
+
+[node name="DoorFront" parent="Map/RoomRome06" index="3" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome03")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome06/DoorFront" index="1"]
+shape = SubResource("RectangleShape2D_abiby")
+
+[node name="DesiredPosition" parent="Map/RoomRome06/DoorFront" index="3"]
+position = Vector2(0, -104)
+
+[node name="RoomRome07" parent="Map" instance=ExtResource("11_k65ib")]
+position = Vector2(2560, 768)
+
+[node name="DoorLeft" parent="Map/RoomRome07" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome09")
+
+[node name="DesiredPosition" parent="Map/RoomRome07/DoorLeft" index="3"]
+position = Vector2(-64, 24)
+
+[node name="DoorRight" parent="Map/RoomRome07" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome15")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome07/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_p2s8b")
+
+[node name="DesiredPosition" parent="Map/RoomRome07/DoorRight" index="3"]
+position = Vector2(80, 24)
+
+[node name="RoomRome08" parent="Map" instance=ExtResource("12_wscrc")]
+position = Vector2(4480, 768)
+
+[node name="DoorFront" parent="Map/RoomRome08" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome12")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome08/DoorFront" index="1"]
+shape = SubResource("RectangleShape2D_fhhrp")
+
+[node name="DesiredPosition" parent="Map/RoomRome08/DoorFront" index="3"]
+position = Vector2(0, -111)
+
+[node name="DoorLeft" parent="Map/RoomRome08" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome16")
+
+[node name="DesiredPosition" parent="Map/RoomRome08/DoorLeft" index="3"]
+position = Vector2(-64, 24)
+
+[node name="RoomRome09" parent="Map" instance=ExtResource("13_mswub")]
+position = Vector2(1920, 768)
+
+[node name="DoorRight" parent="Map/RoomRome09" index="7" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome07")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome09/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_76meg")
+
+[node name="DesiredPosition" parent="Map/RoomRome09/DoorRight" index="3"]
+position = Vector2(80, 24)
+
+[node name="DoorFront" parent="Map/RoomRome09" index="8" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome13")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome09/DoorFront" index="1"]
+shape = SubResource("RectangleShape2D_cv4lv")
+
+[node name="DesiredPosition" parent="Map/RoomRome09/DoorFront" index="3"]
+position = Vector2(0, -96)
+
+[node name="DoorLeft" parent="Map/RoomRome09" index="9" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome11")
+
+[node name="DesiredPosition" parent="Map/RoomRome09/DoorLeft" index="3"]
+position = Vector2(-64, 16)
+
+[node name="RoomRome10" parent="Map" instance=ExtResource("14_hybxs")]
+position = Vector2(1280, 384)
+
+[node name="DoorFront" parent="Map/RoomRome10" index="8" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome02")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome10/DoorFront" index="1"]
+shape = SubResource("RectangleShape2D_fyltn")
+
+[node name="DesiredPosition" parent="Map/RoomRome10/DoorFront" index="3"]
+position = Vector2(0, -112)
+
+[node name="DoorDown" parent="Map/RoomRome10" index="9" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome11")
+
+[node name="DesiredPosition" parent="Map/RoomRome10/DoorDown" index="3"]
+position = Vector2(0, 104)
+
+[node name="RoomRome11" parent="Map" instance=ExtResource("15_v2gmf")]
+position = Vector2(1280, 768)
+
+[node name="DoorFront" parent="Map/RoomRome11" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome10")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome11/DoorFront" index="1"]
+shape = SubResource("RectangleShape2D_rhsrv")
+
+[node name="DesiredPosition" parent="Map/RoomRome11/DoorFront" index="3"]
+position = Vector2(0, -112)
+
+[node name="DoorRight" parent="Map/RoomRome11" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome09")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome11/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_2km5d")
+
+[node name="DesiredPosition" parent="Map/RoomRome11/DoorRight" index="3"]
+position = Vector2(80, 16)
+
+[node name="RoomRome12" parent="Map" instance=ExtResource("15_jcbur")]
+position = Vector2(4480, 384)
+
+[node name="DoorLeft" parent="Map/RoomRome12" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome17")
+
+[node name="DesiredPosition" parent="Map/RoomRome12/DoorLeft" index="3"]
+position = Vector2(-64, 24)
+
+[node name="DoorDown" parent="Map/RoomRome12" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome08")
+
+[node name="DesiredPosition" parent="Map/RoomRome12/DoorDown" index="3"]
+position = Vector2(0, 104)
+
+[node name="RoomRome13" parent="Map" instance=ExtResource("16_smf0o")]
+position = Vector2(1920, 384)
+
+[node name="DoorFront" parent="Map/RoomRome13" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome14")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome13/DoorFront" index="1"]
+shape = SubResource("RectangleShape2D_ie7le")
+
+[node name="DesiredPosition" parent="Map/RoomRome13/DoorFront" index="3"]
+position = Vector2(0, -112)
+
+[node name="DoorDown" parent="Map/RoomRome13" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome09")
+
+[node name="DesiredPosition" parent="Map/RoomRome13/DoorDown" index="3"]
+position = Vector2(0, 88)
+
+[node name="RoomRome14" parent="Map" instance=ExtResource("19_0vlqb")]
+position = Vector2(1920, 0)
+
+[node name="DoorFront" parent="Map/RoomRome14" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome06")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome14/DoorFront" index="1"]
+shape = SubResource("RectangleShape2D_vc5kc")
+
+[node name="DesiredPosition" parent="Map/RoomRome14/DoorFront" index="3"]
+position = Vector2(0, -112)
+
+[node name="DoorLeft" parent="Map/RoomRome14" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome02")
+
+[node name="DesiredPosition" parent="Map/RoomRome14/DoorLeft" index="3"]
+position = Vector2(-64, 24)
+
+[node name="DoorDown" parent="Map/RoomRome14" index="3" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome13")
+
+[node name="DesiredPosition" parent="Map/RoomRome14/DoorDown" index="3"]
+position = Vector2(-0.5894119, 103.998314)
+
+[node name="RoomRome15" parent="Map" instance=ExtResource("20_fdqew")]
+position = Vector2(3200, 768)
+
+[node name="DoorFront" parent="Map/RoomRome15" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome22")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome15/DoorFront" index="1"]
+shape = SubResource("RectangleShape2D_ouh5b")
+
+[node name="DesiredPosition" parent="Map/RoomRome15/DoorFront" index="3"]
+position = Vector2(0, -112)
+
+[node name="DoorRight" parent="Map/RoomRome15" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome16")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome15/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_km826")
+
+[node name="DesiredPosition" parent="Map/RoomRome15/DoorRight" index="3"]
+position = Vector2(80, 24)
+
+[node name="DoorLeft" parent="Map/RoomRome15" index="3" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome07")
+
+[node name="DesiredPosition" parent="Map/RoomRome15/DoorLeft" index="3"]
+position = Vector2(-64, 24)
+
+[node name="RoomRome16" parent="Map" instance=ExtResource("21_0d4pv")]
+position = Vector2(3840, 768)
+
+[node name="DoorLeft" parent="Map/RoomRome16" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome15")
+
+[node name="DesiredPosition" parent="Map/RoomRome16/DoorLeft" index="3"]
+position = Vector2(-64, 24)
+
+[node name="DoorRight" parent="Map/RoomRome16" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome08")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome16/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_vhvp1")
+
+[node name="DesiredPosition" parent="Map/RoomRome16/DoorRight" index="3"]
+position = Vector2(80, 24)
+
+[node name="RoomRome17" parent="Map" instance=ExtResource("20_0d4pv")]
+position = Vector2(3840, 384)
+
+[node name="DoorFront" parent="Map/RoomRome17" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome18")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome17/DoorFront" index="1"]
+shape = SubResource("RectangleShape2D_ycj0v")
+
+[node name="DesiredPosition" parent="Map/RoomRome17/DoorFront" index="3"]
+position = Vector2(0, -112)
+
+[node name="DoorRight" parent="Map/RoomRome17" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome12")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome17/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_f460h")
+
+[node name="DesiredPosition" parent="Map/RoomRome17/DoorRight" index="3"]
+position = Vector2(80, 24)
+
+[node name="RoomRome18" parent="Map" instance=ExtResource("23_gtqqq")]
+position = Vector2(3840, 0)
+
+[node name="DoorFront" parent="Map/RoomRome18" index="8" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome25")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome18/DoorFront" index="1"]
+shape = SubResource("RectangleShape2D_kgd47")
+
+[node name="DesiredPosition" parent="Map/RoomRome18/DoorFront" index="3"]
+position = Vector2(0, -112)
+
+[node name="DoorLeft" parent="Map/RoomRome18" index="9" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome19")
+
+[node name="DesiredPosition" parent="Map/RoomRome18/DoorLeft" index="3"]
+position = Vector2(-64, 24)
+
+[node name="DoorRight" parent="Map/RoomRome18" index="10" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome28")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome18/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_o6p74")
+
+[node name="DesiredPosition" parent="Map/RoomRome18/DoorRight" index="3"]
+position = Vector2(80, 24)
+
+[node name="DoorDown" parent="Map/RoomRome18" index="11" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome17")
+
+[node name="DesiredPosition" parent="Map/RoomRome18/DoorDown" index="3"]
+position = Vector2(0, 104)
+
+[node name="RoomRome19" parent="Map" instance=ExtResource("24_gn2wi")]
+position = Vector2(3200, 0)
+
+[node name="DoorLeft" parent="Map/RoomRome19" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRomeBoss")
+
+[node name="DesiredPosition" parent="Map/RoomRome19/DoorLeft" index="3"]
+position = Vector2(-64, 16)
+
+[node name="DoorRight" parent="Map/RoomRome19" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome18")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome19/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_ron3d")
+
+[node name="DesiredPosition" parent="Map/RoomRome19/DoorRight" index="3"]
+position = Vector2(81, 24)
+
+[node name="RoomRome20" parent="Map" instance=ExtResource("25_p8adh")]
+position = Vector2(3200, -768)
+
+[node name="DoorLeft" parent="Map/RoomRome20" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome21")
+
+[node name="DesiredPosition" parent="Map/RoomRome20/DoorLeft" index="3"]
+position = Vector2(-64, 24)
+
+[node name="DoorRight" parent="Map/RoomRome20" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome24")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome20/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_5b52o")
+
+[node name="DesiredPosition" parent="Map/RoomRome20/DoorRight" index="3"]
+position = Vector2(80, 24)
+
+[node name="RoomRome21" parent="Map" instance=ExtResource("26_oldxj")]
+position = Vector2(2560, -768)
+
+[node name="DoorLeft" parent="Map/RoomRome21" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome03")
+
+[node name="DesiredPosition" parent="Map/RoomRome21/DoorLeft" index="3"]
+position = Vector2(-64, 24)
+
+[node name="DoorRight" parent="Map/RoomRome21" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome20")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome21/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_1s8x8")
+
+[node name="DesiredPosition" parent="Map/RoomRome21/DoorRight" index="3"]
+position = Vector2(80, 24)
+
+[node name="RoomRome22" parent="Map" instance=ExtResource("27_vneqc")]
+position = Vector2(3200, 384)
+
+[node name="DoorLeft" parent="Map/RoomRome22" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome23")
+
+[node name="DesiredPosition" parent="Map/RoomRome22/DoorLeft" index="3"]
+position = Vector2(-72, 24)
+
+[node name="DoorDown" parent="Map/RoomRome22" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome15")
+
+[node name="DesiredPosition" parent="Map/RoomRome22/DoorDown" index="3"]
+position = Vector2(0, 104)
+
+[node name="RoomRome23" parent="Map" instance=ExtResource("26_rg6nf")]
+position = Vector2(2560, 384)
+
+[node name="DoorRight" parent="Map/RoomRome23" index="13" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome22")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome23/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_667b8")
+
+[node name="DesiredPosition" parent="Map/RoomRome23/DoorRight" index="3"]
+position = Vector2(80, 24)
+
+[node name="RoomRome24" parent="Map" instance=ExtResource("29_mjuaj")]
+position = Vector2(3840, -768)
+
+[node name="DoorLeft" parent="Map/RoomRome24" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome20")
+
+[node name="DesiredPosition" parent="Map/RoomRome24/DoorLeft" index="3"]
+position = Vector2(-64, 24)
+
+[node name="DoorDown" parent="Map/RoomRome24" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome25")
+
+[node name="DesiredPosition" parent="Map/RoomRome24/DoorDown" index="3"]
+position = Vector2(0, 104)
+
+[node name="RoomRome25" parent="Map" instance=ExtResource("30_gj7ui")]
+position = Vector2(3840, -384)
+
+[node name="DoorLeft" parent="Map/RoomRome25" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome26")
+
+[node name="DesiredPosition" parent="Map/RoomRome25/DoorLeft" index="3"]
+position = Vector2(-64, 24)
+
+[node name="DoorDown" parent="Map/RoomRome25" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome18")
+
+[node name="DesiredPosition" parent="Map/RoomRome25/DoorDown" index="3"]
+position = Vector2(0, 104)
+
+[node name="DoorFront" parent="Map/RoomRome25" index="3" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome24")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome25/DoorFront" index="1"]
+shape = SubResource("RectangleShape2D_eeklj")
+
+[node name="DesiredPosition" parent="Map/RoomRome25/DoorFront" index="3"]
+position = Vector2(0, -112)
+
+[node name="DoorRight" parent="Map/RoomRome25" index="4" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome27")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome25/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_aq5ln")
+
+[node name="DesiredPosition" parent="Map/RoomRome25/DoorRight" index="3"]
+position = Vector2(80, 24)
+
+[node name="RoomRome26" parent="Map" instance=ExtResource("32_mjuaj")]
+position = Vector2(3200, -384)
+
+[node name="DoorRight" parent="Map/RoomRome26" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome25")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome26/DoorRight" index="1"]
+shape = SubResource("RectangleShape2D_o3wqe")
+
+[node name="DesiredPosition" parent="Map/RoomRome26/DoorRight" index="3"]
+position = Vector2(80, 24)
+
+[node name="RoomRome27" parent="Map" instance=ExtResource("30_bmc2w")]
+position = Vector2(4480, -384)
+
+[node name="DoorLeft" parent="Map/RoomRome27" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome25")
+
+[node name="DesiredPosition" parent="Map/RoomRome27/DoorLeft" index="3"]
+position = Vector2(-64, 24)
+
+[node name="DoorDown" parent="Map/RoomRome27" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome28")
+
+[node name="DesiredPosition" parent="Map/RoomRome27/DoorDown" index="3"]
+position = Vector2(0, 184)
+
+[node name="RoomRome28" parent="Map" instance=ExtResource("34_7ty4q")]
+position = Vector2(4480, 0)
+
+[node name="DoorFront" parent="Map/RoomRome28" index="1" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome27")
+
+[node name="AreaCollisionShape2D" parent="Map/RoomRome28/DoorFront" index="1"]
+shape = SubResource("RectangleShape2D_803pr")
+
+[node name="DesiredPosition" parent="Map/RoomRome28/DoorFront" index="3"]
+position = Vector2(0, -192)
+
+[node name="DoorLeft" parent="Map/RoomRome28" index="2" node_paths=PackedStringArray("desired_room")]
+desired_room = NodePath("../../RoomRome18")
+
+[node name="DesiredPosition" parent="Map/RoomRome28/DoorLeft" index="3"]
+position = Vector2(-64, 24)
+
+[node name="RoomRomeBoss" parent="Map" instance=ExtResource("17_tv8i1")]
+position = Vector2(2559.9592, -0.37342834)
+
+[node name="GameCamera" parent="." instance=ExtResource("36_p0u2v")]
+
+[connection signal="timeout" from="LoopTimer" to="LoopTimer" method="_on_timeout"]
+
+[editable path="Map/RoomStart"]
+[editable path="Map/RoomStart/DoorRight"]
+[editable path="Map/RoomRome01"]
+[editable path="Map/RoomRome01/DoorRight"]
+[editable path="Map/RoomRome02"]
+[editable path="Map/RoomRome02/DoorLeft"]
+[editable path="Map/RoomRome02/DoorFront"]
+[editable path="Map/RoomRome02/DoorRight"]
+[editable path="Map/RoomRome02/DoorDown"]
+[editable path="Map/RoomRome03"]
+[editable path="Map/RoomRome03/DoorDown"]
+[editable path="Map/RoomRome03/DoorRight"]
+[editable path="Map/RoomRome04"]
+[editable path="Map/RoomRome04/DoorLeft"]
+[editable path="Map/RoomRome04/DoorRight"]
+[editable path="Map/RoomRome04/DoorDown"]
+[editable path="Map/RoomRome05"]
+[editable path="Map/RoomRome05/DoorRight"]
+[editable path="Map/RoomRome06"]
+[editable path="Map/RoomRome06/DoorLeft"]
+[editable path="Map/RoomRome06/DoorDown"]
+[editable path="Map/RoomRome06/DoorFront"]
+[editable path="Map/RoomRome07"]
+[editable path="Map/RoomRome07/DoorLeft"]
+[editable path="Map/RoomRome07/DoorRight"]
+[editable path="Map/RoomRome08"]
+[editable path="Map/RoomRome08/DoorFront"]
+[editable path="Map/RoomRome08/DoorLeft"]
+[editable path="Map/RoomRome09"]
+[editable path="Map/RoomRome09/DoorRight"]
+[editable path="Map/RoomRome09/DoorFront"]
+[editable path="Map/RoomRome09/DoorLeft"]
+[editable path="Map/RoomRome10"]
+[editable path="Map/RoomRome10/DoorFront"]
+[editable path="Map/RoomRome10/DoorDown"]
+[editable path="Map/RoomRome11"]
+[editable path="Map/RoomRome11/DoorFront"]
+[editable path="Map/RoomRome11/DoorRight"]
+[editable path="Map/RoomRome12"]
+[editable path="Map/RoomRome12/DoorLeft"]
+[editable path="Map/RoomRome12/DoorDown"]
+[editable path="Map/RoomRome13"]
+[editable path="Map/RoomRome13/DoorFront"]
+[editable path="Map/RoomRome13/DoorDown"]
+[editable path="Map/RoomRome14"]
+[editable path="Map/RoomRome14/DoorFront"]
+[editable path="Map/RoomRome14/DoorLeft"]
+[editable path="Map/RoomRome14/DoorDown"]
+[editable path="Map/RoomRome15"]
+[editable path="Map/RoomRome15/DoorFront"]
+[editable path="Map/RoomRome15/DoorRight"]
+[editable path="Map/RoomRome15/DoorLeft"]
+[editable path="Map/RoomRome16"]
+[editable path="Map/RoomRome16/DoorLeft"]
+[editable path="Map/RoomRome16/DoorRight"]
+[editable path="Map/RoomRome17"]
+[editable path="Map/RoomRome17/DoorFront"]
+[editable path="Map/RoomRome17/DoorRight"]
+[editable path="Map/RoomRome18"]
+[editable path="Map/RoomRome18/DoorFront"]
+[editable path="Map/RoomRome18/DoorLeft"]
+[editable path="Map/RoomRome18/DoorRight"]
+[editable path="Map/RoomRome18/DoorDown"]
+[editable path="Map/RoomRome19"]
+[editable path="Map/RoomRome19/DoorLeft"]
+[editable path="Map/RoomRome19/DoorRight"]
+[editable path="Map/RoomRome20"]
+[editable path="Map/RoomRome20/DoorLeft"]
+[editable path="Map/RoomRome20/DoorRight"]
+[editable path="Map/RoomRome21"]
+[editable path="Map/RoomRome21/DoorLeft"]
+[editable path="Map/RoomRome21/DoorRight"]
+[editable path="Map/RoomRome22"]
+[editable path="Map/RoomRome22/DoorLeft"]
+[editable path="Map/RoomRome22/DoorDown"]
+[editable path="Map/RoomRome23"]
+[editable path="Map/RoomRome23/DoorRight"]
+[editable path="Map/RoomRome24"]
+[editable path="Map/RoomRome24/DoorLeft"]
+[editable path="Map/RoomRome24/DoorDown"]
+[editable path="Map/RoomRome25"]
+[editable path="Map/RoomRome25/DoorLeft"]
+[editable path="Map/RoomRome25/DoorDown"]
+[editable path="Map/RoomRome25/DoorFront"]
+[editable path="Map/RoomRome25/DoorRight"]
+[editable path="Map/RoomRome26"]
+[editable path="Map/RoomRome26/DoorRight"]
+[editable path="Map/RoomRome27"]
+[editable path="Map/RoomRome27/DoorLeft"]
+[editable path="Map/RoomRome27/DoorDown"]
+[editable path="Map/RoomRome28"]
+[editable path="Map/RoomRome28/DoorFront"]
+[editable path="Map/RoomRome28/DoorLeft"]

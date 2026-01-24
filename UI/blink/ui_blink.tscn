@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj3tmo5quukha"]
+
+[ext_resource type="Script" uid="uid://3jej7nkcptob" path="res://UI/blink/ui_blink.gd" id="2_5tvik"]
+[ext_resource type="Script" uid="uid://gat42tsx5w2o" path="res://UI/blink/blink_settings.gd" id="2_k18ij"]
+
+[sub_resource type="Resource" id="Resource_nrv45"]
+script = ExtResource("2_k18ij")
+blink_duration = 3.0
+metadata/_custom_type_script = "uid://gat42tsx5w2o"
+
+[node name="UIBlink" type="CanvasLayer"]
+layer = 9
+script = ExtResource("2_5tvik")
+blink_settings = SubResource("Resource_nrv45")
+
+[node name="Reference" type="ReferenceRect" parent="."]
+show_behind_parent = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 2.0
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)

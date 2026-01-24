@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bumwgrcs2py2s"]
-
-[ext_resource type="Script" uid="uid://r7r4tbpk8x7k" path="res://script/dialogue_manager.gd" id="1_tfqcr"]
-
-[node name="DialogueManager" type="CanvasLayer"]
-layer = 2
-script = ExtResource("1_tfqcr")

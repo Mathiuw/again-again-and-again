@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://mwaxn6ft2wpi"]
+
+[ext_resource type="Script" uid="uid://dfebpoxxnk65f" path="res://UI/fade/ui_fade.gd" id="1_r0hkk"]
+[ext_resource type="Resource" uid="uid://bbxwrdyj6tr5l" path="res://resource/fade/fade_in_white.tres" id="2_mvwi2"]
+
+[node name="UIFade" type="CanvasLayer"]
+layer = 9
+script = ExtResource("1_r0hkk")
+fade_settings = ExtResource("2_mvwi2")
+
+[node name="Reference" type="ReferenceRect" parent="."]
+show_behind_parent = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 2.0
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)

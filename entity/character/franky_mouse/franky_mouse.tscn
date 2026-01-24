@@ -1,0 +1,226 @@
+[gd_scene load_steps=28 format=3 uid="uid://bqyoyuprd01pg"]
+
+[ext_resource type="Script" uid="uid://cfdpoov7yk2uh" path="res://entity/character/franky_mouse/franky_mouse.gd" id="1_h5rvr"]
+[ext_resource type="Texture2D" uid="uid://iu33kude3xkk" path="res://entity/character/franky_mouse/Frankymouse.png" id="3_xpy6e"]
+[ext_resource type="Script" uid="uid://fjtqgm701i1c" path="res://system/AI/ai_run_away_behaviour.gd" id="4_oto10"]
+[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="5_refap"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ofww"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbp41"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wioym"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orqey"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c6ta"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfmns"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u84c"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76cri"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms1xp"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmukf"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwwso"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt3fk"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehfw2"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpy6e"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6cjt"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqdjq"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oto10"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_refap"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2epry"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le0gi"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq6kn"]
+atlas = ExtResource("3_xpy6e")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rqdjq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ofww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbp41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wioym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orqey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c6ta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfmns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u84c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76cri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms1xp")
+}],
+"loop": false,
+"name": &"die",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmukf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwwso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt3fk")
+}],
+"loop": true,
+"name": &"walk_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehfw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpy6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6cjt")
+}],
+"loop": true,
+"name": &"walk_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqdjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oto10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_refap")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2epry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le0gi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq6kn")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ggyp"]
+radius = 8.0
+
+[node name="FrankyMouse" type="CharacterBody2D" groups=["enemy"]]
+disable_mode = 2
+collision_layer = 2
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_h5rvr")
+move_speed = 300.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rqdjq")
+animation = &"walk_front"
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_8ggyp")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 5.0
+path_max_distance = 10.0
+avoidance_enabled = true
+max_neighbors = 20
+time_horizon_obstacles = 1.0
+max_speed = 1000.0
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0, 1, 0.14999986, 1)
+
+[node name="GetEscapePointTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="AIRunAwayBehaviour" type="Node" parent="."]
+script = ExtResource("4_oto10")
+
+[node name="HealthComponent" parent="." instance=ExtResource("5_refap")]
+unique_name_in_owner = true
+max_hits = 1
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="GetEscapePointTimer" to="." method="_on_get_escape_point_timer_timeout"]

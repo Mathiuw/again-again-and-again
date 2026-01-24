@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmvvtuhuy8xh4"]
+
+[ext_resource type="Script" uid="uid://bu6fgrbjxo0wr" path="res://system/dialogue/dialogue_box_text.gd" id="1_vike0"]
+
+[node name="DialogueBoxText" type="RichTextLabel"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Dialogue box text"
+scroll_active = false
+visible_characters_behavior = 1
+script = ExtResource("1_vike0")

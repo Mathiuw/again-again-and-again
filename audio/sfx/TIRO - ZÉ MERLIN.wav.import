@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d1wf2imnjwee2"
+path="res://.godot/imported/TIRO - ZÉ MERLIN.wav-f5b8cbf783687e706f59e62a17869e30.sample"
+
+[deps]
+
+source_file="res://audio/sfx/TIRO - ZÉ MERLIN.wav"
+dest_files=["res://.godot/imported/TIRO - ZÉ MERLIN.wav-f5b8cbf783687e706f59e62a17869e30.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

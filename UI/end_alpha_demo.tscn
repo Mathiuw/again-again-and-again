@@ -1,0 +1,119 @@
+[gd_scene load_steps=10 format=3 uid="uid://qj66b2ooca6h"]
+
+[ext_resource type="PackedScene" uid="uid://tmiaggulr37f" path="res://UI/button/ui_buttom.tscn" id="2_r1ml3"]
+[ext_resource type="Texture2D" uid="uid://dy4xln85fwx18" path="res://UI/button/ExitButton.png" id="5_2fxtv"]
+[ext_resource type="PackedScene" uid="uid://mwaxn6ft2wpi" path="res://UI/fade/ui_fade.tscn" id="5_4oo2x"]
+[ext_resource type="Texture2D" uid="uid://8dg12odh4obl" path="res://UI/button/ExitButtonPressed.png" id="6_ba7rj"]
+[ext_resource type="Resource" uid="uid://x6crraliku50" path="res://UI/fade/fade_out_black.tres" id="6_ji00f"]
+[ext_resource type="FontFile" uid="uid://orwn5asl7m13" path="res://asset/font/ari-w9500-display.ttf" id="7_udc5q"]
+
+[sub_resource type="GDScript" id="GDScript_jjx5o"]
+resource_name = "end_demo"
+script/source = "extends Control
+
+const MENU_LOOP = preload(\"uid://74xuctaer14g\")
+
+func _ready() -> void:
+	AudioManager.set_music(MENU_LOOP)
+
+func _on_exit_buttom_pressed() -> void:
+	get_tree().change_scene_to_file(\"uid://frfhml2058ny\")
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_l6yvn"]
+font = ExtResource("7_udc5q")
+font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_a6ysn"]
+font = ExtResource("7_udc5q")
+
+[node name="EndDemo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_jjx5o")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ExitButtom" parent="Background" instance=ExtResource("2_r1ml3")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -48.0
+offset_right = 16.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(16, 8.8888855)
+texture_normal = ExtResource("5_2fxtv")
+texture_pressed = ExtResource("6_ba7rj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -82.0
+offset_right = 270.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Thanks for playing our early demo!!"
+label_settings = SubResource("LabelSettings_l6yvn")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = 28.0
+offset_right = 270.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2027"
+label_settings = SubResource("LabelSettings_l6yvn")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = -29.0
+offset_right = 286.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "We can't wait for you to try the full game!"
+label_settings = SubResource("LabelSettings_a6ysn")
+horizontal_alignment = 1
+
+[node name="UIFade" parent="." instance=ExtResource("5_4oo2x")]
+fade_settings = ExtResource("6_ji00f")
+
+[connection signal="pressed" from="Background/ExitButtom" to="." method="_on_exit_buttom_pressed"]

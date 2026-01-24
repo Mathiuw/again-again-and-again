@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bd65a2qha8i6p"]
-
-[ext_resource type="Script" uid="uid://njwktx6torsi" path="res://script/pause_manager.gd" id="1_diaio"]
-
-[node name="PauseManager" type="CanvasLayer"]
-process_mode = 3
-layer = 99
-script = ExtResource("1_diaio")
