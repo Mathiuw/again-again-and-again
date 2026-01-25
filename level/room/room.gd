@@ -1,11 +1,13 @@
 class_name Room
 extends Node2D
 
+@export var id: StringName = "000"
 @export var initial_room: bool = false
 @export var pause_timer: bool = false
 @export var music_override: AudioStream
 @export var navigation_region_2D: NavigationRegion2D
 @export var enemies_root: Node2D = self
+@export var transition_positions: Dictionary[String, Marker2D]
 
 
 signal on_no_enemies_left

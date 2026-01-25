@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c5hxh0i0l2p4i"]
+[gd_scene load_steps=15 format=4 uid="uid://c5hxh0i0l2p4i"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://level/room/room.gd" id="1_2d5rg"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://level/room/tileset_level.tres" id="2_6xuvi"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://entity/door/door_left.tscn" id="7_2d5rg"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://entity/chest/chest_rome.tscn" id="8_6xuvi"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://entity/door/door_right.tscn" id="8_sxj3i"]
+[ext_resource type="Script" uid="uid://db3x51addxum0" path="res://level/room/room_transition.gd" id="9_fr1um"]
 [ext_resource type="PackedScene" uid="uid://dcg3gmie44c8h" path="res://entity/door/door_down.tscn" id="10_k6gnu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_k6gnu"]
@@ -18,11 +19,24 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(
 outlines = Array[PackedVector2Array]([PackedVector2Array(-296, 56, -288, 56, -288, -48, -296, -48, -296, -176, -112, -176, -112, -144, -48, -144, -48, -176, 280, -176, 288, 168, -296, 168)])
 agent_radius = 12.0
 
-[node name="RoomRome02" type="Node2D" node_paths=PackedStringArray("navigation_region_2D", "enemies_root")]
+[sub_resource type="Resource" id="Resource_fr1um"]
+script = ExtResource("9_fr1um")
+desired_room_id = &"r01"
+transition_key = "right"
+metadata/_custom_type_script = "uid://db3x51addxum0"
+
+[node name="RoomRome02" type="Node2D" node_paths=PackedStringArray("navigation_region_2D", "enemies_root", "transition_positions")]
 y_sort_enabled = true
 script = ExtResource("1_2d5rg")
+id = &"r02"
 navigation_region_2D = NodePath("NavigationRegion2D")
 enemies_root = NodePath("NavigationRegion2D")
+transition_positions = {
+"down": NodePath("TransitionDown"),
+"left": NodePath("TransitionLeft"),
+"right": NodePath("TransitionRight"),
+"up": NodePath("TransitionUp")
+}
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 y_sort_enabled = true
@@ -85,7 +99,8 @@ position = Vector2(288, 64)
 desired_door = NodePath("../DoorRight")
 
 [node name="DoorLeft" parent="." instance=ExtResource("7_2d5rg")]
-position = Vector2(-304, -16)
+position = Vector2(-304, 0)
+room_transition = SubResource("Resource_fr1um")
 
 [node name="DoorFront" parent="." instance=ExtResource("5_j55g4")]
 position = Vector2(-80, -144)
@@ -97,3 +112,15 @@ secret_door = true
 
 [node name="DoorDown" parent="." instance=ExtResource("10_k6gnu")]
 position = Vector2(240, 160)
+
+[node name="TransitionLeft" type="Marker2D" parent="."]
+position = Vector2(-280, 8)
+
+[node name="TransitionUp" type="Marker2D" parent="."]
+position = Vector2(-80, -128)
+
+[node name="TransitionDown" type="Marker2D" parent="."]
+position = Vector2(240, 136)
+
+[node name="TransitionRight" type="Marker2D" parent="."]
+position = Vector2(272, 64)

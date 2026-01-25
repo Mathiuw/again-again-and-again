@@ -1,14 +1,22 @@
-[gd_scene load_steps=6 format=4 uid="uid://bbdklpf1hb3ar"]
+[gd_scene load_steps=8 format=4 uid="uid://bbdklpf1hb3ar"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://level/room/room.gd" id="1_3e5rq"]
 [ext_resource type="AudioStream" uid="uid://74xuctaer14g" path="res://audio/music/Menu Loop.wav" id="2_8bbkh"]
 [ext_resource type="TileSet" uid="uid://dxvch24pihxor" path="res://level/room/tileset_level_v2.tres" id="3_27uo3"]
 [ext_resource type="PackedScene" uid="uid://e1scgkiciot6" path="res://entity/character/aditya/aditya.tscn" id="3_nadyk"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://entity/door/door_right.tscn" id="4_g6d8v"]
+[ext_resource type="Script" uid="uid://db3x51addxum0" path="res://level/room/room_transition.gd" id="6_sx55f"]
+
+[sub_resource type="Resource" id="Resource_k2n7m"]
+script = ExtResource("6_sx55f")
+desired_room_id = &"r01"
+transition_key = "left"
+metadata/_custom_type_script = "uid://db3x51addxum0"
 
 [node name="RoomStart" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_3e5rq")
+id = &"s01"
 initial_room = true
 pause_timer = true
 music_override = ExtResource("2_8bbkh")
@@ -37,3 +45,4 @@ position = Vector2(-64, -88)
 
 [node name="DoorRight" parent="." instance=ExtResource("4_g6d8v")]
 position = Vector2(288, 0)
+room_transition = SubResource("Resource_k2n7m")
