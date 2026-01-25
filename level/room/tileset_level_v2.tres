@@ -392,6 +392,8 @@ texture = ExtResource("1_xpd4d")
 9:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:26/0 = 0
 2:26/0 = 0
+8:29/0 = 0
+11:29/0 = 0
 
 [resource]
 physics_layer_0/collision_layer = 1

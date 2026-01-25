@@ -53,6 +53,7 @@ movie_writer/movie_file="D:/mateu/Videos/Godot/footage.avi"
 
 folder_colors={
 "res://UI/": "green",
+"res://asset/": "pink",
 "res://audio/": "yellow",
 "res://entity/": "blue",
 "res://level/": "purple",

@@ -7,6 +7,7 @@ extends Node2D
 @export var navigation_region_2D: NavigationRegion2D
 @export var enemies_root: Node2D = self
 
+
 signal on_no_enemies_left
 
 func _ready() -> void:
