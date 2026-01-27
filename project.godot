@@ -8,13 +8,17 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="AgainAgainAndAgain"
 config/version="0.1.0"
 config/tags=PackedStringArray("top_down_2d")
 run/main_scene="uid://frfhml2058ny"
-config/features=PackedStringArray("4.5", "C#", "Forward Plus")
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 run/max_fps=60
 boot_splash/show_image=false
 config/icon="uid://cyi5ukmu5845v"
@@ -66,6 +70,10 @@ enemy=""
 camera=""
 persist="nodes that data will be saved; PS: persist nodes must have save() func"
 world="world root node"
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 
@@ -163,5 +171,6 @@ interact={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"
 textures/lossless_compression/force_png=true
 occlusion_culling/use_occlusion_culling=true

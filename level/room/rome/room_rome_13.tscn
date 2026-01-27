@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://biairg2wwut56"]
+[gd_scene format=4 uid="uid://biairg2wwut56"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://level/room/room.gd" id="1_blsqj"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://level/room/tileset_level.tres" id="2_mu11k"]
-[ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://entity/door/door_front.tscn" id="3_blsqj"]
+[ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://entity/door/door_up.tscn" id="3_blsqj"]
 [ext_resource type="PackedScene" uid="uid://dcg3gmie44c8h" path="res://entity/door/door_down.tscn" id="4_blsqj"]
 
 [node name="RoomRome05" type="Node2D"]

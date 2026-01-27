@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://tlgcxnmm6ovg"]
+[gd_scene format=4 uid="uid://tlgcxnmm6ovg"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://level/room/room.gd" id="1_kaljo"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://level/room/tileset_level.tres" id="2_coquc"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://entity/light/torch_point_light_2d.tscn" id="3_qorke"]
-[ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://entity/door/door_front.tscn" id="4_2u023"]
+[ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://entity/door/door_up.tscn" id="4_2u023"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://entity/chest/chest_rome.tscn" id="4_coquc"]
 [ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://entity/character/medusa/medusa.tscn" id="5_3l4vy"]
 [ext_resource type="PackedScene" uid="uid://bqyoyuprd01pg" path="res://entity/character/franky_mouse/franky_mouse.tscn" id="6_478ik"]

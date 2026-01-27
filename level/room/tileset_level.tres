@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://dah4dbx8ikesr"]
+[gd_resource type="TileSet" format=3 uid="uid://dah4dbx8ikesr"]
 
 [ext_resource type="Texture2D" uid="uid://bbwm1sdwg3me2" path="res://level/room/map_tileset_old.png" id="1_clwfa"]
 [ext_resource type="Texture2D" uid="uid://bnsaloironx8m" path="res://level/room/map-torch-tile.png" id="2_u6h5v"]

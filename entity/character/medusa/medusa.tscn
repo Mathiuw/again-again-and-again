@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dk62nei0etksf"]
+[gd_scene format=3 uid="uid://dk62nei0etksf"]
 
 [ext_resource type="Texture2D" uid="uid://bejteuurphesn" path="res://entity/character/medusa/medusahead-Sheet.png" id="1_0srtd"]
 [ext_resource type="Script" uid="uid://cfskjefpr4x5b" path="res://entity/character/medusa/medusa.gd" id="1_7o4kk"]
@@ -120,60 +120,59 @@ _data = {
 &"shoot": SubResource("Animation_10gqf")
 }
 
-[node name="Medusa" type="StaticBody2D" groups=["enemy"]]
+[node name="Medusa" type="StaticBody2D" unique_id=78671943 groups=["enemy"]]
 disable_mode = 2
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_7o4kk")
 
-[node name="MedusaSprite2D" type="Sprite2D" parent="."]
+[node name="MedusaSprite2D" type="Sprite2D" parent="." unique_id=1747435076]
 material = SubResource("ShaderMaterial_10gqf")
 position = Vector2(0, -24)
 texture = ExtResource("1_0srtd")
 hframes = 4
 vframes = 7
 
-[node name="shadowSprite2D" type="Sprite2D" parent="MedusaSprite2D"]
+[node name="shadowSprite2D" type="Sprite2D" parent="MedusaSprite2D" unique_id=357314074]
 modulate = Color(0.04, 0.04, 0.04, 0.4392157)
 position = Vector2(-3.4570694e-06, 24)
 scale = Vector2(1, 0.61369526)
 texture = ExtResource("3_v51rx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1515665294]
 position = Vector2(0, -16)
 shape = SubResource("CircleShape2D_0srtd")
 
-[node name="ShootTransform" type="Marker2D" parent="."]
+[node name="ShootTransform" type="Marker2D" parent="." unique_id=1186992476]
 position = Vector2(0, -11)
 
-[node name="Weapon_Component" parent="." groups=["enemy"] instance=ExtResource("2_i1pib")]
+[node name="Weapon_Component" parent="." unique_id=1697673083 node_paths=PackedStringArray("transformOverrides") groups=["enemy"] instance=ExtResource("2_i1pib")]
 damage = 10
-bulletAmount = null
+bulletAmount = 2
 bulletSpeed = 400.0
 bullet_scene = ExtResource("5_7frci")
 add_collision_exception_to_parent = null
 sound_variant_index = 2
 shootCooldown = 0.0
-betweenBulletsCooldown = null
+betweenBulletsCooldown = 0.2
+transformOverrides = [NodePath("../ShootTransform")]
 
-[node name="TargetRaycastCheck2D" parent="." instance=ExtResource("7_tbr1f")]
+[node name="TargetRaycastCheck2D" parent="." unique_id=2123966857 instance=ExtResource("7_tbr1f")]
 position = Vector2(0, -16)
 
-[node name="AIShootBehaviour" parent="." node_paths=PackedStringArray("weapon_component", "target_raycast_check_2d", "root_node") instance=ExtResource("3_7o4kk")]
+[node name="AIShootBehaviour" parent="." unique_id=643289924 node_paths=PackedStringArray("weapon_component", "target_raycast_check_2d", "root_node") instance=ExtResource("3_7o4kk")]
 shoot_cooldown = 1.5
 shoot_weapon_component = false
 weapon_component = NodePath("../Weapon_Component")
 target_raycast_check_2d = NodePath("../TargetRaycastCheck2D")
 root_node = NodePath("..")
 
-[node name="HealthComponent" parent="." instance=ExtResource("5_0bcff")]
+[node name="HealthComponent" parent="." unique_id=1921334493 instance=ExtResource("5_0bcff")]
 unique_name_in_owner = true
 max_hits = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_tbr1f")
-}
-autoplay = "idle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1232740962]
+libraries/ = SubResource("AnimationLibrary_tbr1f")
+autoplay = &"idle"
 
 [connection signal="on_ai_shoot" from="AIShootBehaviour" to="." method="_on_ai_shoot_behaviour_on_ai_shoot"]

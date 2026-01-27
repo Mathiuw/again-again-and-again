@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://dd48ufp885ve0"]
+[gd_scene format=4 uid="uid://dd48ufp885ve0"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://level/room/room.gd" id="1_020bn"]
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://audio/music/primeira fase master.mp3" id="2_fod2o"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://level/room/tileset_level.tres" id="2_lf2td"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://entity/light/torch_point_light_2d.tscn" id="3_eslgf"]
-[ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://entity/door/door_front.tscn" id="4_as3im"]
+[ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://entity/door/door_up.tscn" id="4_as3im"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://entity/chest/chest_rome.tscn" id="4_lf2td"]
 [ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://entity/character/medusa/medusa.tscn" id="5_eslgf"]
 [ext_resource type="PackedScene" uid="uid://c5pxaov6df4yw" path="res://entity/character/tuga/tuga.tscn" id="6_gtafb"]

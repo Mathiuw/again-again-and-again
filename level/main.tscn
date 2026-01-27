@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://dquef6xj016ys"]
+[gd_scene format=3 uid="uid://dquef6xj016ys"]
 
 [ext_resource type="Script" uid="uid://dnte553c7qdnr" path="res://system/global/loop_timer.gd" id="1_bmc2w"]
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://entity/character/player/player.tscn" id="1_itxqv"]
@@ -55,150 +55,114 @@ func _ready() -> void:
 	#await new_fade.on_fade_end
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntge4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0u2v"]
 resource_local_to_scene = true
 size = Vector2(3, 63)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jey2d"]
-resource_local_to_scene = true
-size = Vector2(3, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbros"]
-resource_local_to_scene = true
-size = Vector2(3, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_abiby"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y53ol"]
 resource_local_to_scene = true
 size = Vector2(32, 6)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2s8b"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25tve"]
 resource_local_to_scene = true
 size = Vector2(3, 63)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhhrp"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xutrm"]
 resource_local_to_scene = true
 size = Vector2(32, 6)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_76meg"]
-resource_local_to_scene = true
-size = Vector2(3, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cv4lv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0t2i"]
 resource_local_to_scene = true
 size = Vector2(32, 6)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyltn"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f18nl"]
 resource_local_to_scene = true
 size = Vector2(32, 6)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhsrv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5obc"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thb6p"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb67i"]
 resource_local_to_scene = true
 size = Vector2(32, 6)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2km5d"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc44e"]
 resource_local_to_scene = true
 size = Vector2(3, 63)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ie7le"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wukag"]
 resource_local_to_scene = true
 size = Vector2(32, 6)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc5kc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ean0n"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubaex"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ywvm1"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yjkpq"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4glux"]
 resource_local_to_scene = true
 size = Vector2(32, 6)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouh5b"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm7mi"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_moyig"]
+resource_local_to_scene = true
+size = Vector2(3, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3aofj"]
 resource_local_to_scene = true
 size = Vector2(32, 6)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_km826"]
-resource_local_to_scene = true
-size = Vector2(3, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvp1"]
-resource_local_to_scene = true
-size = Vector2(3, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycj0v"]
-resource_local_to_scene = true
-size = Vector2(32, 6)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f460h"]
-resource_local_to_scene = true
-size = Vector2(3, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgd47"]
-resource_local_to_scene = true
-size = Vector2(32, 6)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6p74"]
-resource_local_to_scene = true
-size = Vector2(3, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ron3d"]
-resource_local_to_scene = true
-size = Vector2(3, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5b52o"]
-resource_local_to_scene = true
-size = Vector2(3, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1s8x8"]
-resource_local_to_scene = true
-size = Vector2(3, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_667b8"]
-resource_local_to_scene = true
-size = Vector2(3, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eeklj"]
-resource_local_to_scene = true
-size = Vector2(32, 6)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq5ln"]
-resource_local_to_scene = true
-size = Vector2(3, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3wqe"]
-resource_local_to_scene = true
-size = Vector2(3, 63)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_803pr"]
-resource_local_to_scene = true
-size = Vector2(32, 6)
-
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=94988365]
 script = SubResource("GDScript_0ha60")
 
-[node name="LoopTimer" type="Timer" parent="." groups=["loop_timer"]]
+[node name="LoopTimer" type="Timer" parent="." unique_id=33891855 groups=["loop_timer"]]
 wait_time = 360.0
 one_shot = true
 script = ExtResource("1_bmc2w")
 max_wait_time = 180.0
 
-[node name="UIFade" parent="." instance=ExtResource("2_7xrs8")]
+[node name="UIFade" parent="." unique_id=364341070 instance=ExtResource("2_7xrs8")]
 fade_settings = ExtResource("3_kpobt")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1147940230]
 
-[node name="HUD" parent="CanvasLayer" instance=ExtResource("2_p1hux")]
+[node name="HUD" parent="CanvasLayer" unique_id=1845030351 instance=ExtResource("2_p1hux")]
 
-[node name="World" type="Node2D" parent="." groups=["world"]]
+[node name="World" type="Node2D" parent="." unique_id=417571331 groups=["world"]]
 y_sort_enabled = true
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="World" instance=ExtResource("1_itxqv")]
+[node name="Player" parent="World" unique_id=586798750 instance=ExtResource("1_itxqv")]
 
-[node name="RoomStart" parent="World" instance=ExtResource("6_p1hux")]
+[node name="RoomStart" parent="World" unique_id=478743584 instance=ExtResource("6_p1hux")]
 
-[node name="RoomRome01" parent="World" node_paths=PackedStringArray("transition_positions") instance=ExtResource("5_p1hux")]
+[node name="RoomRome01" parent="World" unique_id=181046714 node_paths=PackedStringArray("transition_positions") instance=ExtResource("5_p1hux")]
 position = Vector2(640, 0)
 transition_positions = {
 "left": NodePath("TransitionLeft"),
 "right": NodePath("TransitionRight")
 }
 
-[node name="RoomRome02" parent="World" node_paths=PackedStringArray("transition_positions") instance=ExtResource("4_4j5ol")]
+[node name="RoomRome02" parent="World" unique_id=951858031 node_paths=PackedStringArray("transition_positions") instance=ExtResource("4_4j5ol")]
 position = Vector2(1280, 0)
 transition_positions = {
 "down": NodePath("TransitionDown"),
@@ -207,135 +171,84 @@ transition_positions = {
 "up": NodePath("TransitionUp")
 }
 
-[node name="RoomRome03" parent="World" instance=ExtResource("5_of57s")]
+[node name="RoomRome03" parent="World" unique_id=1364524188 node_paths=PackedStringArray("transition_positions") instance=ExtResource("5_of57s")]
 position = Vector2(1920, -768)
+transition_positions = {
+"down": NodePath("TransitionDown"),
+"right": NodePath("TransitionRight")
+}
 
-[node name="Bunnyale2" parent="World/RoomRome03/NavigationRegion2D" index="3"]
-position = Vector2(128, -104)
-
-[node name="Bunnyale3" parent="World/RoomRome03/NavigationRegion2D" index="4"]
-position = Vector2(-96, -104)
-
-[node name="AreaCollisionShape2D" parent="World/RoomRome03/DoorDown" index="1"]
-z_index = 0
-
-[node name="OpenParticle" parent="World/RoomRome03/DoorDown" index="2"]
-fixed_fps = 30
-
-[node name="AreaCollisionShape2D" parent="World/RoomRome03/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_ntge4")
-
-[node name="OpenParticle" parent="World/RoomRome03/DoorRight" index="2"]
-fixed_fps = 30
-
-[node name="RoomRome04" parent="World" instance=ExtResource("8_of57s")]
+[node name="RoomRome04" parent="World" unique_id=1541660683 node_paths=PackedStringArray("transition_positions") instance=ExtResource("8_of57s")]
 position = Vector2(1280, -384)
+transition_positions = {
+"down": NodePath("TransitionDown"),
+"left": NodePath("TransitionLeft"),
+"right": NodePath("TransitionRight")
+}
 
-[node name="AreaCollisionShape2D" parent="World/RoomRome04/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_jey2d")
-
-[node name="OpenParticle" parent="World/RoomRome04/DoorRight" index="2"]
-fixed_fps = 30
-
-[node name="AreaCollisionShape2D" parent="World/RoomRome04/DoorDown" index="1"]
-z_index = 0
-
-[node name="OpenParticle" parent="World/RoomRome04/DoorDown" index="2"]
-fixed_fps = 30
-
-[node name="RoomRome05" parent="World" instance=ExtResource("8_b5f6u")]
+[node name="RoomRome05" parent="World" unique_id=642223200 node_paths=PackedStringArray("transition_positions") instance=ExtResource("8_b5f6u")]
 position = Vector2(640, -384)
+transition_positions = {
+"right": NodePath("TransitionRight")
+}
 
-[node name="AreaCollisionShape2D" parent="World/RoomRome05/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_mbros")
-
-[node name="OpenParticle" parent="World/RoomRome05/DoorRight" index="2"]
-fixed_fps = 30
-
-[node name="RoomRome06" parent="World" instance=ExtResource("9_tqoya")]
+[node name="RoomRome06" parent="World" unique_id=269416965 node_paths=PackedStringArray("transition_positions") instance=ExtResource("9_tqoya")]
 position = Vector2(1920, -384)
+transition_positions = {
+"down": NodePath("TransitionDown"),
+"left": NodePath("TransitionLeft"),
+"up": NodePath("TransitionUp")
+}
 
-[node name="AreaCollisionShape2D" parent="World/RoomRome06/DoorDown" index="1"]
-z_index = 0
-
-[node name="OpenParticle" parent="World/RoomRome06/DoorDown" index="2"]
-fixed_fps = 30
-
-[node name="AreaCollisionShape2D" parent="World/RoomRome06/DoorFront" index="1"]
-z_index = 0
-shape = SubResource("RectangleShape2D_abiby")
-
-[node name="OpenParticle" parent="World/RoomRome06/DoorFront" index="2"]
-fixed_fps = 30
-
-[node name="RoomRome07" parent="World" instance=ExtResource("11_k65ib")]
+[node name="RoomRome07" parent="World" unique_id=1985224910 instance=ExtResource("11_k65ib")]
 position = Vector2(2560, 768)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome07/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_p2s8b")
+shape = SubResource("RectangleShape2D_p0u2v")
 
 [node name="OpenParticle" parent="World/RoomRome07/DoorRight" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome08" parent="World" instance=ExtResource("12_wscrc")]
+[node name="RoomRome08" parent="World" unique_id=863670817 instance=ExtResource("12_wscrc")]
 position = Vector2(4480, 768)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome08/DoorFront" index="1"]
 z_index = 0
-shape = SubResource("RectangleShape2D_fhhrp")
+shape = SubResource("RectangleShape2D_y53ol")
 
 [node name="OpenParticle" parent="World/RoomRome08/DoorFront" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome09" parent="World" instance=ExtResource("13_mswub")]
+[node name="RoomRome09" parent="World" unique_id=1508716766 instance=ExtResource("13_mswub")]
 position = Vector2(1920, 768)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome09/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_76meg")
+shape = SubResource("RectangleShape2D_25tve")
 
 [node name="OpenParticle" parent="World/RoomRome09/DoorRight" index="2"]
 fixed_fps = 30
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome09/DoorFront" index="1"]
 z_index = 0
-shape = SubResource("RectangleShape2D_cv4lv")
+shape = SubResource("RectangleShape2D_xutrm")
 
 [node name="OpenParticle" parent="World/RoomRome09/DoorFront" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome10" parent="World" instance=ExtResource("14_hybxs")]
+[node name="RoomRome10" parent="World" unique_id=1340757168 node_paths=PackedStringArray("transition_positions") instance=ExtResource("14_hybxs")]
 position = Vector2(1280, 384)
+transition_positions = {
+"down": NodePath("TransitionDown"),
+"up": NodePath("TransitionUp")
+}
 
-[node name="AreaCollisionShape2D" parent="World/RoomRome10/DoorFront" index="1"]
-z_index = 0
-shape = SubResource("RectangleShape2D_fyltn")
-
-[node name="OpenParticle" parent="World/RoomRome10/DoorFront" index="2"]
-fixed_fps = 30
-
-[node name="AreaCollisionShape2D" parent="World/RoomRome10/DoorDown" index="1"]
-z_index = 0
-
-[node name="OpenParticle" parent="World/RoomRome10/DoorDown" index="2"]
-fixed_fps = 30
-
-[node name="RoomRome11" parent="World" instance=ExtResource("15_v2gmf")]
+[node name="RoomRome11" parent="World" unique_id=302544288 node_paths=PackedStringArray("transition_positions") instance=ExtResource("15_v2gmf")]
 position = Vector2(1280, 768)
+transition_positions = {
+"right": NodePath("TransitionRight")
+}
 
-[node name="AreaCollisionShape2D" parent="World/RoomRome11/DoorFront" index="1"]
-z_index = 0
-shape = SubResource("RectangleShape2D_rhsrv")
-
-[node name="OpenParticle" parent="World/RoomRome11/DoorFront" index="2"]
-fixed_fps = 30
-
-[node name="AreaCollisionShape2D" parent="World/RoomRome11/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_2km5d")
-
-[node name="OpenParticle" parent="World/RoomRome11/DoorRight" index="2"]
-fixed_fps = 30
-
-[node name="RoomRome12" parent="World" instance=ExtResource("15_jcbur")]
+[node name="RoomRome12" parent="World" unique_id=127655317 instance=ExtResource("15_jcbur")]
 position = Vector2(4480, 384)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome12/DoorDown" index="1"]
@@ -344,12 +257,12 @@ z_index = 0
 [node name="OpenParticle" parent="World/RoomRome12/DoorDown" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome13" parent="World" instance=ExtResource("16_smf0o")]
+[node name="RoomRome13" parent="World" unique_id=829599427 instance=ExtResource("16_smf0o")]
 position = Vector2(1920, 384)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome13/DoorFront" index="1"]
 z_index = 0
-shape = SubResource("RectangleShape2D_ie7le")
+shape = SubResource("RectangleShape2D_p0t2i")
 
 [node name="OpenParticle" parent="World/RoomRome13/DoorFront" index="2"]
 fixed_fps = 30
@@ -360,75 +273,67 @@ z_index = 0
 [node name="OpenParticle" parent="World/RoomRome13/DoorDown" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome14" parent="World" instance=ExtResource("19_0vlqb")]
+[node name="RoomRome14" parent="World" unique_id=457398281 node_paths=PackedStringArray("transition_positions") instance=ExtResource("19_0vlqb")]
 position = Vector2(1920, 0)
+transition_positions = {
+"down": NodePath("TransitionDown"),
+"left": NodePath("TransitionLeft"),
+"up": NodePath("TransitionUp")
+}
 
-[node name="AreaCollisionShape2D" parent="World/RoomRome14/DoorFront" index="1"]
-z_index = 0
-shape = SubResource("RectangleShape2D_vc5kc")
-
-[node name="OpenParticle" parent="World/RoomRome14/DoorFront" index="2"]
-fixed_fps = 30
-
-[node name="AreaCollisionShape2D" parent="World/RoomRome14/DoorDown" index="1"]
-z_index = 0
-
-[node name="OpenParticle" parent="World/RoomRome14/DoorDown" index="2"]
-fixed_fps = 30
-
-[node name="RoomRome15" parent="World" instance=ExtResource("20_fdqew")]
+[node name="RoomRome15" parent="World" unique_id=1437563445 instance=ExtResource("20_fdqew")]
 position = Vector2(3200, 768)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome15/DoorFront" index="1"]
 z_index = 0
-shape = SubResource("RectangleShape2D_ouh5b")
+shape = SubResource("RectangleShape2D_f18nl")
 
 [node name="OpenParticle" parent="World/RoomRome15/DoorFront" index="2"]
 fixed_fps = 30
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome15/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_km826")
+shape = SubResource("RectangleShape2D_a5obc")
 
 [node name="OpenParticle" parent="World/RoomRome15/DoorRight" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome16" parent="World" instance=ExtResource("21_0d4pv")]
+[node name="RoomRome16" parent="World" unique_id=2109848192 instance=ExtResource("21_0d4pv")]
 position = Vector2(3840, 768)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome16/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_vhvp1")
+shape = SubResource("RectangleShape2D_thb6p")
 
 [node name="OpenParticle" parent="World/RoomRome16/DoorRight" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome17" parent="World" instance=ExtResource("20_0d4pv")]
+[node name="RoomRome17" parent="World" unique_id=1061706150 instance=ExtResource("20_0d4pv")]
 position = Vector2(3840, 384)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome17/DoorFront" index="1"]
 z_index = 0
-shape = SubResource("RectangleShape2D_ycj0v")
+shape = SubResource("RectangleShape2D_mb67i")
 
 [node name="OpenParticle" parent="World/RoomRome17/DoorFront" index="2"]
 fixed_fps = 30
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome17/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_f460h")
+shape = SubResource("RectangleShape2D_dc44e")
 
 [node name="OpenParticle" parent="World/RoomRome17/DoorRight" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome18" parent="World" instance=ExtResource("23_gtqqq")]
+[node name="RoomRome18" parent="World" unique_id=1712687131 instance=ExtResource("23_gtqqq")]
 position = Vector2(3840, 0)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome18/DoorFront" index="1"]
 z_index = 0
-shape = SubResource("RectangleShape2D_kgd47")
+shape = SubResource("RectangleShape2D_wukag")
 
 [node name="OpenParticle" parent="World/RoomRome18/DoorFront" index="2"]
 fixed_fps = 30
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome18/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_o6p74")
+shape = SubResource("RectangleShape2D_ean0n")
 
 [node name="OpenParticle" parent="World/RoomRome18/DoorRight" index="2"]
 fixed_fps = 30
@@ -439,34 +344,32 @@ z_index = 0
 [node name="OpenParticle" parent="World/RoomRome18/DoorDown" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome19" parent="World" instance=ExtResource("24_gn2wi")]
+[node name="RoomRome19" parent="World" unique_id=1129634073 instance=ExtResource("24_gn2wi")]
 position = Vector2(3200, 0)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome19/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_ron3d")
+shape = SubResource("RectangleShape2D_ubaex")
 
 [node name="OpenParticle" parent="World/RoomRome19/DoorRight" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome20" parent="World" instance=ExtResource("25_p8adh")]
+[node name="RoomRome20" parent="World" unique_id=584868498 instance=ExtResource("25_p8adh")]
 position = Vector2(3200, -768)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome20/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_5b52o")
+shape = SubResource("RectangleShape2D_ywvm1")
 
 [node name="OpenParticle" parent="World/RoomRome20/DoorRight" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome21" parent="World" instance=ExtResource("26_oldxj")]
+[node name="RoomRome21" parent="World" unique_id=345228788 node_paths=PackedStringArray("transition_positions") instance=ExtResource("26_oldxj")]
 position = Vector2(2560, -768)
+transition_positions = {
+"left": NodePath("TransitionLeft"),
+"right": NodePath("TransitionRight")
+}
 
-[node name="AreaCollisionShape2D" parent="World/RoomRome21/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_1s8x8")
-
-[node name="OpenParticle" parent="World/RoomRome21/DoorRight" index="2"]
-fixed_fps = 30
-
-[node name="RoomRome22" parent="World" instance=ExtResource("27_vneqc")]
+[node name="RoomRome22" parent="World" unique_id=1223524280 instance=ExtResource("27_vneqc")]
 position = Vector2(3200, 384)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome22/DoorDown" index="1"]
@@ -475,16 +378,16 @@ z_index = 0
 [node name="OpenParticle" parent="World/RoomRome22/DoorDown" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome23" parent="World" instance=ExtResource("26_rg6nf")]
+[node name="RoomRome23" parent="World" unique_id=452187087 instance=ExtResource("26_rg6nf")]
 position = Vector2(2560, 384)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome23/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_667b8")
+shape = SubResource("RectangleShape2D_yjkpq")
 
 [node name="OpenParticle" parent="World/RoomRome23/DoorRight" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome24" parent="World" instance=ExtResource("29_mjuaj")]
+[node name="RoomRome24" parent="World" unique_id=1426596787 instance=ExtResource("29_mjuaj")]
 position = Vector2(3840, -768)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome24/DoorDown" index="1"]
@@ -493,7 +396,7 @@ z_index = 0
 [node name="OpenParticle" parent="World/RoomRome24/DoorDown" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome25" parent="World" instance=ExtResource("30_gj7ui")]
+[node name="RoomRome25" parent="World" unique_id=1847623018 instance=ExtResource("30_gj7ui")]
 position = Vector2(3840, -384)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome25/DoorDown" index="1"]
@@ -504,27 +407,27 @@ fixed_fps = 30
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome25/DoorFront" index="1"]
 z_index = 0
-shape = SubResource("RectangleShape2D_eeklj")
+shape = SubResource("RectangleShape2D_4glux")
 
 [node name="OpenParticle" parent="World/RoomRome25/DoorFront" index="2"]
 fixed_fps = 30
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome25/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_aq5ln")
+shape = SubResource("RectangleShape2D_rm7mi")
 
 [node name="OpenParticle" parent="World/RoomRome25/DoorRight" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome26" parent="World" instance=ExtResource("32_mjuaj")]
+[node name="RoomRome26" parent="World" unique_id=2141964634 instance=ExtResource("32_mjuaj")]
 position = Vector2(3200, -384)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome26/DoorRight" index="1"]
-shape = SubResource("RectangleShape2D_o3wqe")
+shape = SubResource("RectangleShape2D_moyig")
 
 [node name="OpenParticle" parent="World/RoomRome26/DoorRight" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome27" parent="World" instance=ExtResource("30_bmc2w")]
+[node name="RoomRome27" parent="World" unique_id=755128051 instance=ExtResource("30_bmc2w")]
 position = Vector2(4480, -384)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome27/DoorDown" index="1"]
@@ -533,36 +436,23 @@ z_index = 0
 [node name="OpenParticle" parent="World/RoomRome27/DoorDown" index="2"]
 fixed_fps = 30
 
-[node name="RoomRome28" parent="World" instance=ExtResource("34_7ty4q")]
+[node name="RoomRome28" parent="World" unique_id=2079984462 instance=ExtResource("34_7ty4q")]
 position = Vector2(4480, 0)
 
 [node name="AreaCollisionShape2D" parent="World/RoomRome28/DoorFront" index="1"]
 z_index = 0
-shape = SubResource("RectangleShape2D_803pr")
+shape = SubResource("RectangleShape2D_3aofj")
 
 [node name="OpenParticle" parent="World/RoomRome28/DoorFront" index="2"]
 fixed_fps = 30
 
-[node name="RoomRomeBoss" parent="World" instance=ExtResource("17_tv8i1")]
+[node name="RoomRomeBoss" parent="World" unique_id=1435593135 instance=ExtResource("17_tv8i1")]
 position = Vector2(2559.9592, -0.37342834)
 
-[node name="GameCamera" parent="." instance=ExtResource("36_p0u2v")]
+[node name="GameCamera" parent="." unique_id=681172563 instance=ExtResource("36_p0u2v")]
 
 [connection signal="timeout" from="LoopTimer" to="LoopTimer" method="_on_timeout"]
 
-[editable path="World/RoomRome03"]
-[editable path="World/RoomRome03/DoorDown"]
-[editable path="World/RoomRome03/DoorRight"]
-[editable path="World/RoomRome04"]
-[editable path="World/RoomRome04/DoorLeft"]
-[editable path="World/RoomRome04/DoorRight"]
-[editable path="World/RoomRome04/DoorDown"]
-[editable path="World/RoomRome05"]
-[editable path="World/RoomRome05/DoorRight"]
-[editable path="World/RoomRome06"]
-[editable path="World/RoomRome06/DoorLeft"]
-[editable path="World/RoomRome06/DoorDown"]
-[editable path="World/RoomRome06/DoorFront"]
 [editable path="World/RoomRome07"]
 [editable path="World/RoomRome07/DoorLeft"]
 [editable path="World/RoomRome07/DoorRight"]
@@ -573,22 +463,12 @@ position = Vector2(2559.9592, -0.37342834)
 [editable path="World/RoomRome09/DoorRight"]
 [editable path="World/RoomRome09/DoorFront"]
 [editable path="World/RoomRome09/DoorLeft"]
-[editable path="World/RoomRome10"]
-[editable path="World/RoomRome10/DoorFront"]
-[editable path="World/RoomRome10/DoorDown"]
-[editable path="World/RoomRome11"]
-[editable path="World/RoomRome11/DoorFront"]
-[editable path="World/RoomRome11/DoorRight"]
 [editable path="World/RoomRome12"]
 [editable path="World/RoomRome12/DoorLeft"]
 [editable path="World/RoomRome12/DoorDown"]
 [editable path="World/RoomRome13"]
 [editable path="World/RoomRome13/DoorFront"]
 [editable path="World/RoomRome13/DoorDown"]
-[editable path="World/RoomRome14"]
-[editable path="World/RoomRome14/DoorFront"]
-[editable path="World/RoomRome14/DoorLeft"]
-[editable path="World/RoomRome14/DoorDown"]
 [editable path="World/RoomRome15"]
 [editable path="World/RoomRome15/DoorFront"]
 [editable path="World/RoomRome15/DoorRight"]
@@ -610,9 +490,6 @@ position = Vector2(2559.9592, -0.37342834)
 [editable path="World/RoomRome20"]
 [editable path="World/RoomRome20/DoorLeft"]
 [editable path="World/RoomRome20/DoorRight"]
-[editable path="World/RoomRome21"]
-[editable path="World/RoomRome21/DoorLeft"]
-[editable path="World/RoomRome21/DoorRight"]
 [editable path="World/RoomRome22"]
 [editable path="World/RoomRome22/DoorLeft"]
 [editable path="World/RoomRome22/DoorDown"]

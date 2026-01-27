@@ -1,19 +1,19 @@
-[gd_scene load_steps=3 format=4 uid="uid://bbdbtt4jx6wt8"]
+[gd_scene format=4 uid="uid://bbdbtt4jx6wt8"]
 
 [ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://entity/door/door_left.tscn" id="1_yhgsl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmb3l"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4so3c"]
 resource_local_to_scene = true
 size = Vector2(32, 6)
 
-[node name="DoorFront" instance=ExtResource("1_yhgsl")]
+[node name="DoorUp" unique_id=1715024466 instance=ExtResource("1_yhgsl")]
 
 [node name="DoorLayer" parent="." index="0"]
 tile_map_data = PackedByteArray("AAAAAP7/AwACAAAAAAAAAP//AwACAAEAAAD+//7/AAAAABAAAAD+////AAAAABEAAAD///7/AwABAAAAAAD/////AwABAAEAAAABAP7/AAADABAAAAABAP//AAADABEAAAA=")
 
 [node name="AreaCollisionShape2D" parent="." index="1"]
 position = Vector2(0, -29)
-shape = SubResource("RectangleShape2D_dmb3l")
+shape = SubResource("RectangleShape2D_4so3c")
 
 [node name="OpenParticle" parent="." index="2"]
 position = Vector2(0, -32)
