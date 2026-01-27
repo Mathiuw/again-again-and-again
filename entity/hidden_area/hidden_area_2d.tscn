@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b73u4ukbr52e5"]
+
+[ext_resource type="Script" uid="uid://bd83vppsrd5un" path="res://entity/hidden_area/set_color_rect_size.gd" id="1_d5388"]
+[ext_resource type="Script" uid="uid://dsr2wdmveh5l1" path="res://entity/hidden_area/hidden_area_2d.gd" id="1_gqknp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52u5o"]
+resource_local_to_scene = true
+size = Vector2(128, 64)
+
+[node name="HiddenArea2D" type="Area2D" unique_id=142107537]
+disable_mode = 2
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_gqknp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=843650593]
+shape = SubResource("RectangleShape2D_52u5o")
+metadata/_edit_group_ = true
+
+[node name="Control" type="Control" parent="CollisionShape2D" unique_id=1601357352]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_d5388")
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D/Control" unique_id=1372016904]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11764706, 0.05490196, 0.05490196, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
