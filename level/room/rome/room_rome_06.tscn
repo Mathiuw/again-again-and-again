@@ -36,7 +36,7 @@ desired_room_id = &"r03"
 transition_key = "down"
 metadata/_custom_type_script = "uid://db3x51addxum0"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3wie"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsncp"]
 resource_local_to_scene = true
 size = Vector2(96, 72)
 
@@ -139,7 +139,7 @@ position = Vector2(248, 104)
 
 [node name="CollisionShape2D" parent="HiddenArea2D" index="0" unique_id=843650593]
 position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_m3wie")
+shape = SubResource("RectangleShape2D_vsncp")
 
 [node name="Control" parent="HiddenArea2D/CollisionShape2D" index="0" unique_id=1601357352]
 offset_left = -48.0

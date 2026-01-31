@@ -1,6 +1,8 @@
+@tool
 class_name Room
 extends Node2D
 
+@export_group("Room Settings")
 @export var id: StringName = "000"
 @export var initial_room: bool = false
 @export var pause_timer: bool = false
@@ -9,10 +11,19 @@ extends Node2D
 @export var enemies_root: Node2D = self
 @export var transition_positions: Dictionary[String, Marker2D]
 
+@export_group("Add Transition")
+@export var transition_left: bool = true
+@export var transition_right: bool = true
+@export var transition_up: bool = true
+@export var transition_down: bool = true
+@export_tool_button("Spawn Transition Markers", "Marker2D") var spawn_marker_action = spawn_transition_markers
 
 signal on_no_enemies_left
 
+#region Room Logic
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
+	
 	if enemies_root == null:
 		enemies_root = self
 	
@@ -105,3 +116,46 @@ func set_room_state(state: bool) -> void:
 			node.process_mode = Node.PROCESS_MODE_INHERIT 
 		else:
 			node.process_mode = Node.PROCESS_MODE_DISABLED
+#endregion
+
+
+#region Spawn Transition Marker Inspector buttom
+func spawn_transition_markers() -> void:
+	if transition_left:
+		var marker_1: Marker2D = Marker2D.new()
+		marker_1.name = "TransitionLeft"
+		
+		transition_positions.get_or_add("left", marker_1)
+		
+		add_child(marker_1, true)
+		marker_1.owner = get_tree().edited_scene_root
+	
+	if transition_right:
+		var marker_2: Marker2D = Marker2D.new()
+		marker_2.name = "TransitionRight"
+		
+		transition_positions.get_or_add("right", marker_2)
+		
+		add_child(marker_2, true)
+		marker_2.owner = get_tree().edited_scene_root
+	
+	if transition_up:
+		var marker_3: Marker2D = Marker2D.new()
+		marker_3.name = "TransitionUp"
+		
+		transition_positions.get_or_add("up", marker_3)
+		
+		add_child(marker_3, true)
+		marker_3.owner = get_tree().edited_scene_root
+	
+	if transition_down:
+		var marker_4: Marker2D = Marker2D.new()
+		marker_4.name = "TransitionDown"
+		
+		transition_positions.get_or_add("down", marker_4)
+		
+		add_child(marker_4, true)
+		marker_4.owner = get_tree().edited_scene_root
+	
+	notify_property_list_changed()
+#endregion
