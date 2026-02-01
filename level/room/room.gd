@@ -7,9 +7,9 @@ extends Node2D
 @export var initial_room: bool = false
 @export var pause_timer: bool = false
 @export var music_override: AudioStream
-@export var navigation_region_2D: NavigationRegion2D
-@export var enemies_root: Node2D = self
 @export var transition_positions: Dictionary[String, Marker2D]
+var navigation_region_2D: NavigationRegion2D
+var enemies_root: Node2D
 
 @export_group("Add Transition")
 @export var transition_left: bool = true
@@ -24,8 +24,12 @@ signal on_no_enemies_left
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
-	if enemies_root == null:
-		enemies_root = self
+	enemies_root = self
+	
+	for child in get_children():
+		if child is NavigationAgent2D:
+			navigation_region_2D = child
+			enemies_root = child
 	
 	# y sort setup
 	y_sort_enabled = true
@@ -41,12 +45,6 @@ func _ready() -> void:
 	if get_enemy_count(false) == 0:
 		return
 	
-	for child in get_children():
-		if child is NavigationAgent2D:
-			if navigation_region_2D == null:
-				navigation_region_2D = child
-				enemies_root = child
-
 	# on enemy die function connect
 	for node in enemies_root.get_children(true):
 		if node.is_in_group("enemy"):

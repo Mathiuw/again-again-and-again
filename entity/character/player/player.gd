@@ -23,9 +23,6 @@ var can_take_damage: bool = true
 
 
 func _ready() -> void:
-	# Hide and confine mouse
-	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
-	
 	_loop_timer = get_tree().get_first_node_in_group("loop_timer")
 	if _loop_timer:
 		_loop_timer.timeout.connect(on_loop_timer_timeout)
@@ -36,6 +33,13 @@ func _ready() -> void:
 	SignalBus.on_dialog_end.connect(on_dialogue_exit)
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	# interact/roll input
+	if event.is_action_pressed("interact"):
+		if !_interact_component.try_to_interact():
+			_roll_component.start_dash()
+
+
 func _process(_delta: float) -> void:
 	# set player animations
 	if velocity.length() > 0:
@@ -44,14 +48,19 @@ func _process(_delta: float) -> void:
 		_set_player_idle()
 	
 	# shoot input
-	var shoot_vector: Vector2 = Input.get_vector("shoot left", "shoot right", "shoot up", "shoot down")
-	if shoot_vector :
-		_weapon.shoot(shoot_vector, self)
+	#var shoot_vector: Vector2 = Input.get_vector("shoot left", "shoot right", "shoot up", "shoot down")
+	var shoot_vector: Vector2
+	if Input.is_action_pressed("shoot left"):
+		shoot_vector = Vector2(-1,0)
+	if Input.is_action_pressed("shoot right"):
+		shoot_vector = Vector2(1,0)
+	if Input.is_action_pressed("shoot up"):
+		shoot_vector = Vector2(0,-1)
+	if Input.is_action_pressed("shoot down"):
+		shoot_vector = Vector2(0,1)
 	
-	# interact/roll input
-	if Input.is_action_just_pressed("interact"):
-		if !_interact_component.try_to_interact():
-			_roll_component.start_dash()
+	if shoot_vector :
+		_weapon.shoot(shoot_vector)
 
 
 func _physics_process(delta: float) -> void:

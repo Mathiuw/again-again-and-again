@@ -34,7 +34,7 @@ metadata/_custom_type_script = "uid://db3x51addxum0"
 [sub_resource type="Resource" id="Resource_snqhf"]
 script = ExtResource("9_fr1um")
 desired_room_id = &"r14"
-transition_key = "right"
+transition_key = "left"
 metadata/_custom_type_script = "uid://db3x51addxum0"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fr1um"]
@@ -154,6 +154,6 @@ position = Vector2(-80, -128)
 position = Vector2(240, 136)
 
 [node name="TransitionRight" type="Marker2D" parent="." unique_id=1120763657]
-position = Vector2(272, 64)
+position = Vector2(272, 80)
 
 [editable path="DoorRight"]

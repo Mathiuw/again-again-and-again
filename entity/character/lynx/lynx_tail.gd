@@ -34,7 +34,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func tail_shoot() -> void:
-	weapon_component.shoot(transform.x, self)
+	weapon_component.shoot(transform.x)
 
 
 func transition_end() -> void:

@@ -7,6 +7,11 @@ var pause_menu: PackedScene = preload("uid://ce55cnahm7gfg")
 
 signal on_pause_state_changed(state: bool)
 
+
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+
+
 func _input(_event: InputEvent) -> void:
 	if  can_pause_input && Input.is_action_just_pressed("ui_cancel"):
 		pause_toggle()
@@ -15,6 +20,10 @@ func _input(_event: InputEvent) -> void:
 		
 		if  is_paused:
 			spawn_pause_menu()
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+		
 		on_pause_state_changed.emit(is_paused)
 
 func pause_toggle() -> void:

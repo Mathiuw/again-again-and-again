@@ -56,7 +56,7 @@ func _on_on_ai_shoot_end() -> void:
 
 
 func weapon_component_shoot() -> void:
-	weapon_component.shoot(target.global_position - root_node.global_position, root_node)
+	weapon_component.shoot(target.global_position - root_node.global_position)
 
 
 func ai_shoot() -> void:

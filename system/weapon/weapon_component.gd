@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 		currentCooldown -= delta
 		currentCooldown = clamp(currentCooldown, 0, shootCooldown)
 
-func shoot(direction: Vector2, shooter: Node) -> void:
+func shoot(direction: Vector2, shooter_override: Node = null) -> void:
 	if currentCooldown > 0: return
 	
 	var bulletsShot: int = 0
@@ -36,6 +36,16 @@ func shoot(direction: Vector2, shooter: Node) -> void:
 	while (bulletsShot < bulletAmount):
 		var new_bullet: BulletBase = bullet_scene.instantiate()
 		
+		var bullet_owner: Node = owner
+		
+		if shooter_override:
+			bullet_owner = shooter_override
+		
+		new_bullet.set_values(bulletSpeed, damage, bullet_owner)
+		new_bullet.rotation = direction.angle()
+		new_bullet.ignore_group = bullet_owner.get_groups()
+		#print_debug(owner)
+		
 		if !transformOverrides.is_empty() && transformOverrides[transformIndex] != null:
 			new_bullet.global_position = transformOverrides[transformIndex].global_position 
 		else: 
@@ -43,11 +53,6 @@ func shoot(direction: Vector2, shooter: Node) -> void:
 		
 		if add_collision_exception_to_parent:
 			new_bullet.add_collision_exception_with(get_parent())
-		new_bullet.bullet_speed = bulletSpeed
-		new_bullet.rotation = direction.angle()
-		new_bullet.damage = damage
-		new_bullet.shooter = shooter
-		new_bullet.ignore_group = shooter.get_groups()
 		
 		var world_root: Node = get_tree().get_first_node_in_group("world")
 		if world_root:

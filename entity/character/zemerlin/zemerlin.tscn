@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dliyelxwg7x8w"]
+[gd_scene format=3 uid="uid://dliyelxwg7x8w"]
 
 [ext_resource type="Script" uid="uid://bjfekveea263k" path="res://entity/character/zemerlin/zemerlin.gd" id="1_f87vc"]
 [ext_resource type="Texture2D" uid="uid://bwpg6wl7nkl0v" path="res://entity/character/zemerlin/Zehmerlin-Sheet.png" id="2_8u16h"]
@@ -261,8 +261,9 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gpa5e"]
+radius = 12.0
 
-[node name="Zemerlin" type="CharacterBody2D" groups=["enemy"]]
+[node name="Zemerlin" type="CharacterBody2D" unique_id=540138676 groups=["enemy"]]
 disable_mode = 1
 collision_layer = 2
 collision_mask = 0
@@ -271,26 +272,25 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_f87vc")
 move_speed = 60.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1643505193]
 material = ExtResource("2_qklf1")
 sprite_frames = SubResource("SpriteFrames_gg45h")
 animation = &"idle_front"
 autoplay = "idle_front"
 offset = Vector2(0, -16)
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 10.0
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=871900732]
 target_desired_distance = 120.0
 path_max_distance = 300.0
 avoidance_enabled = true
-max_speed = 60.0
+radius = 12.0
 debug_enabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2006068791]
+position = Vector2(0, -12)
 shape = SubResource("CircleShape2D_gpa5e")
 
-[node name="WeaponComponent" parent="." instance=ExtResource("3_b7koy")]
+[node name="WeaponComponent" parent="." unique_id=2145063172 instance=ExtResource("3_b7koy")]
 position = Vector2(0, -9)
 damage = 5
 bulletAmount = null
@@ -301,18 +301,18 @@ sound_variant_index = 1
 shootCooldown = 1.0
 betweenBulletsCooldown = null
 
-[node name="TargetRaycastCheck2D" parent="." instance=ExtResource("6_1gk6y")]
+[node name="TargetRaycastCheck2D" parent="." unique_id=776235864 instance=ExtResource("6_1gk6y")]
 position = Vector2(0, -9)
 
-[node name="DrawPathTimer" type="Timer" parent="."]
+[node name="DrawPathTimer" type="Timer" parent="." unique_id=1214382179]
 wait_time = 0.25
 autostart = true
 
-[node name="HealthComponent" parent="." instance=ExtResource("3_8u16h")]
+[node name="HealthComponent" parent="." unique_id=1345850970 instance=ExtResource("3_8u16h")]
 unique_name_in_owner = true
 max_hits = 2
 
-[node name="AIShootBehaviour" parent="." node_paths=PackedStringArray("weapon_component", "target_raycast_check_2d", "root_node") instance=ExtResource("7_cv5gn")]
+[node name="AIShootBehaviour" parent="." unique_id=1241681539 node_paths=PackedStringArray("weapon_component", "target_raycast_check_2d", "root_node") instance=ExtResource("7_cv5gn")]
 weapon_component = NodePath("../WeaponComponent")
 target_raycast_check_2d = NodePath("../TargetRaycastCheck2D")
 root_node = NodePath("..")
