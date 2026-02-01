@@ -1,9 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgy5ipfx6ohjl"]
+[gd_scene format=3 uid="uid://cgy5ipfx6ohjl"]
 
 [ext_resource type="Script" uid="uid://bfwxguchjkai6" path="res://system/dash/dash_component.gd" id="1_ubie3"]
 
-[node name="DashComponent" type="Timer"]
-one_shot = true
+[node name="DashComponent" type="Node" unique_id=176215605]
 script = ExtResource("1_ubie3")
-
-[connection signal="timeout" from="." to="." method="_on_timeout"]

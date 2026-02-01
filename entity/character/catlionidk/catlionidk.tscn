@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://be2ns7nd7wct4"]
+[gd_scene format=3 uid="uid://be2ns7nd7wct4"]
 
 [ext_resource type="Script" uid="uid://bbim12t1u8d40" path="res://entity/character/catlionidk/catlionidk.gd" id="1_asvjx"]
 [ext_resource type="Material" uid="uid://cenkdihc6dw7h" path="res://asset/damage_flash_material.tres" id="1_kq2sb"]
@@ -341,48 +341,48 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_asvjx"]
 
-[node name="Catlionidk" type="CharacterBody2D" groups=["enemy"]]
+[node name="Catlionidk" type="CharacterBody2D" unique_id=1452192282 groups=["enemy"]]
 disable_mode = 2
 collision_layer = 2
-collision_mask = 2
+collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_asvjx")
 move_speed = 150.0
 damage_amount = 8.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1362588939]
 material = ExtResource("1_kq2sb")
 sprite_frames = SubResource("SpriteFrames_yfmbt")
 animation = &"die"
 autoplay = "idle"
 offset = Vector2(0, -16)
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1283800428]
 target_desired_distance = 20.0
 avoidance_enabled = true
 radius = 20.0
 max_speed = 10000.0
 debug_enabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1391250157]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_asvjx")
 
-[node name="DashComponent" parent="." instance=ExtResource("3_yfmbt")]
+[node name="DashComponent" parent="." unique_id=1696054203 instance=ExtResource("3_yfmbt")]
 unique_name_in_owner = true
 dash_speed_multiplier = 3.0
 dash_length = 0.2
 dash_cooldown = 5.0
 infinite_dash = true
 
-[node name="DashParticleAnimatedSprite2D" parent="." node_paths=PackedStringArray("character_owner", "animated_sprite") instance=ExtResource("4_myhiq")]
+[node name="DashParticleAnimatedSprite2D" parent="." unique_id=1737039190 node_paths=PackedStringArray("character_owner", "animated_sprite") instance=ExtResource("4_myhiq")]
 character_owner = NodePath("..")
 animated_sprite = NodePath("../AnimatedSprite2D")
 
-[node name="HealthComponent" parent="." instance=ExtResource("3_n1omm")]
+[node name="HealthComponent" parent="." unique_id=1011006662 instance=ExtResource("3_n1omm")]
 max_hits = 2
 
-[node name="TargetRaycastCheck2D" parent="." instance=ExtResource("6_fminb")]
+[node name="TargetRaycastCheck2D" parent="." unique_id=35351482 instance=ExtResource("6_fminb")]
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="on_target_in_sight" from="TargetRaycastCheck2D" to="." method="_on_target_raycast_check_2d_on_target_in_sight"]

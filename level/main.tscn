@@ -110,8 +110,6 @@ size = Vector2(32, 6)
 [node name="Main" type="Node" unique_id=94988365]
 script = SubResource("GDScript_0ha60")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=121106206]
-
 [node name="LoopTimer" type="Timer" parent="." unique_id=33891855 groups=["loop_timer"]]
 wait_time = 360.0
 one_shot = true

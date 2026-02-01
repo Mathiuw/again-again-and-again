@@ -27,7 +27,7 @@ func _ready() -> void:
 	enemies_root = self
 	
 	for child in get_children():
-		if child is NavigationAgent2D:
+		if child is NavigationRegion2D:
 			navigation_region_2D = child
 			enemies_root = child
 	

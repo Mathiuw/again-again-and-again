@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://v6scm44jqtat"]
+[gd_scene format=3 uid="uid://v6scm44jqtat"]
 
 [ext_resource type="Script" uid="uid://58d741ajcrd4" path="res://entity/character/player/player.gd" id="1_hjaqi"]
 [ext_resource type="PackedScene" uid="uid://c6m0uqjs8vsix" path="res://system/dash/dash_particle_animated_sprite_2D.tscn" id="3_hp4bs"]
@@ -13,41 +13,41 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_oh5ij"]
 radius = 12.0
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=396335543 groups=["player"]]
 collision_layer = 2
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_hjaqi")
 invencible_frames_amount = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1831345369]
 sprite_frames = ExtResource("5_hp4bs")
 animation = &"idle_front"
 autoplay = "idle_front"
 frame_progress = 0.9141729
 offset = Vector2(0, -16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1825229163]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_g2vtq")
 
-[node name="Weapon" parent="." instance=ExtResource("4_ct4mp")]
+[node name="Weapon" parent="." unique_id=780323974 instance=ExtResource("4_ct4mp")]
 position = Vector2(0, -8)
 bulletSpeed = 500.0
 
-[node name="DashComponent" parent="." instance=ExtResource("3_oh5ij")]
+[node name="DashComponent" parent="." unique_id=762858778 instance=ExtResource("3_oh5ij")]
 unique_name_in_owner = true
 dash_speed_multiplier = 6.0
 dash_length = 0.1
 
-[node name="RollParticleAnimatedSprite2D" parent="." node_paths=PackedStringArray("character_owner", "animated_sprite") instance=ExtResource("3_hp4bs")]
+[node name="RollParticleAnimatedSprite2D" parent="." unique_id=976736614 node_paths=PackedStringArray("character_owner", "animated_sprite") instance=ExtResource("3_hp4bs")]
 position = Vector2(0, -16)
 character_owner = NodePath("..")
 animated_sprite = NodePath("../AnimatedSprite2D")
 
-[node name="InteractComponent" parent="." instance=ExtResource("5_oh5ij")]
+[node name="InteractComponent" parent="." unique_id=627602507 instance=ExtResource("5_oh5ij")]
 position = Vector2(0, -10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractComponent" unique_id=47119835]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_oh5ij")
