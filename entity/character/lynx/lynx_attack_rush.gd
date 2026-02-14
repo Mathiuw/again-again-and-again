@@ -1,7 +1,7 @@
 extends AttackBase
 class_name AttackLynxRush
 
-const LYNX_RUSH_BODY: PackedScene = preload("uid://bft146fxu4jge")
+
 
 enum AttackType {Random, Targeted}
 
@@ -41,16 +41,32 @@ func _process(delta: float) -> void:
 		on_attack_end.emit()
 
 
-func spawn_lynx_body(path_to_spawn:Path2D) -> void:
+func spawn_lynx_body(path_to_spawn:Path2D, should_attack_cue: bool = true) -> void:
+	const LYNX_RUSH_BODY: PackedScene = preload("uid://bft146fxu4jge")
+	
+	if should_attack_cue:
+		# await attack cue to end
+		await attack_cue(path_to_spawn.curve.get_point_position(0)).on_cue_end
+	
 	current_lynx_rush_body = LYNX_RUSH_BODY.instantiate()
 	current_lynx_rush_body.health_component = boss_health_component
 	path_to_spawn.add_child(current_lynx_rush_body)
+
+
+func attack_cue(point_position: Vector2) -> AttackCue:
+	const ATTACK_RUSH_CUE = preload("uid://qhkljwpubd1p")
+	var new_cue: AttackCue = ATTACK_RUSH_CUE.instantiate()
+	new_cue.position = point_position
+	return new_cue 
 
 
 func random_attack(enable_atack: bool = true) -> void:
 	print("Random Attack")
 	# selects a random path and attach lynx body to it
 	var new_path: Path2D = select_random_path()
+	
+
+	
 	if  new_path:
 		spawn_lynx_body(new_path)
 	

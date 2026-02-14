@@ -15,9 +15,11 @@ script = ExtResource("1_gqknp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=843650593]
 shape = SubResource("RectangleShape2D_52u5o")
+debug_color = Color(0, 0.5950001, 0.7, 0.21568628)
 metadata/_edit_group_ = true
 
 [node name="Control" type="Control" parent="CollisionShape2D" unique_id=1601357352]
+modulate = Color(1, 1, 1, 0.8)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -43,6 +45,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.11764706, 0.05490196, 0.05490196, 1)
+color = Color(0.12, 0.0564, 0.0564, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

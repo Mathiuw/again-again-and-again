@@ -10,6 +10,9 @@ extends Area2D
 var desired_room: Room = null
 
 func  _ready() -> void:
+	if secret_door:
+		door_layer.hide()
+	
 	if room_transition:
 		var world: Node = get_tree().get_first_node_in_group("world")
 		if world:
@@ -39,6 +42,7 @@ func set_door_open_state(state: bool) -> void:
 	else:
 		if always_open:
 			return
-		door_layer.show()
+		if !secret_door:
+			door_layer.show()
 		door_layer.collision_enabled = true
 		open_particle.emitting = false

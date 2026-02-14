@@ -1,4 +1,4 @@
-extends AbilityBase
+extends SkillBase
 class_name DashComponent
 
 signal on_dash_start

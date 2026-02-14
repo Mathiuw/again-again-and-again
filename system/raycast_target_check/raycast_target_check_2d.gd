@@ -13,6 +13,9 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
+	if !target:
+		return
+	
 	await get_tree().physics_frame
 	target_position = target.global_position - global_position
 	force_raycast_update()

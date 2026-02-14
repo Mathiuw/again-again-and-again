@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://v6scm44jqtat"]
 
 [ext_resource type="Script" uid="uid://58d741ajcrd4" path="res://entity/character/player/player.gd" id="1_hjaqi"]
-[ext_resource type="PackedScene" uid="uid://c6m0uqjs8vsix" path="res://system/dash/dash_particle_animated_sprite_2D.tscn" id="3_hp4bs"]
-[ext_resource type="PackedScene" uid="uid://cgy5ipfx6ohjl" path="res://system/dash/dash_component.tscn" id="3_oh5ij"]
+[ext_resource type="PackedScene" uid="uid://c6m0uqjs8vsix" path="res://system/skill/dash/dash_particle_animated_sprite_2D.tscn" id="3_hp4bs"]
+[ext_resource type="PackedScene" uid="uid://cgy5ipfx6ohjl" path="res://system/skill/dash/dash_component.tscn" id="3_oh5ij"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon_component.tscn" id="4_ct4mp"]
 [ext_resource type="SpriteFrames" uid="uid://8so27sg27wyc" path="res://entity/character/player/sf_player.tres" id="5_hp4bs"]
 [ext_resource type="PackedScene" uid="uid://bdq4ak6qkr0i1" path="res://system/interact/interactor_component.tscn" id="5_oh5ij"]

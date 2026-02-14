@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://l2r7c2wi8ojn"]
+[gd_scene format=3 uid="uid://c6m0uqjs8vsix"]
 
-[ext_resource type="Texture2D" uid="uid://cmr8qd5bl0vp0" path="res://entity/character/player/player-sheet.png" id="1_ji1o8"]
-[ext_resource type="Script" uid="uid://b4glvcic5x77t" path="res://system/dash/dash_particle_sprite.gd" id="2_ji1o8"]
+[ext_resource type="Texture2D" uid="uid://cmr8qd5bl0vp0" path="res://entity/character/player/player-sheet.png" id="1_8wxuk"]
+[ext_resource type="Script" uid="uid://b31aehpmkkpx4" path="res://system/skill/dash/dash_particle_animated_sprite.gd" id="2_vvfsj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvtld"]
-atlas = ExtResource("1_ji1o8")
+atlas = ExtResource("1_8wxuk")
 region = Rect2(0, 128, 32, 32)
 
 [sub_resource type="Curve" id="Curve_hp4bs"]
@@ -23,10 +23,10 @@ initial_velocity_max = 63.35
 gravity = Vector3(0, 0, 0)
 alpha_curve = SubResource("CurveTexture_g2vtq")
 
-[node name="DashParticleSprite2D" type="GPUParticles2D"]
+[node name="DashParticleAnimatedSprite2D" type="GPUParticles2D"]
 emitting = false
 texture = SubResource("AtlasTexture_fvtld")
 lifetime = 0.31
 trail_sections = 9
 process_material = SubResource("ParticleProcessMaterial_hp4bs")
-script = ExtResource("2_ji1o8")
+script = ExtResource("2_vvfsj")

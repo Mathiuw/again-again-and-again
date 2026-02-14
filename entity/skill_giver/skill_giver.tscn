@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://kheocg0g57sn"]
+
+[ext_resource type="Script" uid="uid://bmiuff7ktigwk" path="res://entity/skill_giver/skill_giver.gd" id="1_svkp2"]
+
+[node name="SkillGiver" type="Area2D" unique_id=533178909]
+disable_mode = 2
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_svkp2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
