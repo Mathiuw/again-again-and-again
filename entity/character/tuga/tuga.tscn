@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c5pxaov6df4yw"]
+[gd_scene format=3 uid="uid://c5pxaov6df4yw"]
 
 [ext_resource type="Texture2D" uid="uid://bt2l6o3tgni6n" path="res://entity/character/tuga/Tuga-Sheet.png" id="1_antqy"]
 [ext_resource type="Script" uid="uid://b46717m7x1f5n" path="res://entity/character/tuga/tuga.gd" id="1_b5dlg"]
@@ -6,7 +6,7 @@
 [ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://asset/damage_flash.gdshader" id="2_gckpa"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon_component.tscn" id="2_k5jd2"]
 [ext_resource type="PackedScene" uid="uid://dkkymdqija6rj" path="res://entity/bullet/bullet_tuga.tscn" id="4_r6lkd"]
-[ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/AI/ai_shoot_behaviour.tscn" id="5_teoyt"]
+[ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/AI/run_away_behaviour/ai_shoot_behaviour.tscn" id="5_teoyt"]
 [ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/raycast_target_check/raycast_target_check_2d.tscn" id="6_pvhdl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lbuii"]

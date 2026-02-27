@@ -1,8 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://bqyoyuprd01pg"]
+[gd_scene format=3 uid="uid://bqyoyuprd01pg"]
 
 [ext_resource type="Script" uid="uid://cfdpoov7yk2uh" path="res://entity/character/franky_mouse/franky_mouse.gd" id="1_h5rvr"]
 [ext_resource type="Texture2D" uid="uid://iu33kude3xkk" path="res://entity/character/franky_mouse/Frankymouse.png" id="3_xpy6e"]
-[ext_resource type="Script" uid="uid://fjtqgm701i1c" path="res://system/AI/ai_run_away_behaviour.gd" id="4_oto10"]
+[ext_resource type="Script" uid="uid://fjtqgm701i1c" path="res://system/AI/run_away_behaviour/ai_run_away_behaviour.gd" id="4_oto10"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="5_refap"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ofww"]

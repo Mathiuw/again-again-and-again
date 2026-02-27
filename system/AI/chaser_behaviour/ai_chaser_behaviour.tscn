@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://eiu347grr33x"]
+
+[ext_resource type="Script" uid="uid://cmmhc52xpvpsb" path="res://system/AI/chaser_behaviour/AIChaserBehaviour.cs" id="1_xva8y"]
+
+[node name="AIChaserBehaviour" type="Node" unique_id=807217399]
+script = ExtResource("1_xva8y")

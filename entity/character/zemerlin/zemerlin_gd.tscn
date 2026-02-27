@@ -1,129 +1,128 @@
-[gd_scene format=3 uid="uid://dliyelxwg7x8w"]
+[gd_scene format=3 uid="uid://dp2pu56iu7n8v"]
 
-[ext_resource type="Script" uid="uid://bjfekveea263k" path="res://entity/character/zemerlin/zemerlin.gd" id="1_f87vc"]
-[ext_resource type="Texture2D" uid="uid://bwpg6wl7nkl0v" path="res://entity/character/zemerlin/Zehmerlin-Sheet.png" id="2_8u16h"]
-[ext_resource type="Material" uid="uid://cenkdihc6dw7h" path="res://asset/damage_flash_material.tres" id="2_qklf1"]
-[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="3_8u16h"]
-[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon_component.tscn" id="3_b7koy"]
-[ext_resource type="PackedScene" uid="uid://d2uhi6ia23jpa" path="res://entity/bullet/bullet_zemerlin.tscn" id="5_mb7b2"]
-[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/raycast_target_check/raycast_target_check_2d.tscn" id="6_1gk6y"]
-[ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/AI/run_away_behaviour/ai_shoot_behaviour.tscn" id="7_cv5gn"]
-[ext_resource type="Script" uid="uid://cmmhc52xpvpsb" path="res://system/AI/chaser_behaviour/AIChaserBehaviour.cs" id="9_tlhyt"]
+[ext_resource type="Script" uid="uid://70m2p4sbn33p" path="res://entity/character/zemerlin/zemerlin_gd.gd" id="1_l6nna"]
+[ext_resource type="Material" uid="uid://cenkdihc6dw7h" path="res://asset/damage_flash_material.tres" id="2_mreer"]
+[ext_resource type="Texture2D" uid="uid://bwpg6wl7nkl0v" path="res://entity/character/zemerlin/Zehmerlin-Sheet.png" id="3_2iq1j"]
+[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon_component.tscn" id="4_tlntl"]
+[ext_resource type="PackedScene" uid="uid://d2uhi6ia23jpa" path="res://entity/bullet/bullet_zemerlin.tscn" id="5_i0ks1"]
+[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/raycast_target_check/raycast_target_check_2d.tscn" id="6_6k0nx"]
+[ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="7_5ejc2"]
+[ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/AI/run_away_behaviour/ai_shoot_behaviour.tscn" id="8_e5d17"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2lkbx"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(0, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dfan5"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(32, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kagqk"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(64, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57bua"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(96, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j23en"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(0, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7n6xb"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(32, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3gtic"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(64, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uje3g"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(96, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a552r"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(0, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1gk6y"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6bka5"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qklf1"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rc5mm"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7koy"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yvcfn"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ulb22"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1e552"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgurf"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqmod"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqle"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pw261"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rs6j2"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0n578"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sj55t"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_un1pk"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jntje"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ysr33"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jl0n1"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_65i8h"]
-atlas = ExtResource("2_8u16h")
+atlas = ExtResource("3_2iq1j")
 region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gg45h"]
@@ -270,11 +269,10 @@ collision_layer = 2
 collision_mask = 0
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_f87vc")
-move_speed = 60.0
+script = ExtResource("1_l6nna")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1643505193]
-material = ExtResource("2_qklf1")
+material = ExtResource("2_mreer")
 sprite_frames = SubResource("SpriteFrames_gg45h")
 animation = &"idle_front"
 autoplay = "idle_front"
@@ -293,37 +291,32 @@ debug_enabled = true
 position = Vector2(0, -12)
 shape = SubResource("CircleShape2D_gpa5e")
 
-[node name="WeaponComponent" parent="." unique_id=2145063172 instance=ExtResource("3_b7koy")]
+[node name="WeaponComponent" parent="." unique_id=2145063172 instance=ExtResource("4_tlntl")]
 position = Vector2(0, -9)
 damage = 5
 bulletAmount = null
 bulletSpeed = null
-bullet_scene = ExtResource("5_mb7b2")
+bullet_scene = ExtResource("5_i0ks1")
 add_collision_exception_to_parent = null
 sound_variant_index = 1
 shootCooldown = 1.0
 betweenBulletsCooldown = null
 
-[node name="TargetRaycastCheck2D" parent="." unique_id=776235864 instance=ExtResource("6_1gk6y")]
+[node name="TargetRaycastCheck2D" parent="." unique_id=776235864 instance=ExtResource("6_6k0nx")]
 position = Vector2(0, -9)
 
 [node name="DrawPathTimer" type="Timer" parent="." unique_id=1214382179]
 wait_time = 0.25
 autostart = true
 
-[node name="HealthComponent" parent="." unique_id=1345850970 instance=ExtResource("3_8u16h")]
+[node name="HealthComponent" parent="." unique_id=1345850970 instance=ExtResource("7_5ejc2")]
 unique_name_in_owner = true
 max_hits = 2
 
-[node name="AIShootBehaviour" parent="." unique_id=1241681539 node_paths=PackedStringArray("weapon_component", "target_raycast_check_2d", "root_node") instance=ExtResource("7_cv5gn")]
+[node name="AIShootBehaviour" parent="." unique_id=1241681539 node_paths=PackedStringArray("weapon_component", "target_raycast_check_2d", "root_node") instance=ExtResource("8_e5d17")]
 weapon_component = NodePath("../WeaponComponent")
 target_raycast_check_2d = NodePath("../TargetRaycastCheck2D")
 root_node = NodePath("..")
-
-[node name="AIChaserBehaviour" type="Node" parent="." unique_id=603847941 node_paths=PackedStringArray("ChaserNavigationAgent")]
-script = ExtResource("9_tlhyt")
-ChaserNavigationAgent = NodePath("../NavigationAgent2D")
-metadata/_custom_type_script = "uid://cmmhc52xpvpsb"
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="DrawPathTimer" to="." method="_on_draw_path_timer_timeout"]

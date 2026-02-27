@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cfskjefpr4x5b" path="res://entity/character/medusa/medusa.gd" id="1_7o4kk"]
 [ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://asset/damage_flash.gdshader" id="2_10gqf"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon_component.tscn" id="2_i1pib"]
-[ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/AI/ai_shoot_behaviour.tscn" id="3_7o4kk"]
+[ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/AI/run_away_behaviour/ai_shoot_behaviour.tscn" id="3_7o4kk"]
 [ext_resource type="Texture2D" uid="uid://cmdvti2y6w1q3" path="res://asset/sphere.png" id="3_v51rx"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="5_0bcff"]
 [ext_resource type="PackedScene" uid="uid://bhe30cbxewbj" path="res://entity/bullet/bullet_medusa.tscn" id="5_7frci"]

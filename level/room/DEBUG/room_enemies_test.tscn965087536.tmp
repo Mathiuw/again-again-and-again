@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://be2ns7nd7wct4" path="res://entity/character/catlionidk/catlionidk.tscn" id="10_ox838"]
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://entity/character/player/player.tscn" id="11_tmye1"]
 [ext_resource type="PackedScene" uid="uid://cshb25yq5ltku" path="res://entity/game_camera/game_camera.tscn" id="12_q7nlq"]
+[ext_resource type="PackedScene" uid="uid://dp2pu56iu7n8v" path="res://entity/character/zemerlin/zemerlin_gd.tscn" id="13_r2oxf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ffdht"]
 vertices = PackedVector2Array(39.273438, -13.6015625, 39.21875, -13.640625, 48, -11.296875, 76.703125, -40, 108, -124, 108, -12, 72.859375, -25.648438, 72.859375, -54.351563, 19.296875, -40, 22.796875, -26.90625, 13.1328125, -29.5, 43.703125, 3, 62.351563, -64.859375, -108, -124, 48, -68.703125, 33.648438, -64.859375, -108, -12, 23.140625, -54.351563, -13.1328125, -29.5, -27.101563, -25.773438, 212, -12, 212, -124, 274, -124, 274, 130, 212, 130, 212, 12, 108, 12, 108, 130, -108, 130, 13.1328125, 35.5, 27.101563, 31.773438, -212, 12, -212, 130, -274, 130, -274, -124, -212, -124, -212, -12, -108, 12, -43.703125, 3, 62.351563, -15.140625, -39.273438, -13.6015625, -39.273438, 19.601563, -27.101563, 31.773438, -13.1328125, 35.5, 39.273438, 19.601563)
@@ -79,3 +80,6 @@ position = Vector2(64, -80)
 position = Vector2(-208, 104)
 
 [node name="PlayerCamera" parent="." unique_id=230123162 instance=ExtResource("12_q7nlq")]
+
+[node name="Zemerlin" parent="." unique_id=540138676 instance=ExtResource("13_r2oxf")]
+position = Vector2(-80, -16)

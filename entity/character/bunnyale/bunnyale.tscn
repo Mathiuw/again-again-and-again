@@ -1,6 +1,6 @@
-[gd_scene load_steps=35 format=3 uid="uid://b1uw6v7edbscl"]
+[gd_scene format=3 uid="uid://b1uw6v7edbscl"]
 
-[ext_resource type="Script" uid="uid://fjtqgm701i1c" path="res://system/AI/ai_run_away_behaviour.gd" id="1_1shr2"]
+[ext_resource type="Script" uid="uid://fjtqgm701i1c" path="res://system/AI/run_away_behaviour/ai_run_away_behaviour.gd" id="1_1shr2"]
 [ext_resource type="Script" uid="uid://c45ygg03xydtb" path="res://entity/character/bunnyale/bunnyale.gd" id="1_8ggyp"]
 [ext_resource type="Material" uid="uid://cenkdihc6dw7h" path="res://asset/damage_flash_material.tres" id="2_mvmwx"]
 [ext_resource type="Texture2D" uid="uid://dskkr445w4tl2" path="res://entity/character/bunnyale/BunnyaleD-Sheet.png" id="2_r4plt"]

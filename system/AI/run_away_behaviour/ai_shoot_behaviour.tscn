@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://4r33i08aifdq"]
+
+[ext_resource type="Script" uid="uid://bmdsx56a0hnm8" path="res://system/AI/run_away_behaviour/ai_shoot_behaviour.gd" id="1_bafn5"]
+
+[node name="AIShootBehaviour" type="Node"]
+script = ExtResource("1_bafn5")
+
+[connection signal="on_ai_shoot" from="." to="." method="_on_on_ai_shoot"]
