@@ -3,7 +3,7 @@ using UnityEngine;
 public class Player : MonoBehaviour, IDamageable
 {
     public delegate void PlayerDead();
-    public static event PlayerDead OnPlayerDead;
+    public static event PlayerDead OnPlayerDie;
     private Timer timer;
 
     private void Start()
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour, IDamageable
             rb.bodyType = RigidbodyType2D.Kinematic;
         }
 
-        OnPlayerDead?.Invoke();
+        OnPlayerDie?.Invoke();
     }
 
     public void Damage(int damage, Transform Instigator)

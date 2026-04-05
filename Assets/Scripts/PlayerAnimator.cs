@@ -14,7 +14,7 @@ public class PlayerAnimator : MonoBehaviour
 
     private void Start()
     {
-        Player.OnPlayerDead += OnPlayerDie;
+        Player.OnPlayerDie += OnPlayerDie;
 
         playerController = GetComponent<PlayerController2D>();
     }

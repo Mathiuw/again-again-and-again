@@ -7,6 +7,8 @@ public class Timer : MonoBehaviour
 
     public float CurrentTimerSeconds { get; private set; } = 0f;
 
+    public float TimerStartSeconds { get => timerStartSeconds; }
+
     public event Action<float> OnTimerValueChange;
     public event Action OnTimerEnd;
 

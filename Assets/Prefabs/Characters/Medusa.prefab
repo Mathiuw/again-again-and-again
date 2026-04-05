@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7729591620499762929}
   - component: {fileID: 4963337282912782866}
-  - component: {fileID: 7938624883820031881}
-  - component: {fileID: 273440550619729109}
   - component: {fileID: 2938816596130427278}
+  - component: {fileID: 273440550619729109}
   m_Layer: 0
   m_Name: Medusa
   m_TagString: Enemy
@@ -72,34 +71,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.82526904
---- !u!114 &7938624883820031881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881792764929406903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f457662f7bd51f40b348b4d73726ed1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <MaxHitCount>k__BackingField: 2
---- !u!114 &273440550619729109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881792764929406903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1544e2dbe76e7bf428d04726c3b918e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 8744419771213730439, guid: 02c7fc407da2eea4ebae783ef349cdd3, type: 3}
-  _bulletSpeed: 500
-  _damage: 1
 --- !u!114 &2938816596130427278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,10 +83,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd392144ee587f4f8efda9b88b6b1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _followPlayer: 0
-  _initialShootDelay: 2
-  _shootFrequency: 3
-  _randomVariation: 1
+  maxHealth: 3
+--- !u!114 &273440550619729109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881792764929406903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1544e2dbe76e7bf428d04726c3b918e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  bulletSpeed: 300
+  damage: 1
+  bulletAmountPerShot: 1
+  spawnPositions: []
+  _soundType: 0
 --- !u!1 &8130869336483351230
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +160,7 @@ Animator:
   m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1495787050120594297
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -192,6 +179,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -213,9 +202,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 8008142515836459793, guid: 2eef7141b9486824a8ed5e3196cf7004, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -225,7 +216,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8917700003595934498
 MonoBehaviour:
@@ -239,4 +229,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7778156014c39ee44814e034e8a56ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aiMedusa: {fileID: 2938816596130427278}

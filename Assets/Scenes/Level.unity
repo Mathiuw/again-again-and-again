@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8fea5b20d255340b3f4267b54b206d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimerStartSeconds: 180
+  timerStartSeconds: 180
 --- !u!1001 &145104068
 PrefabInstance:
   m_ObjectHideFlags: 0

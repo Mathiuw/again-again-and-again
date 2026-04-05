@@ -1,11 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-[SelectionBase]
 public class Room : MonoBehaviour
 {
     [Header("Gizmos Settings")]
     [SerializeField] private int _roomWidth = 40;
     [SerializeField] private int _roomHeight = 24;
+    private Enemy[] enemiesOnTheRoom = new Enemy[0];
+
+    public int EnemyRoomCount
+    { 
+        get 
+        {
+            return enemiesOnTheRoom.Length;        
+        } 
+    }
 
     private void OnEnable()
     {
@@ -24,19 +33,16 @@ public class Room : MonoBehaviour
 
     private void Start()
     {
-        foreach (Transform t in transform)
+        CountEnemies();
+
+        if (enemiesOnTheRoom.Length > 0)
         {
-            if (t.CompareTag("Enemy"))
+            foreach (Enemy enemy in enemiesOnTheRoom)
             {
-                Health health = t.GetComponent<Health>();
-                if (health)
-                {
-                    health.OnDie += OnEnemyDie;
-                }
+                enemy.health.OnDie += OnEnemyDie;
             }
         }
 
-        CountEnemies();
         SetEnemiesState(false);
     }
 
@@ -49,16 +55,14 @@ public class Room : MonoBehaviour
     {
         int enemyCount = 0;
 
+        List<Enemy> enemiesList = new();
+
         foreach (Transform t in transform)
         {
-            if (t.CompareTag("Enemy"))
+            if (t.TryGetComponent(out Enemy enemy))
             {
-                Health health = t.GetComponent<Health>();
-
-                if (!health.IsDead)
-                {
-                    enemyCount++;
-                }
+                enemy.health.OnDie += OnEnemyDie;
+                enemiesList.Add(enemy);
             }
         }
 
@@ -66,6 +70,8 @@ public class Room : MonoBehaviour
         {
             OpenRoomDoors();
         }
+
+        enemiesOnTheRoom = enemiesList.ToArray();
     }
 
     private void OpenRoomDoors()
@@ -90,12 +96,9 @@ public class Room : MonoBehaviour
 
     private void SetEnemiesState(bool state) 
     {
-        foreach (Transform t in transform)
+        foreach (Enemy enemy in enemiesOnTheRoom)
         {
-            if (t.CompareTag("Enemy"))
-            {
-                t.gameObject.SetActive(state);
-            }
+            enemy.gameObject.SetActive(state);
         }
     }
 

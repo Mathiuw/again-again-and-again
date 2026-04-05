@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private Bullet bulletPrefab;
-    [SerializeField] private float bulletSpeed = 300f;
-    [SerializeField] private int damage = 1;
-    [SerializeField] private uint bulletAmountPerShot = 1;
-    [SerializeField] private Transform[] spawnPositions;
-    [SerializeField] private ESoundType _soundType = ESoundType.SHOOT;
+    [SerializeField] protected Bullet bulletPrefab;
+    [SerializeField] protected float bulletSpeed = 300f;
+    [SerializeField] protected int damage = 1;
+    [SerializeField] protected uint bulletAmountPerShot = 1;
+    [SerializeField] protected Transform[] spawnPositions;
+    [SerializeField] protected ESoundType _soundType = ESoundType.SHOOT;
 
     public void Shoot(Vector3 bulletDirection) 
     {

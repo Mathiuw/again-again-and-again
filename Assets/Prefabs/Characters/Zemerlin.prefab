@@ -57,6 +57,7 @@ Animator:
   m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &7481715161510501140
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -75,6 +76,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -96,9 +99,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 5083956991219270060, guid: 47ed56d69dafe86469561cd3c148ad84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -108,7 +113,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8695831306549101838
 GameObject:
@@ -124,12 +128,12 @@ GameObject:
   - component: {fileID: 3871286070898645405}
   - component: {fileID: 6584653576102517413}
   - component: {fileID: 2686806022715100882}
-  - component: {fileID: 8429917038069736809}
+  - component: {fileID: 3270635417343532453}
   - component: {fileID: 4095846569465603871}
   - component: {fileID: 149151982728322238}
   - component: {fileID: 1159675779889512956}
   m_Layer: 3
-  m_Name: Zehmerlin
+  m_Name: Zemerlin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
---- !u!114 &8429917038069736809
+--- !u!114 &3270635417343532453
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,10 +300,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8695831306549101838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f457662f7bd51f40b348b4d73726ed1, type: 3}
+  m_Script: {fileID: 11500000, guid: 8cd392144ee587f4f8efda9b88b6b1e8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  <MaxHitCount>k__BackingField: 2
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  maxHealth: 3
 --- !u!114 &4095846569465603871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,9 +316,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1544e2dbe76e7bf428d04726c3b918e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 8744419771213730439, guid: 18d73aa9a29769a4491b1509f9b6df85, type: 3}
-  _bulletSpeed: 700
-  _damage: 1
+  bulletPrefab: {fileID: 0}
+  bulletSpeed: 300
+  damage: 1
+  bulletAmountPerShot: 1
+  spawnPositions: []
+  _soundType: 0
 --- !u!114 &149151982728322238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,10 +334,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f129e7b8b511dc42ae7e132a4d0e137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _followPlayer: 1
-  _initialShootDelay: 2
-  _shootFrequency: 3
-  _randomVariation: 1
+  followPlayer: 0
+  initialShootDelay: 2
+  shootFrequency: 3
+  randomVariation: 1
 --- !u!114 &1159675779889512956
 MonoBehaviour:
   m_ObjectHideFlags: 0

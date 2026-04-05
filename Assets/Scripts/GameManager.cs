@@ -30,16 +30,7 @@ public class GameManager : MonoBehaviour
             timer.OnTimerEnd += OnTimerEnd;
         }
 
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player)
-        {
-            Health health = player.GetComponent<Health>();
-
-            if (health)
-            {
-                health.OnDie += OnPlayerDie;
-            }
-        }
+        Player.OnPlayerDie += OnPlayerDie;
     }
 
     private void OnTimerEnd()

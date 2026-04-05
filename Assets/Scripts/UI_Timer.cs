@@ -1,18 +1,16 @@
-using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
 public class UI_Timer : MonoBehaviour
 {
-    private Slider _sliderBar;
+    private Slider sliderBar;
 
     private void Awake()
     {
-        _sliderBar = GetComponent<Slider>();
+        sliderBar = GetComponent<Slider>();
 
-        if (!_sliderBar)
+        if (!sliderBar)
         {
             Debug.LogError("SliderBar component not found on this GameObject.");
         }
@@ -24,8 +22,8 @@ public class UI_Timer : MonoBehaviour
 
         if (timer)
         {
-            _sliderBar.maxValue = timer.timerStartSeconds;
-            _sliderBar.value = timer.timerStartSeconds;
+            sliderBar.maxValue = timer.TimerStartSeconds;
+            sliderBar.value = timer.TimerStartSeconds;
             timer.OnTimerValueChange += OnTimerValueChange;
         }
     }
@@ -42,6 +40,6 @@ public class UI_Timer : MonoBehaviour
 
     private void OnTimerValueChange(float currentSeconds)
     {
-        _sliderBar.value = currentSeconds;
+        sliderBar.value = currentSeconds;
     }
 }

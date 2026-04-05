@@ -1,40 +1,33 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerController2D))]
 public class WeaponPlayer : Weapon
 {
-    [SerializeField] protected Transform _orientationTransform;
-    [SerializeField] protected float _shootCooldown = 0.75f;
-    private float _currentCooldown = 0f;
-    private PlayerController2D _playerMovement;
+    [SerializeField] protected Transform orientationTransform;
+    [SerializeField] protected float shootCooldown = 0.75f;
+    [SerializeField] private InputActionReference shootInputAction;
+    private float currentCooldown = 0f;
 
-    private void Start()
+    private void OnEnable()
     {
-        _playerMovement = GetComponent<PlayerController2D>();
-
-        _playerMovement.Input.Player.Attack.started += OnAttackStarted;
+        shootInputAction.action.started += OnAttackStarted;
+        shootInputAction.action.Enable();
     }
 
     private void Update()
     {
-        if (_currentCooldown > 0f)
+        if (currentCooldown > 0f)
         {
-            _currentCooldown -= Time.deltaTime;
-            _currentCooldown = Mathf.Clamp(_currentCooldown, 0, _shootCooldown);
-        }
-
-        if (_playerMovement.Input.Player.Attack.IsPressed() && _currentCooldown <= 0)
-        {
-            ShootBullet();
-            _currentCooldown = _shootCooldown;
+            currentCooldown -= Time.deltaTime;
+            currentCooldown = Mathf.Max(currentCooldown, 0);
         }
     }
 
     private void OnDisable()
     {
-        _playerMovement.Input.Player.Attack.started -= OnAttackStarted;
+        shootInputAction.action.started -= OnAttackStarted;
+        shootInputAction.action.Disable();
     }
 
     private void OnAttackStarted(InputAction.CallbackContext context)
@@ -45,22 +38,27 @@ public class WeaponPlayer : Weapon
         if (moveVector.x == 1)
         {
             desiredRotaion.z = 0;
-            _orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
+            orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
         }
         else if (moveVector.x == -1)
         {
             desiredRotaion.z = 180;
-            _orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
+            orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
         }
         else if (moveVector.y == 1)
         {
             desiredRotaion.z = 90;
-            _orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
+            orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
         }
         else if (moveVector.y == -1)
         {
             desiredRotaion.z = -90;
-            _orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
+            orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
+        }
+
+        if (currentCooldown <= 0f)
+        {
+            ShootBullet();
         }
     }
 
@@ -71,7 +69,7 @@ public class WeaponPlayer : Weapon
         // Set bullet direction and speed
         bullet.Owner = transform;
         bullet.Damage = damage;
-        bullet.transform.right = _orientationTransform.right;
+        bullet.transform.right = orientationTransform.right;
         bullet.Rb.AddForce(bullet.transform.right * bulletSpeed);
 
         Collider2D shooterCollider = GetComponent<Collider2D>();

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHealth = 3;
     public Health health;
@@ -12,8 +12,13 @@ public class Enemy : MonoBehaviour
         health.OnDie += Die;
     }
 
-    private void Die()
+    public virtual void Die()
     {
         Destroy(gameObject);
+    }
+
+    public void Damage(int damage, Transform Instigator)
+    {
+        health.RemoveHealth(damage);
     }
 }
