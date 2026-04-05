@@ -1,12 +1,6 @@
 class_name Zemerlin
 extends CharacterBody2D
 
-@export_group("AI Chase Settings")
-@export var move_speed: float = 100;
-@export var acceleration: float = 12.5
-@export var friction: float = 4.5
-@onready var ai_chaser_behaviour: AIChaserBehaviour = $AIChaserBehaviour
-
 var target: Node2D = null
 
 @onready var _health: Health = $HealthComponent
@@ -17,36 +11,13 @@ func _ready() -> void:
 	# Die function connect
 	_health.on_die.connect(on_die)
 	
-	print(ai_chaser_behaviour.MoveSpeed) 
-	
 	target = get_tree().get_first_node_in_group("player")
 	if  !target:
 		push_error("Couldnt find player")
 
 
 func _process(_delta: float) -> void:
-	#print(velocity.normalized())
 	set_animations()
-
-
-#func _physics_process(_delta: float) -> void:
-	#if !target:
-		#return
-	#
-	## Do not query when the map has never synchronized and is empty.
-	#if NavigationServer2D.map_get_iteration_id(_navigation_agent_2d.get_navigation_map()) == 0:
-		#return
-	#
-	#if _navigation_agent_2d.is_navigation_finished():
-		#return
-	#
-	#var move_direction: Vector2 = _navigation_agent_2d.get_next_path_position()
-	#var new_velocity: Vector2 = global_position.direction_to(move_direction) * move_speed
-	#
-	#if  _navigation_agent_2d.avoidance_enabled:
-		#_navigation_agent_2d.velocity = new_velocity
-	#else:
-		#_on_navigation_agent_2d_velocity_computed(new_velocity)
 
 
 func on_die() -> void:
@@ -104,11 +75,6 @@ func set_animations() -> void:
 		_set_zemerlin_animation(velocity.normalized())
 	else:
 		_set_zemerlin_idle()
-
-
-#func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
-	#velocity = safe_velocity
-	#move_and_slide()
 
 
 func damage(damageAmount: int):

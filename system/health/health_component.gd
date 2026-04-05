@@ -1,5 +1,5 @@
-class_name Health
 extends Node
+class_name Health
 
 @export var max_hits: int = 5
 var _current_hits: int

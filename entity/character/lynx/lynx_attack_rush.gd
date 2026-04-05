@@ -65,8 +65,6 @@ func random_attack(enable_atack: bool = true) -> void:
 	# selects a random path and attach lynx body to it
 	var new_path: Path2D = select_random_path()
 	
-
-	
 	if  new_path:
 		spawn_lynx_body(new_path)
 	
