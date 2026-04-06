@@ -1,27 +1,30 @@
 ﻿using Pathfinding;
 using UnityEngine;
 
-public class AIChaserBehaviour : MonoBehaviour
+namespace MaiNull
 {
-    [Header("AI Chaser Settings")]
-    [SerializeField] protected bool followPlayer = false;
-    private Transform target;
-    private AIDestinationSetter destinationSetter;
-
-    private void Start()
+    public class AIChaserBehaviour : MonoBehaviour
     {
-        Transform playerTransform = FindFirstObjectByType<Player>()?.transform;
-        if (playerTransform)
-        {
-            target = playerTransform;
-        }
+        [Header("AI Chaser Settings")]
+        [SerializeField] protected bool followPlayer = false;
+        private Transform target;
+        private AIDestinationSetter destinationSetter;
 
-        if (followPlayer)
+        private void Start()
         {
-            destinationSetter = GetComponent<AIDestinationSetter>();
-            if (destinationSetter)
+            Transform playerTransform = FindFirstObjectByType<Player>()?.transform;
+            if (playerTransform)
             {
-                destinationSetter.target = playerTransform;
+                target = playerTransform;
+            }
+
+            if (followPlayer)
+            {
+                destinationSetter = GetComponent<AIDestinationSetter>();
+                if (destinationSetter)
+                {
+                    destinationSetter.target = playerTransform;
+                }
             }
         }
     }

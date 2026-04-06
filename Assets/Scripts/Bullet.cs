@@ -1,49 +1,83 @@
-﻿using System.Collections;
+﻿using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class Bullet : MonoBehaviour
+namespace MaiNull
 {
-    [field: SerializeField] public int Damage { get; set; } = 1;
-    public Rigidbody2D Rb { get; private set; }
-    public Transform Owner { get; set; }
-
-    private void Awake()
+    public class Bullet : MonoBehaviour
     {
-        Rb = GetComponent<Rigidbody2D>();
-
-        Destroy(gameObject, 10f);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision == null) return;
-
-        if (collision.gameObject.CompareTag("Enemy") && Owner && Owner.transform.CompareTag("Enemy"))
+        private const float DestroyTime = 10f;
+        private int damage;
+        private float bulletSpeed;
+        private Vector2 moveDirection;
+        private Transform owner = null;
+        private Rigidbody2D rb;
+        
+        public void InitBullet(int damage, float bulletSpeed, Vector2 moveDirection, Transform owner)
         {
-            Destroy(gameObject);
-            return;
-        }
-
-        foreach (IDamageable damageable in collision.transform.GetComponents<IDamageable>())
-        {
-            damageable.Damage(Damage, Owner);
-        }
-
-        SoundManager.PlaySound(ESoundType.HIT);
-
-        Destroy(gameObject);
-    }
-
-    public void LaunchBullet(float force) 
-    {
-        Rb.AddForce(transform.right * force);
-
-        Collider2D shooterCollider = Owner.GetComponent<Collider2D>();
-        if (shooterCollider)
-        {
+            this.damage = damage;
+            this.bulletSpeed = bulletSpeed;
+            this.moveDirection = moveDirection;
+            this.owner = owner;
+            
+            transform.eulerAngles = new Vector3(0, 0,  GetAngleFromVectorFloat(moveDirection));
+            
             // Bullet ignore shooter
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), shooterCollider);
+            Collider2D ownerCollider = owner.GetComponent<Collider2D>();
+            if (ownerCollider)
+            {
+                // Physics2D.IgnoreCollision(bulletCollider2D, ownerCollider);
+            }
+            
+            // Starts destroy timer
+            Destroy(gameObject, DestroyTime);
+        }
+
+        private void Awake()
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+
+        private void Update()
+        {
+            // transform.Translate(moveDirection * (bulletSpeed * Time.deltaTime));
+            rb.MovePosition(transform.position + transform.TransformDirection(moveDirection) * (bulletSpeed * Time.deltaTime));
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            ApplyDamageAndDestroy(other);
+        }
+
+        private float GetAngleFromVectorFloat(Vector3 dir)
+        {
+            dir = dir.normalized;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            if (angle < 0)
+            {
+                angle += 360f;
+            }
+            return angle;   
+        }
+        
+        private void ApplyDamageAndDestroy(Collider2D hitCollider2D)
+        {
+            if (!hitCollider2D) return;
+            
+            if (hitCollider2D.gameObject.CompareTag(owner.gameObject.tag))
+            {
+                Debug.Log("Same Tag");
+                Physics2D.IgnoreCollision(GetComponent<Collider2D>(), hitCollider2D);
+                return;
+            }
+
+            foreach (IDamageable damageable in hitCollider2D.transform.GetComponents<IDamageable>())
+            {
+                damageable.Damage(damage, owner);
+            }
+            
+            SoundManager.PlaySound(ESoundType.Hit);
+            
+            Destroy(gameObject);
         }
     }
 }

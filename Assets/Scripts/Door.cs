@@ -1,14 +1,16 @@
 using UnityEngine;
 
-[SelectionBase]
-public class Door : MonoBehaviour
+namespace MaiNull
 {
-    [SerializeField] Transform _DoorTransform;
-    [SerializeField] ParticleSystem _particleSystem;
-
-    public void OpenDoor() 
+    public class Door : MonoBehaviour
     {
-        Destroy(_DoorTransform.gameObject);
-        _particleSystem.Play();
+        [SerializeField] private Transform doorTransform;
+        [SerializeField] private ParticleSystem doorParticleSystem;
+
+        public void OpenDoor() 
+        {
+            Destroy(doorTransform.gameObject);
+            doorParticleSystem.Play();
+        }
     }
 }

@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class Collectable : MonoBehaviour
+namespace MaiNull
 {
-    void OnTriggerEnter2D(Collider2D other)
+    public class Collectable : MonoBehaviour
     {
-        // Collectable logic
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            // Collectable logic
+        }
     }
 }

@@ -1,53 +1,56 @@
 using System;
 using UnityEngine;
 
-public class Health
+namespace MaiNull
 {
-    public int MaxHealth { get; private set; }
-
-    public int HealthAmount { get; private set; }
-
-    public bool Dead { get; private set; } = false;
-
-    public event Action<int> OnHealthChange;
-    public event Action OnDie;
-
-    // Constructors
-    public Health()
+    public class Health
     {
-        MaxHealth = 100;
-        HealthAmount = 100;
-        Dead = false;
-    }
+        public int MaxHealth { get; private set; }
 
-    public Health(int MaxHealth)
-    {
-        this.MaxHealth = MaxHealth;
-        HealthAmount = MaxHealth;
-        Dead = false;
-    }
+        public int HealthAmount { get; private set; }
 
-    public void AddHealth(int amount)
-    {
-        HealthAmount += amount;
-        HealthAmount = Mathf.Clamp(HealthAmount, 0, MaxHealth);
-        OnHealthChange?.Invoke(HealthAmount);
-    }
+        public bool Dead { get; private set; } = false;
 
-    public void RemoveHealth(int amount)
-    {
-        if (Dead) return;
+        public event Action<int> OnHealthChange;
+        public event Action OnDie;
 
-        HealthAmount -= amount;
-        HealthAmount = Mathf.Clamp(HealthAmount, 0, MaxHealth);
-        OnHealthChange?.Invoke(HealthAmount);
+        // Constructors
+        public Health()
+        {
+            MaxHealth = 100;
+            HealthAmount = 100;
+            Dead = false;
+        }
 
-        if (HealthAmount <= 0) Die();
-    }
+        public Health(int MaxHealth)
+        {
+            this.MaxHealth = MaxHealth;
+            HealthAmount = MaxHealth;
+            Dead = false;
+        }
 
-    private void Die()
-    {
-        Dead = true;
-        OnDie?.Invoke();
+        public void AddHealth(int amount)
+        {
+            HealthAmount += amount;
+            HealthAmount = Mathf.Clamp(HealthAmount, 0, MaxHealth);
+            OnHealthChange?.Invoke(HealthAmount);
+        }
+
+        public void RemoveHealth(int amount)
+        {
+            if (Dead) return;
+
+            HealthAmount -= amount;
+            HealthAmount = Mathf.Clamp(HealthAmount, 0, MaxHealth);
+            OnHealthChange?.Invoke(HealthAmount);
+
+            if (HealthAmount <= 0) Die();
+        }
+
+        private void Die()
+        {
+            Dead = true;
+            OnDie?.Invoke();
+        }
     }
 }

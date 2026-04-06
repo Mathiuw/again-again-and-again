@@ -1,24 +1,26 @@
 using UnityEngine;
 
-
-public class Enemy : MonoBehaviour, IDamageable
+namespace MaiNull
 {
-    [SerializeField] private int maxHealth = 3;
-    public Health health;
-
-    private void Awake()
+    public class Enemy : MonoBehaviour, IDamageable
     {
-        health = new(maxHealth);
-        health.OnDie += Die;
-    }
+        [SerializeField] private int maxHealth = 3;
+        public Health health;
 
-    public virtual void Die()
-    {
-        Destroy(gameObject);
-    }
+        private void Awake()
+        {
+            health = new Health(maxHealth);
+            health.OnDie += Die;
+        }
 
-    public void Damage(int damage, Transform Instigator)
-    {
-        health.RemoveHealth(damage);
+        protected virtual void Die()
+        {
+            Destroy(gameObject);
+        } 
+
+        public void Damage(int damage, Transform instigator)
+        {
+            health.RemoveHealth(damage);
+        }
     }
 }

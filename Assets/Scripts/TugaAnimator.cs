@@ -1,7 +1,9 @@
 using UnityEngine;
 
-
-public class TugaAnimator : MonoBehaviour
+namespace MaiNull
 {
+    public class TugaAnimator : MonoBehaviour
+    {
 
+    }
 }

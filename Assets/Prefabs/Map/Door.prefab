@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 466874428397644778}
   - component: {fileID: 6889101132212761576}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,6 +35,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &466874428397644778
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -53,6 +54,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -74,9 +77,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.11764707, g: 0.054901965, b: 0.054901965, a: 1}
   m_FlipX: 0
@@ -86,7 +91,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &6889101132212761576
 BoxCollider2D:
@@ -181,8 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4880fec546abf674a9ab69e25cee935c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _DoorTransform: {fileID: 8233988839186267421}
-  _particleSystem: {fileID: 13538965018779100}
+  doorTransform: {fileID: 8233988839186267421}
+  doorParticleSystem: {fileID: 13538965018779100}
 --- !u!1001 &2033065648507070972
 PrefabInstance:
   m_ObjectHideFlags: 0

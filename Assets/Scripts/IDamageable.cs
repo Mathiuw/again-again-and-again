@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 
-public interface IDamageable
+namespace MaiNull
 {
-    public void Damage(int damage, Transform Instigator);
+    public interface IDamageable
+    {
+        public void Damage(int damage, Transform Instigator);
 
+    }
 }

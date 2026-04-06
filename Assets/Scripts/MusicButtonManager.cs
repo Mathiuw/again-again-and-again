@@ -1,22 +1,25 @@
 using UnityEngine;
 
-public class MusicButtonManager : MonoBehaviour
+namespace MaiNull
 {
-    public AudioSource[] musicSources;
-
-    public void PlayMusic(int index)
+    public class MusicButtonManager : MonoBehaviour
     {
-        // Stop all music
-        for (int i = 0; i < musicSources.Length; i++)
-        {
-            if (musicSources[i].isPlaying)
-                musicSources[i].Stop();
-        }
+        public AudioSource[] musicSources;
 
-        // Play the selected music
-        if (index >= 0 && index < musicSources.Length)
+        public void PlayMusic(int index)
         {
-            musicSources[index].Play();
+            // Stop all music
+            for (int i = 0; i < musicSources.Length; i++)
+            {
+                if (musicSources[i].isPlaying)
+                    musicSources[i].Stop();
+            }
+
+            // Play the selected music
+            if (index >= 0 && index < musicSources.Length)
+            {
+                musicSources[index].Play();
+            }
         }
     }
 }

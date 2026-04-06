@@ -1,25 +1,28 @@
 using UnityEngine;
 
-public class MedusaAnimator: MonoBehaviour
+namespace MaiNull
 {
-    private Animator animator;
-    private AIShooterBehaviour aiShooterBehaviour;
-
-    private int ShootAnimationHash = Animator.StringToHash("Medusa_Shoot");
-
-    private void Awake()
+    public class MedusaAnimator: MonoBehaviour
     {
-        animator = GetComponentInChildren<Animator>();
-        aiShooterBehaviour = GetComponent<AIShooterBehaviour>();
-    }
+        private Animator animator;
+        private AIShooterBehaviour aiShooterBehaviour;
 
-    public void StartShootAnimation()
-    {
-        animator.Play(ShootAnimationHash);
-    }
+        private int ShootAnimationHash = Animator.StringToHash("Medusa_Shoot");
 
-    public void MedusaShootEvent()
-    {
-        aiShooterBehaviour.ShootTarget();
+        private void Awake()
+        {
+            animator = GetComponentInChildren<Animator>();
+            aiShooterBehaviour = GetComponent<AIShooterBehaviour>();
+        }
+
+        public void StartShootAnimation()
+        {
+            animator.Play(ShootAnimationHash);
+        }
+
+        public void MedusaShootEvent()
+        {
+            aiShooterBehaviour.ShootTarget();
+        }
     }
 }

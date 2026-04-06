@@ -1,15 +1,18 @@
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider2D))]
-public class RoomMusicTrigger : MonoBehaviour
+namespace MaiNull
 {
-    public AudioClip roomMusic;
-
-    private void OnTriggerEnter2D(Collider2D other)
+    [RequireComponent(typeof(BoxCollider2D))]
+    public class RoomMusicTrigger : MonoBehaviour
     {
-        if (other.CompareTag("Player") && roomMusic)
+        public AudioClip roomMusic;
+
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            MusicManager.Instance.ChangeMusic(roomMusic);
+            if (other.CompareTag("Player") && roomMusic)
+            {
+                MusicManager.Instance.ChangeMusic(roomMusic);
+            }
         }
     }
 }

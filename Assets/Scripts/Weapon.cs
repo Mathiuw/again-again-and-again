@@ -1,34 +1,46 @@
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+namespace MaiNull
 {
-    [SerializeField] protected Bullet bulletPrefab;
-    [SerializeField] protected float bulletSpeed = 300f;
-    [SerializeField] protected int damage = 1;
-    [SerializeField] protected uint bulletAmountPerShot = 1;
-    [SerializeField] protected Transform[] spawnPositions;
-    [SerializeField] protected ESoundType _soundType = ESoundType.SHOOT;
-
-    public void Shoot(Vector3 bulletDirection) 
+    public class Weapon : MonoBehaviour
     {
-        Vector3 spawnPosition = transform.position;
-
-        for (int i = 0; i < bulletAmountPerShot; i++)
+        [SerializeField] protected Bullet bulletPrefab;
+        [SerializeField] protected float bulletSpeed = 300f;
+        [SerializeField] protected int damage = 1;
+        [SerializeField] protected bool waitToShoot = true;
+        [SerializeField] protected float shootCooldown = 0.75f;
+        [SerializeField] protected uint bulletAmountPerShot = 1;
+        [SerializeField] protected Transform[] spawnPositions;
+        [SerializeField] protected ESoundType soundType = ESoundType.Shoot;
+        protected float currentCooldown = 0f;
+        
+        private void Update()
         {
-            if (spawnPositions.Length < i - 1)
+            if (currentCooldown > 0f)
             {
-                spawnPosition = spawnPositions[i].position;
+                currentCooldown -= Time.deltaTime;
+                currentCooldown = Mathf.Max(currentCooldown, 0);
             }
+        }
+        
+        public void Shoot(Vector2 bulletDirection) 
+        {
+            Vector3 spawnPosition = transform.position;
 
-            // Spawn bullet
-            Bullet bullet = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity, null);
-            // Set bullet direction and speed
-            bullet.Owner = transform;
-            bullet.Damage = damage;
-            bullet.transform.right = (bulletDirection - transform.position);
-            bullet.LaunchBullet(bulletSpeed);
+            for (int i = 0; i < bulletAmountPerShot; i++)
+            {
+                if (spawnPositions.Length < i - 1)
+                {
+                    spawnPosition = spawnPositions[i].position;
+                }
 
-            SoundManager.PlaySound(_soundType);
+                // Spawn bullet
+                Bullet bullet = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity, null);
+                // Init bullet
+                bullet.InitBullet(damage, bulletSpeed, bulletDirection, transform);
+
+                SoundManager.PlaySound(soundType);
+            }
         }
     }
 }

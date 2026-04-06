@@ -15325,9 +15325,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6283885569677837542, guid: 604a1931bb4215a4d9bc541d17053699, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291668355959267634, guid: 604a1931bb4215a4d9bc541d17053699, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8919248954087466715, guid: 604a1931bb4215a4d9bc541d17053699, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919248954087466715, guid: 604a1931bb4215a4d9bc541d17053699, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15349,7 +15361,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 503379459788558778, guid: b33d2f1baa771424eb8b811666d5ab48, type: 3}
       propertyPath: m_Name
-      value: Player_Camera
+      value: Game_Camera
       objectReference: {fileID: 0}
     - target: {fileID: 1805163473250109703, guid: b33d2f1baa771424eb8b811666d5ab48, type: 3}
       propertyPath: _desiredTransform

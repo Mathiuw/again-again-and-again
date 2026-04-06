@@ -1,43 +1,46 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Weapon))]
-public class AIShooterBehaviour : AIChaserBehaviour
+namespace MaiNull
 {
-    [Header("Shooter Settings")]
-    [SerializeField] private float initialShootDelay = 2f;
-    [SerializeField] private float shootFrequency = 3f;
-    [SerializeField] private float randomVariation = 1f;
-    private Transform target;
-    protected Weapon weapon;
-
-    private void Awake()
+    [RequireComponent(typeof(Weapon))]
+    public class AIShooterBehaviour : MonoBehaviour
     {
-        weapon = GetComponent<Weapon>();
-    }
+        [Header("Shooter Settings")]
+        [SerializeField] private float initialShootDelay = 2f;
+        [SerializeField] private float shootFrequency = 3f;
+        [SerializeField] private float randomVariation = 1f;
+        private Transform target;
+        private Weapon weapon;
 
-    protected void OnEnable()
-    {
-        float randomShootFrequency = Random.Range(-randomVariation, randomVariation);
-
-        InvokeRepeating("EnemyShoot", initialShootDelay + randomShootFrequency, shootFrequency + randomShootFrequency);
-    }
-
-    private void Start()
-    {
-        Transform playerTransform = FindFirstObjectByType<Player>()?.transform;
-        if (playerTransform)
+        private void Awake()
         {
-            target = playerTransform;
+            weapon = GetComponent<Weapon>();
         }
-    }
 
-    private void OnDisable()
-    {
-        CancelInvoke("EnemyShoot");
-    }
+        protected void OnEnable()
+        {
+            float randomShootFrequency = Random.Range(-randomVariation, randomVariation);
+			
+            InvokeRepeating(nameof(ShootTarget), initialShootDelay + randomShootFrequency, shootFrequency + randomShootFrequency);
+        }
 
-    public void ShootTarget() 
-    {
-        weapon.Shoot(target.position);
+        private void Start()
+        {
+            Transform playerTransform = FindFirstObjectByType<Player>()?.transform;
+            if (playerTransform)
+            {
+                target = playerTransform;
+            }
+        }
+
+        private void OnDisable()
+        {
+            CancelInvoke(nameof(ShootTarget));
+        }
+
+        public void ShootTarget() 
+        {
+            weapon.Shoot(target.position);
+        }
     }
 }

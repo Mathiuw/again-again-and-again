@@ -1,53 +1,54 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
-public class MainMenu : MonoBehaviour
+namespace MaiNull.Main_Menu
 {
-    public CanvasGroup pressAnyKeyGroup;
-    public CanvasGroup buttonsGroup;
-    public float lerpDuration = 1.0f;
-    private bool pressed = false;
-
-    void Awake()
+    public class MainMenu : MonoBehaviour
     {
-        // Hide menu buttons
-        buttonsGroup.alpha = 0;
-        buttonsGroup.interactable = false;
-        buttonsGroup.blocksRaycasts = false;
-    }
+        public CanvasGroup pressAnyKeyGroup;
+        public CanvasGroup buttonsGroup;
+        public float lerpDuration = 1.0f;
+        private bool pressed = false;
 
-    void Update()
-    {
-        if (!pressed && Input.anyKeyDown)
+        void Awake()
         {
-            pressed = true;
-            StartCoroutine(ShowButtons());
+            // Hide menu buttons
+            buttonsGroup.alpha = 0;
+            buttonsGroup.interactable = false;
+            buttonsGroup.blocksRaycasts = false;
         }
-    }
 
-    System.Collections.IEnumerator ShowButtons()
-    {
-        float t = 0;
-
-        while (t < lerpDuration)
+        void Update()
         {
-            t += Time.deltaTime;
-            buttonsGroup.alpha = Mathf.Lerp(0, 1, t / lerpDuration);
-            yield return null;
+            if (!pressed && Input.anyKeyDown)
+            {
+                pressed = true;
+                StartCoroutine(ShowButtons());
+            }
         }
-        buttonsGroup.alpha = 1;
-        buttonsGroup.interactable = true;
-        buttonsGroup.blocksRaycasts = true;
-    }
 
-    public void PlayGame()
-    {
-        GameManager.Instance.SceneTransition(1, Color.black);
-    }
+        System.Collections.IEnumerator ShowButtons()
+        {
+            float t = 0;
 
-    public void ExitGame() 
-    {
-        Application.Quit();
+            while (t < lerpDuration)
+            {
+                t += Time.deltaTime;
+                buttonsGroup.alpha = Mathf.Lerp(0, 1, t / lerpDuration);
+                yield return null;
+            }
+            buttonsGroup.alpha = 1;
+            buttonsGroup.interactable = true;
+            buttonsGroup.blocksRaycasts = true;
+        }
+
+        public void PlayGame()
+        {
+            GameManager.Instance.SceneTransition(1, Color.black);
+        }
+
+        public void ExitGame() 
+        {
+            Application.Quit();
+        }
     }
 }

@@ -1,6 +1,7 @@
-using Pathfinding;
-
-public class AI_Catlion : AIChaserBehaviour
+namespace MaiNull
 {
+    public class AI_Catlion : AIChaserBehaviour
+    {
     
+    }
 }

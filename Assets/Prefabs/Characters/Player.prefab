@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4779608133811652753}
   - component: {fileID: 9128436172571618001}
   - component: {fileID: 4929593647387409874}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3356284917513912866}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 2728680055128570328}
   - component: {fileID: 8083654381619427349}
   - component: {fileID: 1311047480118788505}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &2994420230711718062
 CircleCollider2D:
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController2D
   moveInputAction: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  <MoveSpeed>k__BackingField: 450
+  <MoveSpeed>k__BackingField: 400
 --- !u!114 &1311047480118788505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,11 +299,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8744419771213730439, guid: 18d73aa9a29769a4491b1509f9b6df85, type: 3}
-  bulletSpeed: 300
+  bulletSpeed: 40
   damage: 1
+  waitToShoot: 1
+  shootCooldown: 0.75
   bulletAmountPerShot: 1
   spawnPositions: []
-  _soundType: 6
+  soundType: 0
   orientationTransform: {fileID: 3356284917513912866}
-  shootCooldown: 0.75
   shootInputAction: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

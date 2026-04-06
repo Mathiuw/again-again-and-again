@@ -1,37 +1,39 @@
-using System;
 using UnityEngine;
 
-public class MenuStart : MonoBehaviour
+namespace MaiNull.Main_Menu
 {
-    [SerializeField] private Transform _pressAnyButtom;
-    [SerializeField] private CanvasGroup _buttomCanvasGroup;
-    [SerializeField] private float _lerpDuration = 1.0f;
-
-    void Update()
+    public class MenuStart : MonoBehaviour
     {
-        if (Input.anyKeyDown)
+        [SerializeField] private Transform _pressAnyButtom;
+        [SerializeField] private CanvasGroup _buttomCanvasGroup;
+        [SerializeField] private float _lerpDuration = 1.0f;
+
+        void Update()
         {
-            StartCoroutine(ShowButtons());
-        }
-    }
-
-    System.Collections.IEnumerator ShowButtons()
-    {
-        enabled = false;
-
-        Destroy(_pressAnyButtom.gameObject);
-
-        // Fade in menu buttoms
-        float alpha = 0;
-        while (alpha < 1)
-        {
-            alpha += _lerpDuration * Time.deltaTime;
-            _buttomCanvasGroup.alpha = alpha;
-            yield return null;
+            if (Input.anyKeyDown)
+            {
+                StartCoroutine(ShowButtons());
+            }
         }
 
-        Destroy(this);
-        yield break;
+        System.Collections.IEnumerator ShowButtons()
+        {
+            enabled = false;
+
+            Destroy(_pressAnyButtom.gameObject);
+
+            // Fade in menu buttoms
+            float alpha = 0;
+            while (alpha < 1)
+            {
+                alpha += _lerpDuration * Time.deltaTime;
+                _buttomCanvasGroup.alpha = alpha;
+                yield return null;
+            }
+
+            Destroy(this);
+            yield break;
+        }
     }
 }
 

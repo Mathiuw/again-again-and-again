@@ -1,50 +1,46 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour, IDamageable
+namespace MaiNull
 {
-    public delegate void PlayerDead();
-    public static event PlayerDead OnPlayerDie;
-    private Timer timer;
-
-    private void Start()
+    public class Player : MonoBehaviour, IDamageable
     {
-        timer = FindFirstObjectByType<Timer>();
-        if (timer)
-        {
-            timer.OnTimerEnd += Die;
-        }
-    }
+        public delegate void PlayerDead();
+        public static event PlayerDead OnPlayerDie;
+        private LoopTimer loopTimer;
 
-    private void OnDisable()
-    {
-        if (timer)
+        private void Start()
         {
-            timer.OnTimerEnd -= Die;
-        }
-    }
-
-    private void Die()
-    {
-        PlayerController2D playerMovement = GetComponent<PlayerController2D>();
-        if (playerMovement)
-        {
-            playerMovement.enabled = false;
+            LoopTimer.OnTimerEnd += Die;
         }
 
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb)
+        private void OnDisable()
         {
-            rb.bodyType = RigidbodyType2D.Kinematic;
+            LoopTimer.OnTimerEnd -= Die;
         }
 
-        OnPlayerDie?.Invoke();
-    }
-
-    public void Damage(int damage, Transform Instigator)
-    {
-        if (timer)
+        private void Die()
         {
-            timer.RemoveTime(damage);
+            PlayerController2D playerMovement = GetComponent<PlayerController2D>();
+            if (playerMovement)
+            {
+                playerMovement.enabled = false;
+            }
+
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            if (rb)
+            {
+                rb.bodyType = RigidbodyType2D.Kinematic;
+            }
+
+            OnPlayerDie?.Invoke();
+        }
+
+        public void Damage(int damage, Transform Instigator)
+        {
+            if (loopTimer)
+            {
+                LoopTimer.RemoveTime(damage);
+            }
         }
     }
 }

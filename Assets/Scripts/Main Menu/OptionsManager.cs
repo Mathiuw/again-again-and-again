@@ -1,36 +1,40 @@
+using MaiNull.UI;
 using UnityEngine;
 
-public class OptionsManager : MonoBehaviour
+namespace MaiNull.Main_Menu
 {
-    public static OptionsManager Instance { get; private set; }
-
-    [SerializeField] private UI_Options _optionsPrefab;
-    public UI_Options OptionsPanel { get; set; }
-
-    [SerializeField] private bool _inputActivate = false;
-
-    private void Awake()
+    public class OptionsManager : MonoBehaviour
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
+        public static OptionsManager Instance { get; private set; }
 
-    private void Update()
-    {
-        if (_inputActivate && Input.GetKeyDown(KeyCode.Escape))
-        {
-            EnterOptions();
-        }
-    }
+        [SerializeField] private UIOptions _optionsPrefab;
+        public UIOptions OptionsPanel { get; set; }
 
-    public void EnterOptions() 
-    {
-        OptionsPanel = Instantiate(_optionsPrefab);
+        [SerializeField] private bool _inputActivate = false;
+
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                Instance = this;
+            }
+        }
+
+        private void Update()
+        {
+            if (_inputActivate && Input.GetKeyDown(KeyCode.Escape))
+            {
+                EnterOptions();
+            }
+        }
+
+        public void EnterOptions() 
+        {
+            OptionsPanel = Instantiate(_optionsPrefab);
+        }
     }
 }
