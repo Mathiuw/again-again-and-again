@@ -40,7 +40,7 @@ namespace MaiNull
         private void Update()
         {
             // transform.Translate(moveDirection * (bulletSpeed * Time.deltaTime));
-            rb.MovePosition(transform.position + transform.TransformDirection(moveDirection) * (bulletSpeed * Time.deltaTime));
+            rb.MovePosition(transform.position + (Vector3)moveDirection * (bulletSpeed * Time.deltaTime));
         }
 
         private void OnTriggerEnter2D(Collider2D other)
