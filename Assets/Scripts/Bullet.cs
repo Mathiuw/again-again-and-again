@@ -6,18 +6,18 @@ namespace MaiNull
     public class Bullet : MonoBehaviour
     {
         private const float DestroyTime = 10f;
-        private int damage;
-        private float bulletSpeed;
-        private Vector2 moveDirection;
-        private Transform owner = null;
-        private Rigidbody2D rb;
+        private int _damage;
+        private float _bulletSpeed;
+        private Vector2 _moveDirection;
+        private Transform _owner = null;
+        private Rigidbody2D _rb;
         
-        public void InitBullet(int damage, float bulletSpeed, Vector2 moveDirection, Transform owner)
+        public void Init(int damage, float bulletSpeed, Vector2 moveDirection, Transform owner)
         {
-            this.damage = damage;
-            this.bulletSpeed = bulletSpeed;
-            this.moveDirection = moveDirection;
-            this.owner = owner;
+            this._damage = damage;
+            this._bulletSpeed = bulletSpeed;
+            this._moveDirection = moveDirection;
+            this._owner = owner;
             
             transform.eulerAngles = new Vector3(0, 0,  GetAngleFromVectorFloat(moveDirection));
             
@@ -34,13 +34,13 @@ namespace MaiNull
 
         private void Awake()
         {
-            rb = GetComponent<Rigidbody2D>();
+            _rb = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
         {
             // transform.Translate(moveDirection * (bulletSpeed * Time.deltaTime));
-            rb.MovePosition(transform.position + (Vector3)moveDirection * (bulletSpeed * Time.deltaTime));
+            _rb.MovePosition(transform.position + (Vector3)_moveDirection * (_bulletSpeed * Time.deltaTime));
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -63,7 +63,7 @@ namespace MaiNull
         {
             if (!hitCollider2D) return;
             
-            if (hitCollider2D.gameObject.CompareTag(owner.gameObject.tag))
+            if (hitCollider2D.gameObject.CompareTag(_owner.gameObject.tag))
             {
                 Debug.Log("Same Tag");
                 Physics2D.IgnoreCollision(GetComponent<Collider2D>(), hitCollider2D);
@@ -72,7 +72,7 @@ namespace MaiNull
 
             foreach (IDamageable damageable in hitCollider2D.transform.GetComponents<IDamageable>())
             {
-                damageable.Damage(damage, owner);
+                damageable.Damage(_damage, _owner);
             }
             
             SoundManager.PlaySound(ESoundType.Hit);

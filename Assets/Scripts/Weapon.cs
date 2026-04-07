@@ -37,7 +37,7 @@ namespace MaiNull
                 // Spawn bullet
                 Bullet bullet = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity, null);
                 // Init bullet
-                bullet.InitBullet(damage, bulletSpeed, bulletDirection, transform);
+                bullet.Init(damage, bulletSpeed, bulletDirection, transform);
 
                 SoundManager.PlaySound(soundType);
             }

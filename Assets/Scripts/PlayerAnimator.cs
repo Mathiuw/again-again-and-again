@@ -1,23 +1,24 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MaiNull
 {
     public class PlayerAnimator : MonoBehaviour
     {
-        [SerializeField] private Transform _orientationTransform;
-        PlayerController2D playerController;
-        Animator animator;
+        [SerializeField] private Transform orientationTransform;
+        private PlayerController2D _playerController;
+        private Animator _animator;
 
         private void Awake()
         {
-            animator = GetComponentInChildren<Animator>();
+            _animator = GetComponentInChildren<Animator>();
         }
 
         private void Start()
         {
             Player.OnPlayerDie += OnPlayerDie;
 
-            playerController = GetComponent<PlayerController2D>();
+            _playerController = GetComponent<PlayerController2D>();
         }
 
         private void Update()
@@ -27,41 +28,41 @@ namespace MaiNull
 
         private void ApplyAnimations()
         {
-            Vector2 moveVector = playerController.MoveVector;
-            Vector3 desiredRotaion = Vector3.zero;
+            Vector2 moveVector = _playerController.MoveVector;
+            Vector3 desiredRotation = Vector3.zero;
 
             if (moveVector == Vector2.zero)
             {
-                animator.Play("player_idle");
+                _animator.Play("player_idle");
             }
 
-            if (moveVector.x == 1)
+            if (Mathf.Approximately(moveVector.x, 1))
             {
-                animator.Play("player_walk_left");
+                _animator.Play("player_walk_left");
             }
-            else if (moveVector.x == -1)
+            else if (Mathf.Approximately(moveVector.x, -1))
             {
                 //desiredRotaion.z = 180;
                 // _orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
-                animator.Play("player_walk_right");
+                _animator.Play("player_walk_right");
             }
-            else if (moveVector.y == 1)
+            else if (Mathf.Approximately(moveVector.y, 1))
             {
                 // desiredRotaion.z = 90;
                 // _orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
-                animator.Play("player_walk_back");
+                _animator.Play("player_walk_back");
             }
-            else if (moveVector.y == -1)
+            else if (Mathf.Approximately(moveVector.y, -1))
             {
                 // desiredRotaion.z = -90;
                 // _orientationTransform.rotation = Quaternion.Euler(desiredRotaion);
-                animator.Play("player_walk_front");
+                _animator.Play("player_walk_front");
             }
         }
 
         private void OnPlayerDie()
         {
-            animator.Play("player_die");
+            _animator.Play("player_die");
         }
     }
 }

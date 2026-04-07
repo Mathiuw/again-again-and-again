@@ -221,7 +221,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a6c32906af31aa748b65d075e0515482, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 851efab49d1e6dc428c760d58bde2d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _orientationTransform: {fileID: 3356284917513912866}
+  orientationTransform: {fileID: 0}
 --- !u!114 &8083654381619427349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController2D
   moveInputAction: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  <MoveSpeed>k__BackingField: 400
+  moveSpeed: 450
 --- !u!114 &1311047480118788505
 MonoBehaviour:
   m_ObjectHideFlags: 0
