@@ -14,6 +14,7 @@ namespace MaiNull
         private Rigidbody2D _rb;
 
         public Vector2 MoveVector => _moveVector;
+        public uint MovementSpeedMultiplier { get; set; } = 1;
 
         private void Awake()
         {
@@ -36,7 +37,7 @@ namespace MaiNull
 
         private void FixedUpdate()
         {
-            Vector2 desiredSpeed = _moveVector.normalized * (moveSpeed * Time.deltaTime);
+            Vector2 desiredSpeed = _moveVector.normalized * (moveSpeed * MovementSpeedMultiplier * Time.deltaTime);
 
             _rb.linearVelocity = desiredSpeed;
             //Debug.Log(rb.linearVelocity);
