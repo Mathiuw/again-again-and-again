@@ -23,8 +23,8 @@ namespace MaiNull
         {
             SetAnimation();
             
-            AnimatorClipInfo[] animatorClipInfo = _animator.GetCurrentAnimatorClipInfo(0);
-            Debug.Log(animatorClipInfo[0].clip.name);
+            // AnimatorClipInfo[] animatorClipInfo = _animator.GetCurrentAnimatorClipInfo(0);
+            // Debug.Log(animatorClipInfo[0].clip.name);
         }
 
         private void SetAnimation()
