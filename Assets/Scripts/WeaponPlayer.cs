@@ -24,32 +24,32 @@ namespace MaiNull
         private void OnAttackStarted(InputAction.CallbackContext context)
         {
             Vector2 moveVector = context.ReadValue<Vector2>();
-            Vector3 desiredRotation = Vector3.zero;
+            // Vector3 desiredRotation = Vector3.zero;
+            //
+            // if (Mathf.Approximately(moveVector.x, 1))
+            // {
+            //     desiredRotation.z = 0;
+            //     orientationTransform.rotation = Quaternion.Euler(desiredRotation);
+            // }
+            // else if (Mathf.Approximately(moveVector.x, -1))
+            // {
+            //     desiredRotation.z = 180;
+            //     orientationTransform.rotation = Quaternion.Euler(desiredRotation);
+            // }
+            // else if (Mathf.Approximately(moveVector.y, 1))
+            // {
+            //     desiredRotation.z = 90;
+            //     orientationTransform.rotation = Quaternion.Euler(desiredRotation);
+            // }
+            // else if (Mathf.Approximately(moveVector.y, -1))
+            // {
+            //     desiredRotation.z = -90;
+            //     orientationTransform.rotation = Quaternion.Euler(desiredRotation);
+            // }
 
-            if (Mathf.Approximately(moveVector.x, 1))
+            if (CurrentCooldown <= 0f)
             {
-                desiredRotation.z = 0;
-                orientationTransform.rotation = Quaternion.Euler(desiredRotation);
-            }
-            else if (Mathf.Approximately(moveVector.x, -1))
-            {
-                desiredRotation.z = 180;
-                orientationTransform.rotation = Quaternion.Euler(desiredRotation);
-            }
-            else if (Mathf.Approximately(moveVector.y, 1))
-            {
-                desiredRotation.z = 90;
-                orientationTransform.rotation = Quaternion.Euler(desiredRotation);
-            }
-            else if (Mathf.Approximately(moveVector.y, -1))
-            {
-                desiredRotation.z = -90;
-                orientationTransform.rotation = Quaternion.Euler(desiredRotation);
-            }
-
-            if (currentCooldown <= 0f)
-            {
-                Shoot(orientationTransform.right);
+                Shoot(moveVector);
             }
         }
     }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2340243152705403322}
   - component: {fileID: 1319123090602222401}
   - component: {fileID: 5756275405127730132}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 6314795740066377039}
   - component: {fileID: 3179702014024763183}
   - component: {fileID: 8666616316274323405}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Catlion
   m_TagString: Enemy
   m_Icon: {fileID: 0}

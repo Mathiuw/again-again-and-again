@@ -12,15 +12,14 @@ namespace MaiNull
         [SerializeField] protected uint bulletAmountPerShot = 1;
         [SerializeField] protected Transform[] spawnPositions;
         [SerializeField] protected ESoundType soundType = ESoundType.Shoot;
-        protected float currentCooldown = 0f;
+        protected float CurrentCooldown = 0f;
         
         private void Update()
         {
-            if (currentCooldown > 0f)
-            {
-                currentCooldown -= Time.deltaTime;
-                currentCooldown = Mathf.Max(currentCooldown, 0);
-            }
+            if (!(CurrentCooldown > 0f)) return;
+            
+            CurrentCooldown -= Time.deltaTime;
+            CurrentCooldown = Mathf.Max(CurrentCooldown, 0);
         }
         
         public void Shoot(Vector2 bulletDirection) 
@@ -29,7 +28,7 @@ namespace MaiNull
 
             for (int i = 0; i < bulletAmountPerShot; i++)
             {
-                if (spawnPositions.Length < i - 1)
+                if (spawnPositions.Length -1 < i)
                 {
                     spawnPosition = spawnPositions[i].position;
                 }

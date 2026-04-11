@@ -1,52 +1,42 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MaiNull
 {
     public class CameraMovement : MonoBehaviour
     {
-        [SerializeField] private Transform _desiredTransform;
-
+        [FormerlySerializedAs("_desiredTransform")] [SerializeField] private Transform desiredTransform;
+        [FormerlySerializedAs("_lerpSpeed")] [SerializeField] private float lerpSpeed = 3f;
+        
         public Transform DesiredTransform 
         { 
-            get 
-            { 
-                return _desiredTransform; 
-            } 
+            get => desiredTransform;
             set 
             { 
-                _desiredTransform = value;
+                desiredTransform = value;
                 OnCameraTransformUpdate?.Invoke(value);
             } 
         }
-
-        [SerializeField] private float _lerpSpeed = 3f;
 
         public event Action<Transform> OnCameraTransformUpdate;
 
         private void Start()
         {
-            if (_desiredTransform)
+            if (desiredTransform)
             {
-                transform.position = _desiredTransform.position;
+                transform.position = desiredTransform.position;
             }
         }
 
         private void LateUpdate()
         {
-            if (DesiredTransform)
-            {
-                LerpCamera(DesiredTransform.position);
-            }
-            else
-            {
-                LerpCamera(Vector3.zero);
-            }
+            LerpCamera(DesiredTransform ? DesiredTransform.position : Vector3.zero);
         }
 
         private void LerpCamera(Vector3 desiredPosition)
         {
-            transform.position = Vector3.Lerp(transform.position, desiredPosition, _lerpSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, desiredPosition, lerpSpeed * Time.deltaTime);
         }
     }
 }

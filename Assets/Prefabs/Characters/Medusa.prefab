@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4963337282912782866}
   - component: {fileID: 2938816596130427278}
   - component: {fileID: 273440550619729109}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Medusa
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -99,9 +99,11 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   bulletSpeed: 300
   damage: 1
+  waitToShoot: 1
+  shootCooldown: 0.75
   bulletAmountPerShot: 1
   spawnPositions: []
-  _soundType: 0
+  soundType: 0
 --- !u!1 &8130869336483351230
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +116,7 @@ GameObject:
   - component: {fileID: 5572821157087159186}
   - component: {fileID: 1495787050120594297}
   - component: {fileID: 8917700003595934498}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

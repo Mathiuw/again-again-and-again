@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3512752368092746685}
   - component: {fileID: 2237847037007238557}
   - component: {fileID: 7481715161510501140}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 4095846569465603871}
   - component: {fileID: 149151982728322238}
   - component: {fileID: 1159675779889512956}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Zemerlin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -319,9 +319,11 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   bulletSpeed: 300
   damage: 1
+  waitToShoot: 1
+  shootCooldown: 0.75
   bulletAmountPerShot: 1
   spawnPositions: []
-  _soundType: 0
+  soundType: 0
 --- !u!114 &149151982728322238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f129e7b8b511dc42ae7e132a4d0e137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followPlayer: 0
   initialShootDelay: 2
   shootFrequency: 3
   randomVariation: 1

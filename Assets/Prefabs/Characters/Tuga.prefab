@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3803372711747378549}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shootTransform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3281200286401818945}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shootTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 6956965698739253803}
   - component: {fileID: 1317296849926344372}
   - component: {fileID: 3676973103288152877}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 4769451773811599687}
   - component: {fileID: 7933000656842813862}
   - component: {fileID: 1429019913886571307}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tuga
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -300,8 +300,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   bulletSpeed: 300
   damage: 1
+  waitToShoot: 1
+  shootCooldown: 0.75
   bulletAmountPerShot: 2
   spawnPositions:
   - {fileID: 3281200286401818945}
   - {fileID: 3803372711747378549}
-  _soundType: 0
+  soundType: 0

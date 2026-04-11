@@ -1,22 +1,32 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MaiNull
 {
+    [Serializable]
+    public struct RoomTransitionItem
+    {
+        public string transitionId;
+        [FormerlySerializedAs("transitionGameObject")] public Transform transitionTransform;
+
+        public RoomTransitionItem(string transitionId, Transform transitionTransform)
+        {
+            this.transitionId = transitionId;
+            this.transitionTransform = transitionTransform;
+        }
+    }
+    
     public class Room : MonoBehaviour
     {
-        [Header("Gizmos Settings")]
-        [SerializeField] private int _roomWidth = 40;
-        [SerializeField] private int _roomHeight = 24;
-        private Enemy[] enemiesOnTheRoom = new Enemy[0];
-
-        public int EnemyRoomCount
-        { 
-            get 
-            {
-                return enemiesOnTheRoom.Length;        
-            } 
-        }
+        [FormerlySerializedAs("_roomWidth")] [SerializeField] private int roomWidth = 40;
+        [FormerlySerializedAs("_roomHeight")] [SerializeField] private int roomHeight = 24;
+        [SerializeField] private RoomTransitionItem[] roomTransitions;
+        
+        private Enemy[] _enemiesOnTheRoom = Array.Empty<Enemy>();
+        
+        public int EnemyRoomCount => _enemiesOnTheRoom.Length;
 
         private void OnEnable()
         {
@@ -37,9 +47,9 @@ namespace MaiNull
         {
             CountEnemies();
 
-            if (enemiesOnTheRoom.Length > 0)
+            if (_enemiesOnTheRoom.Length > 0)
             {
-                foreach (Enemy enemy in enemiesOnTheRoom)
+                foreach (Enemy enemy in _enemiesOnTheRoom)
                 {
                     enemy.health.OnDie += OnEnemyDie;
                 }
@@ -55,25 +65,22 @@ namespace MaiNull
 
         private void CountEnemies() 
         {
-            int enemyCount = 0;
-
             List<Enemy> enemiesList = new();
 
             foreach (Transform t in transform)
             {
-                if (t.TryGetComponent(out Enemy enemy))
-                {
-                    enemy.health.OnDie += OnEnemyDie;
-                    enemiesList.Add(enemy);
-                }
+                if (!t.TryGetComponent(out Enemy enemy)) continue;
+                
+                enemy.health.OnDie += OnEnemyDie;
+                enemiesList.Add(enemy);
             }
 
-            if (enemyCount == 0)
+            if (enemiesList.Count == 0)
             {
                 OpenRoomDoors();
             }
 
-            enemiesOnTheRoom = enemiesList.ToArray();
+            _enemiesOnTheRoom = enemiesList.ToArray();
         }
 
         private void OpenRoomDoors()
@@ -86,34 +93,29 @@ namespace MaiNull
 
         private void OnCameraTransformUpdate(Transform cameraPosition)
         {
-            if (transform == cameraPosition)
-            {
-                SetEnemiesState(true);
-            }
-            else
-            {
-                SetEnemiesState(false);
-            }
+            SetEnemiesState(transform == cameraPosition);
         }
 
         private void SetEnemiesState(bool state) 
         {
-            foreach (Enemy enemy in enemiesOnTheRoom)
+            foreach (Enemy enemy in _enemiesOnTheRoom)
             {
                 enemy.gameObject.SetActive(state);
             }
         }
 
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.orange;
-            Gizmos.DrawWireCube(transform.position, new Vector3(_roomWidth, _roomHeight));
-        }
-
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.green;       
-            Gizmos.DrawWireCube(transform.position, new Vector3(_roomWidth, _roomHeight));
+            Gizmos.color = Color.orange;
+            Gizmos.DrawWireCube(transform.position, new Vector3(roomWidth, roomHeight));
+
+            foreach (RoomTransitionItem item in roomTransitions)
+            {
+                if (item.transitionTransform)
+                {
+                    Gizmos.DrawSphere(transform.position, 3);
+                }
+            }
         }
     }
 }
