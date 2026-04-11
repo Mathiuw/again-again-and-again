@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 6283885569677837542}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.503, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5471859418872122614}
@@ -102,18 +102,18 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413417456699466033, guid: 2fd67a3ed8220034598a68e6d8df4a93, type: 3}
+  m_Sprite: {fileID: 1039404396, guid: 2fd67a3ed8220034598a68e6d8df4a93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &7291668355959267634
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 2728680055128570328}
   - component: {fileID: 8083654381619427349}
   - component: {fileID: 1311047480118788505}
+  - component: {fileID: 3517020949388411530}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -245,7 +246,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.48}
   m_Radius: 0.5
 --- !u!114 &9073312939175971398
 MonoBehaviour:
@@ -271,7 +272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 851efab49d1e6dc428c760d58bde2d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orientationTransform: {fileID: 0}
 --- !u!114 &8083654381619427349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,3 +308,19 @@ MonoBehaviour:
   soundType: 0
   orientationTransform: {fileID: 3356284917513912866}
   shootInputAction: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+--- !u!114 &3517020949388411530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8919248954087466715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7127bc163d74d1fb061823ff3f73de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaiNull.Dash
+  dashInputAction: {fileID: 0}
+  dashSpeedMultiplier: 0
+  dashDuration: 0
+  cooldown: 0

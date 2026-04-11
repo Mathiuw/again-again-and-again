@@ -220,32 +220,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: map_tileset_v2_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 464
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 8, y: -7}
-        - {x: -8, y: -7}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea67ab427b0602a20800000000000000
-      internalID: 3035532488559195822
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: map_tileset_v2_2
       rect:
         serializedVersion: 2
@@ -259,42 +233,14 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape:
-      - - {x: 8, y: 2}
-        - {x: 2, y: 6}
-        - {x: -7, y: 6}
-        - {x: -7, y: -4}
-        - {x: -6, y: -8}
+      - - {x: -5, y: -8}
         - {x: 8, y: -8}
+        - {x: 8, y: -7}
+        - {x: -5, y: -7}
       tessellationDetail: 0
       bones: []
       spriteID: 9015733b2e1ee7b90800000000000000
       internalID: -7242102786979573495
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: map_tileset_v2_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 464
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 8, y: 2}
-        - {x: -8, y: 2}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03a335edefa0cc7c0800000000000000
-      internalID: -4049849875144951248
       vertices: []
       indices: 
       edges: []
@@ -313,43 +259,14 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape:
-      - - {x: 8, y: 5}
-        - {x: 2, y: 8}
-        - {x: -7, y: 8}
-        - {x: -8, y: 7}
-        - {x: -8, y: -4}
-        - {x: -7, y: -8}
+      - - {x: -7, y: -8}
         - {x: 8, y: -8}
+        - {x: 8, y: -7}
+        - {x: -7, y: -7}
       tessellationDetail: 0
       bones: []
       spriteID: 257a5b93f03591190800000000000000
       internalID: -7991264738934413486
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: map_tileset_v2_5
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 464
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 8, y: 2}
-        - {x: -8, y: 2}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: f66191a21f9143590800000000000000
-      internalID: -7695497339685235089
       vertices: []
       indices: 
       edges: []
@@ -4459,7 +4376,11 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 8, y: 8}
+        - {x: -4, y: 8}
+        - {x: -8, y: -8}
+        - {x: 8, y: 6}
       tessellationDetail: 0
       bones: []
       spriteID: 75b8094ca2bada24d94a8a4d22cfb15c
