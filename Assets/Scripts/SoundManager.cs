@@ -14,7 +14,7 @@ namespace MaiNull
         Bowaudio
     }
 
-    [RequireComponent(typeof(AudioSource))]
+    // [RequireComponent(typeof(AudioSource))]
     public class SoundManager : MonoBehaviour
     {
         public static SoundManager Instance { get; private set; }
@@ -38,6 +38,8 @@ namespace MaiNull
 
         public static void PlaySound(ESoundType sound, float volume = 1) 
         {
+            if (!Instance) return;
+            
             Instance.audioSource.PlayOneShot(Instance.soundList[(int)sound], volume);
         }
     }
