@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace MaiNull.AStar
@@ -14,6 +15,8 @@ namespace MaiNull.AStar
         private float _nodeDiameter;
         private int _gridSizeX, _gridSizeY;
         
+        public List<Node> Path { get; set; }
+
         private void Start()
         {
             _nodeDiameter = nodeRadius * 2;
@@ -33,11 +36,34 @@ namespace MaiNull.AStar
                 {
                     Vector3 worldPoint =  worldBottomLeft + Vector3.right * (x * _nodeDiameter + nodeRadius) + Vector3.up * (y * _nodeDiameter + nodeRadius);
                     bool walkable = !Physics.CheckSphere(worldPoint, nodeRadius, unwalkableMask);
-                    _grid[x,y] = new Node(walkable, worldPoint);
+                    _grid[x,y] = new Node(walkable, worldPoint, x, y);
                 }
             }
         }
 
+        public List<Node> GetNeighbours(Node node)
+        {
+            List<Node> neighbours = new List<Node>();
+
+            for (int x = -1; x <= 1; x++)
+            {
+                for (int y = -1; y <= 1; y++)
+                {
+                    if (x == 0 && y == 0) continue;
+                    
+                    int checkX = node.GridX + x;
+                    int checkY = node.GridY + y;
+
+                    if (checkX >= 0 && checkX < gridWorldSize.x && checkY >= 0 && checkY < gridWorldSize.y)
+                    {
+                        neighbours.Add(_grid[checkX, checkY]);
+                    }
+                }
+            }
+            
+            return neighbours;
+        }
+        
         public Node NodeFromWorldPoint(Vector3 worldPosition)
         {
             float percentX = (worldPosition.x - transform.position.x) / gridWorldSize.x;
@@ -52,6 +78,7 @@ namespace MaiNull.AStar
         
         private void OnDrawGizmos()
         {
+            Gizmos.color = Color.black;
             Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
 
             if (_grid == null) return;
@@ -64,6 +91,14 @@ namespace MaiNull.AStar
                 if (playerNode == node)
                 {
                     Gizmos.color = Color.cyan;
+                }
+
+                if (Path != null)
+                {
+                    if (Path.Contains(node))
+                    {
+                        Gizmos.color = Color.yellow;
+                    }
                 }
                 Gizmos.DrawCube(node.WorldPosition, Vector3.one * nodeRadius);
             }
