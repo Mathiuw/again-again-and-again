@@ -20,7 +20,7 @@ namespace MaiNull
         public static SoundManager Instance { get; private set; }
 
         [FormerlySerializedAs("_soundList")] [SerializeField] private AudioClip[] soundList;
-        private AudioSource audioSource;
+        private AudioSource _audioSource;
 
         private void Awake()
         {
@@ -33,14 +33,14 @@ namespace MaiNull
                 Instance = this;
             }
 
-            audioSource = GetComponent<AudioSource>();
+            _audioSource = GetComponent<AudioSource>();
         }
 
         public static void PlaySound(ESoundType sound, float volume = 1) 
         {
             if (!Instance) return;
             
-            Instance.audioSource.PlayOneShot(Instance.soundList[(int)sound], volume);
+            Instance._audioSource.PlayOneShot(Instance.soundList[(int)sound], volume);
         }
     }
 }
