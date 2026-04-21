@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace MaiNull.AStar
@@ -15,6 +14,11 @@ namespace MaiNull.AStar
         {
             _grid = GetComponent<Grid>();
         }
+
+        // private void Start()
+        // {
+        //     FindPath(seeker.position, target.position);
+        // }
 
         private void Update()
         {
@@ -39,31 +43,31 @@ namespace MaiNull.AStar
                     {
                         currentNode = openSet[i];   
                     }
-                    
-                    openSet.Remove(currentNode);
-                    closedSet.Add(currentNode);
+                }
+                
+                openSet.Remove(currentNode);
+                closedSet.Add(currentNode);
 
-                    if (currentNode == targetnode)
-                    {
-                        RetracePath(startNode, currentNode);
-                        return; // Path has been found
-                    }
+                if (currentNode == targetnode)
+                {
+                    RetracePath(startNode, currentNode);
+                    return; // Path has been found
+                }
 
-                    foreach (Node neighbour in _grid.GetNeighbours(currentNode))
-                    {
-                        if(!neighbour.Walkable || closedSet.Contains(neighbour)) continue;
+                foreach (Node neighbour in _grid.GetNeighbours(currentNode))
+                {
+                    if(!neighbour.Walkable || closedSet.Contains(neighbour)) continue;
                            
-                        int newMovementCostToNeighbour = currentNode.GCost + GetDistance(currentNode, neighbour);
-                        if (newMovementCostToNeighbour < neighbour.GCost || !openSet.Contains(neighbour))
-                        {
-                            neighbour.GCost = newMovementCostToNeighbour;
-                            neighbour.HCost = GetDistance(neighbour, targetnode);
-                            neighbour.Parent = currentNode;
+                    int newMovementCostToNeighbour = currentNode.GCost + GetDistance(currentNode, neighbour);
+                    if (newMovementCostToNeighbour < neighbour.GCost || !openSet.Contains(neighbour))
+                    {
+                        neighbour.GCost = newMovementCostToNeighbour;
+                        neighbour.HCost = GetDistance(neighbour, targetnode);
+                        neighbour.Parent = currentNode;
 
-                            if (!openSet.Contains(neighbour))
-                            {
-                                openSet.Add(neighbour);
-                            }
+                        if (!openSet.Contains(neighbour))
+                        {
+                            openSet.Add(neighbour);
                         }
                     }
                 }

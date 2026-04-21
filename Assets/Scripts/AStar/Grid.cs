@@ -1,27 +1,24 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace MaiNull.AStar
 {
     public class Grid : MonoBehaviour
     {
-        public Transform player;
         [SerializeField] private LayerMask unwalkableMask;
         public Vector2 gridWorldSize;
         public float nodeRadius;
         private Node[,] _grid;
-        
-        private float _nodeDiameter;
+
+        public float NodeDiameter => nodeRadius * 2;
         private int _gridSizeX, _gridSizeY;
         
         public List<Node> Path { get; set; }
 
         private void Start()
         {
-            _nodeDiameter = nodeRadius * 2;
-            _gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeRadius);
-            _gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeRadius);
+            _gridSizeX = Mathf.RoundToInt(gridWorldSize.x / NodeDiameter);
+            _gridSizeY = Mathf.RoundToInt(gridWorldSize.y / NodeDiameter);
             CreateGrid();
         }
 
@@ -29,12 +26,13 @@ namespace MaiNull.AStar
         {
             _grid = new Node[_gridSizeX, _gridSizeY];
             Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 -  Vector3.forward * gridWorldSize.y / 2;
+            // Debug.Log(worldBottomLeft);
             
             for (int x = 0; x < _gridSizeX; x++)
             {
                 for (int y = 0; y < _gridSizeY; y++)
                 {
-                    Vector3 worldPoint =  worldBottomLeft + Vector3.right * (x * _nodeDiameter + nodeRadius) + Vector3.up * (y * _nodeDiameter + nodeRadius);
+                    Vector3 worldPoint =  worldBottomLeft + Vector3.right * (x * NodeDiameter + nodeRadius) + Vector3.forward * (y * NodeDiameter + nodeRadius);
                     bool walkable = !Physics.CheckSphere(worldPoint, nodeRadius, unwalkableMask);
                     _grid[x,y] = new Node(walkable, worldPoint, x, y);
                 }
@@ -66,8 +64,8 @@ namespace MaiNull.AStar
         
         public Node NodeFromWorldPoint(Vector3 worldPosition)
         {
-            float percentX = (worldPosition.x - transform.position.x) / gridWorldSize.x;
-            float percentY = (worldPosition.z - transform.position.y) / gridWorldSize.y;
+            float percentX = (worldPosition.x + gridWorldSize.x/2) / gridWorldSize.x;
+            float percentY = (worldPosition.z + gridWorldSize.y/2) / gridWorldSize.y;
             percentX = Mathf.Clamp01(percentX);
             percentY = Mathf.Clamp01(percentY);
             
@@ -80,18 +78,12 @@ namespace MaiNull.AStar
         {
             Gizmos.color = Color.black;
             Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
-
-            if (_grid == null) return;
             
-            Node playerNode = NodeFromWorldPoint(player.position);
+            if (_grid == null) return;
             
             foreach (Node node in _grid)
             {
-                Gizmos.color = node.Walkable ? Color.green : Color.red;
-                if (playerNode == node)
-                {
-                    Gizmos.color = Color.cyan;
-                }
+                Gizmos.color = node.Walkable ? Color.white : Color.red;
 
                 if (Path != null)
                 {
@@ -100,7 +92,7 @@ namespace MaiNull.AStar
                         Gizmos.color = Color.yellow;
                     }
                 }
-                Gizmos.DrawCube(node.WorldPosition, Vector3.one * nodeRadius);
+                Gizmos.DrawCube(node.WorldPosition, Vector3.one * (NodeDiameter-.1f));
             }
         }
     }
