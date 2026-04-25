@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MaiNull.AStar
@@ -8,17 +9,29 @@ namespace MaiNull.AStar
         [SerializeField] private LayerMask unwalkableMask;
         public Vector2 gridWorldSize;
         public float nodeRadius;
+        [SerializeField] private bool displayGridGizmos;
         private Node[,] _grid;
 
+        [SerializeField] private TerrainType[] walkableRegions;
+        [SerializeField] private LayerMask walkableMask;
+        private Dictionary<int, int> _walkableRegionsDict = new Dictionary<int, int>();
+        
         public float NodeDiameter => nodeRadius * 2;
         private int _gridSizeX, _gridSizeY;
         
-        public List<Node> Path { get; set; }
+        public int MaxSize => _gridSizeX * _gridSizeY;
 
-        private void Start()
+        private void Awake()
         {
             _gridSizeX = Mathf.RoundToInt(gridWorldSize.x / NodeDiameter);
             _gridSizeY = Mathf.RoundToInt(gridWorldSize.y / NodeDiameter);
+
+            foreach (TerrainType region in walkableRegions)
+            {
+                walkableMask.value += region.TerrainMask.value;
+                _walkableRegionsDict.Add( (int)Mathf.Log(region.TerrainMask.value, 2), region.TerrainPenalty);
+            }
+            
             CreateGrid();
         }
 
@@ -34,7 +47,18 @@ namespace MaiNull.AStar
                 {
                     Vector3 worldPoint =  worldBottomLeft + Vector3.right * (x * NodeDiameter + nodeRadius) + Vector3.forward * (y * NodeDiameter + nodeRadius);
                     bool walkable = !Physics.CheckSphere(worldPoint, nodeRadius, unwalkableMask);
-                    _grid[x,y] = new Node(walkable, worldPoint, x, y);
+                    int movementPenalty = 0;
+
+                    if (walkable)
+                    {
+                        Ray ray = new Ray(worldPoint + Vector3.up * 50, Vector3.down);
+                        if ( Physics.Raycast(ray, out RaycastHit hit, 100, walkableMask))
+                        {
+                            _walkableRegionsDict.TryGetValue(hit.collider.gameObject.layer, out movementPenalty);
+                        }
+                    }
+                    
+                    _grid[x,y] = new Node(walkable, worldPoint, x, y, movementPenalty);
                 }
             }
         }
@@ -79,21 +103,21 @@ namespace MaiNull.AStar
             Gizmos.color = Color.black;
             Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
             
-            if (_grid == null) return;
+            if (_grid == null || !displayGridGizmos) return;
             
             foreach (Node node in _grid)
             {
                 Gizmos.color = node.Walkable ? Color.white : Color.red;
-
-                if (Path != null)
-                {
-                    if (Path.Contains(node))
-                    {
-                        Gizmos.color = Color.yellow;
-                    }
-                }
-                Gizmos.DrawCube(node.WorldPosition, Vector3.one * (NodeDiameter-.1f));
+                Gizmos.DrawCube(node.WorldPosition, Vector3.one * (NodeDiameter - .1f));
             }
         }
     }
+    
+    [Serializable]
+    public class TerrainType
+    {
+        public LayerMask TerrainMask;
+        public int TerrainPenalty;
+    }
+    
 }
