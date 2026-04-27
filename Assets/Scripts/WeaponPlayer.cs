@@ -47,6 +47,8 @@ namespace MaiNull
             //     orientationTransform.rotation = Quaternion.Euler(desiredRotation);
             // }
 
+            // print(moveVector);
+            
             if (CurrentCooldown <= 0f)
             {
                 Shoot(moveVector);

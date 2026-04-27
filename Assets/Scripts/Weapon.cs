@@ -1,17 +1,17 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MaiNull
 {
     public class Weapon : MonoBehaviour
     {
-        [SerializeField] protected Bullet bulletPrefab;
+        [FormerlySerializedAs("bulletPrefab")] [SerializeField] protected Projectile projectilePrefab;
         [SerializeField] protected float bulletSpeed = 300f;
         [SerializeField] protected int damage = 1;
         [SerializeField] protected bool waitToShoot = true;
         [SerializeField] protected float shootCooldown = 0.75f;
         [SerializeField] protected uint bulletAmountPerShot = 1;
         [SerializeField] protected Transform[] spawnPositions;
-        [SerializeField] protected ESoundType soundType = ESoundType.Shoot;
         protected float CurrentCooldown = 0f;
         
         private void Update()
@@ -28,17 +28,15 @@ namespace MaiNull
 
             for (int i = 0; i < bulletAmountPerShot; i++)
             {
-                if (spawnPositions.Length -1 < i)
+                if (i <= spawnPositions.Length -1)
                 {
                     spawnPosition = spawnPositions[i].position;
                 }
 
                 // Spawn bullet
-                Bullet bullet = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity, null);
+                Projectile projectile = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity, null);
                 // Init bullet
-                bullet.Init(damage, bulletSpeed, bulletDirection, transform);
-
-                SoundManager.PlaySound(soundType);
+                projectile.Init(damage, bulletSpeed, bulletDirection, transform);
             }
         }
     }

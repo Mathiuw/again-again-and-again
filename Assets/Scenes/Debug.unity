@@ -119,6 +119,154 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &97674608
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8548085056720743091, guid: 50407ae0580df70478d4505cea4e81bd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548085056720743091, guid: 50407ae0580df70478d4505cea4e81bd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548085056720743091, guid: 50407ae0580df70478d4505cea4e81bd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548085056720743091, guid: 50407ae0580df70478d4505cea4e81bd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548085056720743091, guid: 50407ae0580df70478d4505cea4e81bd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548085056720743091, guid: 50407ae0580df70478d4505cea4e81bd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548085056720743091, guid: 50407ae0580df70478d4505cea4e81bd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548085056720743091, guid: 50407ae0580df70478d4505cea4e81bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548085056720743091, guid: 50407ae0580df70478d4505cea4e81bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548085056720743091, guid: 50407ae0580df70478d4505cea4e81bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695831306549101838, guid: 50407ae0580df70478d4505cea4e81bd, type: 3}
+      propertyPath: m_Name
+      value: Zemerlin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695831306549101838, guid: 50407ae0580df70478d4505cea4e81bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50407ae0580df70478d4505cea4e81bd, type: 3}
+--- !u!1 &401521373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 401521375}
+  - component: {fileID: 401521374}
+  m_Layer: 0
+  m_Name: A*
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &401521374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401521373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AstarPathfindingProject::AstarPath
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAACwn+vGgNLdeQIAADEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty4jAQ/BVK54UyhmDY2y4hZA9JqJCtXHwR1hirkCWXHgGS4t9XI9vYYbkgd8+jpzX2F+HSVJBZpdeasyfFgPwcEDyTH4OOfIQT3Su55Z/QxrxzZgsMoiHmlVquPD7GNKNKsJpnv+ReYHDkQSd5rnS5YntYKmONh3MqDHhKK4vZ0kNfA3Lyf8MFppz9KU7w9OlPi2hw8ccMpAXdC70bzZPFdDZZDaNZkzQcj6bzhf8lSZM8jEezeRxHGJWEOk5mgpYVMByqKzdJmhrjOkz6cZsIHC1TQnDTaCX2XAUvtlUBGtAMxqkfPejD8AL4vrA4Rj/3Jc8N2MYXTc/3XHsH66Lkt6ptLak51LI+qHDYZh4E1SWf/mOH40DnWpWPbddxhB1swbPDKz1n1Nie6334/rtsJ49UHOhOwHsB8lmttXKSedJqh6nOQHzfPV4HWxaQHTq8lnoDuqozu73k9opxhkuY/bQUvNwhNZrWwFaoYHbYDND+Wv54wWFvTFPCo6jir4E3uu8vWEM8cG2sp5opJcrbKacxlKyCZziNs0ulJQS4EV2BpMKeN76Mvb3AG67X9oZ5oPgqNc0brn1DblIC3MVH0Q21UcfrZZlCHZ/AFC/OCi6hE43Es/dpqaSs96vvSZu2dTqnWS9t7zj7vlpkxubjOJsnE5pEcZRMh3d0Mk3yWZzdxcluEu9I2D0u/ZxUbGqhjT3+1mRXXPo9a78wg7WmVdh1pulxzT9L1bOcy1xtMw0gX+oKV+GgfRP/SrIV496gLVjLZbhv8pUSobIDsPRaKA2Trk5W07SrkpKKfyiLSEqW4ZOSEoSvu7zR8MHhiM3bYhdy+QdQSwMEFAAACAgAALCf6/aB1l9tAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJJZioWhUbKFuXGiuYGRgbmJrmmisYl5mplRsqmReZKxUZJSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAALCf68aA0t15AgAAMQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAALCf6/aB1l9tAAAAeAAAAAkAJAAAAAAAAAAAAAAAxgIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAB+AwAAAAA=
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 0
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 10
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!4 &401521375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401521373}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &592412822
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +364,10 @@ PrefabInstance:
     - target: {fileID: 9217360202657509902, guid: fe57e835a5a1d0848be2c2c183ddc117, type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9217360202657509902, guid: fe57e835a5a1d0848be2c2c183ddc117, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15278,7 +15430,7 @@ GameObject:
   - component: {fileID: 1919423683}
   - component: {fileID: 1919423684}
   m_Layer: 0
-  m_Name: Test Framerate
+  m_Name: Framerate Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15308,9 +15460,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1919423682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17653c646fe749c992e5944aef0aa1cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 69765cf00311ea243b22ce989f69c6d6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MaiNull.ApllicationTargetFrameRate
+  m_EditorClassIdentifier: Assembly-CSharp::MaiNull.Utils.TargetFrameRate
   targetFrameRate: 60
 --- !u!1001 &1983135079
 PrefabInstance:
@@ -15385,7 +15537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2115619313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15436,9 +15588,11 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 401521375}
   - {fileID: 1919423683}
+  - {fileID: 2115619314}
   - {fileID: 1434207328}
   - {fileID: 1614674648}
   - {fileID: 1983135079}
   - {fileID: 592412824}
-  - {fileID: 2115619314}
+  - {fileID: 97674608}

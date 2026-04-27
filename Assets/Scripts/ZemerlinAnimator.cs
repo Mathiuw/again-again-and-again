@@ -3,44 +3,58 @@ using UnityEngine;
 
 namespace MaiNull
 {
+    [RequireComponent(typeof(Animator))]
     public class ZemerlinAnimator : MonoBehaviour
     {
-        private AIPath aiPath;
-        private Animator animator;
+        private AIPath _aiPath;
+        private Animator _animator;
 
-        private int walkFrontHash = Animator.StringToHash("Zehmerlin_Walk_Back");
-        private int walkLeftHash = Animator.StringToHash("Zehmerlin_Walk_Back");
-        private int walkRightHash = Animator.StringToHash("Zehmerlin_Walk_Back");
-        private int walkBackHash = Animator.StringToHash("Zehmerlin_Walk_Back");
-        private int walkIdleHash = Animator.StringToHash("Zehmerlin_Idle");
+        private readonly int _walkFrontHash = Animator.StringToHash("Zehmerlin_Walk_Back");
+        private readonly int _walkLeftHash = Animator.StringToHash("Zehmerlin_Walk_Back");
+        private readonly int _walkRightHash = Animator.StringToHash("Zehmerlin_Walk_Back");
+        private readonly int _walkBackHash = Animator.StringToHash("Zehmerlin_Walk_Back");
+        private readonly int _walkIdleHash = Animator.StringToHash("Zehmerlin_Idle");
 
         private void Awake()
         {
-            aiPath = GetComponent<AIPath>();
-            animator = GetComponentInChildren<Animator>();
+            _animator = GetComponent<Animator>();
+            _aiPath = GetComponentInParent<AIPath>();
         }
 
         private void Update()
         {
-            if (aiPath.velocity.y > 0)
+            ApplyAnimation();
+        }
+
+        private void ApplyAnimation()
+        {
+            if (!_aiPath || !_animator ) return;
+            
+            switch (_aiPath.velocity.y)
             {
-                animator.Play(walkBackHash);
-            }
-            else if (aiPath.velocity.y < 0)
-            {
-                animator.Play(walkFrontHash);
-            }
-            else if (aiPath.velocity.x > 0)
-            {
-                animator.Play(walkRightHash);
-            }
-            else if (aiPath.velocity.x < 0)
-            {
-                animator.Play(walkLeftHash);
-            }
-            else
-            {
-                animator.Play(walkIdleHash);
+                case > 0:
+                    _animator.Play(_walkBackHash);
+                    break;
+                case < 0:
+                    _animator.Play(_walkFrontHash);
+                    break;
+                default:
+                {
+                    switch (_aiPath.velocity.x)
+                    {
+                        case > 0:
+                            _animator.Play(_walkRightHash);
+                            break;
+                        case < 0:
+                            _animator.Play(_walkLeftHash);
+                            break;
+                        default:
+                            _animator.Play(_walkIdleHash);
+                            break;
+                    }
+
+                    break;
+                }
             }
         }
     }

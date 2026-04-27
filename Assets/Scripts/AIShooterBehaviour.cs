@@ -9,12 +9,12 @@ namespace MaiNull
         [SerializeField] private float initialShootDelay = 2f;
         [SerializeField] private float shootFrequency = 3f;
         [SerializeField] private float randomVariation = 1f;
-        private Transform target;
-        private Weapon weapon;
+        private Transform _target;
+        private Weapon _weapon;
 
         private void Awake()
         {
-            weapon = GetComponent<Weapon>();
+            _weapon = GetComponent<Weapon>();
         }
 
         protected void OnEnable()
@@ -29,7 +29,7 @@ namespace MaiNull
             Transform playerTransform = FindFirstObjectByType<Player>()?.transform;
             if (playerTransform)
             {
-                target = playerTransform;
+                _target = playerTransform;
             }
         }
 
@@ -40,7 +40,7 @@ namespace MaiNull
 
         public void ShootTarget() 
         {
-            weapon.Shoot(target.position);
+            _weapon.Shoot(_target.position);
         }
     }
 }
