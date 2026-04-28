@@ -13,11 +13,15 @@ namespace MaiNull.AStar
         private Node[,] _grid;
 
         [SerializeField] private TerrainType[] walkableRegions;
+        public int obstacleProximityPenalty = 10;
         [SerializeField] private LayerMask walkableMask;
         private Dictionary<int, int> _walkableRegionsDict = new Dictionary<int, int>();
-        
-        public float NodeDiameter => nodeRadius * 2;
+
+        private float NodeDiameter => nodeRadius * 2;
         private int _gridSizeX, _gridSizeY;
+
+        private int _penaltyMin = int.MaxValue;
+        private int _penaltyMax = int.MinValue;
         
         public int MaxSize => _gridSizeX * _gridSizeY;
 
@@ -47,22 +51,78 @@ namespace MaiNull.AStar
                 {
                     Vector3 worldPoint =  worldBottomLeft + Vector3.right * (x * NodeDiameter + nodeRadius) + Vector3.forward * (y * NodeDiameter + nodeRadius);
                     bool walkable = !Physics.CheckSphere(worldPoint, nodeRadius, unwalkableMask);
+                    
                     int movementPenalty = 0;
 
-                    if (walkable)
+                    Ray ray = new Ray(worldPoint + Vector3.up * 50, Vector3.down);
+                    if (Physics.Raycast(ray, out RaycastHit hit, 100, walkableMask))
                     {
-                        Ray ray = new Ray(worldPoint + Vector3.up * 50, Vector3.down);
-                        if ( Physics.Raycast(ray, out RaycastHit hit, 100, walkableMask))
-                        {
-                            _walkableRegionsDict.TryGetValue(hit.collider.gameObject.layer, out movementPenalty);
-                        }
+                        _walkableRegionsDict.TryGetValue(hit.collider.gameObject.layer, out movementPenalty);
+                    }
+
+                    if (!walkable)
+                    {
+                        movementPenalty += obstacleProximityPenalty;
                     }
                     
                     _grid[x,y] = new Node(walkable, worldPoint, x, y, movementPenalty);
                 }
             }
+            
+            BlurPenaltyMap(3);
         }
 
+        private void BlurPenaltyMap(int blueSize)
+        {
+            int kernelSize = blueSize * 2 + 1;
+            int kernelExtents = (kernelSize - 1) / 2;
+            
+            int[,] penaltiesHorizontalPass =  new int[_gridSizeX, _gridSizeY];
+            int[,] penaltiesVerticalPass =  new int[_gridSizeX, _gridSizeY];
+
+            for (int y = 0; y < _gridSizeY; y++)
+            {
+                for (int x = -kernelExtents; x < kernelExtents; x++)
+                {
+                    int sampleX = Mathf.Clamp(x, 0, kernelExtents);
+                    penaltiesHorizontalPass[0, y] += _grid[sampleX, y].MovementPenalty;
+                }
+                
+                for (int x = 1; x < _gridSizeX; x++)
+                {
+                    int removeIndex = Mathf.Clamp(x - kernelExtents - 1, 0, _gridSizeX);
+                    int addIndex = Mathf.Clamp(x + kernelExtents, 0, _gridSizeX - 1); 
+                    
+                    penaltiesHorizontalPass[x,y] = penaltiesHorizontalPass[x-1, y] - _grid[removeIndex, y].MovementPenalty + _grid[addIndex, y].MovementPenalty;
+                }
+            }
+            
+            for (int x = 0; x < _gridSizeX; x++)
+            {
+                for (int y = -kernelExtents; y < kernelExtents; y++)
+                {
+                    int sampleY = Mathf.Clamp(y, 0, kernelExtents);
+                    penaltiesVerticalPass[x, 0] += penaltiesHorizontalPass[x, sampleY];
+                }
+                
+                int blurredPenalty = Mathf.RoundToInt((float)penaltiesVerticalPass[x, 0] / (kernelSize * kernelSize));
+                _grid[x, 0].MovementPenalty = blurredPenalty;
+                
+                for (int y = 1; y < _gridSizeY; y++)
+                {
+                    int removeIndex = Mathf.Clamp(y - kernelExtents - 1, 0, _gridSizeY);
+                    int addIndex = Mathf.Clamp(y + kernelExtents, 0, _gridSizeY - 1); 
+                    
+                    penaltiesVerticalPass[x,y] = penaltiesVerticalPass[x, y-1] - penaltiesHorizontalPass[x, removeIndex] + penaltiesHorizontalPass [x, addIndex];
+                    blurredPenalty = Mathf.RoundToInt((float)penaltiesVerticalPass[x, y] / (kernelSize * kernelSize));
+                    _grid[x, y].MovementPenalty = blurredPenalty;
+
+                    if (blurredPenalty > _penaltyMax) _penaltyMax = blurredPenalty;
+                    if (blurredPenalty < _penaltyMin) _penaltyMin = blurredPenalty;
+                }
+            }
+        }
+        
         public List<Node> GetNeighbours(Node node)
         {
             List<Node> neighbours = new List<Node>();
@@ -107,7 +167,10 @@ namespace MaiNull.AStar
             
             foreach (Node node in _grid)
             {
-                Gizmos.color = node.Walkable ? Color.white : Color.red;
+                Gizmos.color = Color.Lerp(Color.white, Color.black,
+                    Mathf.InverseLerp(_penaltyMin, _penaltyMax, node.MovementPenalty));
+                
+                Gizmos.color = node.Walkable ? Gizmos.color : Color.red;
                 Gizmos.DrawCube(node.WorldPosition, Vector3.one * (NodeDiameter - .1f));
             }
         }
