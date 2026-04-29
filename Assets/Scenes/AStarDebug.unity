@@ -200,7 +200,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9452ae1262a74094f8a68013fbcd1834, type: 2}
+  - {fileID: 2100000, guid: dba190c2317b6f14b88710e1bab1491f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -472,7 +472,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaiNull.AStar.Unit
   target: {fileID: 813544296}
-  moveSpeed: 5
+  moveSpeed: 40
+  turnSpeed: 3
+  turnDist: 15
 --- !u!1 &473813567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,7 +1310,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaiNull.AStar.Unit
   target: {fileID: 813544296}
-  moveSpeed: 5
+  moveSpeed: 40
+  turnSpeed: 3
+  turnDist: 5
 --- !u!136 &993837251
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1799,7 +1803,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaiNull.AStar.Unit
   target: {fileID: 813544296}
-  moveSpeed: 5
+  moveSpeed: 40
+  turnSpeed: 3
+  turnDist: 15
 --- !u!136 &1756709064
 CapsuleCollider:
   m_ObjectHideFlags: 0
