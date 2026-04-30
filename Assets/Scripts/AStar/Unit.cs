@@ -41,7 +41,7 @@ namespace MaiNull.AStar
             {
                 yield return new WaitForSeconds(.3f);
             }
-            PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+            PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
             
             float sqrMoveThreshold = PathUpdateMoveThreshold * PathUpdateMoveThreshold;
             Vector3 targetPosOld = target.position;
@@ -51,7 +51,7 @@ namespace MaiNull.AStar
                 yield return new WaitForSeconds(MinPathUpdateTime);
                 if (!((target.position - targetPosOld).sqrMagnitude > sqrMoveThreshold)) continue;
                 
-                PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+                PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
                 targetPosOld = target.position;
             }
         }

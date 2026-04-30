@@ -15,15 +15,9 @@ namespace MaiNull.AStar
         private void Awake()
         {
             _grid = GetComponent<Grid>();
-            _pathRequestManager  = GetComponent<PathRequestManager>();
         }
 
-        public void StartFindPath(Vector3 pathStart, Vector3 pathEnd)
-        {
-            StartCoroutine(FindPath(pathStart, pathEnd));
-        }
-
-        private IEnumerator FindPath(Vector3 startPos, Vector3 targetPos)
+        public void FindPath(PathRequest request, Action<PathResult> callback)
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
@@ -31,8 +25,8 @@ namespace MaiNull.AStar
             Vector3[] waypoints = Array.Empty<Vector3>();
             bool pathSuccess = false;
             
-            Node startNode = _grid.NodeFromWorldPoint(startPos);
-            Node targetNode = _grid.NodeFromWorldPoint(targetPos);
+            Node startNode = _grid.NodeFromWorldPoint(request.pathStart);
+            Node targetNode = _grid.NodeFromWorldPoint(request.pathEnd);
 
             if (startNode.Walkable && targetNode.Walkable)
             {
@@ -76,12 +70,12 @@ namespace MaiNull.AStar
                     }
                 }
             }
-            yield return null;
             if (pathSuccess)
             {
                 waypoints = RetracePath(startNode, targetNode);
+                pathSuccess = waypoints.Length > 0;
             }
-            _pathRequestManager.FinishedProcessingPath(waypoints, pathSuccess);
+            callback(new PathResult(waypoints, pathSuccess, request.Callback));
         }
 
         private Vector3[] RetracePath(Node startNode, Node endNode)
