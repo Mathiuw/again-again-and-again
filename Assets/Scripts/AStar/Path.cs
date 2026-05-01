@@ -7,9 +7,9 @@ namespace MaiNull.AStar
         public readonly Vector3[] LookPoints;
         public readonly Line[] TurnBoundaries;
         public readonly int FinishLineIndex;
-        public readonly int slowDownIndex;
+        public readonly int SlowDownIndex;
         
-        public Path(Vector3[] waypoints, Vector3 startPosition, float turnDist, float stoppingDistance)
+        public Path(Vector3[] waypoints, Vector3 startPosition, float turnDist, float stoppingDist)
         {
             LookPoints = waypoints;
             TurnBoundaries = new Line[LookPoints.Length];
@@ -29,14 +29,14 @@ namespace MaiNull.AStar
             for (int i = LookPoints.Length - 1; i > 0; i--)
             {
                 distFromEndPoint += Vector3.Distance(LookPoints[i], LookPoints[i - 1]);
-                if (!(distFromEndPoint > stoppingDistance)) continue;
-                slowDownIndex = i;
+                if (!(distFromEndPoint > stoppingDist)) continue;
+                SlowDownIndex = i;
                 break;
             }
             
         }
         
-        private static Vector2 V3ToV2(Vector3 v3)
+        private Vector2 V3ToV2(Vector3 v3)
         {
             return new Vector2(v3.x, v3.z);
         }
@@ -46,13 +46,19 @@ namespace MaiNull.AStar
             Gizmos.color = Color.black;
             foreach (Vector3 point in LookPoints)    
             {
-                Gizmos.DrawCube(point + Vector3.up, Vector3.one);
+                Gizmos.DrawSphere(point + Vector3.up, .3f);
+            }
+
+            for (int i = 0; i < LookPoints.Length; i++)
+            {
+                if (i == LookPoints.Length-1) continue;
+                Gizmos.DrawLine(LookPoints[i], LookPoints[i+1]);
             }
             
             Gizmos.color = Color.white;
             foreach (Line line in TurnBoundaries)
             {
-                line.DrawWithGizmos(10);
+                line.DrawWithGizmos(3);
             }
         }
     }

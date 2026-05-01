@@ -7,19 +7,18 @@ namespace MaiNull.AStar
     public class Grid : MonoBehaviour
     {
         [SerializeField] private LayerMask unwalkableMask;
+        [SerializeField] private bool displayGridGizmos;
+        [SerializeField] private TerrainType[] walkableRegions;
         public Vector2 gridWorldSize;
         public float nodeRadius;
-        [SerializeField] private bool displayGridGizmos;
-        private Node[,] _grid;
-
-        [SerializeField] private TerrainType[] walkableRegions;
         public int obstacleProximityPenalty = 10;
-        [SerializeField] private LayerMask walkableMask;
-        private Dictionary<int, int> _walkableRegionsDict = new Dictionary<int, int>();
-
+        private Node[,] _grid;
+        private Dictionary<int, int> _walkableRegionsDict = new();
+        private LayerMask _walkableMask;
+        
         private float NodeDiameter => nodeRadius * 2;
+        
         private int _gridSizeX, _gridSizeY;
-
         private int _penaltyMin = int.MaxValue;
         private int _penaltyMax = int.MinValue;
         
@@ -32,8 +31,8 @@ namespace MaiNull.AStar
 
             foreach (TerrainType region in walkableRegions)
             {
-                walkableMask.value += region.TerrainMask.value;
-                _walkableRegionsDict.Add( (int)Mathf.Log(region.TerrainMask.value, 2), region.TerrainPenalty);
+                _walkableMask.value |= region.terrainMask.value;
+                _walkableRegionsDict.Add((int)Mathf.Log(region.terrainMask.value, 2), region.terrainPenalty);
             }
             
             CreateGrid();
@@ -54,8 +53,8 @@ namespace MaiNull.AStar
                     
                     int movementPenalty = 0;
 
-                    Ray ray = new Ray(worldPoint + Vector3.up * 50, Vector3.down);
-                    if (Physics.Raycast(ray, out RaycastHit hit, 100, walkableMask))
+                    Ray ray = new Ray(worldPoint + Vector3.up * 100, Vector3.down);
+                    if (Physics.Raycast(ray, out RaycastHit hit, 200, _walkableMask))
                     {
                         _walkableRegionsDict.TryGetValue(hit.collider.gameObject.layer, out movementPenalty);
                     }
@@ -136,7 +135,7 @@ namespace MaiNull.AStar
                     int checkX = node.GridX + x;
                     int checkY = node.GridY + y;
 
-                    if (checkX >= 0 && checkX < gridWorldSize.x && checkY >= 0 && checkY < gridWorldSize.y)
+                    if (checkX >= 0 && checkX < _gridSizeX && checkY >= 0 && checkY < _gridSizeY)
                     {
                         neighbours.Add(_grid[checkX, checkY]);
                     }
@@ -179,8 +178,8 @@ namespace MaiNull.AStar
     [Serializable]
     public class TerrainType
     {
-        public LayerMask TerrainMask;
-        public int TerrainPenalty;
+        public LayerMask terrainMask;
+        public int terrainPenalty;
     }
     
 }

@@ -25,8 +25,8 @@ namespace MaiNull.AStar
             Vector3[] waypoints = Array.Empty<Vector3>();
             bool pathSuccess = false;
             
-            Node startNode = _grid.NodeFromWorldPoint(request.pathStart);
-            Node targetNode = _grid.NodeFromWorldPoint(request.pathEnd);
+            Node startNode = _grid.NodeFromWorldPoint(request.PathStart);
+            Node targetNode = _grid.NodeFromWorldPoint(request.PathEnd);
 
             if (startNode.Walkable && targetNode.Walkable)
             {
