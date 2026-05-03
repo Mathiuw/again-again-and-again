@@ -34,7 +34,7 @@ namespace MaiNull
 
             OnPlayerDie?.Invoke();
         }
-
+        
         public void Damage(int damage, Transform Instigator)
         {
             if (loopTimer)
