@@ -1,33 +1,86 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace MaiNull
 {
     public class Player : MonoBehaviour, IDamageable
     {
-        public delegate void PlayerDead();
-        public static event PlayerDead OnPlayerDie;
-        private LoopTimer loopTimer;
+        [Header("Input")]
+        [SerializeField] private InputActionReference shootInputAction;
+        [SerializeField] private InputActionReference moveInputAction;
+        [SerializeField] private InputActionReference dashInputAction;
+        private PlayerController2D _playerController;
+        private WeaponManager _weaponManager;
+        
+        public static Action OnPlayerDie;
+
+        private void Awake()
+        {
+            _playerController = GetComponent<PlayerController2D>();
+            _weaponManager = GetComponent<WeaponManager>();
+        }
+
+        private void OnEnable()
+        {
+            EnableInput();
+        }
 
         private void Start()
         {
-            LoopTimer.OnTimerEnd += Die;
+            LoopTimer.OnLoopEnd += Die;
+        }
+
+        private void Update()
+        {
+            // Shoot logic
+            if (shootInputAction.action.IsPressed())
+            {
+                PerformAttack();
+            }
         }
 
         private void OnDisable()
         {
-            LoopTimer.OnTimerEnd -= Die;
+            LoopTimer.OnLoopEnd -= Die;
+
+            DisableInput();
         }
 
+        private void PerformAttack()
+        {
+            if (!_weaponManager) return;
+            
+            Vector2 shootDirection = shootInputAction.action.ReadValue<Vector2>();
+            
+            _weaponManager.Shoot(shootDirection);
+            
+            print("Weapon Shoot Performed");
+        }
+        
+        private void OnMovePerformed(InputAction.CallbackContext context)
+        {
+            _playerController.MoveVector = context.ReadValue<Vector2>();
+        }
+
+        private void OnMoveCanceled(InputAction.CallbackContext context)
+        {
+            _playerController.MoveVector = Vector2.zero;
+        }
+        
+        private void OnDashStarted(InputAction.CallbackContext obj)
+        {
+            if (TryGetComponent(out Dash dash))
+            {
+                dash.StartDash();
+            }
+        }
+        
         private void Die()
         {
-            PlayerController2D playerMovement = GetComponent<PlayerController2D>();
-            if (playerMovement)
-            {
-                playerMovement.enabled = false;
-            }
-
-            Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            if (rb)
+            DisableInput();
+            
+            if (TryGetComponent(out Rigidbody2D rb))
             {
                 rb.bodyType = RigidbodyType2D.Kinematic;
             }
@@ -35,12 +88,33 @@ namespace MaiNull
             OnPlayerDie?.Invoke();
         }
         
-        public void Damage(int damage, Transform Instigator)
+        public void Damage(int damage, Transform instigator)
         {
-            if (loopTimer)
-            {
-                LoopTimer.RemoveTime(damage);
-            }
+            LoopTimer.RemoveTime(damage);
+        }
+
+        public void EnableInput()
+        {
+            shootInputAction.action.Enable();
+            
+            moveInputAction.action.performed += OnMovePerformed;
+            moveInputAction.action.canceled += OnMoveCanceled;
+            moveInputAction.action.Enable();
+            
+            dashInputAction.action.started += OnDashStarted;
+            dashInputAction.action.Enable();
+        }
+
+        public void DisableInput()
+        {
+            shootInputAction.action.Disable();
+            
+            moveInputAction.action.Disable();
+            moveInputAction.action.performed -= OnMovePerformed;
+            moveInputAction.action.canceled -= OnMoveCanceled;
+            
+            dashInputAction.action.Disable();
+            dashInputAction.action.started -= OnDashStarted;
         }
     }
 }

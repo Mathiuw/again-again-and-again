@@ -5,6 +5,8 @@ namespace MaiNull
 {
     public class LoopTimer : MonoBehaviour
     {
+        public static LoopTimer Instance;
+        
         [SerializeField] private float timerStartSeconds = 180f;
 
         public float TimerStartSeconds => timerStartSeconds;
@@ -12,10 +14,16 @@ namespace MaiNull
         private static float CurrentLoopTimerSeconds { get; set; } = 0f;
 
         public static event Action<float> OnTimerValueChange;
-        public static event Action OnTimerEnd;
+        public static event Action OnLoopEnd;
 
         private void Awake()
         {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else Destroy(gameObject);
+            
             CurrentLoopTimerSeconds = timerStartSeconds;
         }
 
@@ -26,7 +34,7 @@ namespace MaiNull
 
             if (CurrentLoopTimerSeconds <= 0f)
             {
-                EndTimer();
+                EndLoop();
             }
         }
 
@@ -42,10 +50,10 @@ namespace MaiNull
             CurrentLoopTimerSeconds = Mathf.Max(0, CurrentLoopTimerSeconds);
         }
 
-        private void EndTimer()
+        private void EndLoop()
         {
             CurrentLoopTimerSeconds = 0;
-            OnTimerEnd?.Invoke();
+            OnLoopEnd?.Invoke();
             enabled = false;
         }
     }

@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639117886210687414
+  lastModified: 639134309090314728
   FileSizes: []
   Exists: 1
 --- !u!114 &-5433321892235015431
@@ -60,7 +60,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Rome.bank
   Name: Rome
   StudioPath: bank:/Rome
-  lastModified: 639117886211019318
+  lastModified: 639134309090475042
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -92,7 +92,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 4798883464556179821}
   cacheVersion: 131858
-  cacheTime: 639117886211608829
+  cacheTime: 639134309090615292
   SerializableEventsDict:
   - key: event:/Music Future
     index: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639117886210697496
+  lastModified: 639134309090324786
   FileSizes:
   - Name: 
     Value: 1102
@@ -191,7 +191,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Future.bank
   Name: Future
   StudioPath: bank:/Future
-  lastModified: 639117886211608829
+  lastModified: 639134309090299631
   FileSizes: []
   Exists: 1
 --- !u!114 &6522364780878451142
@@ -236,6 +236,6 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Sinatra.bank
   Name: Sinatra
   StudioPath: bank:/Sinatra
-  lastModified: 639117886211320515
+  lastModified: 639134309090615292
   FileSizes: []
   Exists: 1

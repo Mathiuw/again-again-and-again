@@ -191,10 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1544e2dbe76e7bf428d04726c3b918e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 8744419771213730439, guid: 18d73aa9a29769a4491b1509f9b6df85, type: 3}
-  bulletSpeed: 300
-  damage: 1
-  waitToShoot: 1
+  projectileData: {fileID: 11400000, guid: 0fcc50e758eb0eb40a5f0aab5ad54e16, type: 2}
+  hasCooldown: 1
   shootCooldown: 0.75
   bulletAmountPerShot: 1
   spawnPositions: []

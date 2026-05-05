@@ -1,33 +1,38 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using MaiNull.Utils;
+using UnityEngine.Serialization;
 
 namespace MaiNull
 {
     public class Projectile : MonoBehaviour
     {
-        [Header("Collision Settings")] 
-        [SerializeField] private Vector2 size;
-        [SerializeField] private Vector2 pivotOffset;
-        [SerializeField] private ContactFilter2D contactFilter;
-        
-        private const float DestroyTime = 10f;
-        private int _damage;
-        private float _bulletSpeed;
+        private Collider2D _collider2D;
         private Vector2 _moveDirection;
         private Transform _owner;
-
-        public void Init(int damage, float bulletSpeed, Vector2 moveDirection, Transform owner)
+        private ProjectileData _data;
+        
+        private void Awake()
         {
-            _damage = damage;
-            _bulletSpeed = bulletSpeed;
+            _collider2D = GetComponent<Collider2D>();
+        }
+
+        public void Init(ProjectileData data, Vector2 moveDirection, Transform owner)
+        {
+            _data = data;
             _moveDirection = moveDirection;
             _owner = owner;
             
             transform.eulerAngles = new Vector3(0, 0, GameUtils.GetAngleFromVectorFloat(moveDirection));
+
+            if (owner.TryGetComponent(out Collider2D ownerCollider))
+            {
+                Physics2D.IgnoreCollision(_collider2D, ownerCollider);
+            }
             
             // Starts destroy timer
-            Destroy(gameObject, DestroyTime);
+            Destroy(gameObject, data.bulletLifeTime);
         }
 
         private void Update()
@@ -38,25 +43,21 @@ namespace MaiNull
 
         private void ApplyMovement()
         {
-            transform.Translate(_moveDirection * (_bulletSpeed * Time.deltaTime), Space.World);
+            transform.Translate(_moveDirection * (_data.bulletSpeed * Time.deltaTime), Space.World);
         }
         
         private void CheckCollision()
         {
-            List<Collider2D> results = new List<Collider2D>();
+            List<Collider2D> results = new();
             
-            if (Physics2D.OverlapBox(transform.position + (Vector3)pivotOffset, size, transform.eulerAngles.z, contactFilter, results) <= 0) return;
+            if (_collider2D.Overlap(ContactFilter2D.noFilter, results) <= 0) return;
             
             foreach (Collider2D c in results)
             {
-                if (_owner && c.transform == _owner)
-                {
-                    print("Owner Collision Ignore");
-                    continue;
-                }
                 if (c.transform.CompareTag(_owner.tag))
                 {
-                    print("Ally Collision");
+                    Physics2D.IgnoreCollision(c, _collider2D);
+                    print("Ally collision ignored");
                     continue;
                 }
                 
@@ -68,17 +69,10 @@ namespace MaiNull
         {
             foreach (IDamageable damageable in hitCollider2D.transform.GetComponents<IDamageable>())
             {
-                damageable.Damage(_damage, _owner);
+                damageable.Damage((int)_data.damage, _owner);
             }
             
             Destroy(gameObject);
-        }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.matrix = transform.localToWorldMatrix;
-            Gizmos.DrawWireCube(pivotOffset, size);
         }
     }
 }

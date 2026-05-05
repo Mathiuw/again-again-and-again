@@ -25,11 +25,11 @@ namespace MaiNull
 
         private void Start()
         {
-            LoopTimer.OnTimerEnd += OnTimerEnd;
+            LoopTimer.OnLoopEnd += OnLoopEnd;
             Player.OnPlayerDie += OnPlayerDie;
         }
 
-        private void OnTimerEnd()
+        private void OnLoopEnd()
         {
             StartCoroutine(SceneTransitionCoroutine(SceneManager.GetActiveScene().buildIndex, Color.white));
             AddRestartCount();
@@ -37,8 +37,8 @@ namespace MaiNull
 
         private void OnPlayerDie()
         {
-            LoopTimer.OnTimerEnd -= OnTimerEnd;
-            OnTimerEnd();
+            LoopTimer.OnLoopEnd -= OnLoopEnd;
+            OnLoopEnd();
         }
 
         public void SceneTransition(int sceneIndex, Color fadeColor) 

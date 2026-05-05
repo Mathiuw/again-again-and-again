@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace MaiNull
 {
-    [RequireComponent(typeof(Weapon))]
+    [RequireComponent(typeof(WeaponManager))]
     public class AIShooterBehaviour : MonoBehaviour
     {
         [Header("Shooter Settings")]
@@ -10,11 +10,11 @@ namespace MaiNull
         [SerializeField] private float shootFrequency = 3f;
         [SerializeField] private float randomVariation = 1f;
         private Transform _target;
-        private Weapon _weapon;
+        private WeaponManager _weaponManager;
 
         private void Awake()
         {
-            _weapon = GetComponent<Weapon>();
+            _weaponManager = GetComponent<WeaponManager>();
         }
 
         protected void OnEnable()
@@ -40,7 +40,7 @@ namespace MaiNull
 
         public void ShootTarget() 
         {
-            _weapon.Shoot(_target.position);
+            _weaponManager.Shoot((_target.position - transform.position).normalized);
         }
     }
 }
