@@ -29,7 +29,7 @@ namespace MaiNull
 
         private void SetAnimation()
         {
-            Vector2 moveVector = _playerController.MoveVector;
+            Vector2 moveVector = _playerController.MoveDirection;
 
             if (moveVector == Vector2.zero)
             {

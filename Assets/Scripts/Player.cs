@@ -11,14 +11,14 @@ namespace MaiNull
         [SerializeField] private InputActionReference moveInputAction;
         [SerializeField] private InputActionReference dashInputAction;
         private PlayerController2D _playerController;
-        private WeaponManager _weaponManager;
+        private Gun _gun;
         
         public static Action OnPlayerDie;
 
         private void Awake()
         {
             _playerController = GetComponent<PlayerController2D>();
-            _weaponManager = GetComponent<WeaponManager>();
+            _gun = GetComponent<Gun>();
         }
 
         private void OnEnable()
@@ -49,31 +49,28 @@ namespace MaiNull
 
         private void PerformAttack()
         {
-            if (!_weaponManager) return;
+            if (!_gun) return;
             
             Vector2 shootDirection = shootInputAction.action.ReadValue<Vector2>();
             
-            _weaponManager.Shoot(shootDirection);
+            _gun.Shoot(shootDirection);
             
             print("Weapon Shoot Performed");
         }
         
         private void OnMovePerformed(InputAction.CallbackContext context)
         {
-            _playerController.MoveVector = context.ReadValue<Vector2>();
+            _playerController.MoveDirection = context.ReadValue<Vector2>();
         }
 
         private void OnMoveCanceled(InputAction.CallbackContext context)
         {
-            _playerController.MoveVector = Vector2.zero;
+            _playerController.MoveDirection = Vector2.zero;
         }
         
         private void OnDashStarted(InputAction.CallbackContext obj)
         {
-            if (TryGetComponent(out Dash dash))
-            {
-                dash.StartDash();
-            }
+            _playerController.TryDash();
         }
         
         private void Die()

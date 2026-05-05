@@ -1,44 +1,43 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace MaiNull
 {
-    public class Dash : MonoBehaviour
+    public class Dash
     {
-        [SerializeField] private int dashSpeedMultiplier;
-        [SerializeField] private float dashDuration;
-        [SerializeField] private float cooldown;
+        private readonly float _speedMultiplier;
         private bool _canDash = true;
-        private PlayerController2D _playerController;
+        
+        public bool IsDashing { get; private set; }
 
-        private void Awake()
+        public Dash(float speedMultiplier)
         {
-            _playerController = GetComponent<PlayerController2D>();
-        }
-
-        public void StartDash()
-        {
-            if (!_playerController || !_canDash) return;
-            
-            _playerController.MovementSpeedMultiplier += (uint)dashSpeedMultiplier;
-            Invoke(nameof(ResetSpeedMultiplier), dashDuration);
-
-            if (cooldown <= 0) return;
-            
-            _canDash = false;
-            Invoke(nameof(ActivateDash), cooldown);
-        }
-
-        private void ActivateDash()
-        {
-            _canDash = true;
+            _speedMultiplier = speedMultiplier;
         }
         
-        private void ResetSpeedMultiplier()
+        public float CurrentSpeedMultiplier => IsDashing ? _speedMultiplier : 1f;
+        
+        public IEnumerator DashCoroutine(float duration, float cooldown)
         {
-            if (_playerController)
+            if (!CanDash()) yield break;
+            
+            IsDashing = true;
+            _canDash = false;
+            
+            yield return new WaitForSeconds(duration);
+            IsDashing = false;
+
+            if (cooldown != 0)
             {
-                _playerController.MovementSpeedMultiplier -= (uint)dashSpeedMultiplier;
+                yield return new WaitForSeconds(cooldown);
             }
+            
+            _canDash = true;
+        }
+
+        public bool CanDash()
+        {
+            return _canDash && !IsDashing;
         }
     }
 }

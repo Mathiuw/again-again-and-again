@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace MaiNull.Utils
+namespace MaiNull.Utilities
 {
     public class ScreenshotTaker : MonoBehaviour
     {

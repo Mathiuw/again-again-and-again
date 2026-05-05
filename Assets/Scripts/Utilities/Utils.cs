@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace MaiNull.Utils
+namespace MaiNull.Utilities
 {
-    public static class GameUtils
+    public static class Utils
     {
         public static Quaternion GetSwayTargetRotation(float xAxis, float yAxis, float multiplier)
         {

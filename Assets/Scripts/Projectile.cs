@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using MaiNull.Utilities;
 using UnityEngine;
-using MaiNull.Utils;
 using UnityEngine.Serialization;
 
 namespace MaiNull
@@ -24,7 +24,7 @@ namespace MaiNull
             _moveDirection = moveDirection;
             _owner = owner;
             
-            transform.eulerAngles = new Vector3(0, 0, GameUtils.GetAngleFromVectorFloat(moveDirection));
+            transform.eulerAngles = new Vector3(0, 0, Utils.GetAngleFromVectorFloat(moveDirection));
 
             if (owner.TryGetComponent(out Collider2D ownerCollider))
             {

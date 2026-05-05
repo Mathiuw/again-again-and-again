@@ -51,7 +51,7 @@ namespace MaiNull
             {
                 foreach (Enemy enemy in _enemiesOnTheRoom)
                 {
-                    enemy.health.OnDie += OnEnemyDie;
+                    enemy.Health.OnDie += OnEnemyDie;
                 }
             }
 
@@ -71,7 +71,7 @@ namespace MaiNull
             {
                 if (!t.TryGetComponent(out Enemy enemy)) continue;
                 
-                enemy.health.OnDie += OnEnemyDie;
+                enemy.Health.OnDie += OnEnemyDie;
                 enemiesList.Add(enemy);
             }
 

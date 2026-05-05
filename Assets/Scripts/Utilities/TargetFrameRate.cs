@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MaiNull.Utils
+namespace MaiNull.Utilities
 {
 	public class TargetFrameRate : MonoBehaviour
 	{

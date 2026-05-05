@@ -3,7 +3,7 @@ using UnityEngine.Serialization;
 
 namespace MaiNull
 {
-    public class WeaponManager : MonoBehaviour
+    public class Gun : MonoBehaviour
     {
         [SerializeField] private ProjectileData projectileData;
         [SerializeField] private bool hasCooldown = true;
@@ -25,7 +25,7 @@ namespace MaiNull
             }
         }
 
-        public void Shoot(Vector2 bulletDirection) 
+        public void Shoot(Vector2 direction) 
         {
             if (!_canShoot) return;
             
@@ -41,7 +41,7 @@ namespace MaiNull
                 // Spawn and Init bullet
                 if (Instantiate(projectileData.prefab, spawnPosition, Quaternion.identity, null).TryGetComponent(out Projectile projectile))
                 {
-                    projectile.Init(projectileData, bulletDirection, transform);
+                    projectile.Init(projectileData, direction, transform);
                 }
             }
 

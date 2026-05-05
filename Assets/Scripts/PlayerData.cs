@@ -1,0 +1,20 @@
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
+
+namespace MaiNull
+{
+    [CreateAssetMenu(fileName = "Player_Data", menuName = "Player Data")]
+    public class PlayerData : ScriptableObject
+    {
+        [Header("Health")]
+        public int maxHealth;
+        [Header("Input")]
+        public InputActionReference moveInputAction;
+        public InputActionReference jumpInputAction;
+        public InputActionReference dashInputAction;
+        public InputActionReference interactInputAction;
+        public InputActionReference attackWeaponInputAction;
+        public InputActionReference reloadWeaponInputAction;
+        public InputActionReference dropWeaponInputAction;
+    }
+}

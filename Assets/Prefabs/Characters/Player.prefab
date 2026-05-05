@@ -160,7 +160,6 @@ GameObject:
   - component: {fileID: 2728680055128570328}
   - component: {fileID: 8083654381619427349}
   - component: {fileID: 1066994696304814732}
-  - component: {fileID: 3517020949388411530}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -288,6 +287,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController2D
   moveSpeed: 15
+  speedMultiplier: 5
+  duration: 0.1
+  cooldown: 0.3
 --- !u!114 &1066994696304814732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,18 +308,3 @@ MonoBehaviour:
   bulletAmountPerShot: 1
   spawnPositions:
   - {fileID: 3356284917513912866}
---- !u!114 &3517020949388411530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8919248954087466715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7127bc163d74d1fb061823ff3f73de9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MaiNull.Dash
-  dashSpeedMultiplier: 5
-  dashDuration: 0.1
-  cooldown: 0.2
