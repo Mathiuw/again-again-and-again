@@ -31,7 +31,7 @@ namespace MaiNull
             if (!_aiPath || !_animator ) return;
             
             Vector2 moveVector = _aiPath.desiredVelocity.normalized;
-            print(moveVector);
+            // print(moveVector);
             
             if (moveVector == Vector2.zero)
             {

@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d814b00afba33499196c66c7299c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController2D
-  moveSpeed: 15
+  moveSpeed: 7
   speedMultiplier: 5
   duration: 0.1
   cooldown: 0.3
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MaiNull.WeaponManager
   projectileData: {fileID: 11400000, guid: 0fcc50e758eb0eb40a5f0aab5ad54e16, type: 2}
   hasCooldown: 1
-  shootCooldown: 0.15
+  shootCooldown: 0.4
   bulletAmountPerShot: 1
   spawnPositions:
   - {fileID: 3356284917513912866}

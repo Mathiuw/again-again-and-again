@@ -4,7 +4,7 @@ namespace MaiNull
 {
     public class Enemy : MonoBehaviour, IDamageable
     {
-        [SerializeField] private int maxHealth = 3;
+        [SerializeField] protected int maxHealth = 3;
         public Health Health;
 
         private void Awake()

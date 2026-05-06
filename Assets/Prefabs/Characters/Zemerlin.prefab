@@ -211,6 +211,7 @@ MonoBehaviour:
   initialShootDelay: 2
   shootFrequency: 3
   randomVariation: 1
+  shootGunComponent: 1
 --- !u!114 &6149247891091976347
 MonoBehaviour:
   m_ObjectHideFlags: 0

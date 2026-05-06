@@ -1,58 +1,121 @@
 fileFormatVersion: 2
-guid: 01560a3bbe903f148b0d1e7960fd6816
+guid: d0e8e1d92cd49cb439e59254effecb70
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9032857649869902674
-    second: Tuga-Sheet_0
+      213: -3612999559908231482
+    second: medusahead-Sheet 1_0
   - first:
-      213: 5893909554150985167
-    second: Tuga-Sheet_1
+      213: -2719492583502144822
+    second: medusahead-Sheet 1_1
   - first:
-      213: -3339767990121251302
-    second: Tuga-Sheet_2
+      213: 7599603476667725602
+    second: medusahead-Sheet 1_2
   - first:
-      213: -7843600361492090481
-    second: Tuga-Sheet_3
+      213: 7646773245253146444
+    second: medusahead-Sheet 1_3
   - first:
-      213: 4115110248183983566
-    second: Tuga-Sheet_4
+      213: -3082961253058150263
+    second: medusahead-Sheet 1_4
   - first:
-      213: -6108193806946330527
-    second: Tuga-Sheet_5
+      213: 6391757435459678401
+    second: medusahead-Sheet 1_5
   - first:
-      213: 8443859058620599847
-    second: Tuga-Sheet_6
+      213: 8823090442310163289
+    second: medusahead-Sheet 1_6
   - first:
-      213: -4221150819676670992
-    second: Tuga-Sheet_7
+      213: 1255461800361892083
+    second: medusahead-Sheet 1_7
   - first:
-      213: 3979915089351694424
-    second: Tuga-Sheet_8
+      213: -9033946201848898167
+    second: medusahead-Sheet 1_8
   - first:
-      213: 6659340361835760425
-    second: Tuga-Sheet_9
+      213: 7000189817756682945
+    second: medusahead-Sheet 1_9
   - first:
-      213: -1074839916294655634
-    second: Tuga-Sheet_10
+      213: -8497684581416833329
+    second: medusahead-Sheet 1_10
   - first:
-      213: -1229083666897458049
-    second: Tuga-Sheet_11
+      213: -1930770368954501692
+    second: medusahead-Sheet 1_11
   - first:
-      213: 913110888028440211
-    second: Tuga-Sheet_12
+      213: 7659413044927682909
+    second: medusahead-Sheet 1_12
   - first:
-      213: -4445812619110591716
-    second: Tuga-Sheet_13
+      213: 5427875601095301240
+    second: medusahead-Sheet 1_13
   - first:
-      213: -2986039022635896945
-    second: Tuga-Sheet_14
+      213: -2153115622823244664
+    second: medusahead-Sheet 1_14
   - first:
-      213: 3302259125212607061
-    second: Tuga-Sheet_15
+      213: -3956302693179712311
+    second: medusahead-Sheet 1_15
   - first:
-      213: 7656318783904387382
-    second: Tuga-Sheet_16
+      213: -1094823759113364784
+    second: medusahead-Sheet 1_16
+  - first:
+      213: -2240318556653656377
+    second: medusahead-Sheet 1_17
+  - first:
+      213: -2591526052619967123
+    second: medusahead-Sheet 1_18
+  - first:
+      213: 1891309363870159718
+    second: medusahead-Sheet 1_19
+  - first:
+      213: 6565563554271222210
+    second: medusahead-Sheet 1_20
+  - first:
+      213: -5040381623721240281
+    second: medusahead-Sheet 1_21
+  - first:
+      213: -3335153366794990696
+    second: medusahead-Sheet 1_22
+  - first:
+      213: -7389701926818119824
+    second: medusahead-Sheet 1_23
+  - first:
+      213: -6900739075724876218
+    second: medusahead-Sheet 1_24
+  - first:
+      213: 7760760238419160248
+    second: medusahead-Sheet 1_25
+  - first:
+      213: 3895144986535217605
+    second: medusahead-Sheet 1_26
+  - first:
+      213: 6641404676400350092
+    second: medusahead-Sheet 1_27
+  - first:
+      213: -5810176295497408534
+    second: medusahead-Sheet 1_28
+  - first:
+      213: -4480331741275758697
+    second: medusahead-Sheet 1_29
+  - first:
+      213: -3481560103787845942
+    second: medusahead-Sheet 1_30
+  - first:
+      213: 6416444009501941899
+    second: medusahead-Sheet 1_31
+  - first:
+      213: -1100163549029210930
+    second: medusahead-Sheet 1_32
+  - first:
+      213: 6411082265132434510
+    second: medusahead-Sheet 1_33
+  - first:
+      213: -3066006302483996688
+    second: medusahead-Sheet 1_34
+  - first:
+      213: -5818088824798299650
+    second: medusahead-Sheet 1_35
+  - first:
+      213: -9094594526464136442
+    second: medusahead-Sheet 1_36
+  - first:
+      213: -532575165867567702
+    second: medusahead-Sheet 1_37
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -148,12 +211,276 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tuga-Sheet_0
+      name: MedusaHead_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 989c1e1a66dc3874d9641d77bbc61635
+      internalID: -149159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d8f7cedf002dc646bb4307780438976
+      internalID: 1588821668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f551f8bcfc7564cb2db3dc5989cee4
+      internalID: 1839165872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da41e7ef2300854381f6e4a45cb6104
+      internalID: 730976885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6fe0c3ad3bd16f408d2f0466bada849
+      internalID: -847493384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5596972b5c45d8340a938cfdaedf738f
+      internalID: 786326974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c07da2b2a5193547a27e89e1cc95fdb
+      internalID: -113228002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95fa46da894193c4a8fce20209fa22fc
+      internalID: -1011921849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 479960bf0e13ad3408440c12c6e919c6
+      internalID: -592374712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56617ffd1eb173e43b498fdc1a1aeb76
+      internalID: -397636234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a91b18c2679cb4948b56e16e6c38ebcf
+      internalID: 1815881018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4316695fdfdca854ca2979f34d3b0e23
+      internalID: 1116487105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_12
       rect:
         serializedVersion: 2
         x: 0
         y: 96
-        width: 64
+        width: 32
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -161,21 +488,43 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: eaca5d853d7d4a280800000000000000
-      internalID: -9032857649869902674
+      spriteID: 30af7cc6c97f59544b1a059f41a10677
+      internalID: -1454787109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tuga-Sheet_1
+      name: MedusaHead_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 657bab87db3ff0d438aed962f3478b5a
+      internalID: -580599413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_14
       rect:
         serializedVersion: 2
         x: 64
         y: 96
-        width: 64
+        width: 32
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -183,21 +532,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fcd4371238f5bc150800000000000000
-      internalID: 5893909554150985167
+      spriteID: 76a0c183d47cfcd4a8df07d18fbf1a3f
+      internalID: -883448932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tuga-Sheet_2
+      name: MedusaHead_Sheet_15
       rect:
         serializedVersion: 2
-        x: 128
+        x: 96
         y: 96
-        width: 64
+        width: 32
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -205,131 +554,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a1e3a9435b2c6a1d0800000000000000
-      internalID: -3339767990121251302
+      spriteID: 899eae9160f11324ca8051e80f0c474c
+      internalID: 565415026
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tuga-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 96
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f817325470fe52390800000000000000
-      internalID: -7843600361492090481
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuga-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 96
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ecd639ac7fecb1930800000000000000
-      internalID: 4115110248183983566
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuga-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 96
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 16819bd58165b3ba0800000000000000
-      internalID: -6108193806946330527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuga-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 96
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 72e8b8a831d9e2570800000000000000
-      internalID: 8443859058620599847
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuga-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 96
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0f3b2d1b1b57b65c0800000000000000
-      internalID: -4221150819676670992
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuga-Sheet_8
+      name: MedusaHead_Sheet_16
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 64
+        width: 32
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -337,21 +576,43 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8585601ffaf7b3730800000000000000
-      internalID: 3979915089351694424
+      spriteID: 932ced2cc114d004d93ef2e2d54d09a8
+      internalID: 212125573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tuga-Sheet_9
+      name: MedusaHead_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dffd24991dfb5a47baad95b4a8b9557
+      internalID: 8265403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_18
       rect:
         serializedVersion: 2
         x: 64
         y: 64
-        width: 64
+        width: 32
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -359,21 +620,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 92b44a1c6caba6c50800000000000000
-      internalID: 6659340361835760425
+      spriteID: e8b10bff7f17581499aadec869397750
+      internalID: -1818070958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tuga-Sheet_10
+      name: MedusaHead_Sheet_19
       rect:
         serializedVersion: 2
-        x: 128
+        x: 96
         y: 64
-        width: 64
+        width: 32
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -381,131 +642,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e61b8d67ac66511f0800000000000000
-      internalID: -1074839916294655634
+      spriteID: 3805d14c104ac2a47b77a9d36b50d624
+      internalID: -1292822093
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tuga-Sheet_11
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f7ca75bbaea61fee0800000000000000
-      internalID: -1229083666897458049
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuga-Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 64
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3960a79c3850cac00800000000000000
-      internalID: 913110888028440211
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuga-Sheet_13
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 64
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c13d6f35afc4d42c0800000000000000
-      internalID: -4445812619110591716
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuga-Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 64
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f8f255264557f86d0800000000000000
-      internalID: -2986039022635896945
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuga-Sheet_15
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 64
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 552f692ad2bf3dd20800000000000000
-      internalID: 3302259125212607061
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuga-Sheet_16
+      name: MedusaHead_Sheet_20
       rect:
         serializedVersion: 2
         x: 0
         y: 32
-        width: 64
+        width: 32
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -513,21 +664,43 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 63195c97e55b04a60800000000000000
-      internalID: 7656318783904387382
+      spriteID: b5de6537fa6412240bf1659ca5914b36
+      internalID: -640413926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tuga-Sheet_17
+      name: MedusaHead_Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 259f26b8c7a231b43a880d7831b83584
+      internalID: 627053642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_22
       rect:
         serializedVersion: 2
         x: 64
         y: 32
-        width: 64
+        width: 32
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -537,19 +710,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 375100a44ddb7f247b595f4595592135
-      internalID: 1805854217
+      spriteID: 291c377cf3ec3114ca440f6d528b406e
+      internalID: 1737416188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tuga-Sheet_18
+      name: MedusaHead_Sheet_23
       rect:
         serializedVersion: 2
-        x: 128
+        x: 96
         y: 32
-        width: 64
+        width: 32
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -559,129 +732,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9645d460ddc136647b87e18a759ea5c4
-      internalID: 570396292
+      spriteID: 74bbee9cf43904a4aacfa5796f1d6ac3
+      internalID: 81274080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tuga-Sheet_19
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 32
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 85cf9db30b935a743a53e6eadfb72a1e
-      internalID: 663691890
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuga-Sheet_20
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 32
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 61c05b18e7d2ec2449ee2b2d06a3623b
-      internalID: -235508092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuga-Sheet_21
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 32
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 926529b77f8c5d6449ff0663d2b3c3ba
-      internalID: 1093988027
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuga-Sheet_22
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 32
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7e2a80b048f6b54b9b94c5b3b9704da
-      internalID: 2021316712
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuga-Sheet_23
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 32
-        width: 64
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5898d7c0d65d8ba4cae9b22fd08f7682
-      internalID: -1074932899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuga-Sheet_24
+      name: MedusaHead_Sheet_24
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
+        width: 32
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -691,19 +754,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 179fe0568ad952b478165deb7e925913
-      internalID: -1459754887
+      spriteID: 54b0c45d58e176840839d2ad2688cfb3
+      internalID: -732024890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tuga-Sheet_25
+      name: MedusaHead_Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ce4b07b566070846a803475affc1148
+      internalID: 750993103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedusaHead_Sheet_26
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 64
+        width: 32
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -713,19 +798,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3c8a6c09ad4e8146a26fa7d0ee20edf
-      internalID: -2065246459
+      spriteID: b37b03567fe16cf47929526ab3bb5b16
+      internalID: 685123528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tuga-Sheet_26
+      name: MedusaHead_Sheet_27
       rect:
         serializedVersion: 2
-        x: 128
+        x: 96
         y: 0
-        width: 64
+        width: 32
         height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -735,8 +820,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17b2189ea3616c04db0f2a49b853a661
-      internalID: 1537461669
+      spriteID: a0c38ed185e86474a9618ed983d2ae17
+      internalID: 318467792
       vertices: []
       indices: 
       edges: []
@@ -745,7 +830,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c07863c608b7dba40ab38e7bdd8afb77
+    spriteID: 09a9c1923fad40846897eea5f4b5f63f
     internalID: 0
     vertices: []
     indices: 
@@ -755,35 +840,36 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Tuga-Sheet_0: -9032857649869902674
-      Tuga-Sheet_1: 5893909554150985167
-      Tuga-Sheet_10: -1074839916294655634
-      Tuga-Sheet_11: -1229083666897458049
-      Tuga-Sheet_12: 913110888028440211
-      Tuga-Sheet_13: -4445812619110591716
-      Tuga-Sheet_14: -2986039022635896945
-      Tuga-Sheet_15: 3302259125212607061
-      Tuga-Sheet_16: 7656318783904387382
-      Tuga-Sheet_17: 1805854217
-      Tuga-Sheet_18: 570396292
-      Tuga-Sheet_19: 663691890
-      Tuga-Sheet_2: -3339767990121251302
-      Tuga-Sheet_20: -235508092
-      Tuga-Sheet_21: 1093988027
-      Tuga-Sheet_22: 2021316712
-      Tuga-Sheet_23: -1074932899
-      Tuga-Sheet_24: -1459754887
-      Tuga-Sheet_25: -2065246459
-      Tuga-Sheet_26: 1537461669
-      Tuga-Sheet_3: -7843600361492090481
-      Tuga-Sheet_4: 4115110248183983566
-      Tuga-Sheet_5: -6108193806946330527
-      Tuga-Sheet_6: 8443859058620599847
-      Tuga-Sheet_7: -4221150819676670992
-      Tuga-Sheet_8: 3979915089351694424
-      Tuga-Sheet_9: 6659340361835760425
+      MedusaHead_Sheet_0: -149159
+      MedusaHead_Sheet_1: 1588821668
+      MedusaHead_Sheet_10: 1815881018
+      MedusaHead_Sheet_11: 1116487105
+      MedusaHead_Sheet_12: -1454787109
+      MedusaHead_Sheet_13: -580599413
+      MedusaHead_Sheet_14: -883448932
+      MedusaHead_Sheet_15: 565415026
+      MedusaHead_Sheet_16: 212125573
+      MedusaHead_Sheet_17: 8265403
+      MedusaHead_Sheet_18: -1818070958
+      MedusaHead_Sheet_19: -1292822093
+      MedusaHead_Sheet_2: 1839165872
+      MedusaHead_Sheet_20: -640413926
+      MedusaHead_Sheet_21: 627053642
+      MedusaHead_Sheet_22: 1737416188
+      MedusaHead_Sheet_23: 81274080
+      MedusaHead_Sheet_24: -732024890
+      MedusaHead_Sheet_25: 750993103
+      MedusaHead_Sheet_26: 685123528
+      MedusaHead_Sheet_27: 318467792
+      MedusaHead_Sheet_3: 730976885
+      MedusaHead_Sheet_4: -847493384
+      MedusaHead_Sheet_5: 786326974
+      MedusaHead_Sheet_6: -113228002
+      MedusaHead_Sheet_7: -1011921849
+      MedusaHead_Sheet_8: -592374712
+      MedusaHead_Sheet_9: -397636234
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

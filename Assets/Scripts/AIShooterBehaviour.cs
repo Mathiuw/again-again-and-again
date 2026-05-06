@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace MaiNull
 {
@@ -9,9 +11,14 @@ namespace MaiNull
         [SerializeField] private float initialShootDelay = 2f;
         [SerializeField] private float shootFrequency = 3f;
         [SerializeField] private float randomVariation = 1f;
+        [SerializeField] private bool shootGunComponent = true;
         private Transform _target;
         private Gun _gun;
 
+        public float ShootDuration { get; set; } = 0;
+        
+        public Action OnAIShoot;
+        
         private void Awake()
         {
             _gun = GetComponent<Gun>();
@@ -21,7 +28,7 @@ namespace MaiNull
         {
             float randomShootFrequency = Random.Range(-randomVariation, randomVariation);
 			
-            InvokeRepeating(nameof(ShootTarget), initialShootDelay + randomShootFrequency, shootFrequency + randomShootFrequency);
+            InvokeRepeating(nameof(TriggerAIShoot), initialShootDelay + randomShootFrequency, shootFrequency + randomShootFrequency + ShootDuration);
         }
 
         private void Start()
@@ -35,9 +42,19 @@ namespace MaiNull
 
         private void OnDisable()
         {
-            CancelInvoke(nameof(ShootTarget));
+            CancelInvoke(nameof(TriggerAIShoot));
         }
 
+        private void TriggerAIShoot()
+        {
+            if (shootGunComponent)
+            {
+                ShootTarget();
+            }
+            
+            OnAIShoot?.Invoke();
+        }
+        
         public void ShootTarget() 
         {
             _gun.Shoot((_target.position - transform.position).normalized);

@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3803372711747378549}
   m_Layer: 7
-  m_Name: shootTransform (1)
+  m_Name: shoot_Pivot_1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3803372711747378549
 Transform:
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3355493725206188054}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.881, y: 0.589, z: 0}
+  m_LocalPosition: {x: -1, y: 0.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,11 +41,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3281200286401818945}
   m_Layer: 7
-  m_Name: shootTransform
+  m_Name: shoot_Pivot
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3281200286401818945
 Transform:
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 3365448408363732609}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.871, y: 0.595, z: 0}
+  m_LocalPosition: {x: 1, y: 0.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -79,7 +79,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2612157078444507307
 Transform:
@@ -90,8 +90,8 @@ Transform:
   m_GameObject: {fileID: 4613515658405362020}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.75, y: 1.75, z: 1.75}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6552053792592511725}
@@ -172,11 +172,11 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.6, y: 0.64}
+  m_Size: {x: 4, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &3676973103288152877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,12 +201,13 @@ GameObject:
   - component: {fileID: 4769451773811599687}
   - component: {fileID: 7933000656842813862}
   - component: {fileID: 1429019913886571307}
+  - component: {fileID: 6766461540454632171}
   m_Layer: 7
   m_Name: Tuga
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6552053792592511725
 Transform:
@@ -260,7 +261,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.35330075}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -270,7 +271,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.29219, y: 1.8867197}
+  m_Size: {x: 2.57367, y: 1.0412487}
   m_EdgeRadius: 0
 --- !u!114 &7933000656842813862
 MonoBehaviour:
@@ -284,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd392144ee587f4f8efda9b88b6b1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  maxHealth: 3
+  maxHealth: 5
 --- !u!114 &1429019913886571307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,13 +298,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1544e2dbe76e7bf428d04726c3b918e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
-  bulletSpeed: 300
-  damage: 1
-  waitToShoot: 1
-  shootCooldown: 0.75
+  projectileData: {fileID: 11400000, guid: 55668d1dcae3dc444a7655103b400411, type: 2}
+  hasCooldown: 0
+  shootCooldown: 0
   bulletAmountPerShot: 2
   spawnPositions:
   - {fileID: 3281200286401818945}
   - {fileID: 3803372711747378549}
-  soundType: 0
+--- !u!114 &6766461540454632171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5616772653532367632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f129e7b8b511dc42ae7e132a4d0e137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaiNull.AIShooterBehaviour
+  initialShootDelay: 5
+  shootFrequency: 4
+  randomVariation: 1
+  shootGunComponent: 0
