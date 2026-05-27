@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -8,114 +7,72 @@ namespace MaiNull
     [Serializable]
     public struct RoomTransitionItem
     {
-        public string transitionId;
-        [FormerlySerializedAs("transitionGameObject")] public Transform transitionTransform;
+        public string id;
+        public Transform transform;
 
-        public RoomTransitionItem(string transitionId, Transform transitionTransform)
+        public RoomTransitionItem(string id, Transform transform)
         {
-            this.transitionId = transitionId;
-            this.transitionTransform = transitionTransform;
+            this.id = id;
+            this.transform = transform;
         }
     }
     
     public class Room : MonoBehaviour
     {
-        [FormerlySerializedAs("_roomWidth")] [SerializeField] private int roomWidth = 40;
-        [FormerlySerializedAs("_roomHeight")] [SerializeField] private int roomHeight = 24;
+        [SerializeField] private RoomData roomData;
         [SerializeField] private RoomTransitionItem[] roomTransitions;
-        
-        private Enemy[] _enemiesOnTheRoom = Array.Empty<Enemy>();
-        
-        public int EnemyRoomCount => _enemiesOnTheRoom.Length;
-
-        private void OnEnable()
-        {
-            CameraMovement cameraMovement = FindFirstObjectByType<CameraMovement>();
-            cameraMovement.OnCameraTransformUpdate += OnCameraTransformUpdate;
-        }
-
-        private void OnDisable()
-        {
-            CameraMovement cameraMovement = FindFirstObjectByType<CameraMovement>();
-            if (cameraMovement)
-            {
-                cameraMovement.OnCameraTransformUpdate -= OnCameraTransformUpdate;
-            }
-        }
 
         private void Start()
         {
-            CountEnemies();
+            CheckEnemyCount();
+        }
 
-            if (_enemiesOnTheRoom.Length > 0)
-            {
-                foreach (Enemy enemy in _enemiesOnTheRoom)
-                {
-                    enemy.Health.OnDie += OnEnemyDie;
-                }
-            }
-
-            SetEnemiesState(false);
+        private void Update()
+        {
+            CheckEnemyCount();
         }
 
         private void OnEnemyDie()
         {
-            CountEnemies();
+            CheckEnemyCount();
         }
 
-        private void CountEnemies() 
+        private int CheckEnemyCount() 
         {
-            List<Enemy> enemiesList = new();
-
-            foreach (Transform t in transform)
-            {
-                if (!t.TryGetComponent(out Enemy enemy)) continue;
-                
-                enemy.Health.OnDie += OnEnemyDie;
-                enemiesList.Add(enemy);
-            }
-
-            if (enemiesList.Count == 0)
+            if (Enemy.EnemiesList.Count == 0)
             {
                 OpenRoomDoors();
             }
 
-            _enemiesOnTheRoom = enemiesList.ToArray();
+            return Enemy.EnemiesList.Count;
         }
 
         private void OpenRoomDoors()
         {
-            foreach (Door door in GetComponentsInChildren<Door>())
+            foreach (Door door in FindObjectsByType<Door>(FindObjectsInactive.Exclude, FindObjectsSortMode.None))
             {
                 door.OpenDoor();
             }
         }
 
-        private void OnCameraTransformUpdate(Transform cameraPosition)
-        {
-            SetEnemiesState(transform == cameraPosition);
-        }
-
-        private void SetEnemiesState(bool state) 
-        {
-            foreach (Enemy enemy in _enemiesOnTheRoom)
-            {
-                enemy.gameObject.SetActive(state);
-            }
-        }
-
         private void OnDrawGizmos()
         {
+            if (!roomData) return;
+            
             Gizmos.color = Color.orange;
-            Gizmos.DrawWireCube(transform.position, new Vector3(roomWidth, roomHeight));
+            Gizmos.DrawWireCube(transform.position, new Vector3(roomData.width, roomData.height));
 
-            foreach (RoomTransitionItem item in roomTransitions)
+            if (roomTransitions.Length <= 0) return;
+
+            Gizmos.color = Color.red;
+            
+            foreach (RoomTransitionItem transition in roomTransitions)
             {
-                if (item.transitionTransform)
-                {
-                    Gizmos.DrawSphere(transform.position, 3);
-                }
+                if (!transition.transform) continue;
+                
+                Gizmos.DrawSphere(transition.transform.position, 0.25f);
             }
+
         }
     }
 }

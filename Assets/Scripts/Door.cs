@@ -9,8 +9,14 @@ namespace MaiNull
 
         public void OpenDoor() 
         {
-            Destroy(doorTransform.gameObject);
+            doorTransform.gameObject.SetActive(true);
             doorParticleSystem.Play();
+        }
+
+        public void CloseDoor()
+        {
+            doorTransform.gameObject.SetActive(false);
+            doorParticleSystem.Stop();
         }
     }
 }

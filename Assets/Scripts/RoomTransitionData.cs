@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace MaiNull
 {
@@ -13,8 +14,8 @@ namespace MaiNull
     [CreateAssetMenu(fileName = "RoomTransitionData", menuName = "Room/Transition")]
     public class RoomTransitionData : ScriptableObject
     {
-        public string transitionId;
-        public Room roomPrefab;
-        public TransitionDirection transitionDirection;
+        public RoomData desiredRoomData;
+        public string entranceId;
+        public TransitionDirection spawnDirection;
     }
 }

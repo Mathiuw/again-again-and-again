@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 68ee787eb4a57cf4e808f60bd0668c7b
   - enabled: 1
-    path: Assets/Scenes/Introduction.unity
+    path: Assets/Scenes/LetterCutscene.unity
     guid: 49604cc3d9438c94e866bb88e93574d9
   - enabled: 1
     path: Assets/Scenes/Main.unity
