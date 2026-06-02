@@ -4,18 +4,18 @@ namespace MaiNull
 {
     public class Door : MonoBehaviour
     {
-        [SerializeField] private Transform doorTransform;
+        [SerializeField] private GameObject doorSprite;
         [SerializeField] private ParticleSystem doorParticleSystem;
 
         public void OpenDoor() 
         {
-            doorTransform.gameObject.SetActive(true);
+            doorSprite.SetActive(false);
             doorParticleSystem.Play();
         }
 
         public void CloseDoor()
         {
-            doorTransform.gameObject.SetActive(false);
+            doorSprite.SetActive(true);
             doorParticleSystem.Stop();
         }
     }

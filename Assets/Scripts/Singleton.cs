@@ -30,7 +30,7 @@ namespace MaiNull
 
             _instance = GetComponent<T>();
 
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
 
             if (_instance != null)
                 return;

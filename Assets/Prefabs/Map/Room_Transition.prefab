@@ -91,4 +91,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e77cda5c6b056f479d41906e9a9801c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionData: {fileID: 11400000, guid: 6d796e9520430654f93374054206b6ca, type: 2}
+  transitionData: {fileID: 0}

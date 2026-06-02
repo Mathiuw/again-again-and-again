@@ -36,6 +36,8 @@ namespace MaiNull
             foreach (Enemy enemy in Enemy.EnemiesList) {
                 enemy.Health.OnDie += OnEnemyDie;
             }
+            
+            CheckEnemyCount();
         }
 
         private void OnEnemyDie()
