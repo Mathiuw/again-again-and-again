@@ -1,15 +1,21 @@
-using System;
 using UnityEngine;
 
 namespace MaiNull
 {
-    public class CameraSystem : MonoBehaviour
+    public class TopDownCamera : MonoBehaviour
     {
-        public static event Action<Transform> OnCameraTransformUpdate;
-        
         [SerializeField] private float lerpSpeed = 3f;
 
-        public static Transform DesiredTransform;
+        public static Transform Target;
+
+        private void Awake()
+        {
+            RoomManager.OnCurrentRoomUpdate += OnCurrentRoomUpdate;
+        }
+        private void OnCurrentRoomUpdate(Room room)
+        {
+            Target = room.transform;
+        }
 
         private void Start()
         {
@@ -17,12 +23,12 @@ namespace MaiNull
             
             if (room == null)  return;
             
-            DesiredTransform = room.transform;
+            Target = room.transform;
         }
 
         private void LateUpdate()
         {
-            LerpCamera(DesiredTransform ? DesiredTransform.position : Vector3.zero);
+            LerpCamera(Target ? Target.position : Vector3.zero);
         }
 
         private void LerpCamera(Vector3 desiredPosition)

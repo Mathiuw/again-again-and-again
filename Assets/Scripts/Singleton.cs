@@ -10,15 +10,12 @@ namespace MaiNull
         {
             get 
             {
-                if (_instance != null) return _instance;
+                if (_instance) return _instance;
                 _instance = FindFirstObjectByType<T>();
                 
-                if (_instance != null) return _instance;
-                GameObject singletonObj = new GameObject
-                {
-                    name = typeof(T).ToString()
-                };
-                _instance = singletonObj.AddComponent<T>();
+                if (_instance) return _instance;
+                GameObject singletonGo = new GameObject { name = typeof(T).ToString() };
+                _instance = singletonGo.AddComponent<T>();
                 return _instance;
             } 
         }

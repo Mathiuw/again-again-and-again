@@ -1,27 +1,12 @@
-using System.Collections;
 using MaiNull.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace MaiNull
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : Singleton<GameManager>
     {
-        public static GameManager Instance { get; private set; }
-
         [SerializeField] private UIFade fade;
-
-        private void Awake()
-        {
-            if (Instance != null && Instance != this)
-            {
-                Destroy(this);
-            }
-            else
-            {
-                Instance = this;
-            }
-        }
 
         private void Start()
         {
@@ -31,7 +16,7 @@ namespace MaiNull
 
         private void OnLoopEnd()
         {
-            StartCoroutine(SceneTransitionCoroutine(SceneManager.GetActiveScene().buildIndex, Color.white));
+            SceneTransition(SceneManager.GetActiveScene().buildIndex, Color.white);
             AddRestartCount();
         }
 
@@ -43,27 +28,24 @@ namespace MaiNull
 
         public void SceneTransition(int sceneIndex, Color fadeColor) 
         {
-            StartCoroutine(SceneTransitionCoroutine(sceneIndex, fadeColor));
-        }
-
-        private IEnumerator SceneTransitionCoroutine(int sceneIndex, Color fadeColor) 
-        {
-            UIFade fade = Instantiate(this.fade);
-            fade.FadeIn(fadeColor);
-
-            while (fade.alpha < 1)
+            if (!fade)
             {
-                yield return null;
+                SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
+                return;
             }
+            
+            UIFade newFade = Instantiate(this.fade);
+            newFade.FadeIn(fadeColor);
 
-            SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
-
-            yield break;
+            newFade.OnFadeFinish += () =>
+            {
+                SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
+            };
         }
 
         private static void AddRestartCount() 
         {
-            // Adds or set restart count on playerprefs
+            // Adds or set restart count on player prefs
             // In case needs to reset count: go to %userprofile%\AppData\Local\Packages\[ProductPackageId]\LocalState\playerprefs.dat and delete the file
             if (PlayerPrefs.GetInt("RestartCount") == 0)
             {

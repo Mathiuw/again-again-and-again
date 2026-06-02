@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba415fb62326704aba7edea44faacaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desiredTransform: {fileID: 0}
   lerpSpeed: 8
 --- !u!1 &3749213143378632611
 GameObject:

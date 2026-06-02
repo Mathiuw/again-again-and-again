@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -19,17 +20,22 @@ namespace MaiNull
     
     public class Room : MonoBehaviour
     {
-        [SerializeField] private RoomData roomData;
+        [SerializeField] private RoomData data;
         [SerializeField] private RoomTransitionItem[] roomTransitions;
+        private Door[] _doors;
+        
+        public RoomData Data => data;
+
+        private void Awake()
+        {
+            _doors = GetComponentsInChildren<Door>();
+        }
 
         private void Start()
         {
-            CheckEnemyCount();
-        }
-
-        private void Update()
-        {
-            CheckEnemyCount();
+            foreach (Enemy enemy in Enemy.EnemiesList) {
+                enemy.Health.OnDie += OnEnemyDie;
+            }
         }
 
         private void OnEnemyDie()
@@ -49,19 +55,39 @@ namespace MaiNull
 
         private void OpenRoomDoors()
         {
-            foreach (Door door in FindObjectsByType<Door>(FindObjectsInactive.Exclude, FindObjectsSortMode.None))
+            foreach (Door door in _doors)
             {
                 door.OpenDoor();
             }
         }
+        
+        public void SnapLeft(Room room)
+        {
+            transform.position = new Vector2(room.transform.position.x - room.data.width / 2 - data.width / 2, room.transform.position.y);
+        }
+        
+        public void SnapRight(Room room)
+        {
+            transform.position = new Vector2(room.transform.position.x + room.data.width / 2 + data.width / 2, room.transform.position.y);
+        }
 
+        public void SnapUp (Room room)
+        {
+            transform.position = new Vector2(room.transform.position.x, room.transform.position.y + room.data.height / 2 + data.height / 2);
+        }
+
+        public void SnapDown (Room room)
+        {
+            transform.position = new Vector2(room.transform.position.x, room.transform.position.y - room.data.height / 2 - data.height / 2);
+        }
+        
         private void OnDrawGizmos()
         {
-            if (!roomData) return;
+            if (!Data) return;
             
             Gizmos.color = Color.orange;
-            Gizmos.DrawWireCube(transform.position, new Vector3(roomData.width, roomData.height));
-
+            Gizmos.DrawWireCube(transform.position, new Vector3(data.width, data.height));
+            
             if (roomTransitions.Length <= 0) return;
 
             Gizmos.color = Color.red;
@@ -72,7 +98,6 @@ namespace MaiNull
                 
                 Gizmos.DrawSphere(transition.transform.position, 0.25f);
             }
-
         }
     }
 }

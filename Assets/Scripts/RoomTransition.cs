@@ -14,15 +14,16 @@ namespace MaiNull
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (!collision.transform.CompareTag("Player") || !transitionData) return;
-            
-            StartCoroutine(TransitionToRoom(collision.transform));
+
+            TransitionToRoom(collision.transform);
         }
 
-        private IEnumerator TransitionToRoom(Transform transitioner)
+        private void TransitionToRoom(Transform transitioner)
         {
-            yield return SceneManager.LoadSceneAsync(transitionData.desiredRoomData.sceneName, LoadSceneMode.Additive);
+            if (SceneManager.GetSceneByName(transitionData.desiredRoomData.sceneName).IsValid()) return;
             
-            print("Scene Loaded!");
+            _ = RoomManager.LoadRoom(transitionData.desiredRoomData);
+            
             OnRoomTransition?.Invoke(transitionData);
         }
     }

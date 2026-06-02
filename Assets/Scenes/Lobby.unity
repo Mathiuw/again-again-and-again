@@ -119,6 +119,68 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &746791148
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3117991007474945933}
+    m_Modifications:
+    - target: {fileID: 7529017080497201151, guid: 0ad41ec98789dd94dbc8504c1493e1eb, type: 3}
+      propertyPath: m_Name
+      value: Door_Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081181321541447276, guid: 0ad41ec98789dd94dbc8504c1493e1eb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081181321541447276, guid: 0ad41ec98789dd94dbc8504c1493e1eb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081181321541447276, guid: 0ad41ec98789dd94dbc8504c1493e1eb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081181321541447276, guid: 0ad41ec98789dd94dbc8504c1493e1eb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081181321541447276, guid: 0ad41ec98789dd94dbc8504c1493e1eb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081181321541447276, guid: 0ad41ec98789dd94dbc8504c1493e1eb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081181321541447276, guid: 0ad41ec98789dd94dbc8504c1493e1eb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081181321541447276, guid: 0ad41ec98789dd94dbc8504c1493e1eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081181321541447276, guid: 0ad41ec98789dd94dbc8504c1493e1eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081181321541447276, guid: 0ad41ec98789dd94dbc8504c1493e1eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0ad41ec98789dd94dbc8504c1493e1eb, type: 3}
+--- !u!4 &746791149 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8081181321541447276, guid: 0ad41ec98789dd94dbc8504c1493e1eb, type: 3}
+  m_PrefabInstance: {fileID: 746791148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &604793765274525316
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,12 +209,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3117991007474945933}
   - component: {fileID: 4853237860150904337}
+  - component: {fileID: 4853237860150904338}
   m_Layer: 3
-  m_Name: Map
+  m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!483693784 &1752000867011849721
 TilemapRenderer:
@@ -201,7 +264,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -293,21 +356,6 @@ TilemapRenderer:
   m_SortOrder: 2
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
---- !u!4 &2802055674678370604
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6616787984773672920}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &3117991007474945933
 Transform:
   m_ObjectHideFlags: 0
@@ -324,6 +372,7 @@ Transform:
   - {fileID: 4719956948430292782}
   - {fileID: 5195264335088450899}
   - {fileID: 7464366045348085208}
+  - {fileID: 746791149}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4719956948430292782
@@ -353,6 +402,20 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &4853237860150904338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692712743434911333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca06db93bb172f84ca0b01e0af8abf17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaiNull.Room
+  data: {fileID: 11400000, guid: 336706f1846ef2a4a95a386cc0c356ac, type: 2}
+  roomTransitions: []
 --- !u!1 &5078203707670286255
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +432,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5195264335088450899
 Transform:
@@ -10090,23 +10153,6 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!1 &6616787984773672920
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2802055674678370604}
-  - component: {fileID: 7847307591965218938}
-  m_Layer: 3
-  m_Name: Room
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
 --- !u!483693784 &6689138382717023120
 TilemapRenderer:
   serializedVersion: 2
@@ -17200,23 +17246,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &7847307591965218938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6616787984773672920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca06db93bb172f84ca0b01e0af8abf17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MaiNull.Room
-  roomWidth: 40
-  roomHeight: 24
-  roomTransitions:
-  - transitionId: 
-    transitionTransform: {fileID: 0}
 --- !u!66 &8016506625247400912
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -17391,11 +17420,10 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 2802055674678370604}
   - {fileID: 3117991007474945933}

@@ -1,27 +1,42 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace MaiNull.UI
 {
-    public enum EFadeType
-    {
-        FadeIn, FadeOut
-    }
-
     public class UIFade : MonoBehaviour
     {
-        [SerializeField] bool activateOnStart = false;
-        [field: SerializeField] EFadeType EFadeType { get; set; } = EFadeType.FadeIn;
-        [SerializeField] float fadeTime = 1f;
-        [SerializeField] AnimationCurve curve;
-        RawImage rawImage;
-
-        public float alpha { get; private set; }
-
-        private void Start()
+        public enum EFadeType
         {
-            switch (EFadeType)
+            FadeIn, 
+            FadeOut,
+            Blink,
+        }
+        
+        [SerializeField] private bool activateOnStart = false;
+        [SerializeField] private EFadeType eFadeType;
+        [SerializeField] private float fadeTime = 1f;
+        [SerializeField] private AnimationCurve curve;
+        private RawImage _rawImage;
+
+        public float Alpha { get; private set; }
+
+        public event Action OnFadeStart;
+        public event Action OnFadeFinish;
+        
+        public EFadeType FadeType
+        {
+            get => eFadeType;
+            set => eFadeType = value;
+        }
+        
+        private void Awake()
+        {
+            _rawImage = GetComponentInChildren<RawImage>();
+            
+            // Initialize initial color
+            switch (FadeType)
             {
                 case EFadeType.FadeIn:
                     SetImageAlpha(0f);
@@ -29,13 +44,35 @@ namespace MaiNull.UI
                 case EFadeType.FadeOut:
                     SetImageAlpha(1f);
                     break;
-                default:
+                case EFadeType.Blink:
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
-
+        }
+        
+        private void Start()
+        {
             if (!activateOnStart) return;
 
-            switch (EFadeType)
+            switch (FadeType)
+            {
+                case EFadeType.FadeIn:
+                    FadeIn();
+                    break;
+                case EFadeType.FadeOut:
+                    FadeOut();
+                    break;
+                case EFadeType.Blink:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public void FadeActivate()
+        {
+            switch (FadeType)
             {
                 case EFadeType.FadeIn:
                     FadeIn();
@@ -44,27 +81,22 @@ namespace MaiNull.UI
                     FadeOut();
                     break;
                 default:
-                    break;
+                    throw new ArgumentOutOfRangeException();
             }
         }
-
-        private void Awake()
-        {
-            rawImage = GetComponentInChildren<RawImage>();
-        }
-
+        
         private void ChangeFadeColor(Color color) 
         {
-            rawImage.color = color;
+            _rawImage.color = color;
         }
 
         private void SetImageAlpha(float value)
         {
-            Color color = rawImage.color;
+            Color color = _rawImage.color;
             color.a = value;
 
-            alpha = color.a;
-            rawImage.color = color;
+            Alpha = color.a;
+            _rawImage.color = color;
         }
 
         private void FadeIn() => StartCoroutine(FadeCoroutine(0, 1));
@@ -83,8 +115,9 @@ namespace MaiNull.UI
             FadeOut();
         }
 
-        private IEnumerator FadeCoroutine(float initial, float final)
+        public IEnumerator FadeCoroutine(float initial, float final)
         {
+            OnFadeStart?.Invoke();
             float timePassed = 0;
 
             SetImageAlpha(initial);
@@ -96,8 +129,14 @@ namespace MaiNull.UI
                 yield return null;
             }
             SetImageAlpha(final);
-
-            yield break;
+            OnFadeFinish?.Invoke();
         }
+
+        public IEnumerator FadeAndDestroyCoroutine(float initial, float final)
+        {
+            yield return FadeCoroutine(initial, final);
+            Destroy(gameObject);
+        }
+        
     }
 }

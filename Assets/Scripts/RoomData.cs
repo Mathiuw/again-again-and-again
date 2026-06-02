@@ -6,7 +6,7 @@ namespace MaiNull
     public class RoomData : ScriptableObject
     {
         public string sceneName;
-        public int width = 40;
-        public int height = 24;
+        public float width;
+        public float height;
     }
 }
