@@ -5,10 +5,10 @@
 [ext_resource type="Material" uid="uid://cenkdihc6dw7h" path="res://asset/damage_flash_material.tres" id="2_qklf1"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="3_8u16h"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon_component.tscn" id="3_b7koy"]
-[ext_resource type="PackedScene" uid="uid://d2uhi6ia23jpa" path="res://entity/bullet/bullet_zemerlin.tscn" id="5_mb7b2"]
+[ext_resource type="PackedScene" uid="uid://d2uhi6ia23jpa" path="res://entity/projectile/bullet_zemerlin.tscn" id="5_mb7b2"]
 [ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/raycast_target_check/raycast_target_check_2d.tscn" id="6_1gk6y"]
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/AI/run_away_behaviour/ai_shoot_behaviour.tscn" id="7_cv5gn"]
-[ext_resource type="Script" uid="uid://cmmhc52xpvpsb" path="res://system/AI/chaser_behaviour/AIChaserBehaviour.cs" id="9_tlhyt"]
+[ext_resource type="PackedScene" uid="uid://eiu347grr33x" path="res://system/AI/chaser_behaviour/ai_chaser_behaviour.tscn" id="9_tlhyt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2lkbx"]
 atlas = ExtResource("2_8u16h")
@@ -319,10 +319,8 @@ weapon_component = NodePath("../WeaponComponent")
 target_raycast_check_2d = NodePath("../TargetRaycastCheck2D")
 root_node = NodePath("..")
 
-[node name="AIChaserBehaviour" type="Node" parent="." unique_id=603847941 node_paths=PackedStringArray("ChaserNavigationAgent")]
-script = ExtResource("9_tlhyt")
-ChaserNavigationAgent = NodePath("../NavigationAgent2D")
-metadata/_custom_type_script = "uid://cmmhc52xpvpsb"
+[node name="AIChaserBehaviour" parent="." unique_id=807217399 node_paths=PackedStringArray("NavigationAgent") instance=ExtResource("9_tlhyt")]
+NavigationAgent = NodePath("../NavigationAgent2D")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="DrawPathTimer" to="." method="_on_draw_path_timer_timeout"]

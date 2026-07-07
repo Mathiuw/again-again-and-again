@@ -36,6 +36,5 @@ func _ready() -> void:
 
 func _setup_dialogue_step_box():
 		var dialogue_step_box = dialogue_steps[dialogue_step_index].dialog_box_scene.instantiate()
-		dialogue_step_box.dialogue_step_resource = dialogue_steps[dialogue_step_index]
-		
+		dialogue_step_box.get_node("DialogueBoxText").dialogue_step_resource = dialogue_steps[dialogue_step_index]
 		dialogue_box_node.add_child(dialogue_step_box) 

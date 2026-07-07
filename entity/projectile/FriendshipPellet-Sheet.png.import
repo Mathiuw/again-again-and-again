@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnw1igwot1bsr"
-path="res://.godot/imported/bullet.png-6e38e5b4a122c7b05f003f3e29008b6b.ctex"
+uid="uid://cqi3mfhwd1paw"
+path="res://.godot/imported/FriendshipPellet-Sheet.png-067f8630407c5e1599073e7484749525.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entity/bullet/bullet.png"
-dest_files=["res://.godot/imported/bullet.png-6e38e5b4a122c7b05f003f3e29008b6b.ctex"]
+source_file="res://entity/projectile/FriendshipPellet-Sheet.png"
+dest_files=["res://.godot/imported/FriendshipPellet-Sheet.png-067f8630407c5e1599073e7484749525.ctex"]
 
 [params]
 

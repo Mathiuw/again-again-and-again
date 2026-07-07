@@ -18,7 +18,7 @@ config/name="AgainAgainAndAgain"
 config/version="0.1.0"
 config/tags=PackedStringArray("top_down_2d")
 run/main_scene="uid://dquef6xj016ys"
-config/features=PackedStringArray("4.6", "C#", "Forward Plus")
+config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 run/max_fps=60
 boot_splash/show_image=false
 config/icon="uid://cyi5ukmu5845v"
@@ -39,14 +39,15 @@ SignalBus="*res://system/global/signal_bus.gd"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=4
 window/size/resizable=false
-window/size/borderless=true
 window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=0
 
 [dotnet]
 
-project/assembly_name="AAA"
+project/assembly_name="AgainAgainAgain"
 
 [editor]
 
@@ -58,6 +59,7 @@ folder_colors={
 "res://UI/": "green",
 "res://asset/": "pink",
 "res://audio/": "yellow",
+"res://dialogue/": "gray",
 "res://entity/": "blue",
 "res://level/": "purple",
 "res://system/": "orange"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjg07dc6qw0ts"
-path="res://.godot/imported/AchooPellet-Sheet.png-803c8662135e19059437c0c6d023f0d8.ctex"
+uid="uid://j1c1kbigbp5d"
+path="res://.godot/imported/arrow.png-c7d30f2509d16b2af322f67c699a9ef0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entity/bullet/AchooPellet-Sheet.png"
-dest_files=["res://.godot/imported/AchooPellet-Sheet.png-803c8662135e19059437c0c6d023f0d8.ctex"]
+source_file="res://entity/projectile/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-c7d30f2509d16b2af322f67c699a9ef0.ctex"]
 
 [params]
 

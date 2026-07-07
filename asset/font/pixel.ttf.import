@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dwm50thfi0vqx"
-path="res://.godot/imported/ari-w9500-bold.ttf-441fc20eb2412c37c352de6a9cfb8a5c.fontdata"
+uid="uid://bl8vw06vvuigy"
+path="res://.godot/imported/pixel.ttf-09d56fb39befa1794bbb4d877041b623.fontdata"
 
 [deps]
 
-source_file="res://asset/font/ari-w9500-bold.ttf"
-dest_files=["res://.godot/imported/ari-w9500-bold.ttf-441fc20eb2412c37c352de6a9cfb8a5c.fontdata"]
+source_file="res://asset/font/pixel.ttf"
+dest_files=["res://.godot/imported/pixel.ttf-09d56fb39befa1794bbb4d877041b623.fontdata"]
 
 [params]
 
@@ -22,14 +22,14 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
-hinting=1
-subpixel_positioning=4
-keep_rounding_remainders=true
+hinting=3
+subpixel_positioning=0
+keep_rounding_remainders=false
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
-compress=true
+compress=false
 preload=[{
 "chars": [],
 "glyphs": [],

@@ -1,0 +1,189 @@
+%!Adobe-FontList 1.25
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Ari-W9500Bold
+FamilyName:Ari-W9500 Bold
+StyleName:Regular
+FullName:Ari-W9500 Bold Regular
+MenuName:Ari-W9500 Bold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\mateu\Documents\_GameDev\Godot Projects\topdown\asset\Font\ari-w9500-bold.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:234356
+FileModTime:1754964673
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Ari-W9500 Bold Regular
+NameArray:0,Win,1,Ari-W9500 Bold
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\mateu\Documents\_GameDev\Godot Projects\topdown\asset\Font\ari-w9500-bold.ttf.import
+FileModTime:1769234532
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Ari-W9500CondensedBold
+FamilyName:Ari-W9500 Condensed Bold
+StyleName:Regular
+FullName:Ari-W9500 Condensed Bold Regular
+MenuName:Ari-W9500 Condensed Bold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\mateu\Documents\_GameDev\Godot Projects\topdown\asset\Font\ari-w9500-condensed-bold.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:227012
+FileModTime:1754964673
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Ari-W9500 Condensed Bold Regular
+NameArray:0,Win,1,Ari-W9500 Condensed Bold
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\mateu\Documents\_GameDev\Godot Projects\topdown\asset\Font\ari-w9500-condensed-bold.ttf.import
+FileModTime:1769234532
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Ari-W9500CondensedDisplay
+FamilyName:Ari-W9500 Condensed Display
+StyleName:Regular
+FullName:Ari-W9500 Condensed Display Regular
+MenuName:Ari-W9500 Condensed Display
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\mateu\Documents\_GameDev\Godot Projects\topdown\asset\Font\ari-w9500-condensed-display.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:231396
+FileModTime:1754964673
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Ari-W9500 Condensed Display Regular
+NameArray:0,Win,1,Ari-W9500 Condensed Display
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\mateu\Documents\_GameDev\Godot Projects\topdown\asset\Font\ari-w9500-condensed-display.ttf.import
+FileModTime:1769234532
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Ari-W9500Condensed
+FamilyName:Ari-W9500 Condensed
+StyleName:Regular
+FullName:Ari-W9500 Condensed Regular
+MenuName:Ari-W9500 Condensed
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\mateu\Documents\_GameDev\Godot Projects\topdown\asset\Font\ari-w9500-condensed.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:237816
+FileModTime:1754964673
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Ari-W9500 Condensed Regular
+NameArray:0,Win,1,Ari-W9500 Condensed
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\mateu\Documents\_GameDev\Godot Projects\topdown\asset\Font\ari-w9500-condensed.ttf.import
+FileModTime:1769234532
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Ari-W9500Display
+FamilyName:Ari-W9500 Display
+StyleName:Regular
+FullName:Ari-W9500 Display Regular
+MenuName:Ari-W9500 Display
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\mateu\Documents\_GameDev\Godot Projects\topdown\asset\Font\ari-w9500-display.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:235340
+FileModTime:1754964674
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Ari-W9500 Display Regular
+NameArray:0,Win,1,Ari-W9500 Display
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\mateu\Documents\_GameDev\Godot Projects\topdown\asset\Font\ari-w9500-display.ttf.import
+FileModTime:1769234532
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Ari-W9500
+FamilyName:Ari-W9500
+StyleName:Regular
+FullName:Ari-W9500 Regular
+MenuName:Ari-W9500
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\mateu\Documents\_GameDev\Godot Projects\topdown\asset\Font\ari-w9500.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:265308
+FileModTime:1754964673
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Ari-W9500 Regular
+NameArray:0,Win,1,Ari-W9500
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\mateu\Documents\_GameDev\Godot Projects\topdown\asset\Font\ari-w9500.ttf.import
+FileModTime:1769234532
+%EndFont
+

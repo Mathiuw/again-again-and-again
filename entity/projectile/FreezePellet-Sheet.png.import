@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bihvmaqr3ycvu"
-path="res://.godot/imported/FreezePellet-Sheet.png-2e854ae8b27533431029518fe70380c1.ctex"
+path="res://.godot/imported/FreezePellet-Sheet.png-07d79eb333ec615bcf43860087a01f55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entity/bullet/FreezePellet-Sheet.png"
-dest_files=["res://.godot/imported/FreezePellet-Sheet.png-2e854ae8b27533431029518fe70380c1.ctex"]
+source_file="res://entity/projectile/FreezePellet-Sheet.png"
+dest_files=["res://.godot/imported/FreezePellet-Sheet.png-07d79eb333ec615bcf43860087a01f55.ctex"]
 
 [params]
 

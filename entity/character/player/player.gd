@@ -27,7 +27,7 @@ func _ready() -> void:
 	if _loop_timer:
 		_loop_timer.timeout.connect(on_loop_timer_timeout)
 	else:
-		push_warning("No loop timer found")
+		push_warning("No loop timer found in scene tree!")
 	
 	SignalBus.on_dialog_enter.connect(on_dialogue_enter)
 	SignalBus.on_dialog_end.connect(on_dialogue_exit)

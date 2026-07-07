@@ -1,10 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://e1scgkiciot6"]
+[gd_scene format=3 uid="uid://e1scgkiciot6"]
 
 [ext_resource type="Script" uid="uid://dbr8713g7yhdj" path="res://entity/character/aditya/aditya.gd" id="1_06dl2"]
 [ext_resource type="Texture2D" uid="uid://xyyrrafvg71p" path="res://entity/character/aditya/Aditya-Sheet.png" id="1_0564f"]
 [ext_resource type="PackedScene" uid="uid://xlm0m144kl1c" path="res://system/dialogue/dialogue_component.tscn" id="2_vfub0"]
 [ext_resource type="Script" uid="uid://cuetc258gthhy" path="res://system/dialogue/dialogue_base.gd" id="3_ognfk"]
-[ext_resource type="JSON" path="res://entity/character/aditya/dialogue_aditya.json" id="5_bu7ub"]
+[ext_resource type="JSON" path="res://dialogue/dialogue_aditya.json" id="5_bu7ub"]
 [ext_resource type="Script" uid="uid://d0h030br5xrrj" path="res://system/dialogue/dialogue_text.gd" id="6_i2sag"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_06dl2"]

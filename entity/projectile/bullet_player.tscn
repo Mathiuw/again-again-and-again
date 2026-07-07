@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2jv5crvpeg70"]
+[gd_scene format=3 uid="uid://c2jv5crvpeg70"]
 
-[ext_resource type="Texture2D" uid="uid://j1c1kbigbp5d" path="res://entity/bullet/arrow.png" id="1_qwydi"]
-[ext_resource type="Script" uid="uid://cyyrvtx7bgcoq" path="res://entity/bullet/bullet_base.gd" id="1_xw300"]
+[ext_resource type="Texture2D" uid="uid://j1c1kbigbp5d" path="res://entity/projectile/arrow.png" id="1_qwydi"]
+[ext_resource type="Script" uid="uid://cyyrvtx7bgcoq" path="res://entity/projectile/bullet_base.gd" id="1_xw300"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xw300"]
 resource_local_to_scene = true

@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2uhi6ia23jpa"]
+[gd_scene format=3 uid="uid://d2uhi6ia23jpa"]
 
-[ext_resource type="PackedScene" uid="uid://c2jv5crvpeg70" path="res://entity/bullet/bullet_player.tscn" id="1_ldyl3"]
-[ext_resource type="Texture2D" uid="uid://cnw1igwot1bsr" path="res://entity/bullet/bullet.png" id="2_lk2av"]
+[ext_resource type="PackedScene" uid="uid://c2jv5crvpeg70" path="res://entity/projectile/bullet_player.tscn" id="1_ldyl3"]
+[ext_resource type="Texture2D" uid="uid://cnw1igwot1bsr" path="res://entity/projectile/bullet.png" id="2_lk2av"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1hlwx"]
 atlas = ExtResource("2_lk2av")

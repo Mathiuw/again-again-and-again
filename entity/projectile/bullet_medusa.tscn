@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhe30cbxewbj"]
+[gd_scene format=3 uid="uid://bhe30cbxewbj"]
 
-[ext_resource type="PackedScene" uid="uid://c2jv5crvpeg70" path="res://entity/bullet/bullet_player.tscn" id="1_16787"]
-[ext_resource type="Texture2D" uid="uid://cqi3mfhwd1paw" path="res://entity/bullet/FriendshipPellet-Sheet.png" id="2_22ktm"]
+[ext_resource type="PackedScene" uid="uid://c2jv5crvpeg70" path="res://entity/projectile/bullet_player.tscn" id="1_16787"]
+[ext_resource type="Texture2D" uid="uid://cqi3mfhwd1paw" path="res://entity/projectile/FriendshipPellet-Sheet.png" id="2_22ktm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j65l2"]
 atlas = ExtResource("2_22ktm")

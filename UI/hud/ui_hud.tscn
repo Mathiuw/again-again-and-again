@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b24q0q78wlx5d"]
+[gd_scene format=3 uid="uid://b24q0q78wlx5d"]
 
 [ext_resource type="Script" uid="uid://bv8x8s4r04jea" path="res://UI/hud/ui_hud.gd" id="1_4nxdm"]
 [ext_resource type="Texture2D" uid="uid://ey3ldwxatay" path="res://UI/hud/Spr_TimerBar.png" id="2_5nt5s"]
-[ext_resource type="FontFile" uid="uid://cigkq8qle8jkd" path="res://asset/font/ari-w9500-condensed-display.ttf" id="4_73u6w"]
+[ext_resource type="FontFile" uid="uid://bl8vw06vvuigy" path="res://asset/font/pixel.ttf" id="3_nj16t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5nt5s"]
 
@@ -49,7 +49,12 @@ _data = {
 &"timer_paused": SubResource("Animation_vgic2")
 }
 
-[node name="HUD" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_jrie8"]
+font = ExtResource("3_nj16t")
+font_size = 14
+font_color = Color(0.9411765, 0.9411765, 0.8509804, 1)
+
+[node name="HUD" type="Control" unique_id=165065084]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,7 +64,7 @@ grow_vertical = 2
 script = ExtResource("1_4nxdm")
 metadata/_edit_lock_ = true
 
-[node name="Reference" type="ReferenceRect" parent="."]
+[node name="Reference" type="ReferenceRect" parent="." unique_id=387771235]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -70,21 +75,22 @@ grow_vertical = 2
 border_width = 2.0
 metadata/_edit_lock_ = true
 
-[node name="TimerBar" type="TextureRect" parent="."]
+[node name="TimerBar" type="TextureRect" parent="." unique_id=787741684]
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = -1
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 40.0
+offset_left = -280.0
 offset_top = -32.0
-offset_right = -40.0
+offset_right = 280.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("2_5nt5s")
 expand_mode = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="TimerBar"]
+[node name="ProgressBar" type="ProgressBar" parent="TimerBar" unique_id=1407625710]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,7 +106,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_pvgpj")
 value = 100.0
 show_percentage = false
 
-[node name="DamageBar" type="ProgressBar" parent="TimerBar/ProgressBar"]
+[node name="DamageBar" type="ProgressBar" parent="TimerBar/ProgressBar" unique_id=536845446]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -113,24 +119,24 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_nhyt6")
 value = 100.0
 show_percentage = false
 
-[node name="TimeBarAnimationPlayer" type="AnimationPlayer" parent="TimerBar/ProgressBar"]
-libraries = {
-&"": SubResource("AnimationLibrary_nja0l")
-}
+[node name="TimeBarAnimationPlayer" type="AnimationPlayer" parent="TimerBar/ProgressBar" unique_id=1469538894]
+libraries/ = SubResource("AnimationLibrary_nja0l")
 
-[node name="RepeatAmount" type="Label" parent="."]
+[node name="RepeatAmount" type="Label" parent="." unique_id=1534782033]
+texture_filter = 1
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = -1
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -44.0
-offset_top = -24.0
-offset_right = -4.0
+offset_left = 276.0
+offset_top = -29.0
+offset_right = 320.0
+offset_bottom = -3.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.941176, 0.941176, 0.85098, 1)
-theme_override_fonts/font = ExtResource("4_73u6w")
-text = "0"
+text = "000"
+label_settings = SubResource("LabelSettings_jrie8")
 vertical_alignment = 1
