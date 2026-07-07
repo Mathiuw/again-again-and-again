@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-namespace MaiNull
+
+namespace MaiNull.Cheats
 {
 	public class CheatConsole : MonoBehaviour
 	{
