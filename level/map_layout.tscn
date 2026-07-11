@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cuk0fjbrs6m3m"]
 
-[ext_resource type="PackedScene" uid="uid://bbdklpf1hb3ar" path="res://level/room/rome/room_rome_start.tscn" id="6_jpoov"]
+[ext_resource type="PackedScene" uid="uid://bbdklpf1hb3ar" path="res://level/room/room_start.tscn" id="6_jpoov"]
 [ext_resource type="PackedScene" uid="uid://c6m28at08ltqy" path="res://level/room/rome/room_rome_01.tscn" id="7_qt141"]
 [ext_resource type="PackedScene" uid="uid://c5hxh0i0l2p4i" path="res://level/room/rome/room_rome_02.tscn" id="8_ewlkf"]
 [ext_resource type="PackedScene" uid="uid://ci0kv3c6au21s" path="res://level/room/rome/room_rome_03.tscn" id="9_w6htm"]

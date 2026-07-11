@@ -19,7 +19,6 @@ config/version="0.1.0"
 config/tags=PackedStringArray("top_down_2d")
 run/main_scene="uid://dquef6xj016ys"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
-run/max_fps=60
 boot_splash/show_image=false
 config/icon="uid://cyi5ukmu5845v"
 
@@ -29,7 +28,7 @@ buses/default_bus_layout="res://audio/default_bus_layout.tres"
 
 [autoload]
 
-RoomManager="*res://system/global/roomManager.gd"
+RoomManager="*res://system/global/room_manager.gd"
 DialogueManager="*res://system/global/dialogue_manager.tscn"
 AudioManager="*res://system/global/audio_manager.tscn"
 PauseManager="*res://system/global/pause_manager.tscn"
@@ -53,13 +52,19 @@ project/assembly_name="AgainAgainAgain"
 
 movie_writer/movie_file="D:/mateu/Videos/Godot/footage.avi"
 
+[editor_overrides]
+
+dotnet/editor/custom_exec_path="C:/Program Files/Microsoft VS Code/Code.exe"
+dotnet/editor/custom_exec_path_args="{project} --goto {file}:{line}:{col} -r"
+dotnet/editor/external_editor=4
+
 [file_customization]
 
 folder_colors={
 "res://UI/": "green",
 "res://asset/": "pink",
 "res://audio/": "yellow",
-"res://dialogue/": "gray",
+"res://dialogue/": "red",
 "res://entity/": "blue",
 "res://level/": "purple",
 "res://system/": "orange"

@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon_component.tscn" id="3_b7koy"]
 [ext_resource type="PackedScene" uid="uid://d2uhi6ia23jpa" path="res://entity/projectile/bullet_zemerlin.tscn" id="5_mb7b2"]
 [ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/raycast_target_check/raycast_target_check_2d.tscn" id="6_1gk6y"]
-[ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/AI/run_away_behaviour/ai_shoot_behaviour.tscn" id="7_cv5gn"]
-[ext_resource type="PackedScene" uid="uid://eiu347grr33x" path="res://system/AI/chaser_behaviour/ai_chaser_behaviour.tscn" id="9_tlhyt"]
+[ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/ai/shoot_behaviour/ai_shoot_behaviour.tscn" id="7_cv5gn"]
+[ext_resource type="PackedScene" uid="uid://eiu347grr33x" path="res://system/ai/chaser_behaviour/ai_chaser_behaviour.tscn" id="9_tlhyt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2lkbx"]
 atlas = ExtResource("2_8u16h")

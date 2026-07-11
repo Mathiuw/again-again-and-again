@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d2uhi6ia23jpa" path="res://entity/projectile/bullet_zemerlin.tscn" id="5_i0ks1"]
 [ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/raycast_target_check/raycast_target_check_2d.tscn" id="6_6k0nx"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="7_5ejc2"]
-[ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/AI/run_away_behaviour/ai_shoot_behaviour.tscn" id="8_e5d17"]
+[ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/ai/shoot_behaviour/ai_shoot_behaviour.tscn" id="8_e5d17"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2lkbx"]
 atlas = ExtResource("3_2iq1j")
