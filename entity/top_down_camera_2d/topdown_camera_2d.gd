@@ -1,6 +1,7 @@
 extends Camera2D
-class_name GameCamera
+class_name TopDownCamera2D
 
+@export var move_time: float = 2.0
 @export var camera_shake: bool = true
 @export var max_shake_force: float = 10
 @export var shake_fade: float = 10
@@ -11,7 +12,8 @@ var current_room: Room
 
 func _ready() -> void:
 	SignalBus.on_camera_shake.connect(trigger_shake)
-	RoomManager.on_room_change.connect(on_room_change)
+	RoomManager.on_room_change_started.connect(on_room_change_started)
+
 
 func _process(delta: float) -> void:
 	# Camera shake logic
@@ -29,6 +31,9 @@ func trigger_shake(override_force: float = 0) -> void:
 		_current_shake_force = max_shake_force
 
 
-func on_room_change(room: Room, smooth_transition: bool) -> void:
-	position_smoothing_enabled = smooth_transition
-	global_position = room.global_position;
+func on_room_change_started(room: Room, smooth_transition: bool) -> void:
+	if smooth_transition:
+		var tween: Tween = get_tree().create_tween()
+		tween.tween_property($'.', "global_position", room.global_position, move_time)
+		await tween.finished
+	RoomManager.on_room_change_ended.emit(room)

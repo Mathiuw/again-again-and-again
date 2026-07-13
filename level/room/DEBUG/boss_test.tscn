@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtt5f7cltubfe"]
+[gd_scene format=3 uid="uid://dtt5f7cltubfe"]
 
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://entity/character/player/player.tscn" id="1_3s7i2"]
 [ext_resource type="PackedScene" uid="uid://byk72d1ahusm0" path="res://level/room/rome/room_rome_boss.tscn" id="2_vp86o"]
-[ext_resource type="PackedScene" uid="uid://cshb25yq5ltku" path="res://entity/game_camera/game_camera.tscn" id="3_i7cke"]
+[ext_resource type="PackedScene" uid="uid://cshb25yq5ltku" path="res://entity/top_down_camera_2d/top_down_camera_2d.tscn" id="3_i7cke"]
 
 [node name="BossTest" type="Node"]
 

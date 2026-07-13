@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://bu75pmq5hkcdt"]
+[gd_scene format=4 uid="uid://bu75pmq5hkcdt"]
 
 [ext_resource type="TileSet" uid="uid://dxvch24pihxor" path="res://level/room/tileset_level_v2.tres" id="1_57bup"]
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://level/room/room.gd" id="1_wjnid"]
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://entity/character/player/player.tscn" id="2_0l8nk"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://entity/chest/chest_rome.tscn" id="2_57bup"]
-[ext_resource type="PackedScene" uid="uid://cshb25yq5ltku" path="res://entity/game_camera/game_camera.tscn" id="3_32rp8"]
+[ext_resource type="PackedScene" uid="uid://cshb25yq5ltku" path="res://entity/top_down_camera_2d/top_down_camera_2d.tscn" id="3_32rp8"]
 
 [node name="TilesetV2Test" type="Node"]
 

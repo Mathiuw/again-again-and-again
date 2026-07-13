@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b24q0q78wlx5d" path="res://UI/hud/ui_hud.tscn" id="2_p1hux"]
 [ext_resource type="Resource" uid="uid://d3e08yoyh6yhv" path="res://UI/fade/fade_out_white.tres" id="3_kpobt"]
 [ext_resource type="PackedScene" uid="uid://nv3vhnojdaw4" path="res://UI/debug/debug_fps.tscn" id="4_j70lj"]
-[ext_resource type="PackedScene" uid="uid://cshb25yq5ltku" path="res://entity/game_camera/game_camera.tscn" id="36_p0u2v"]
+[ext_resource type="PackedScene" uid="uid://cshb25yq5ltku" path="res://entity/top_down_camera_2d/top_down_camera_2d.tscn" id="36_p0u2v"]
 
 [sub_resource type="GDScript" id="GDScript_0ha60"]
 resource_name = "main"
@@ -17,9 +17,7 @@ script/source = "extends Node
 
 func _ready() -> void:
 	PauseManager.can_pause_input = true
-	RoomManager.load_room_into_world(start_room)
-	
-	
+	RoomManager.load_room_into_world_from_scene(start_room, RoomManager.LoadDirection.NONE)
 "
 
 [node name="Main" type="Node" unique_id=94988365]
@@ -48,6 +46,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="World" unique_id=586798750 instance=ExtResource("1_itxqv")]
 
-[node name="GameCamera" parent="." unique_id=681172563 instance=ExtResource("36_p0u2v")]
+[node name="TopDownCamera2D" parent="." unique_id=681172563 instance=ExtResource("36_p0u2v")]
+zoom = Vector2(0.35, 0.35)
 
 [connection signal="timeout" from="LoopTimer" to="LoopTimer" method="_on_timeout"]

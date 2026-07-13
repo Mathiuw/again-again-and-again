@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cshb25yq5ltku"]
+
+[ext_resource type="Script" uid="uid://b7ng528ifkyoj" path="res://entity/top_down_camera_2d/topdown_camera_2d.gd" id="1_l8lda"]
+
+[node name="TopDownCamera2D" type="Camera2D" unique_id=983059697 groups=["camera"]]
+position_smoothing_speed = 10.0
+script = ExtResource("1_l8lda")

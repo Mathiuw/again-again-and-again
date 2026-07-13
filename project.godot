@@ -18,7 +18,7 @@ config/name="AgainAgainAndAgain"
 config/version="0.1.0"
 config/tags=PackedStringArray("top_down_2d")
 run/main_scene="uid://dquef6xj016ys"
-config/features=PackedStringArray("4.7", "C#", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/show_image=false
 config/icon="uid://cyi5ukmu5845v"
 
@@ -38,7 +38,6 @@ SignalBus="*res://system/global/signal_bus.gd"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/mode=4
 window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"

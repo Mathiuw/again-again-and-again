@@ -4,14 +4,24 @@ extends Node2D
 
 @export_group("Room Settings")
 @export var id: StringName = "000"
-@export var initial_room: bool = false
 @export var pause_timer: bool = false
 @export var music_override: AudioStream
 @export var transition_positions: Dictionary[String, Marker2D]
+@export var size: Vector2i = Vector2i(640, 360):
+	set(value):
+		size = value
+		queue_redraw()
+
+@export var centered: bool = true:
+	set(value):
+		centered = value
+		queue_redraw()
+
 var navigation_region_2D: NavigationRegion2D
 var enemies_root: Node2D
 
-@export_group("Add Transition")
+@export_group("Editor")
+@export_subgroup("Add Transition")
 @export var transition_left: bool = true
 @export var transition_right: bool = true
 @export var transition_up: bool = true
@@ -19,6 +29,15 @@ var enemies_root: Node2D
 @export_tool_button("Spawn Transition Markers", "Marker2D") var spawn_marker_action = spawn_transition_markers
 
 signal on_no_enemies_left
+
+func _draw() -> void:
+	if Engine.is_editor_hint():
+		if size == Vector2i.ZERO || size < Vector2i.ZERO: return
+		if centered:
+			draw_rect(Rect2(global_position - Vector2(size)/2, size), Color.YELLOW, false, 0.5, false)
+		else:
+			draw_rect(Rect2i(global_position, size).abs(), Color.YELLOW, false, 0.5, true)
+
 
 #region Room Logic
 func _ready() -> void:
@@ -38,9 +57,7 @@ func _ready() -> void:
 	if enemies_root:
 		enemies_root.y_sort_enabled = true
 	
-	RoomManager.on_room_change.connect(on_room_change)
-	# check initial room at the end of the frame
-	check_initial_room.call_deferred()
+	RoomManager.on_room_change_ended.connect(on_room_change_ended)
 	
 	if get_enemy_count(false) == 0:
 		return
@@ -51,11 +68,6 @@ func _ready() -> void:
 			for child in node.get_children():
 				if child is Health && !child.dead:
 					child.on_die.connect(on_enemy_die)
-
-
-func check_initial_room() -> void:
-		if  initial_room: 
-			RoomManager.on_room_change.emit(self, false)
 
 
 func open_room_doors(open_effects: bool = true) -> void:
@@ -95,17 +107,13 @@ func on_enemy_die() -> void:
 			navigation_region_2D.bake_navigation_polygon(true)
 
 
-func on_room_change(room: Room, _smooth_transition: bool) -> void:
-	if room != self:
-		set_room_state.call_deferred(false)
-	else:
-		set_room_state.call_deferred(true)
-		if music_override:
-			AudioManager.set_music(music_override)
-		
-		if navigation_region_2D:
-			if !navigation_region_2D.is_baking():
-				navigation_region_2D.bake_navigation_polygon()
+func on_room_change_ended(_room: Room) -> void:
+	if music_override:
+		AudioManager.set_music(music_override)
+	
+	if navigation_region_2D:
+		if !navigation_region_2D.is_baking():
+			navigation_region_2D.bake_navigation_polygon()
 
 
 func set_room_state(state: bool) -> void:
