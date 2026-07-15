@@ -1,18 +1,16 @@
 class_name Player
 extends CharacterBody2D
 
+const SPEED: float = 115.0
+
 signal on_player_die
 signal on_player_damage(damageAmount: int)
-
-
-const SPEED: float = 115.0
 
 @onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _weapon: Weapon = $Weapon
 @onready var _interact_component: InteractComponent = $InteractComponent
-@onready var _roll_component: DashComponent = $DashComponent
+@onready var _roll_component: Dash = $DashComponent
 var _loop_timer: LoopTimer
-
 
 # knockback variables
 var knockback: Vector2 = Vector2.ZERO
@@ -87,7 +85,7 @@ func set_move_state(state: bool) -> void:
 	_set_player_idle()
 
 
-func on_dialogue_enter(_dialogue_steps: Array[DialogueBase]) -> void:
+func on_dialogue_enter(_dialogue_steps: Array[DialogueStep]) -> void:
 	set_move_state(false)
 
 func on_dialogue_exit() -> void:

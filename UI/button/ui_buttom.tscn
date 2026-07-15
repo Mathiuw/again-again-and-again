@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://tmiaggulr37f"]
 
-[ext_resource type="Texture2D" uid="uid://c4f72o08f7dxq" path="res://ui/button/PlayButton.png" id="1_u3ukc"]
-[ext_resource type="Texture2D" uid="uid://dtcql65nt7367" path="res://ui/button/PlayButtonPressed.png" id="2_ocmi1"]
+[ext_resource type="Texture2D" uid="uid://bkdr4r1qn0oxt" path="res://ui/button/play_button/play_button.png" id="1_u3ukc"]
+[ext_resource type="Texture2D" uid="uid://b2jgji0frvh6x" path="res://ui/button/play_button/play_button_pressed.png" id="2_ocmi1"]
 
-[node name="PlayButton" type="TextureButton"]
+[node name="UiButton" type="TextureButton" unique_id=2007701968]
 scale = Vector2(1.5, 1.5)
+button_mask = 0
 texture_normal = ExtResource("1_u3ukc")
 texture_pressed = ExtResource("2_ocmi1")
 stretch_mode = 3

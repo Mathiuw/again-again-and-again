@@ -3,7 +3,7 @@ class_name DashParticleAnimatedSprite2D
 
 @export var character_owner: CharacterBody2D
 @export var animated_sprite: AnimatedSprite2D
-@onready var dash_component: DashComponent = %DashComponent
+@onready var dash_component: Dash = %DashComponent
 
 func _process(_delta: float) -> void:
 	if dash_component.is_dashing:

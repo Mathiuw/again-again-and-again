@@ -43,9 +43,9 @@ max_wait_time = 180.0
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1147940230]
 layer = 100
 
-[node name="HUD" parent="UILayer" unique_id=1845030351 instance=ExtResource("2_p1hux")]
-
 [node name="DebugFps" parent="UILayer" unique_id=2101839225 instance=ExtResource("4_j70lj")]
+
+[node name="HUD" parent="UILayer" unique_id=1845030351 instance=ExtResource("2_p1hux")]
 
 [node name="UIFade" parent="." unique_id=364341070 instance=ExtResource("2_7xrs8")]
 fade_settings = ExtResource("3_kpobt")

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dvf45hhmh8kby"]
+
+[ext_resource type="Texture2D" uid="uid://cd3ajstmtnwp1" path="res://system/dialogue/dialogue_panel/dialogue_panel.png" id="1_5oqu3"]
+
+[node name="DialoguePanel" type="NinePatchRect" unique_id=149947224]
+custom_minimum_size = Vector2(200, 80)
+size_flags_horizontal = 3
+texture = ExtResource("1_5oqu3")
+region_rect = Rect2(1, 1, 46, 46)
+patch_margin_left = 3
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1737075500]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5

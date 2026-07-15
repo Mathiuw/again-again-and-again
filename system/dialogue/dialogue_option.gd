@@ -1,5 +1,5 @@
 class_name DialogueOption
-extends DialogueBase
+extends DialogueStep
 
 func _init() -> void:
 	dialog_box_scene = preload("uid://ble6ebjrjqmc4")

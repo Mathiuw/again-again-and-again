@@ -1,7 +1,7 @@
 extends Node
 
 @warning_ignore("unused_signal")
-signal on_dialog_enter(dialogue: Array[DialogueBase])
+signal on_dialog_enter(dialogue: Array[DialogueStep])
 @warning_ignore("unused_signal")
 signal on_dialog_next_step
 @warning_ignore("unused_signal")

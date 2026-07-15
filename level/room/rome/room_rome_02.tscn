@@ -18,16 +18,25 @@ vertices = PackedVector2Array(-9, -22, 12.9296875, -22, 8.1015625, -17.171875, 3
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(6, 3, 5), PackedInt32Array(7, 8, 9, 10, 11, 12), PackedInt32Array(2, 10, 9, 0), PackedInt32Array(13, 14, 0, 9, 15), PackedInt32Array(13, 16, 17, 14), PackedInt32Array(9, 18, 19, 15), PackedInt32Array(13, 15, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(29, 30, 31, 32), PackedInt32Array(29, 32, 33, 28), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(36, 37, 38, 39, 40), PackedInt32Array(38, 41, 42, 43), PackedInt32Array(43, 44, 45, 39), PackedInt32Array(46, 47, 48, 49), PackedInt32Array(50, 51, 52, 53), PackedInt32Array(52, 54, 55, 53), PackedInt32Array(50, 53, 56, 57), PackedInt32Array(49, 50, 57, 7), PackedInt32Array(46, 49, 7), PackedInt32Array(12, 46, 7), PackedInt32Array(58, 59, 60, 61), PackedInt32Array(58, 61, 62, 63, 64), PackedInt32Array(65, 66, 67, 68), PackedInt32Array(69, 70, 71, 72, 21), PackedInt32Array(73, 74, 75, 13, 20), PackedInt32Array(73, 20, 72, 71), PackedInt32Array(69, 21, 24), PackedInt32Array(69, 24, 76, 68), PackedInt32Array(5, 25, 28, 33, 36, 40), PackedInt32Array(64, 63, 65, 76, 8, 7), PackedInt32Array(65, 68, 76), PackedInt32Array(12, 11, 77), PackedInt32Array(38, 43, 39), PackedInt32Array(5, 40, 12, 78), PackedInt32Array(12, 77, 79), PackedInt32Array(80, 6, 5), PackedInt32Array(12, 79, 78), PackedInt32Array(5, 78, 80)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-320, -192, 320, -192, 320, 192, -320, 192)])
 
-[sub_resource type="Resource" id="Resource_p2gx0"]
+[sub_resource type="Resource" id="Resource_fr1um"]
 script = ExtResource("9_fr1um")
+room_uid = &"uid://c6m28at08ltqy"
+scene_load_direction = 1
+transition_position_key = "right"
 metadata/_custom_type_script = "uid://db3x51addxum0"
 
 [sub_resource type="Resource" id="Resource_2n34y"]
 script = ExtResource("9_fr1um")
+room_uid = &"uid://bw650n1ie2vmr"
+scene_load_direction = 3
+transition_position_key = "down"
 metadata/_custom_type_script = "uid://db3x51addxum0"
 
-[sub_resource type="Resource" id="Resource_snqhf"]
+[sub_resource type="Resource" id="Resource_yni54"]
 script = ExtResource("9_fr1um")
+room_uid = &"uid://crjixa6ue7cfr"
+scene_load_direction = 2
+transition_position_key = "left"
 metadata/_custom_type_script = "uid://db3x51addxum0"
 
 [sub_resource type="Resource" id="Resource_s510t"]
@@ -86,7 +95,7 @@ position = Vector2(24, 8)
 
 [node name="DoorLeft" parent="NavigationRegion2D" unique_id=930462426 instance=ExtResource("7_2d5rg")]
 position = Vector2(-304, 0)
-room_transition = SubResource("Resource_p2gx0")
+room_transition = SubResource("Resource_fr1um")
 
 [node name="SpawnLeft" type="Marker2D" parent="NavigationRegion2D/DoorLeft" unique_id=1498278808]
 position = Vector2(24, 8)
@@ -100,7 +109,7 @@ position = Vector2(0, 16)
 
 [node name="DoorRight" parent="NavigationRegion2D" unique_id=1055008288 instance=ExtResource("8_sxj3i")]
 position = Vector2(288, 64)
-room_transition = SubResource("Resource_snqhf")
+room_transition = SubResource("Resource_yni54")
 always_open = true
 secret_door = true
 

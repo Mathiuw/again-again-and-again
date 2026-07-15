@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bumwgrcs2py2s"]
 
 [ext_resource type="Script" uid="uid://r7r4tbpk8x7k" path="res://system/global/dialogue_manager/dialogue_manager.gd" id="1_tfqcr"]
+[ext_resource type="PackedScene" uid="uid://bqori46ibnbqm" path="res://system/dialogue/dialogue_container/dialogue_container.tscn" id="2_6ubqi"]
 
-[node name="DialogueManager" type="CanvasLayer"]
+[node name="DialogueManager" type="CanvasLayer" unique_id=977483277]
 layer = 2
 script = ExtResource("1_tfqcr")
+dialogue_box_scene = ExtResource("2_6ubqi")

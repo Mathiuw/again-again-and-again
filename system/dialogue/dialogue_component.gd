@@ -3,7 +3,7 @@ extends InteractableComponent
 
 signal on_dialogue_start
 
-@export var dialogue_steps: Array[DialogueBase]
+@export var dialogue_steps: Array[DialogueStep]
 
 func interact():
 	if !dialogue_steps:

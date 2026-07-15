@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://dbr8713g7yhdj" path="res://entity/character/aditya/aditya.gd" id="1_06dl2"]
 [ext_resource type="Texture2D" uid="uid://xyyrrafvg71p" path="res://entity/character/aditya/Aditya-Sheet.png" id="1_0564f"]
 [ext_resource type="PackedScene" uid="uid://xlm0m144kl1c" path="res://system/dialogue/dialogue_component.tscn" id="2_vfub0"]
-[ext_resource type="Script" uid="uid://cuetc258gthhy" path="res://system/dialogue/dialogue_base.gd" id="3_ognfk"]
+[ext_resource type="Script" uid="uid://cuetc258gthhy" path="res://system/dialogue/dialogue_step.gd" id="3_ognfk"]
 [ext_resource type="JSON" path="res://dialogue/dialogue_aditya.json" id="5_bu7ub"]
-[ext_resource type="Script" uid="uid://d0h030br5xrrj" path="res://system/dialogue/dialogue_text.gd" id="6_i2sag"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_06dl2"]
 atlas = ExtResource("1_0564f")
@@ -88,7 +87,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x78iw")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 7.0
 }, {
@@ -99,7 +98,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_csmq1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"talking",
 "speed": 8.0
 }]
@@ -107,35 +106,35 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkl8i"]
 size = Vector2(29, 61.999996)
 
-[sub_resource type="Resource" id="Resource_1ts7f"]
-script = ExtResource("6_i2sag")
+[sub_resource type="Resource" id="Resource_bb6bf"]
+script = ExtResource("3_ognfk")
 json_file = ExtResource("5_bu7ub")
-key = "keep_keys"
-metadata/_custom_type_script = "uid://d0h030br5xrrj"
+key = "no_keys"
+metadata/_custom_type_script = "uid://cuetc258gthhy"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06dl2"]
 size = Vector2(38, 20)
 
-[node name="Aditya" type="StaticBody2D"]
+[node name="Aditya" type="StaticBody2D" unique_id=477177507]
 script = ExtResource("1_06dl2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2005954394]
 sprite_frames = SubResource("SpriteFrames_csmq1")
 animation = &"talking"
 autoplay = "idle"
 frame_progress = 0.13300394
 offset = Vector2(0, -32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=665535034]
 position = Vector2(0.9999965, -14.5)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_rkl8i")
 
-[node name="DialogueComponent" parent="." instance=ExtResource("2_vfub0")]
+[node name="DialogueComponent" parent="." unique_id=1744587696 instance=ExtResource("2_vfub0")]
 position = Vector2(0, -14)
-dialogue_steps = Array[ExtResource("3_ognfk")]([SubResource("Resource_1ts7f")])
+dialogue_steps = Array[ExtResource("3_ognfk")]([SubResource("Resource_bb6bf")])
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueComponent" unique_id=1253382884]
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_06dl2")
 

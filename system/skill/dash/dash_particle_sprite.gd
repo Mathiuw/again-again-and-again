@@ -3,7 +3,7 @@ class_name DashParticleSprite2D
 
 @export var character_body_2d: CharacterBody2D
 @export var sprite_2d: Sprite2D
-@onready var dash_component: DashComponent = %DashComponent
+@onready var dash_component: Dash = %DashComponent
 
 func _process(_delta: float) -> void:
 	

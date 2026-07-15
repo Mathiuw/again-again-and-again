@@ -1,5 +1,5 @@
 extends SkillBase
-class_name DashComponent
+class_name Dash
 
 signal on_dash_start
 

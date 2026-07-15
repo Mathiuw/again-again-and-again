@@ -10,7 +10,7 @@ extends CharacterBody2D
 
 
 @onready var _health: Health = $HealthComponent
-@onready var dash_component: DashComponent = $DashComponent
+@onready var dash_component: Dash = $DashComponent
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
