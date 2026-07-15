@@ -34,7 +34,7 @@ func _ready() -> void:
 		push_error("HUD: cant find loop timer")
 		return
 	
-	RoomManager.on_room_change_started.connect(on_room_change_started)
+	RoomManager.on_room_change.connect(on_room_change)
 
 
 
@@ -46,7 +46,7 @@ func _process(_delta: float) -> void:
 	damage_bar.value = lerp(damage_bar.value, progress_bar.value, 1.0 - exp(-5 * get_process_delta_time()))
 
 
-func on_room_change_started(room:Room, _smooth_trasition) -> void:
+func on_room_change(room:Room) -> void:
 	if  room.pause_timer:
 		_time_bar_animation_player.play("timer_paused")
 	else:

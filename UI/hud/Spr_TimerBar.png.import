@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ey3ldwxatay"
-path="res://.godot/imported/Spr_TimerBar.png-8faf12f2ca92f2ac3ba780e5a9ec3c1d.ctex"
+uid="uid://c5a2sccw4jdgq"
+path="res://.godot/imported/Spr_TimerBar.png-2dc44c3113cacacc3cf1db8d13ed7773.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/hud/Spr_TimerBar.png"
-dest_files=["res://.godot/imported/Spr_TimerBar.png-8faf12f2ca92f2ac3ba780e5a9ec3c1d.ctex"]
+source_file="res://ui/hud/Spr_TimerBar.png"
+dest_files=["res://.godot/imported/Spr_TimerBar.png-2dc44c3113cacacc3cf1db8d13ed7773.ctex"]
 
 [params]
 

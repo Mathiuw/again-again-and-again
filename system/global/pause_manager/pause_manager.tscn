@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bd65a2qha8i6p"]
+
+[ext_resource type="Script" uid="uid://njwktx6torsi" path="res://system/global/pause_manager/pause_manager.gd" id="1_ydqxd"]
+
+[node name="PauseManager" type="CanvasLayer" unique_id=102938244]
+process_mode = 3
+layer = 99
+script = ExtResource("1_ydqxd")

@@ -18,11 +18,11 @@ func  _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if room_transition && body is Player:
-		var room_01: Room = room_transition.room_01.instantiate()
-		if room_01 && room_01 != self:
-			var transition_position: Marker2D = room_01.transition_positions.get(room_transition.transition_position_key_to_01)
-			if transition_position:
-				body.global_position = transition_position.global_position
+		var room: Room = await RoomManager.load_room_into_world_from_scene(room_transition.room_uid, room_transition.scene_load_direction, false)
+		if room.transition_positions.is_empty(): return
+		var transition_position: Marker2D = room.transition_positions.get(room_transition.transition_position_key)
+		if transition_position:
+			body.global_position = transition_position.global_position
 
 
 func set_door_open_state(state: bool) -> void:

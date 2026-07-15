@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b24q0q78wlx5d"]
 
-[ext_resource type="Script" uid="uid://bv8x8s4r04jea" path="res://UI/hud/ui_hud.gd" id="1_4nxdm"]
-[ext_resource type="Texture2D" uid="uid://ey3ldwxatay" path="res://UI/hud/Spr_TimerBar.png" id="2_5nt5s"]
+[ext_resource type="Script" uid="uid://bv8x8s4r04jea" path="res://ui/hud/ui_hud.gd" id="1_4nxdm"]
+[ext_resource type="Texture2D" uid="uid://ey3ldwxatay" path="res://ui/hud/Spr_TimerBar.png" id="2_5nt5s"]
 [ext_resource type="FontFile" uid="uid://orwn5asl7m13" path="res://asset/font/ari-w9500-display.ttf" id="3_nj16t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5nt5s"]

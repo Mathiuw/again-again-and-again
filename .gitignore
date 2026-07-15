@@ -5,3 +5,4 @@ _export/
 
 # IDE settings
 .vscode/
+.idea/

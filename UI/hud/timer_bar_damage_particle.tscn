@@ -1,6 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4djleirskoec"]
+[gd_scene format=3 uid="uid://d4djleirskoec"]
 
-[ext_resource type="Script" uid="uid://ci3v85chx4d6" path="res://UI/hud/timer_bar_damage_particle.gd" id="1_oepfb"]
+[ext_resource type="Script" uid="uid://ci3v85chx4d6" path="res://ui/hud/timer_bar_damage_particle.gd" id="1_oepfb"]
+[ext_resource type="FontFile" uid="uid://cb5qpke8tv5wk" path="res://asset/font/ari-w9500.ttf" id="2_q1a3h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nkh55"]
+font = ExtResource("2_q1a3h")
+font_color = Color(0.9411765, 0.9411765, 0.8509804, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ry2h7"]
 viewport_path = NodePath("SubViewport")
@@ -22,15 +27,15 @@ initial_velocity_max = 60.61
 gravity = Vector3(0, 0, 0)
 alpha_curve = SubResource("CurveTexture_nhyt6")
 
-[node name="TimerBarDamageParticle" type="Node2D"]
+[node name="TimerBarDamageParticle" type="Node2D" unique_id=154698982]
 script = ExtResource("1_oepfb")
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1829904752]
 disable_3d = true
 transparent_bg = true
 size = Vector2i(64, 64)
 
-[node name="Label" type="Label" parent="SubViewport"]
+[node name="Label" type="Label" parent="SubViewport" unique_id=1038505170]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -39,10 +44,11 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "-999"
+label_settings = SubResource("LabelSettings_nkh55")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=700520972]
 emitting = false
 amount = 1
 texture = SubResource("ViewportTexture_ry2h7")

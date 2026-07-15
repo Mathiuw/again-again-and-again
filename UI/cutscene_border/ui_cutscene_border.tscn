@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce5ld2u2q4it5"]
+[gd_scene format=3 uid="uid://ce5ld2u2q4it5"]
 
-[ext_resource type="Script" uid="uid://dulafcv7db601" path="res://UI/cutscene_border/ui_cutscene_border.gd" id="1_g153i"]
+[ext_resource type="Script" uid="uid://dulafcv7db601" path="res://ui/cutscene_border/ui_cutscene_border.gd" id="1_g153i"]
 
 [sub_resource type="Animation" id="Animation_g153i"]
 length = 0.001

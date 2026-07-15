@@ -12,7 +12,7 @@ func _ready() -> void:
 	if  player:
 		player.on_player_die.connect(on_player_die)
 	
-	RoomManager.on_room_change_started.connect(on_room_change_started)
+	RoomManager.on_room_change.connect(on_room_change_started)
 
 	# Start loop
 	start(max_wait_time)
@@ -27,7 +27,7 @@ func on_player_die() -> void:
 	end_loop()
 
 
-func on_room_change_started(room: Room, _smooth_transition: bool) -> void:
+func on_room_change_started(room: Room) -> void:
 	if  room.pause_timer:
 		paused = true
 	else:

@@ -1,11 +1,20 @@
+@tool
 extends Resource
 class_name RoomTransition
 
-@export_group("Room 01")
-@export var room_01: PackedScene
-@export var scene_load_direction_01: RoomManager.LoadDirection
-@export var transition_position_key_to_01: String
-@export_group("Room 02")
-@export var room_02: PackedScene
-@export var scene_load_direction_02: RoomManager.LoadDirection
-@export var transition_position_key_to_02: String
+@export var room_uid: StringName
+@export var scene_load_direction: RoomManager.LoadDirection:
+	set(value):
+		scene_load_direction = value
+		if !transition_position_key.is_empty(): return
+		match value:
+			RoomManager.LoadDirection.LEFT:
+				transition_position_key = "right"
+			RoomManager.LoadDirection.RIGHT:
+				transition_position_key = "left"
+			RoomManager.LoadDirection.UP:
+				transition_position_key = "down"
+			RoomManager.LoadDirection.DOWN:
+				transition_position_key = "up"
+
+@export var transition_position_key: String

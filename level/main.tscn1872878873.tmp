@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://dquef6xj016ys"]
 
-[ext_resource type="Script" uid="uid://dnte553c7qdnr" path="res://system/loop_timer.gd" id="1_bmc2w"]
+[ext_resource type="Script" uid="uid://dnte553c7qdnr" path="res://system/global/loop_timer.gd" id="1_bmc2w"]
 [ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://entity/character/player/player.tscn" id="1_itxqv"]
-[ext_resource type="PackedScene" uid="uid://mwaxn6ft2wpi" path="res://ui/fade/ui_fade.tscn" id="2_7xrs8"]
-[ext_resource type="PackedScene" uid="uid://b24q0q78wlx5d" path="res://ui/hud/ui_hud.tscn" id="2_p1hux"]
-[ext_resource type="Resource" uid="uid://d3e08yoyh6yhv" path="res://ui/fade/fade_out_white.tres" id="3_kpobt"]
-[ext_resource type="PackedScene" uid="uid://nv3vhnojdaw4" path="res://ui/debug/debug_fps.tscn" id="4_j70lj"]
+[ext_resource type="PackedScene" uid="uid://bbdklpf1hb3ar" path="res://level/room/room_start.tscn" id="1_klgnm"]
+[ext_resource type="PackedScene" uid="uid://mwaxn6ft2wpi" path="res://UI/fade/ui_fade.tscn" id="2_7xrs8"]
+[ext_resource type="PackedScene" uid="uid://b24q0q78wlx5d" path="res://UI/hud/ui_hud.tscn" id="2_p1hux"]
+[ext_resource type="Resource" uid="uid://d3e08yoyh6yhv" path="res://UI/fade/fade_out_white.tres" id="3_kpobt"]
+[ext_resource type="PackedScene" uid="uid://nv3vhnojdaw4" path="res://UI/debug/debug_fps.tscn" id="4_j70lj"]
 [ext_resource type="PackedScene" uid="uid://cshb25yq5ltku" path="res://entity/top_down_camera_2d/top_down_camera_2d.tscn" id="36_p0u2v"]
 
 [sub_resource type="GDScript" id="GDScript_0ha60"]
@@ -15,11 +16,8 @@ script/source = "extends Node
 @export var start_room_uid: StringName
 
 func _ready() -> void:
-	if start_room_uid.is_empty():
-		push_warning(\"start room UID not valid\")
-		return
 	PauseManager.can_pause_input = true
-	RoomManager.load_room_into_world_from_scene(start_room_uid, RoomManager.LoadDirection.NONE)
+	RoomManager.load_room_into_world_from_scene(, RoomManager.LoadDirection.NONE)
 "
 
 [sub_resource type="Environment" id="Environment_j70lj"]
@@ -29,7 +27,7 @@ ambient_light_source = 2
 
 [node name="Main" type="Node" unique_id=94988365]
 script = SubResource("GDScript_0ha60")
-start_room_uid = &"uid://bbdklpf1hb3ar"
+start_room = ExtResource("1_klgnm")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=118864469]
 environment = SubResource("Environment_j70lj")

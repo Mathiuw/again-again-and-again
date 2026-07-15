@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://bejteuurphesn" path="res://entity/character/medusa/medusahead-Sheet.png" id="1_0srtd"]
 [ext_resource type="Script" uid="uid://cfskjefpr4x5b" path="res://entity/character/medusa/medusa.gd" id="1_7o4kk"]
 [ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://asset/damage_flash.gdshader" id="2_10gqf"]
-[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon_component.tscn" id="2_i1pib"]
+[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon.tscn" id="2_i1pib"]
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/ai/shoot_behaviour/ai_shoot_behaviour.tscn" id="3_7o4kk"]
 [ext_resource type="Texture2D" uid="uid://cmdvti2y6w1q3" path="res://asset/sphere.png" id="3_v51rx"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="5_0bcff"]
 [ext_resource type="PackedScene" uid="uid://bhe30cbxewbj" path="res://entity/projectile/bullet_medusa.tscn" id="5_7frci"]
-[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/raycast_target_check/raycast_target_check_2d.tscn" id="7_tbr1f"]
+[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/target_view_check/target_view_check.tscn" id="7_tbr1f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_10gqf"]
 resource_local_to_scene = true

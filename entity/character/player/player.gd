@@ -4,6 +4,7 @@ extends CharacterBody2D
 signal on_player_die
 signal on_player_damage(damageAmount: int)
 
+
 const SPEED: float = 115.0
 
 @onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D

@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cglc5tcgjld28"]
+[gd_scene format=3 uid="uid://cglc5tcgjld28"]
 
-[ext_resource type="Texture2D" uid="uid://bhvkqpbqbsgt2" path="res://UI/letter_cutscene/letter.png" id="1_cuw3n"]
+[ext_resource type="Texture2D" uid="uid://bhvkqpbqbsgt2" path="res://ui/letter_cutscene/letter.png" id="1_cuw3n"]
 [ext_resource type="FontFile" uid="uid://orwn5asl7m13" path="res://asset/font/ari-w9500-display.ttf" id="2_mg387"]
 [ext_resource type="AudioStream" uid="uid://bvjvb5ofrqe3y" path="res://audio/sfx/pageflip.ogg" id="3_020cu"]
 

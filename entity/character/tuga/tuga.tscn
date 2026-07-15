@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://b46717m7x1f5n" path="res://entity/character/tuga/tuga.gd" id="1_b5dlg"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="1_og3h1"]
 [ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://asset/damage_flash.gdshader" id="2_gckpa"]
-[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon_component.tscn" id="2_k5jd2"]
+[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon.tscn" id="2_k5jd2"]
 [ext_resource type="PackedScene" uid="uid://dkkymdqija6rj" path="res://entity/projectile/bullet_tuga.tscn" id="4_r6lkd"]
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/ai/shoot_behaviour/ai_shoot_behaviour.tscn" id="5_teoyt"]
-[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/raycast_target_check/raycast_target_check_2d.tscn" id="6_pvhdl"]
+[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/target_view_check/target_view_check.tscn" id="6_pvhdl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lbuii"]
 resource_local_to_scene = true

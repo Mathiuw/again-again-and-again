@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://70m2p4sbn33p" path="res://entity/character/zemerlin/zemerlin_gd.gd" id="1_l6nna"]
 [ext_resource type="Material" uid="uid://cenkdihc6dw7h" path="res://asset/damage_flash_material.tres" id="2_mreer"]
 [ext_resource type="Texture2D" uid="uid://bwpg6wl7nkl0v" path="res://entity/character/zemerlin/Zehmerlin-Sheet.png" id="3_2iq1j"]
-[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon_component.tscn" id="4_tlntl"]
+[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon.tscn" id="4_tlntl"]
 [ext_resource type="PackedScene" uid="uid://d2uhi6ia23jpa" path="res://entity/projectile/bullet_zemerlin.tscn" id="5_i0ks1"]
-[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/raycast_target_check/raycast_target_check_2d.tscn" id="6_6k0nx"]
+[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/target_view_check/target_view_check.tscn" id="6_6k0nx"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="7_5ejc2"]
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/ai/shoot_behaviour/ai_shoot_behaviour.tscn" id="8_e5d17"]
 

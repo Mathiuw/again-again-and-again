@@ -57,7 +57,7 @@ func _ready() -> void:
 	if enemies_root:
 		enemies_root.y_sort_enabled = true
 	
-	RoomManager.on_room_change_ended.connect(on_room_change_ended)
+	RoomManager.on_room_change.connect(on_room_change)
 	
 	if get_enemy_count(false) == 0:
 		return
@@ -107,7 +107,7 @@ func on_enemy_die() -> void:
 			navigation_region_2D.bake_navigation_polygon(true)
 
 
-func on_room_change_ended(_room: Room) -> void:
+func on_room_change(_room: Room) -> void:
 	if music_override:
 		AudioManager.set_music(music_override)
 	

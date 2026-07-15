@@ -7,7 +7,7 @@ extends Node
 
 func _ready() -> void:
 	if !character_body_2d:
-		push_error("character_body_2d is null")
+		push_warning("character_body_2d is null")
 		return
 	
 	if !navigation_agent_2d:
@@ -18,6 +18,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if !navigation_agent_2d: return
 	if NavigationServer2D.map_get_iteration_id(navigation_agent_2d.get_navigation_map()) == 0: return
 	if navigation_agent_2d.is_navigation_finished(): return
 	

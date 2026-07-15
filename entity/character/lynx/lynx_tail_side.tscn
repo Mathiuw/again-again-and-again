@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bc0bue5sa7rmd" path="res://entity/character/lynx/lynx_tail.gd" id="1_ap7sq"]
 [ext_resource type="Texture2D" uid="uid://dn33mr1usr4c1" path="res://entity/character/lynx/TailSide-Sheet.png" id="2_kxtjj"]
 [ext_resource type="Material" uid="uid://cenkdihc6dw7h" path="res://asset/damage_flash_material.tres" id="2_r401c"]
-[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon_component.tscn" id="3_ap7sq"]
+[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon.tscn" id="3_ap7sq"]
 [ext_resource type="PackedScene" uid="uid://brtsasl3e6ene" path="res://entity/projectile/bullet_lynx.tscn" id="4_kxtjj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8ry6"]

@@ -1,18 +1,18 @@
 extends Camera2D
 class_name TopDownCamera2D
 
-@export var move_time: float = 2.0
+static var smooth_transition: bool = true
+
+@export var move_time: float = 0.3
 @export var camera_shake: bool = true
 @export var max_shake_force: float = 10
 @export var shake_fade: float = 10
 
 var _current_shake_force: float = 0.0
-var current_room: Room
-
 
 func _ready() -> void:
 	SignalBus.on_camera_shake.connect(trigger_shake)
-	RoomManager.on_room_change_started.connect(on_room_change_started)
+	RoomManager.on_room_change.connect(on_room_change)
 
 
 func _process(delta: float) -> void:
@@ -31,9 +31,9 @@ func trigger_shake(override_force: float = 0) -> void:
 		_current_shake_force = max_shake_force
 
 
-func on_room_change_started(room: Room, smooth_transition: bool) -> void:
-	if smooth_transition:
-		var tween: Tween = get_tree().create_tween()
-		tween.tween_property($'.', "global_position", room.global_position, move_time)
-		await tween.finished
-	RoomManager.on_room_change_ended.emit(room)
+func on_room_change(room: Room) -> void:
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property($'.', "global_position", room.global_position, move_time).set_trans(Tween.TRANS_SINE)
+	await tween.finished
+	RoomManager.clear_previous_loaded_rooms()
+	RoomManager.set_current_loaded_room_state.call_deferred(Node.PROCESS_MODE_INHERIT)

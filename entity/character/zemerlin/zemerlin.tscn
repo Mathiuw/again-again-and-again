@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bwpg6wl7nkl0v" path="res://entity/character/zemerlin/Zehmerlin-Sheet.png" id="2_8u16h"]
 [ext_resource type="Material" uid="uid://cenkdihc6dw7h" path="res://asset/damage_flash_material.tres" id="2_qklf1"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="3_8u16h"]
-[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon_component.tscn" id="3_b7koy"]
+[ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon.tscn" id="3_b7koy"]
 [ext_resource type="PackedScene" uid="uid://d2uhi6ia23jpa" path="res://entity/projectile/bullet_zemerlin.tscn" id="5_mb7b2"]
-[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/raycast_target_check/raycast_target_check_2d.tscn" id="6_1gk6y"]
+[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/target_view_check/target_view_check.tscn" id="6_1gk6y"]
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/ai/shoot_behaviour/ai_shoot_behaviour.tscn" id="7_cv5gn"]
 [ext_resource type="PackedScene" uid="uid://eiu347grr33x" path="res://system/ai/chaser_behaviour/ai_chaser_behaviour.tscn" id="9_tlhyt"]
 
@@ -156,7 +156,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a552r")
 }],
-"loop": false,
+"loop": 0,
 "name": &"die",
 "speed": 15.0
 }, {
@@ -164,7 +164,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1gk6y")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle_back",
 "speed": 5.0
 }, {
@@ -172,7 +172,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6bka5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle_front",
 "speed": 5.0
 }, {
@@ -180,7 +180,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qklf1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle_left",
 "speed": 5.0
 }, {
@@ -188,7 +188,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rc5mm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle_right",
 "speed": 5.0
 }, {
@@ -205,7 +205,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1e552")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk_back",
 "speed": 5.0
 }, {
@@ -222,7 +222,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pw261")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk_front",
 "speed": 5.0
 }, {
@@ -239,7 +239,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_un1pk")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk_left",
 "speed": 5.0
 }, {
@@ -256,7 +256,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_65i8h")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk_right",
 "speed": 5.0
 }]
@@ -319,8 +319,9 @@ weapon_component = NodePath("../WeaponComponent")
 target_raycast_check_2d = NodePath("../TargetRaycastCheck2D")
 root_node = NodePath("..")
 
-[node name="AIChaserBehaviour" parent="." unique_id=807217399 node_paths=PackedStringArray("NavigationAgent") instance=ExtResource("9_tlhyt")]
-NavigationAgent = NodePath("../NavigationAgent2D")
+[node name="AIChaserBehaviour" parent="." unique_id=807217399 node_paths=PackedStringArray("navigation_agent_2d", "character_body_2d") instance=ExtResource("9_tlhyt")]
+navigation_agent_2d = NodePath("../NavigationAgent2D")
+character_body_2d = NodePath("..")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="DrawPathTimer" to="." method="_on_draw_path_timer_timeout"]

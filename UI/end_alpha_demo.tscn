@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://qj66b2ooca6h"]
+[gd_scene format=3 uid="uid://qj66b2ooca6h"]
 
-[ext_resource type="PackedScene" uid="uid://tmiaggulr37f" path="res://UI/button/ui_buttom.tscn" id="2_r1ml3"]
-[ext_resource type="Texture2D" uid="uid://dy4xln85fwx18" path="res://UI/button/ExitButton.png" id="5_2fxtv"]
-[ext_resource type="PackedScene" uid="uid://mwaxn6ft2wpi" path="res://UI/fade/ui_fade.tscn" id="5_4oo2x"]
-[ext_resource type="Texture2D" uid="uid://8dg12odh4obl" path="res://UI/button/ExitButtonPressed.png" id="6_ba7rj"]
-[ext_resource type="Resource" uid="uid://x6crraliku50" path="res://UI/fade/fade_out_black.tres" id="6_ji00f"]
+[ext_resource type="PackedScene" uid="uid://tmiaggulr37f" path="res://ui/button/ui_buttom.tscn" id="2_r1ml3"]
+[ext_resource type="Texture2D" uid="uid://dy4xln85fwx18" path="res://ui/button/ExitButton.png" id="5_2fxtv"]
+[ext_resource type="PackedScene" uid="uid://mwaxn6ft2wpi" path="res://ui/fade/ui_fade.tscn" id="5_4oo2x"]
+[ext_resource type="Texture2D" uid="uid://8dg12odh4obl" path="res://ui/button/ExitButtonPressed.png" id="6_ba7rj"]
+[ext_resource type="Resource" uid="uid://x6crraliku50" path="res://ui/fade/fade_out_black.tres" id="6_ji00f"]
 [ext_resource type="FontFile" uid="uid://orwn5asl7m13" path="res://asset/font/ari-w9500-display.ttf" id="7_udc5q"]
 
 [sub_resource type="GDScript" id="GDScript_jjx5o"]
