@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://0ofsnw2pls0q"]
+[gd_scene format=4 uid="uid://0ofsnw2pls0q"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://level/room/room.gd" id="1_xaxx4"]
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://audio/music/primeira fase master.mp3" id="2_q8vth"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://level/room/tileset_level.tres" id="3_vkrcq"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://entity/light/torch_point_light_2d.tscn" id="4_oqpv0"]
-[ext_resource type="PackedScene" uid="uid://bqyoyuprd01pg" path="res://entity/character/franky_mouse/franky_mouse.tscn" id="5_q8vth"]
+[ext_resource type="PackedScene" uid="uid://bqyoyuprd01pg" path="res://entity/character/enemy/franky_mouse/franky_mouse.tscn" id="5_q8vth"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://entity/chest/chest_rome.tscn" id="6_oqpv0"]
 [ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://entity/door/door_left.tscn" id="6_q8vth"]
 [ext_resource type="PackedScene" uid="uid://dcg3gmie44c8h" path="res://entity/door/door_down.tscn" id="7_vkrcq"]

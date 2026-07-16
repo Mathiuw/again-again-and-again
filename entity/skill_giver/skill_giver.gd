@@ -3,7 +3,7 @@ extends Area2D
 @export var skill: PackedScene
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body is TopDownController2d:
 		var skill_instance: SkillBase = skill.instantiate()
 		
 		for child in body.get_children():

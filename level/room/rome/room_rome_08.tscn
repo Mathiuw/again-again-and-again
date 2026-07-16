@@ -4,10 +4,10 @@
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://audio/music/primeira fase master.mp3" id="2_e82fx"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://level/room/tileset_level.tres" id="3_ev1nb"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://entity/light/torch_point_light_2d.tscn" id="4_nv3vx"]
-[ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://entity/character/medusa/medusa.tscn" id="6_p4xpp"]
-[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://entity/character/zemerlin/zemerlin.tscn" id="7_t86hv"]
+[ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://entity/character/enemy/medusa/medusa.tscn" id="6_p4xpp"]
+[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://entity/character/enemy/zemerlin/zemerlin.tscn" id="7_t86hv"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://entity/chest/chest_rome.tscn" id="8_e82fx"]
-[ext_resource type="PackedScene" uid="uid://c5pxaov6df4yw" path="res://entity/character/tuga/tuga.tscn" id="8_m3bnr"]
+[ext_resource type="PackedScene" uid="uid://c5pxaov6df4yw" path="res://entity/character/enemy/tuga/tuga.tscn" id="8_m3bnr"]
 [ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://entity/door/door_left.tscn" id="9_e82fx"]
 [ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://entity/door/door_up.tscn" id="9_yrtgy"]
 

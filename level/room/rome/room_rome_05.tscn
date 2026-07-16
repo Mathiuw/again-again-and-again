@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dxvch24pihxor" path="res://level/room/tileset_level_v2.tres" id="3_2ooxn"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://entity/door/door_right.tscn" id="4_0vtpu"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://entity/chest/chest_rome.tscn" id="4_s2e46"]
-[ext_resource type="Texture2D" uid="uid://bt2l6o3tgni6n" path="res://entity/character/tuga/Tuga-Sheet.png" id="5_0vtpu"]
+[ext_resource type="Texture2D" uid="uid://bt2l6o3tgni6n" path="res://entity/character/enemy/tuga/Tuga-Sheet.png" id="5_0vtpu"]
 [ext_resource type="Script" uid="uid://db3x51addxum0" path="res://level/room/room_transition.gd" id="6_1tjlf"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://entity/light/torch_point_light_2d.tscn" id="7_2ooxn"]
 

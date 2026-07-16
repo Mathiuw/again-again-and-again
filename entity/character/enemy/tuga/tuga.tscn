@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://c5pxaov6df4yw"]
 
-[ext_resource type="Texture2D" uid="uid://bt2l6o3tgni6n" path="res://entity/character/tuga/Tuga-Sheet.png" id="1_antqy"]
-[ext_resource type="Script" uid="uid://b46717m7x1f5n" path="res://entity/character/tuga/tuga.gd" id="1_b5dlg"]
+[ext_resource type="Texture2D" uid="uid://bt2l6o3tgni6n" path="res://entity/character/enemy/tuga/Tuga-Sheet.png" id="1_antqy"]
+[ext_resource type="Script" uid="uid://b46717m7x1f5n" path="res://entity/character/enemy/tuga/tuga.gd" id="1_b5dlg"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="1_og3h1"]
 [ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://asset/damage_flash.gdshader" id="2_gckpa"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon.tscn" id="2_k5jd2"]
+[ext_resource type="PackedScene" uid="uid://dee684r0kwrb4" path="res://system/enemy/enemy.tscn" id="4_jhfyq"]
 [ext_resource type="PackedScene" uid="uid://dkkymdqija6rj" path="res://entity/projectile/bullet_tuga.tscn" id="4_r6lkd"]
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/ai/shoot_behaviour/ai_shoot_behaviour.tscn" id="5_teoyt"]
 [ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/target_view_check/target_view_check.tscn" id="6_pvhdl"]
@@ -120,25 +121,41 @@ _data = {
 &"shoot": SubResource("Animation_gckpa")
 }
 
-[node name="Tuga" type="StaticBody2D" groups=["enemy"]]
+[node name="Tuga" type="StaticBody2D" unique_id=1005298111 groups=["enemy"]]
 disable_mode = 1
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_b5dlg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="HealthComponent" parent="." unique_id=2065832254 instance=ExtResource("1_og3h1")]
+unique_name_in_owner = true
+
+[node name="AIShootBehaviour" parent="." unique_id=216360474 node_paths=PackedStringArray("weapon_component", "target_raycast_check_2d", "root_node") instance=ExtResource("5_teoyt")]
+start_shooting_cooldown = 0.5
+start_shooting_cooldown_variation = 0.2
+shoot_cooldown = 2.4
+cooldown_variation = 0.75
+shoot_weapon_component = false
+weapon_component = NodePath("../WeaponComponent")
+target_raycast_check_2d = NodePath("../TargetRaycastCheck2D")
+root_node = NodePath("..")
+
+[node name="Enemy" parent="." unique_id=1917655172 node_paths=PackedStringArray("enemy_root") instance=ExtResource("4_jhfyq")]
+enemy_root = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=85755710]
 material = SubResource("ShaderMaterial_lbuii")
 position = Vector2(0, -16)
 texture = ExtResource("1_antqy")
 hframes = 8
 vframes = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=111976228]
 position = Vector2(0, -13)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_r6lkd")
 
-[node name="WeaponComponent" parent="." node_paths=PackedStringArray("transformOverrides") instance=ExtResource("2_k5jd2")]
+[node name="WeaponComponent" parent="." unique_id=1852544748 node_paths=PackedStringArray("transformOverrides") instance=ExtResource("2_k5jd2")]
 damage = 20
 bulletAmount = 2
 bulletSpeed = 250.0
@@ -149,32 +166,17 @@ shootCooldown = 0.0
 betweenBulletsCooldown = null
 transformOverrides = [NodePath("../ShootPosition1"), NodePath("../ShootPosition2")]
 
-[node name="ShootPosition1" type="Marker2D" parent="."]
+[node name="ShootPosition1" type="Marker2D" parent="." unique_id=1529046818]
 position = Vector2(-16, -27)
 
-[node name="ShootPosition2" type="Marker2D" parent="."]
+[node name="ShootPosition2" type="Marker2D" parent="." unique_id=407085430]
 position = Vector2(16, -27)
 
-[node name="TargetRaycastCheck2D" parent="." instance=ExtResource("6_pvhdl")]
+[node name="TargetRaycastCheck2D" parent="." unique_id=1065158760 instance=ExtResource("6_pvhdl")]
 position = Vector2(0, -13)
 
-[node name="HealthComponent" parent="." instance=ExtResource("1_og3h1")]
-unique_name_in_owner = true
-
-[node name="AIShootBehaviour" parent="." node_paths=PackedStringArray("weapon_component", "target_raycast_check_2d", "root_node") instance=ExtResource("5_teoyt")]
-start_shooting_cooldown = 0.5
-start_shooting_cooldown_variation = 0.2
-shoot_cooldown = 2.4
-cooldown_variation = 0.75
-shoot_weapon_component = false
-weapon_component = NodePath("../WeaponComponent")
-target_raycast_check_2d = NodePath("../TargetRaycastCheck2D")
-root_node = NodePath("..")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_lbuii")
-}
-autoplay = "idle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1090988323]
+libraries/ = SubResource("AnimationLibrary_lbuii")
+autoplay = &"idle"
 
 [connection signal="on_ai_shoot" from="AIShootBehaviour" to="." method="_on_ai_shoot_behaviour_on_ai_shoot"]

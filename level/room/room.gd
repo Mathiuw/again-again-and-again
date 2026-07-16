@@ -3,9 +3,9 @@ class_name Room
 extends Node2D
 
 @export_group("Room Settings")
-@export var id: StringName = "000"
 @export var pause_timer: bool = false
 @export var music_override: AudioStream
+@export var on_open_trigger_effetcts: bool = true
 @export var transition_positions: Dictionary[String, Marker2D]
 @export var size: Vector2i = Vector2i(640, 360):
 	set(value):
@@ -18,7 +18,6 @@ extends Node2D
 		queue_redraw()
 
 var navigation_region_2D: NavigationRegion2D
-var enemies_root: Node2D
 
 @export_group("Editor")
 @export_subgroup("Add Transition")
@@ -27,8 +26,6 @@ var enemies_root: Node2D
 @export var transition_up: bool = true
 @export var transition_down: bool = true
 @export_tool_button("Spawn Transition Markers", "Marker2D") var spawn_marker_action = spawn_transition_markers
-
-signal on_no_enemies_left
 
 func _draw() -> void:
 	if Engine.is_editor_hint():
@@ -43,63 +40,23 @@ func _draw() -> void:
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
-	enemies_root = self
-	
 	for child in get_children():
 		if child is NavigationRegion2D:
 			navigation_region_2D = child
-			enemies_root = child
-	
+
 	# y sort setup
 	y_sort_enabled = true
 	if navigation_region_2D:
 		navigation_region_2D.y_sort_enabled = true
-	if enemies_root:
-		enemies_root.y_sort_enabled = true
 	
 	RoomManager.on_room_change.connect(on_room_change)
-	
-	if get_enemy_count(false) == 0:
-		return
-	
-	# on enemy die function connect
-	for node in enemies_root.get_children(true):
-		if node.is_in_group("enemy"):
-			for child in node.get_children():
-				if child is Health && !child.dead:
-					child.on_die.connect(on_enemy_die)
-
-
-func open_room_doors(open_effects: bool = true) -> void:
-	var door_count: int = 0
-	
-	for node in get_children():
-		if node is Door:
-			node.set_door_open_state(true)
-			door_count += 1
-	
-	if open_effects && door_count > 0:
-		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ROOM_OPEN)
-		SignalBus.on_camera_shake.emit(6)
-
-
-func get_enemy_count(open_effects: bool = true) -> int:
-	var count: int = 0
-	for node in enemies_root.get_children():
-		if node.is_in_group("enemy"):
-			for child in node.get_children():
-				if child is Health && !child.dead:
-					count =+ 1
-	
-	if count == 0:
-		open_room_doors(open_effects)
-		on_no_enemies_left.emit()
-	
-	return count
+	SignalBus.on_enemy_die.connect(on_enemy_die)
 
 
 func on_enemy_die() -> void:
-	get_enemy_count()
+	if on_open_trigger_effetcts && Globals.enemies_spawned.size() == 0:
+		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ROOM_OPEN)
+		SignalBus.on_camera_shake.emit(6)
 	# update navigation region if have
 	if navigation_region_2D:
 		await get_tree().process_frame
@@ -108,20 +65,13 @@ func on_enemy_die() -> void:
 
 
 func on_room_change(_room: Room) -> void:
+	# change music if music override != null
 	if music_override:
 		AudioManager.set_music(music_override)
-	
+	# bake the room navigation mesh (failsafe measure)
 	if navigation_region_2D:
 		if !navigation_region_2D.is_baking():
 			navigation_region_2D.bake_navigation_polygon()
-
-
-func set_room_state(state: bool) -> void:
-	for node: Node in get_children():
-		if  state:
-			node.process_mode = Node.PROCESS_MODE_INHERIT 
-		else:
-			node.process_mode = Node.PROCESS_MODE_DISABLED
 #endregion
 
 

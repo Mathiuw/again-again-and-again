@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://l2r7c2wi8ojn"]
 
-[ext_resource type="Texture2D" uid="uid://cmr8qd5bl0vp0" path="res://entity/character/player/player-sheet.png" id="1_ji1o8"]
+[ext_resource type="Texture2D" uid="uid://cmr8qd5bl0vp0" path="res://entity/character/top_down_conttroller_2d/player_sheet.png" id="1_ji1o8"]
 [ext_resource type="Script" uid="uid://b4glvcic5x77t" path="res://system/skill/dash/dash_particle_sprite.gd" id="2_ji1o8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvtld"]

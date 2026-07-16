@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://entity/light/torch_point_light_2d.tscn" id="3_3xlsm"]
 [ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://entity/door/door_up.tscn" id="4_bhxun"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://entity/chest/chest_rome.tscn" id="4_y0dr6"]
-[ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://entity/character/medusa/medusa.tscn" id="5_3xlsm"]
-[ext_resource type="PackedScene" uid="uid://b1uw6v7edbscl" path="res://entity/character/bunnyale/bunnyale.tscn" id="6_bhxun"]
+[ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://entity/character/enemy/medusa/medusa.tscn" id="5_3xlsm"]
+[ext_resource type="PackedScene" uid="uid://b1uw6v7edbscl" path="res://entity/character/enemy/bunnyale/bunnyale.tscn" id="6_bhxun"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://entity/door/door_right.tscn" id="6_y0dr6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bhxun"]

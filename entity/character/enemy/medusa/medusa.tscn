@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dk62nei0etksf"]
 
-[ext_resource type="Texture2D" uid="uid://bejteuurphesn" path="res://entity/character/medusa/medusahead-Sheet.png" id="1_0srtd"]
-[ext_resource type="Script" uid="uid://cfskjefpr4x5b" path="res://entity/character/medusa/medusa.gd" id="1_7o4kk"]
+[ext_resource type="Texture2D" uid="uid://bejteuurphesn" path="res://entity/character/enemy/medusa/medusahead-Sheet.png" id="1_0srtd"]
+[ext_resource type="Script" uid="uid://cfskjefpr4x5b" path="res://entity/character/enemy/medusa/medusa.gd" id="1_7o4kk"]
 [ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://asset/damage_flash.gdshader" id="2_10gqf"]
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon.tscn" id="2_i1pib"]
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/ai/shoot_behaviour/ai_shoot_behaviour.tscn" id="3_7o4kk"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="5_0bcff"]
 [ext_resource type="PackedScene" uid="uid://bhe30cbxewbj" path="res://entity/projectile/bullet_medusa.tscn" id="5_7frci"]
 [ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/target_view_check/target_view_check.tscn" id="7_tbr1f"]
+[ext_resource type="PackedScene" uid="uid://dee684r0kwrb4" path="res://system/enemy/enemy.tscn" id="10_3gagx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_10gqf"]
 resource_local_to_scene = true
@@ -125,6 +126,20 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_7o4kk")
 
+[node name="AIShootBehaviour" parent="." unique_id=643289924 node_paths=PackedStringArray("weapon_component", "target_raycast_check_2d", "root_node") instance=ExtResource("3_7o4kk")]
+shoot_cooldown = 1.5
+shoot_weapon_component = false
+weapon_component = NodePath("../Weapon_Component")
+target_raycast_check_2d = NodePath("../TargetRaycastCheck2D")
+root_node = NodePath("..")
+
+[node name="HealthComponent" parent="." unique_id=1921334493 instance=ExtResource("5_0bcff")]
+unique_name_in_owner = true
+max_hits = 3
+
+[node name="Enemy" parent="." unique_id=1917655172 node_paths=PackedStringArray("enemy_root") instance=ExtResource("10_3gagx")]
+enemy_root = NodePath("..")
+
 [node name="MedusaSprite2D" type="Sprite2D" parent="." unique_id=1747435076]
 material = SubResource("ShaderMaterial_10gqf")
 position = Vector2(0, -24)
@@ -158,17 +173,6 @@ transformOverrides = [NodePath("../ShootTransform")]
 
 [node name="TargetRaycastCheck2D" parent="." unique_id=2123966857 instance=ExtResource("7_tbr1f")]
 position = Vector2(0, -16)
-
-[node name="AIShootBehaviour" parent="." unique_id=643289924 node_paths=PackedStringArray("weapon_component", "target_raycast_check_2d", "root_node") instance=ExtResource("3_7o4kk")]
-shoot_cooldown = 1.5
-shoot_weapon_component = false
-weapon_component = NodePath("../Weapon_Component")
-target_raycast_check_2d = NodePath("../TargetRaycastCheck2D")
-root_node = NodePath("..")
-
-[node name="HealthComponent" parent="." unique_id=1921334493 instance=ExtResource("5_0bcff")]
-unique_name_in_owner = true
-max_hits = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1232740962]
 libraries/ = SubResource("AnimationLibrary_tbr1f")

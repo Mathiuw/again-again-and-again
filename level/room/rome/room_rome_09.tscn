@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://entity/light/torch_point_light_2d.tscn" id="4_tjfjt"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://entity/chest/chest_rome.tscn" id="6_w2d4i"]
 [ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://entity/door/door_up.tscn" id="7_5rmh6"]
-[ext_resource type="PackedScene" uid="uid://c5pxaov6df4yw" path="res://entity/character/tuga/tuga.tscn" id="8_2xvut"]
+[ext_resource type="PackedScene" uid="uid://c5pxaov6df4yw" path="res://entity/character/enemy/tuga/tuga.tscn" id="8_2xvut"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://entity/door/door_right.tscn" id="8_r7dk8"]
 [ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://entity/door/door_left.tscn" id="9_r7dk8"]
 [ext_resource type="TileSet" uid="uid://dxvch24pihxor" path="res://level/room/tileset_level_v2.tres" id="10_hqekp"]

@@ -5,9 +5,9 @@
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://level/room/tileset_level.tres" id="2_w0nvy"]
 [ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://entity/door/door_left.tscn" id="4_0qnvi"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://entity/door/door_right.tscn" id="5_w0nvy"]
-[ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://entity/character/medusa/medusa.tscn" id="5_wp3fu"]
+[ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://entity/character/enemy/medusa/medusa.tscn" id="5_wp3fu"]
 [ext_resource type="PackedScene" uid="uid://dcg3gmie44c8h" path="res://entity/door/door_down.tscn" id="6_ajrqq"]
-[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://entity/character/zemerlin/zemerlin.tscn" id="6_wqk53"]
+[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://entity/character/enemy/zemerlin/zemerlin.tscn" id="6_wqk53"]
 [ext_resource type="Script" uid="uid://db3x51addxum0" path="res://level/room/room_transition.gd" id="7_8pgj8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0qnvi"]

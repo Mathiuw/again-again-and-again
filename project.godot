@@ -28,10 +28,10 @@ buses/default_bus_layout="res://audio/default_bus_layout.tres"
 
 [autoload]
 
+AudioManager="*uid://15chkvrx0hgw"
 RoomManager="*res://system/global/room_manager.gd"
-DialogueManager="*res://system/global/dialogue_manager/dialogue_manager.tscn"
-AudioManager="*res://system/global/audio_manager.tscn"
 PauseManager="*res://system/global/pause_manager/pause_manager.tscn"
+DialogueManager="*res://system/global/dialogue_manager/dialogue_manager.tscn"
 SignalBus="*res://system/global/signal_bus.gd"
 Globals="*uid://far2rd6s77sp"
 
@@ -39,8 +39,8 @@ Globals="*uid://far2rd6s77sp"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/resizable=false
 window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=0
 
 [dotnet]

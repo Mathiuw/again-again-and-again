@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://b1uw6v7edbscl"]
 
 [ext_resource type="Script" uid="uid://fjtqgm701i1c" path="res://system/ai/run_away_behaviour/ai_run_away_behaviour.gd" id="1_1shr2"]
-[ext_resource type="Script" uid="uid://c45ygg03xydtb" path="res://entity/character/bunnyale/bunnyale.gd" id="1_8ggyp"]
+[ext_resource type="Script" uid="uid://c45ygg03xydtb" path="res://entity/character/enemy/bunnyale/bunnyale.gd" id="1_8ggyp"]
 [ext_resource type="Material" uid="uid://cenkdihc6dw7h" path="res://asset/damage_flash_material.tres" id="2_mvmwx"]
-[ext_resource type="Texture2D" uid="uid://dskkr445w4tl2" path="res://entity/character/bunnyale/BunnyaleD-Sheet.png" id="2_r4plt"]
+[ext_resource type="Texture2D" uid="uid://dskkr445w4tl2" path="res://entity/character/enemy/bunnyale/BunnyaleD-Sheet.png" id="2_r4plt"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="4_3rus2"]
+[ext_resource type="PackedScene" uid="uid://dee684r0kwrb4" path="res://system/enemy/enemy.tscn" id="6_qd5lj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k48km"]
 atlas = ExtResource("2_r4plt")
@@ -144,7 +145,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c0vtn")
 }],
-"loop": false,
+"loop": 0,
 "name": &"die",
 "speed": 9.0
 }, {
@@ -155,7 +156,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jp0fl")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -172,7 +173,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m770v")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk_back",
 "speed": 10.0
 }, {
@@ -189,7 +190,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7ridk")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk_front",
 "speed": 10.0
 }, {
@@ -206,7 +207,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mc2co")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk_left",
 "speed": 10.0
 }, {
@@ -223,7 +224,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6t0ry")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk_right",
 "speed": 10.0
 }]
@@ -231,7 +232,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ggyp"]
 radius = 8.0
 
-[node name="Bunnyale" type="CharacterBody2D" groups=["enemy"]]
+[node name="Bunnyale" type="CharacterBody2D" unique_id=8408862 groups=["enemy"]]
 disable_mode = 2
 collision_layer = 2
 collision_mask = 0
@@ -239,18 +240,28 @@ motion_mode = 1
 script = ExtResource("1_8ggyp")
 move_speed = 250.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AIRunAwayBehaviour" type="Node" parent="." unique_id=1952204739]
+script = ExtResource("1_1shr2")
+
+[node name="HealthComponent" parent="." unique_id=623101076 instance=ExtResource("4_3rus2")]
+unique_name_in_owner = true
+max_hits = 2
+
+[node name="Enemy" parent="." unique_id=1917655172 node_paths=PackedStringArray("enemy_root") instance=ExtResource("6_qd5lj")]
+enemy_root = NodePath("..")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1844507095]
 material = ExtResource("2_mvmwx")
 sprite_frames = SubResource("SpriteFrames_rtdwv")
 animation = &"die"
 autoplay = "idle"
 offset = Vector2(0, -16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=63312242]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_8ggyp")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=274640124]
 path_desired_distance = 13.0
 path_max_distance = 10.0
 avoidance_enabled = true
@@ -260,16 +271,9 @@ debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0, 1, 0.14999986, 1)
 
-[node name="GetEscapePointTimer" type="Timer" parent="."]
+[node name="GetEscapePointTimer" type="Timer" parent="." unique_id=2144581261]
 wait_time = 0.3
 autostart = true
-
-[node name="AIRunAwayBehaviour" type="Node" parent="."]
-script = ExtResource("1_1shr2")
-
-[node name="HealthComponent" parent="." instance=ExtResource("4_3rus2")]
-unique_name_in_owner = true
-max_hits = 2
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="GetEscapePointTimer" to="." method="_on_get_escape_point_timer_timeout"]

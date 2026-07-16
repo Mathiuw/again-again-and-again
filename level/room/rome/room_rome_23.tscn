@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://clr4bp8hq0hg7"]
+[gd_scene format=4 uid="uid://clr4bp8hq0hg7"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://level/room/room.gd" id="1_53cje"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://level/room/tileset_level.tres" id="2_6orpp"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://entity/light/torch_point_light_2d.tscn" id="3_6xp28"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://entity/chest/chest_rome.tscn" id="4_6orpp"]
-[ext_resource type="PackedScene" uid="uid://c5pxaov6df4yw" path="res://entity/character/tuga/tuga.tscn" id="4_53cje"]
+[ext_resource type="PackedScene" uid="uid://c5pxaov6df4yw" path="res://entity/character/enemy/tuga/tuga.tscn" id="4_53cje"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://entity/door/door_right.tscn" id="6_6orpp"]
 
 [node name="RoomRome21" type="Node2D"]

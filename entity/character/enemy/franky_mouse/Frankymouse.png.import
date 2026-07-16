@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsra6h7i3ciqm"
-path="res://.godot/imported/catlionidk_sheet.png-1f0421e9eeeffb978123f0be42482861.ctex"
+uid="uid://iu33kude3xkk"
+path="res://.godot/imported/Frankymouse.png-8695b46ed646b74d9a9f2f971aeb37aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entity/character/catlionidk/catlionidk_sheet.png"
-dest_files=["res://.godot/imported/catlionidk_sheet.png-1f0421e9eeeffb978123f0be42482861.ctex"]
+source_file="res://entity/character/enemy/franky_mouse/Frankymouse.png"
+dest_files=["res://.godot/imported/Frankymouse.png-8695b46ed646b74d9a9f2f971aeb37aa.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://byyoaxavor6kf"]
+[gd_scene format=4 uid="uid://byyoaxavor6kf"]
 
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://level/room/room.gd" id="1_8x1ll"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://level/room/tileset_level.tres" id="2_854p0"]
@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://entity/chest/chest_rome.tscn" id="4_854p0"]
 [ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://entity/door/door_left.tscn" id="4_go1wm"]
 [ext_resource type="PackedScene" uid="uid://dcg3gmie44c8h" path="res://entity/door/door_down.tscn" id="5_8x1ll"]
-[ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://entity/character/medusa/medusa.tscn" id="5_86unl"]
-[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://entity/character/zemerlin/zemerlin.tscn" id="6_8kr57"]
-[ext_resource type="PackedScene" uid="uid://c5pxaov6df4yw" path="res://entity/character/tuga/tuga.tscn" id="7_8kr57"]
+[ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://entity/character/enemy/medusa/medusa.tscn" id="5_86unl"]
+[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://entity/character/enemy/zemerlin/zemerlin.tscn" id="6_8kr57"]
+[ext_resource type="PackedScene" uid="uid://c5pxaov6df4yw" path="res://entity/character/enemy/tuga/tuga.tscn" id="7_8kr57"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_86unl"]
 vertices = PackedVector2Array(-4, 140, -7.28125, 140, -4, 136.71875, -164, -38, -164, 44, -165.64844, 16, -168.10156, 6.828125, -168.10156, 25.171875, -10, -6, 52.929688, -6, 48.101563, -1.171875, 79.89844, -1.171875, 75.07031, -6, 170, -6, -4, 90, -4, 109.28125, -10.078125, 103.203125, -10, 90, -62.296875, 134.42188, -56.71875, 140, -134, 140, -124, 54, -124, 5.0703125, -121.171875, 7.8984375, -174.82813, 0.1015625, -170, -38, -174.82813, 31.898438, -198, 44, -184, 34.351563, -193.17188, 31.898438, -198, 38, -20.1875, 100.5, -10, 38, 82.35156, 8, -112, 10.3515625, -118, 54, -65.35156, 123, -134, 134, -118, 106, 45.648438, 8, -184, -2.3515625, -284, -134, -170, -90, -4, -134, -4, -58, -10, -58, -70, -90, 170, -58, 164, -58, 164, -62, 194, -62, 194, -86, 198, -86, 198, -62, 234, -62, 234, -86, 284, -86, 284, 44, 26, 44, 26, 38, 64, 26.351563, 73.171875, 23.898438, -170, 134, -170, 142, -188, 142, -188, 106, -62.296875, 111.578125, -106, -90, -106, -84, -134, -84, -134, -90, -234, 90, -228, 90, -228, 140, -278, 138, -278, 102, -284, 140, -284, 138, -286, 102, -286, 90, -278, 90, -234, 38, -278, 38, -284, 38, -199.89844, 25.171875, -202.35156, 16, -102.828125, 7.8984375, -53.921875, 103.203125, -199.89844, 6.828125, -193.17188, 0.1015625, -96.10156, 1.171875, -94.17969, -6, -70, -6, -43.8125, 100.5, 79.89844, 17.171875, 48.101563, 17.171875, 54.828125, 23.898438)

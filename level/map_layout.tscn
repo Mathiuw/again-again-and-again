@@ -102,7 +102,7 @@ transition_positions = {
 }
 
 [node name="RoomRome10" parent="." unique_id=1340757168 node_paths=PackedStringArray("transition_positions") instance=ExtResource("16_l7m5t")]
-position = Vector2(1280, 384)
+position = Vector2(1280, 400)
 transition_positions = {
 "down": NodePath("TransitionDown"),
 "up": NodePath("TransitionUp")

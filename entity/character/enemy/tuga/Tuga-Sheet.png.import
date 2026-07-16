@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dskkr445w4tl2"
-path="res://.godot/imported/BunnyaleD-Sheet.png-85fdafc17995239faaa57df60acac87b.ctex"
+uid="uid://bt2l6o3tgni6n"
+path="res://.godot/imported/Tuga-Sheet.png-456389ac9fdf9fc2d4b75536e236e626.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entity/character/bunnyale/BunnyaleD-Sheet.png"
-dest_files=["res://.godot/imported/BunnyaleD-Sheet.png-85fdafc17995239faaa57df60acac87b.ctex"]
+source_file="res://entity/character/enemy/tuga/Tuga-Sheet.png"
+dest_files=["res://.godot/imported/Tuga-Sheet.png-456389ac9fdf9fc2d4b75536e236e626.ctex"]
 
 [params]
 

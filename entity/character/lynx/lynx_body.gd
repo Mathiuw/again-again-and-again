@@ -21,7 +21,7 @@ func _ready() -> void:
 		animated_sprite_2d.position.y = 0
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if  body is Player:
+	if  body is TopDownController2d:
 		var knockback_direction: Vector2 = (body.global_position - global_position).normalized()
 		body.apply_knockback(knockback_direction, knockback_force, knockback_duration)
 		body.damage(damage_amount)

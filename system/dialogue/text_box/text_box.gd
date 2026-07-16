@@ -14,8 +14,8 @@ func _ready() -> void:
 
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		if visible_characters != text.length():
+	if Input.is_action_just_pressed("interact"):
+		if visible_characters != -1:
 			visible_characters = -1
 			return
 		
@@ -35,6 +35,7 @@ func _load_current_index_dialog_text() -> void:
 		if visible_characters == -1: return
 		visible_characters += 1
 		await get_tree().create_timer(text_speed).timeout
+	visible_characters = -1
 
 
 func _end_dialog() -> void:

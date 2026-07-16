@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://dxvch24pihxor" path="res://level/room/tileset_level_v2.tres" id="2_w6dro"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://entity/chest/chest_rome.tscn" id="4_8jk44"]
 [ext_resource type="PackedScene" uid="uid://dcg3gmie44c8h" path="res://entity/door/door_down.tscn" id="5_23umb"]
-[ext_resource type="PackedScene" uid="uid://b1uw6v7edbscl" path="res://entity/character/bunnyale/bunnyale.tscn" id="5_mlmu6"]
+[ext_resource type="PackedScene" uid="uid://b1uw6v7edbscl" path="res://entity/character/enemy/bunnyale/bunnyale.tscn" id="5_mlmu6"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://entity/door/door_right.tscn" id="6_23umb"]
 [ext_resource type="Script" uid="uid://db3x51addxum0" path="res://level/room/room_transition.gd" id="7_w6dro"]
 [ext_resource type="PackedScene" uid="uid://b73u4ukbr52e5" path="res://entity/hidden_area/hidden_area_2d.tscn" id="9_xqmcr"]

@@ -8,7 +8,7 @@ var loop_amount: int = 0
 func _ready() -> void:
 	load_game()
 	
-	var player: Player = get_tree().get_first_node_in_group("player")
+	var player: TopDownController2d = get_tree().get_first_node_in_group("player")
 	if  player:
 		player.on_player_die.connect(on_player_die)
 	

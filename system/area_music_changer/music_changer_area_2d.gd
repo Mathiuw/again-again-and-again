@@ -5,7 +5,7 @@ extends Area2D
 @export var destroy_on_change: bool = true
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body is TopDownController2d:
 		if only_pause == true:
 			AudioManager._music_stream_player.stream_paused = true
 		else:

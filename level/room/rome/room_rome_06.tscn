@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://entity/chest/chest_rome.tscn" id="5_cei67"]
 [ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://entity/door/door_left.tscn" id="5_j38ae"]
 [ext_resource type="PackedScene" uid="uid://dcg3gmie44c8h" path="res://entity/door/door_down.tscn" id="6_a6sh5"]
-[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://entity/character/zemerlin/zemerlin.tscn" id="6_lu0qg"]
+[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://entity/character/enemy/zemerlin/zemerlin.tscn" id="6_lu0qg"]
 [ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://entity/door/door_up.tscn" id="7_7fyaj"]
-[ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://entity/character/medusa/medusa.tscn" id="7_jsc14"]
+[ext_resource type="PackedScene" uid="uid://dk62nei0etksf" path="res://entity/character/enemy/medusa/medusa.tscn" id="7_jsc14"]
 [ext_resource type="Script" uid="uid://db3x51addxum0" path="res://level/room/room_transition.gd" id="10_cyxch"]
 [ext_resource type="PackedScene" uid="uid://b73u4ukbr52e5" path="res://entity/hidden_area/hidden_area_2d.tscn" id="12_vsncp"]
 

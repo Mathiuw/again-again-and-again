@@ -14,14 +14,14 @@ static var current_room_loaded : Room
 static var previous_room_loaded: Room
 
 
-func set_current_loaded_room_state(state: Node.ProcessMode):
+func set_current_loaded_room_state(state: Node.ProcessMode) -> void:
 	if !current_room_loaded:
 		push_warning("There is no valid room loaded")
 		return
 	current_room_loaded.process_mode = state
 
 
-func clear_previous_loaded_rooms():
+func clear_previous_loaded_rooms() -> void:
 	if previous_room_loaded:
 		previous_room_loaded.queue_free()
 
@@ -59,12 +59,14 @@ func get_desired_load_position(room_to_load: Room, load_direction: LoadDirection
 	
 	match load_direction:
 		LoadDirection.UP:
-			desired_position.y -= -current_room_size.y/2 - float(room_to_load.size.y)/2 if room_to_load.centered else float(room_to_load.size.y)
+			desired_position.y -= current_room_size.y/2 + float(room_to_load.size.y)/2 if room_to_load.centered else float(room_to_load.size.y)
 		LoadDirection.DOWN:
 			desired_position.y += current_room_size.y/2 + float(room_to_load.size.y)/2 if room_to_load.centered else float(room_to_load.size.y)
 		LoadDirection.LEFT:
-			desired_position.x -= -current_room_size.x/2 - float(room_to_load.size.x)/2 if room_to_load.centered else float(room_to_load.size.x) 
+			desired_position.x -= current_room_size.x/2 + float(room_to_load.size.x)/2 if room_to_load.centered else float(room_to_load.size.x) 
 		LoadDirection.RIGHT:
 			desired_position.x += current_room_size.x/2 + float(room_to_load.size.x)/2 if room_to_load.centered else float(room_to_load.size.x) 
+		LoadDirection.NONE:
+			pass	
 	
 	return desired_position

@@ -1,9 +1,8 @@
 {
 	"no_keys": [
 		"You have nothing for me for now",
-		"Come back later!!"
+		"Come back later"
 	],
-  
 	"keep_keys_option": {
 		"Yes": "option_yes",
 		"No": "option_no"

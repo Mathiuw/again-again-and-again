@@ -33,7 +33,7 @@ func trigger_shake(override_force: float = 0) -> void:
 
 func on_room_change(room: Room) -> void:
 	var tween: Tween = get_tree().create_tween()
-	tween.tween_property($'.', "global_position", room.global_position, move_time).set_trans(Tween.TRANS_SINE)
+	tween.tween_property($'.', "position", room.global_position, move_time).set_trans(Tween.TRANS_SINE)
 	await tween.finished
 	RoomManager.clear_previous_loaded_rooms()
 	RoomManager.set_current_loaded_room_state.call_deferred(Node.PROCESS_MODE_INHERIT)

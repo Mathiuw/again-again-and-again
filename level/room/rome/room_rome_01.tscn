@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://dcwk2yq15m4rk" path="res://audio/music/primeira fase master.mp3" id="2_66bwh"]
 [ext_resource type="PackedScene" uid="uid://daei5no6mv7u5" path="res://entity/light/torch_point_light_2d.tscn" id="3_h67ar"]
 [ext_resource type="TileSet" uid="uid://dxvch24pihxor" path="res://level/room/tileset_level_v2.tres" id="3_ithsg"]
-[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://entity/character/zemerlin/zemerlin.tscn" id="5_h67ar"]
+[ext_resource type="PackedScene" uid="uid://dliyelxwg7x8w" path="res://entity/character/enemy/zemerlin/zemerlin.tscn" id="5_h67ar"]
 [ext_resource type="PackedScene" uid="uid://dnb6xxaiufcqp" path="res://entity/chest/chest_rome.tscn" id="6_ffdht"]
 [ext_resource type="Script" uid="uid://db3x51addxum0" path="res://level/room/room_transition.gd" id="8_4ppfi"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://entity/door/door_right.tscn" id="10_yqar7"]

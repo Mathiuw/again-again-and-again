@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iu33kude3xkk"
-path="res://.godot/imported/Frankymouse.png-1b695dc9bfaf064a23d6cca3f6c07c98.ctex"
+uid="uid://bwpg6wl7nkl0v"
+path="res://.godot/imported/Zehmerlin-Sheet.png-710bbabb0555bf1d0454afa5281d1c9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entity/character/franky_mouse/Frankymouse.png"
-dest_files=["res://.godot/imported/Frankymouse.png-1b695dc9bfaf064a23d6cca3f6c07c98.ctex"]
+source_file="res://entity/character/enemy/zemerlin/Zehmerlin-Sheet.png"
+dest_files=["res://.godot/imported/Zehmerlin-Sheet.png-710bbabb0555bf1d0454afa5281d1c9f.ctex"]
 
 [params]
 

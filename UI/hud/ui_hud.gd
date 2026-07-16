@@ -25,7 +25,7 @@ func _ready() -> void:
 		
 		_repeat_amount.text = str(_loop_timer.loop_amount) 
 		
-		var player: Player = get_tree().get_first_node_in_group("player") as Player
+		var player: TopDownController2d = get_tree().get_first_node_in_group("player") as TopDownController2d
 		if player:
 			player.on_player_damage.connect(func(damage_amount: int):
 				_spawn_damage_particle(damage_amount)

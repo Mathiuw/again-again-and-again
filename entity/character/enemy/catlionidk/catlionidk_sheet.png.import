@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwpg6wl7nkl0v"
-path="res://.godot/imported/Zehmerlin-Sheet.png-8a0b3fac6b4af7941ba4b6e3476b4a53.ctex"
+uid="uid://dsra6h7i3ciqm"
+path="res://.godot/imported/catlionidk_sheet.png-c70c3fc50db65c9c3c4af396d0fa49bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entity/character/zemerlin/Zehmerlin-Sheet.png"
-dest_files=["res://.godot/imported/Zehmerlin-Sheet.png-8a0b3fac6b4af7941ba4b6e3476b4a53.ctex"]
+source_file="res://entity/character/enemy/catlionidk/catlionidk_sheet.png"
+dest_files=["res://.godot/imported/catlionidk_sheet.png-c70c3fc50db65c9c3c4af396d0fa49bf.ctex"]
 
 [params]
 

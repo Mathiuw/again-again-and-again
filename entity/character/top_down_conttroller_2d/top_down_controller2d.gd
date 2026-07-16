@@ -1,10 +1,12 @@
-class_name Player
 extends CharacterBody2D
+class_name TopDownController2d
 
 const SPEED: float = 115.0
 
 signal on_player_die
 signal on_player_damage(damageAmount: int)
+
+static var enabled: bool = true
 
 @onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _weapon: Weapon = $Weapon
@@ -21,7 +23,17 @@ var knockback_timer: float = 0.0
 var can_take_damage: bool = true
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	# interact/roll input
+	if !enabled: return
+	if event.is_action_pressed("interact"):
+		if !_interact_component.try_to_interact():
+			_roll_component.start_dash()
+
+
 func _ready() -> void:
+	Globals.player_controller = self
+	
 	_loop_timer = get_tree().get_first_node_in_group("loop_timer")
 	if _loop_timer:
 		_loop_timer.timeout.connect(on_loop_timer_timeout)
@@ -32,23 +44,9 @@ func _ready() -> void:
 	SignalBus.on_dialog_end.connect(on_dialogue_exit)
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	# interact/roll input
-	if event.is_action_pressed("interact"):
-		if !_interact_component.try_to_interact():
-			_roll_component.start_dash()
-
-
 func _process(_delta: float) -> void:
-	# set player animations
-	if velocity.length() > 0:
-		_set_player_animation(velocity.normalized())
-	else:
-		_set_player_idle()
-	
-	# shoot input
-	#var shoot_vector: Vector2 = Input.get_vector("shoot left", "shoot right", "shoot up", "shoot down")
 	var shoot_vector: Vector2
+	
 	if Input.is_action_pressed("shoot left"):
 		shoot_vector = Vector2(-1,0)
 	if Input.is_action_pressed("shoot right"):
@@ -67,6 +65,7 @@ func _physics_process(delta: float) -> void:
 		# knockback logic
 		velocity = knockback
 		knockback_timer -= delta
+		
 		if knockback_timer <= 0:
 			knockback = Vector2.ZERO
 			knockback_timer = 0
@@ -75,45 +74,23 @@ func _physics_process(delta: float) -> void:
 		var multiplier: float = _roll_component.dash_speed_multiplier
 		var desired_direction: Vector2 = Input.get_vector("move left", "move right", "move up", "move down");
 		velocity = desired_direction * (SPEED * multiplier)
-	# apply movement
+
 	move_and_slide()
 
 
-func set_move_state(state: bool) -> void:
+func set_state(state: bool) -> void:
+	enabled = state
 	set_physics_process(state)
 	set_process(state)
-	_set_player_idle()
 
 
 func on_dialogue_enter(_dialogue_steps: Array[DialogueStep]) -> void:
-	set_move_state(false)
+	set_state(false)
+
 
 func on_dialogue_exit() -> void:
 	await get_tree().create_timer(0.1).timeout
-	set_move_state(true)
-
-func _set_player_animation(desiredDirection: Vector2) -> void:
-	#TODO implement player shoot animation
-	if desiredDirection.y == 0 && desiredDirection.x > 0:
-		_animated_sprite_2d.play("walk_right")
-	elif desiredDirection.y == 0 && desiredDirection.x < 0:
-		_animated_sprite_2d.play("walk_left")
-	elif desiredDirection.y > 0:
-		_animated_sprite_2d.play("walk_front")
-	elif desiredDirection.y < 0:
-		_animated_sprite_2d.play("walk_back")
-
-
-func _set_player_idle() -> void:
-	match _animated_sprite_2d.animation:
-		"walk_back":
-			_animated_sprite_2d.play("idle_back")
-		"walk_front":
-			_animated_sprite_2d.play("idle_front")
-		"walk_left":
-			_animated_sprite_2d.play("idle_left")
-		"walk_right":
-			_animated_sprite_2d.play("idle_right")
+	set_state(true)
 
 
 func damage(damageAmount: int) -> void:
@@ -154,7 +131,7 @@ func on_loop_timer_timeout() -> void:
 	const UI_FADE = preload("uid://mwaxn6ft2wpi")
 	
 	can_take_damage = false
-	set_move_state(false)
+	set_state(false)
 	_animated_sprite_2d.play("die")
 	await get_tree().create_timer(2).timeout
 	

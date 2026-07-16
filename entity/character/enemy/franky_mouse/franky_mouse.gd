@@ -10,13 +10,15 @@ class_name FrankyMouse
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-var target_escape: Node2D
+var escape_target: Node2D
 var escape_point: Vector2
 
 func _ready() -> void:
-	target_escape = get_tree().get_first_node_in_group("player")
-	if  !target_escape:
-		push_error("Couldnt find player")
+	if Globals.player_controller:
+		escape_target = Globals.player_controller
+	
+	if  !escape_target:
+		push_error("Couldnt find player controller")
 		return
 	
 	if health_component:
@@ -34,7 +36,7 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	#print(velocity)
 	
-	if !target_escape:
+	if !escape_target:
 		return
 	
 	# Do not query when the map has never synchronized and is empty.
@@ -96,9 +98,9 @@ func set_walk_animation(desiredDirection: Vector2) -> void:
 
 func calculate_escape_point() -> void:
 	# Calculate new escape point based on the escape_range
-	var new_escape_point: Vector2 = target_escape.position
+	var new_escape_point: Vector2 = escape_target.position
 	
-	while new_escape_point.distance_to(target_escape.global_position) < escape_range:
+	while new_escape_point.distance_to(escape_target.global_position) < escape_range:
 		new_escape_point = NavigationServer2D.region_get_random_point(NavigationServer2D.map_get_closest_point_owner(navigation_agent_2d.get_navigation_map(), global_position), 1, false)
 	
 	escape_point = new_escape_point
@@ -111,5 +113,5 @@ func damage(damageAmount: int)-> void:
 
 
 func _on_get_escape_point_timer_timeout() -> void:
-	if navigation_agent_2d && navigation_agent_2d.is_navigation_finished() && global_position.distance_to(target_escape.global_position) < escape_range:
+	if navigation_agent_2d && navigation_agent_2d.is_navigation_finished() && global_position.distance_to(escape_target.global_position) < escape_range:
 		calculate_escape_point()

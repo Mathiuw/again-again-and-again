@@ -22,7 +22,7 @@ func _physics_process(_delta: float) -> void:
 	var collision: KinematicCollision2D = get_last_slide_collision()
 	if collision:
 		var body: Node2D = collision.get_collider()
-		if body is Player:
+		if body is TopDownController2d:
 			var knockback_direction: Vector2 = (body.global_position - global_position).normalized()
 			if body.can_take_damage:
 				body.apply_knockback(knockback_direction, knockback_force, knockback_duration)

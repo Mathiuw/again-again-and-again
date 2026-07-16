@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://be2ns7nd7wct4"]
 
-[ext_resource type="Script" uid="uid://bbim12t1u8d40" path="res://entity/character/catlionidk/catlionidk.gd" id="1_asvjx"]
+[ext_resource type="Script" uid="uid://bbim12t1u8d40" path="res://entity/character/enemy/catlionidk/catlionidk.gd" id="1_asvjx"]
 [ext_resource type="Material" uid="uid://cenkdihc6dw7h" path="res://asset/damage_flash_material.tres" id="1_kq2sb"]
-[ext_resource type="Texture2D" uid="uid://dsra6h7i3ciqm" path="res://entity/character/catlionidk/catlionidk_sheet.png" id="1_n3eyp"]
+[ext_resource type="Texture2D" uid="uid://dsra6h7i3ciqm" path="res://entity/character/enemy/catlionidk/catlionidk_sheet.png" id="1_n3eyp"]
 [ext_resource type="PackedScene" uid="uid://oe883hit4k47" path="res://system/health/health_component.tscn" id="3_n1omm"]
 [ext_resource type="PackedScene" uid="uid://cgy5ipfx6ohjl" path="res://system/skill/dash/dash_component.tscn" id="3_yfmbt"]
 [ext_resource type="PackedScene" uid="uid://c6m0uqjs8vsix" path="res://system/skill/dash/dash_particle_animated_sprite_2D.tscn" id="4_myhiq"]
+[ext_resource type="PackedScene" uid="uid://dee684r0kwrb4" path="res://system/enemy/enemy.tscn" id="4_vwfc6"]
 [ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/target_view_check/target_view_check.tscn" id="6_fminb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fn2xi"]
@@ -217,7 +218,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ka052")
 }],
-"loop": false,
+"loop": 0,
 "name": &"attack_end",
 "speed": 10.0
 }, {
@@ -264,7 +265,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ql1o8")
 }],
-"loop": false,
+"loop": 0,
 "name": &"attack_start",
 "speed": 10.0
 }, {
@@ -299,7 +300,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j6mqf")
 }],
-"loop": false,
+"loop": 0,
 "name": &"die",
 "speed": 9.0
 }, {
@@ -334,7 +335,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_45pgr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 9.0
 }]
@@ -349,6 +350,19 @@ motion_mode = 1
 script = ExtResource("1_asvjx")
 move_speed = 150.0
 damage_amount = 8.0
+
+[node name="HealthComponent" parent="." unique_id=1011006662 instance=ExtResource("3_n1omm")]
+max_hits = 2
+
+[node name="DashComponent" parent="." unique_id=1696054203 instance=ExtResource("3_yfmbt")]
+unique_name_in_owner = true
+dash_speed_multiplier = 3.0
+dash_length = 0.2
+dash_cooldown = 5.0
+infinite_dash = true
+
+[node name="Enemy" parent="." unique_id=1917655172 node_paths=PackedStringArray("enemy_root") instance=ExtResource("4_vwfc6")]
+enemy_root = NodePath("..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1362588939]
 material = ExtResource("1_kq2sb")
@@ -368,19 +382,9 @@ debug_enabled = true
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_asvjx")
 
-[node name="DashComponent" parent="." unique_id=1696054203 instance=ExtResource("3_yfmbt")]
-unique_name_in_owner = true
-dash_speed_multiplier = 3.0
-dash_length = 0.2
-dash_cooldown = 5.0
-infinite_dash = true
-
 [node name="DashParticleAnimatedSprite2D" parent="." unique_id=1737039190 node_paths=PackedStringArray("character_owner", "animated_sprite") instance=ExtResource("4_myhiq")]
 character_owner = NodePath("..")
 animated_sprite = NodePath("../AnimatedSprite2D")
-
-[node name="HealthComponent" parent="." unique_id=1011006662 instance=ExtResource("3_n1omm")]
-max_hits = 2
 
 [node name="TargetRaycastCheck2D" parent="." unique_id=35351482 instance=ExtResource("6_fminb")]
 
