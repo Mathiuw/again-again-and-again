@@ -11,14 +11,17 @@ script/source = "extends TextureRect
 var music_bus_index: int = AudioServer.get_bus_index(\"Music\")
 var sound_bus_index: int = AudioServer.get_bus_index(\"Sfx\")
 
+@onready var music_slider: HSlider = $MusicSlider
+@onready var sound_slider: HSlider = $SoundSlider
+
 func _ready() -> void:
-	PauseManager.on_pause_state_changed.connect(func(state: bool):
+	PauseManager.on_pause_state_changed.connect(func(state: bool) -> void:
 		if !state:
 			queue_free()
 		)
 	
-	$MusicSlider.value = AudioServer.get_bus_volume_linear(music_bus_index)
-	$SoundSlider.value = AudioServer.get_bus_volume_linear(sound_bus_index)
+	music_slider.value = AudioServer.get_bus_volume_linear(music_bus_index)
+	sound_slider.value = AudioServer.get_bus_volume_linear(sound_bus_index)
 
 
 func _on_slider_music_value_changed(value: float) -> void:
@@ -33,13 +36,13 @@ func _on_exit_options_button_pressed() -> void:
 	queue_free()
 "
 
-[node name="OptionsMenu" type="TextureRect"]
+[node name="OptionsMenu" type="TextureRect" unique_id=140153518]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_vqd2q")
 script = SubResource("GDScript_ur0f7")
 
-[node name="MusicSlider" type="HSlider" parent="."]
+[node name="MusicSlider" type="HSlider" parent="." unique_id=969515361]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -55,7 +58,7 @@ grow_vertical = 2
 max_value = 1.0
 step = 0.1
 
-[node name="SoundSlider" type="HSlider" parent="."]
+[node name="SoundSlider" type="HSlider" parent="." unique_id=338038467]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -71,7 +74,7 @@ grow_vertical = 2
 max_value = 1.0
 step = 0.1
 
-[node name="ExitOptionsButton" type="TextureButton" parent="."]
+[node name="ExitOptionsButton" type="TextureButton" parent="." unique_id=1622604045]
 layout_mode = 0
 offset_left = 280.0
 offset_top = 224.0

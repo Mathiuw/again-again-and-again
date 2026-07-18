@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bmdsx56a0hnm8" path="res://system/ai/shoot_behaviour/ai_shoot_behaviour.gd" id="1_bafn5"]
 
-[node name="AIShootBehaviour" type="Node"]
+[node name="AIShootBehaviour" type="Node" unique_id=1241311574]
 script = ExtResource("1_bafn5")
 
 [connection signal="on_ai_shoot" from="." to="." method="_on_on_ai_shoot"]

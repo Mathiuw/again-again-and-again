@@ -27,7 +27,7 @@ region = Rect2(48, 48, 48, 48)
 atlas = ExtResource("2_bymlj")
 region = Rect2(96, 48, 48, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_q40fj"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_5g3yh"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -64,28 +64,28 @@ func _process(delta: float) -> void:
 	rotation_degrees += ROTATION_SPEED * delta
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_87arf"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1duej"]
 resource_local_to_scene = true
 size = Vector2(34, 30)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc7g5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kwjy"]
 resource_local_to_scene = true
 size = Vector2(32, 28)
 
 [node name="bullet" unique_id=944954804 instance=ExtResource("1_lmk8u")]
 
-[node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = SubResource("SpriteFrames_q40fj")
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=694340731]
+sprite_frames = SubResource("SpriteFrames_5g3yh")
 frame_progress = 0.37274203
 script = SubResource("GDScript_lmk8u")
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" unique_id=1200561122]
 position = Vector2(0, 0)
-shape = SubResource("RectangleShape2D_87arf")
+shape = SubResource("RectangleShape2D_1duej")
 
-[node name="CollisionShape2D" parent="Area2D" index="0"]
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1929031545) index="0" unique_id=397918870]
 position = Vector2(0, 0)
-shape = SubResource("RectangleShape2D_mc7g5")
+shape = SubResource("RectangleShape2D_5kwjy")
 
-[node name="DestroyTimer" parent="." index="3"]
+[node name="DestroyTimer" parent="." index="3" unique_id=1845051563]
 wait_time = 30.0

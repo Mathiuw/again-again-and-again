@@ -5,6 +5,7 @@ class_name Bunnyale
 @export_group("AI Escape Settings")
 @export var move_speed: float = 100
 @export var escape_range: float = 250
+@export var body_collision_shape: CollisionShape2D
 
 @onready var health_component: Health = %HealthComponent
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
@@ -99,19 +100,41 @@ func calculate_escape_point() -> void:
 	# Calculate new escape point based on the escape_range
 	var new_escape_point: Vector2 = target_escape.position
 	
-	while new_escape_point.distance_to(target_escape.global_position) < escape_range:
-		new_escape_point = NavigationServer2D.region_get_random_point(NavigationServer2D.map_get_closest_point_owner(navigation_agent_2d.get_navigation_map(), global_position), 1, false)
+	var point_valid: bool = false
+	while !point_valid && new_escape_point.distance_to(target_escape.global_position) < escape_range:
+		new_escape_point = NavigationServer2D.region_get_random_point(
+			NavigationServer2D.map_get_closest_point_owner(navigation_agent_2d.get_navigation_map(), global_position), 1, false)
+		if body_collision_shape:
+			point_valid = !would_collide_with_area(body_collision_shape.shape, new_escape_point, get_world_2d())
+		else:
+			point_valid = true
 	
 	escape_point = new_escape_point
 	navigation_agent_2d.target_position = escape_point
 	print(new_escape_point)
 
 
+func would_collide_with_area(shape: Shape2D, point: Vector2, world_2d: World2D, target_area: Area2D = null) -> bool:
+	var space_state: PhysicsDirectSpaceState2D = world_2d.direct_space_state
+	var query: PhysicsShapeQueryParameters2D = PhysicsShapeQueryParameters2D.new()
+	query.shape = shape
+	query.transform = Transform2D(0, point)  # rotation, position
+	query.collide_with_areas = true
+	query.collide_with_bodies = false
+	query.collision_mask = target_area.collision_layer if target_area else 0xFFFFFFFF
+
+	var results: Array[Dictionary] = space_state.intersect_shape(query)
+	for dict: Dictionary in results:
+		if target_area == null or dict.collider == target_area:
+			return true
+	return false
+
+
 func damage(damageAmount: int)-> void:
 	health_component.remove_health(damageAmount)
 	
 	if !health_component.dead:
-		var damage_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		var damage_tween: Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 		damage_tween.tween_property($AnimatedSprite2D, "material:shader_parameter/flash_value", 1, 0.125)
 		damage_tween.chain().tween_property($AnimatedSprite2D, "material:shader_parameter/flash_value", 0, 0.125)
 

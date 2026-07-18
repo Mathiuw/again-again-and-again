@@ -34,7 +34,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1jnsw")
 }],
-"loop": true,
+"loop": 1,
 "name": &"bullet",
 "speed": 10.0
 }]
@@ -42,21 +42,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16787"]
 size = Vector2(5, 5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_22ktm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2vc0"]
 resource_local_to_scene = true
 size = Vector2(3, 3)
 
-[node name="bullet" instance=ExtResource("1_16787")]
+[node name="bullet" unique_id=1667462505 instance=ExtResource("1_16787")]
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=694340731]
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_00d31")
 frame_progress = 0.29281068
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" unique_id=1200561122]
 position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_16787")
 
-[node name="CollisionShape2D" parent="Area2D" index="0"]
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1929031545) index="0" unique_id=397918870]
 position = Vector2(0, 0)
-shape = SubResource("RectangleShape2D_22ktm")
+shape = SubResource("RectangleShape2D_t2vc0")

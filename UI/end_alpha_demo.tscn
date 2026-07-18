@@ -27,7 +27,7 @@ font_size = 26
 [sub_resource type="LabelSettings" id="LabelSettings_a6ysn"]
 font = ExtResource("7_udc5q")
 
-[node name="EndDemo" type="Control"]
+[node name="EndDemo" type="Control" unique_id=272648035]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,7 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_jjx5o")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1747128200]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,7 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ExitButtom" parent="Background" instance=ExtResource("2_r1ml3")]
+[node name="ExitButtom" parent="Background" unique_id=1039644447 instance=ExtResource("2_r1ml3")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -62,7 +62,7 @@ pivot_offset = Vector2(16, 8.8888855)
 texture_normal = ExtResource("5_2fxtv")
 texture_pressed = ExtResource("6_ba7rj")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=982331259]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -79,7 +79,7 @@ text = "Thanks for playing our early demo!!"
 label_settings = SubResource("LabelSettings_l6yvn")
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="."]
+[node name="Label3" type="Label" parent="." unique_id=247498472]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -96,7 +96,7 @@ text = "2027"
 label_settings = SubResource("LabelSettings_l6yvn")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Label" parent="." unique_id=677990637]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -113,7 +113,7 @@ text = "We can't wait for you to try the full game!"
 label_settings = SubResource("LabelSettings_a6ysn")
 horizontal_alignment = 1
 
-[node name="UIFade" parent="." instance=ExtResource("5_4oo2x")]
+[node name="UIFade" parent="." unique_id=1877022298 instance=ExtResource("5_4oo2x")]
 fade_settings = ExtResource("6_ji00f")
 
 [connection signal="pressed" from="Background/ExitButtom" to="." method="_on_exit_buttom_pressed"]

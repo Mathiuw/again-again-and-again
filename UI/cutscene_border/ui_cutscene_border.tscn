@@ -92,12 +92,12 @@ _data = {
 &"show_border": SubResource("Animation_4iywt")
 }
 
-[node name="UICutsceneBorder" type="CanvasLayer"]
+[node name="UICutsceneBorder" type="CanvasLayer" unique_id=2049127316]
 layer = 2
 script = ExtResource("1_g153i")
 metadata/_edit_lock_ = true
 
-[node name="Reference" type="ReferenceRect" parent="."]
+[node name="Reference" type="ReferenceRect" parent="." unique_id=1594975597]
 show_behind_parent = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,19 +107,17 @@ grow_vertical = 2
 border_width = 2.0
 metadata/_edit_lock_ = true
 
-[node name="Border" type="ColorRect" parent="."]
+[node name="Border" type="ColorRect" parent="." unique_id=1750594153]
 offset_right = 640.0
 offset_bottom = 40.0
 color = Color(0.11372549, 0.06666667, 0.06666667, 1)
 
-[node name="Border2" type="ColorRect" parent="."]
+[node name="Border2" type="ColorRect" parent="." unique_id=1553173244]
 offset_top = 320.0
 offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0.11372549, 0.06666667, 0.06666667, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_cl52l")
-}
-autoplay = "RESET"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1532260993]
+libraries/ = SubResource("AnimationLibrary_cl52l")
+autoplay = &"RESET"

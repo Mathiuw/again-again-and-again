@@ -137,8 +137,7 @@ root_node = NodePath("..")
 unique_name_in_owner = true
 max_hits = 3
 
-[node name="Enemy" parent="." unique_id=1917655172 node_paths=PackedStringArray("enemy_root") instance=ExtResource("10_3gagx")]
-enemy_root = NodePath("..")
+[node name="Enemy" parent="." unique_id=1917655172 instance=ExtResource("10_3gagx")]
 
 [node name="MedusaSprite2D" type="Sprite2D" parent="." unique_id=1747435076]
 material = SubResource("ShaderMaterial_10gqf")

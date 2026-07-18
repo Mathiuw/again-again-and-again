@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://db81vgbcmwuoq"]
+[gd_scene format=3 uid="uid://db81vgbcmwuoq"]
 
 [ext_resource type="Script" uid="uid://c5mmog20hqlnw" path="res://entity/breakable_wall/breakable_wall.gd" id="1_lvxbp"]
 [ext_resource type="TileSet" uid="uid://cxby7qt1d0fim" path="res://entity/breakable_wall/tileset_breakable.tres" id="2_lvxbp"]
@@ -7,20 +7,20 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1jus"]
 size = Vector2(10, 32)
 
-[node name="BreakableWallSide" type="StaticBody2D"]
+[node name="BreakableWallSide" type="StaticBody2D" unique_id=1807235894]
 script = ExtResource("1_lvxbp")
 timemap_coords = Array[Vector2i]([Vector2i(0, 0), Vector2i(0, -1)])
 desired_atlas_coords = Array[Vector2i]([Vector2i(1, 6)])
 
-[node name="WallLayer" type="TileMapLayer" parent="."]
+[node name="WallLayer" type="TileMapLayer" parent="." unique_id=1377578851]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 6, 0, 0, 0)
 tile_set = ExtResource("2_lvxbp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1012174567]
 position = Vector2(11, 0)
 shape = SubResource("RectangleShape2D_c1jus")
 
-[node name="HealthComponent" parent="." instance=ExtResource("3_3mitf")]
+[node name="HealthComponent" parent="." unique_id=18610787 instance=ExtResource("3_3mitf")]
 max_hits = 2
 
 [connection signal="on_die" from="HealthComponent" to="." method="_on_health_component_on_die"]

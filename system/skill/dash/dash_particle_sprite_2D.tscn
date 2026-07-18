@@ -23,7 +23,7 @@ initial_velocity_max = 63.35
 gravity = Vector3(0, 0, 0)
 alpha_curve = SubResource("CurveTexture_g2vtq")
 
-[node name="DashParticleSprite2D" type="GPUParticles2D"]
+[node name="DashParticleSprite2D" type="GPUParticles2D" unique_id=2146965446]
 emitting = false
 texture = SubResource("AtlasTexture_fvtld")
 lifetime = 0.31

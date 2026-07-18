@@ -196,8 +196,7 @@ move_speed = 300.0
 wait_time = 0.3
 autostart = true
 
-[node name="Enemy" parent="." unique_id=1917655172 node_paths=PackedStringArray("enemy_root") instance=ExtResource("4_s3mps")]
-enemy_root = NodePath("..")
+[node name="Enemy" parent="." unique_id=1917655172 instance=ExtResource("4_s3mps")]
 
 [node name="AIRunAwayBehaviour" type="Node" parent="." unique_id=779475399]
 script = ExtResource("4_oto10")

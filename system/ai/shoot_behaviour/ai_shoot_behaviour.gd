@@ -30,9 +30,7 @@ func _ready() -> void:
 	current_cooldown = shoot_cooldown + final_shoot_cooldown_variation + final_start_shooting_cooldown
 	
 	if weapon_component:
-		weapon_component.on_finished_shooting.connect(func():
-			_on_on_ai_shoot_end()
-		)
+		weapon_component.on_finished_shooting.connect(_on_on_ai_shoot_end)
 	
 	target = get_tree().get_first_node_in_group("player")
 	if  !target:

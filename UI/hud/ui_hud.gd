@@ -27,7 +27,7 @@ func _ready() -> void:
 		
 		var player: TopDownController2d = get_tree().get_first_node_in_group("player") as TopDownController2d
 		if player:
-			player.on_player_damage.connect(func(damage_amount: int):
+			player.on_player_damage.connect(func(damage_amount: int) -> void:
 				_spawn_damage_particle(damage_amount)
 				)
 	else:
@@ -63,11 +63,11 @@ func _set_progress_bar(value: float) -> void:
 		progress_bar.value = value
 
 
-func _spawn_damage_particle(damage_amount: int):
-	var damage_particle = DAMAGE_PARTICLE_SCENE.instantiate()
-	damage_particle.damage_amount = damage_amount
-	add_child(damage_particle)
+func _spawn_damage_particle(damage_amount: int) -> void:
+	var damage_particle_instance: DamageParticle = DAMAGE_PARTICLE_SCENE.instantiate()
+	damage_particle_instance.damage_amount = damage_amount
+	add_child(damage_particle_instance)
 	
 	var spawn_position: Vector2 = progress_bar.global_position
 	spawn_position.x = progress_bar.global_position.x + (progress_bar.size.x * (progress_bar.value/ progress_bar.max_value))
-	damage_particle.global_position = spawn_position
+	damage_particle_instance.global_position = spawn_position

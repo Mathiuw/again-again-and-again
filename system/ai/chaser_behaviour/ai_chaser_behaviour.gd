@@ -17,7 +17,7 @@ func _ready() -> void:
 	navigation_agent_2d.velocity_computed.connect(on_velocity_computed)
 
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if !navigation_agent_2d: return
 	if NavigationServer2D.map_get_iteration_id(navigation_agent_2d.get_navigation_map()) == 0: return
 	if navigation_agent_2d.is_navigation_finished(): return
@@ -31,6 +31,6 @@ func _process(_delta: float) -> void:
 		on_velocity_computed(new_velocity)
 
 
-func on_velocity_computed(safe_velocity: Vector2):
+func on_velocity_computed(safe_velocity: Vector2) -> void:
 	character_body_2d.velocity = safe_velocity
-	character_body_2d.move_and_slide()
+	character_body_2d.move_and_collide(safe_velocity * get_physics_process_delta_time())

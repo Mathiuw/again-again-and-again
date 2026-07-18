@@ -34,7 +34,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w47fr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -42,22 +42,22 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ssiv"]
 size = Vector2(9, 9)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fscni"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4owut"]
 resource_local_to_scene = true
 size = Vector2(7, 7)
 
-[node name="BulletTuga" instance=ExtResource("1_kx4ek")]
+[node name="BulletTuga" unique_id=947118389 instance=ExtResource("1_kx4ek")]
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=694340731]
 sprite_frames = SubResource("SpriteFrames_odsu6")
 animation = &"default"
 autoplay = "default"
 frame_progress = 0.35246375
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" unique_id=1200561122]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_3ssiv")
 
-[node name="CollisionShape2D" parent="Area2D" index="0"]
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1929031545) index="0" unique_id=397918870]
 position = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_fscni")
+shape = SubResource("RectangleShape2D_4owut")

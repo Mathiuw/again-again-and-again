@@ -140,8 +140,7 @@ weapon_component = NodePath("../WeaponComponent")
 target_raycast_check_2d = NodePath("../TargetRaycastCheck2D")
 root_node = NodePath("..")
 
-[node name="Enemy" parent="." unique_id=1917655172 node_paths=PackedStringArray("enemy_root") instance=ExtResource("4_jhfyq")]
-enemy_root = NodePath("..")
+[node name="Enemy" parent="." unique_id=1917655172 instance=ExtResource("4_jhfyq")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=85755710]
 material = SubResource("ShaderMaterial_lbuii")

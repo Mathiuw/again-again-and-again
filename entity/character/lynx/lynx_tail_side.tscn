@@ -80,13 +80,13 @@ _data = {
 &"tail_retract": SubResource("Animation_r401c")
 }
 
-[node name="LynxTailSide" type="Area2D"]
+[node name="LynxTailSide" type="Area2D" unique_id=1430746530]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_ap7sq")
 idle_time = 1.15
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1657622721]
 material = ExtResource("2_r401c")
 position = Vector2(24, -16)
 texture = ExtResource("2_kxtjj")
@@ -94,20 +94,18 @@ flip_h = true
 hframes = 9
 vframes = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=881651459]
 position = Vector2(12, -8)
 shape = SubResource("RectangleShape2D_n8ry6")
 
-[node name="WeaponComponent" parent="." instance=ExtResource("3_ap7sq")]
+[node name="WeaponComponent" parent="." unique_id=242512899 instance=ExtResource("3_ap7sq")]
 position = Vector2(56, -8)
 damage = 25
 bullet_scene = ExtResource("4_kxtjj")
 add_collision_exception_to_parent = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_r401c")
-}
-autoplay = "tail_appear"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=873469376]
+libraries/ = SubResource("AnimationLibrary_r401c")
+autoplay = &"tail_appear"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

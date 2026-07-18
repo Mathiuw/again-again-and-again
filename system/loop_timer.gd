@@ -1,5 +1,5 @@
-class_name LoopTimer
 extends Timer
+class_name LoopTimer
 
 @export_group("Loop Timer Settings")
 @export var max_wait_time: float = 60
@@ -63,7 +63,7 @@ func end_loop() -> void:
 
 
 func save()-> Dictionary :
-	var save_dict = {
+	var save_dict: Dictionary = {
 		"loop_amount": loop_amount
 	}
 	
@@ -74,7 +74,7 @@ func save_game() -> void :
 	var save_file: FileAccess = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	var save_data: Dictionary = save()
 	
-	var json_string = JSON.stringify(save_data)
+	var json_string: String = JSON.stringify(save_data)
 	save_file.store_line(json_string)
 
 
@@ -84,16 +84,14 @@ func load_game() -> void:
 	
 	var save_file: FileAccess = FileAccess.open("user://savegame.save", FileAccess.READ)
 	while save_file.get_position() < save_file.get_length():
-		var json_string = save_file.get_line()
+		var json_string: String = save_file.get_line()
+		var json: JSON = JSON.new()
+		var parse_result: Error = json.parse(json_string)
 		
-		var json = JSON.new()
-		
-		var parse_result = json.parse(json_string)
-		
-		if not parse_result == OK:
+		if parse_result != OK:
 			push_error("JSON parse error")
 			continue
 		
-		var node_data = json.data
+		var node_data: Variant = json.data
 		
 		loop_amount = node_data["loop_amount"]

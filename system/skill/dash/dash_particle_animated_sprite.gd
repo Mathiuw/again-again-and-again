@@ -4,9 +4,10 @@ class_name DashParticleAnimatedSprite2D
 @export var character_owner: CharacterBody2D
 @export var animated_sprite: AnimatedSprite2D
 @onready var dash_component: Dash = %DashComponent
+@onready var top_down_controller_2d: TopDownController2d = $".."
 
 func _process(_delta: float) -> void:
-	if dash_component.is_dashing:
+	if dash_component.is_dashing && character_owner.get_position_delta().length() > 0:
 		emitting = true
 	else:
 		emitting = false

@@ -113,7 +113,7 @@ func damage(damageAmount: int) -> void:
 		can_take_damage = false
 		print("Invicibility frames start")
 		# invencible tween
-		var invencible_tween = create_tween().set_trans(Tween.TRANS_SINE)
+		var invencible_tween: Tween = create_tween().set_trans(Tween.TRANS_SINE)
 		invencible_tween.tween_property($AnimatedSprite2D, "modulate:a", 0.1, invencible_frames_amount/4.0)
 		invencible_tween.chain().tween_property($AnimatedSprite2D, "modulate:a", 1.0, invencible_frames_amount/4.0)
 		invencible_tween.chain().chain().tween_property($AnimatedSprite2D, "modulate:a", 0.1, invencible_frames_amount/4.0)
@@ -128,7 +128,7 @@ func on_invencible_frames_over() -> void:
 
 # On loop end function
 func on_loop_timer_timeout() -> void:
-	const UI_FADE = preload("uid://mwaxn6ft2wpi")
+	const UI_FADE: PackedScene = preload("uid://mwaxn6ft2wpi")
 	
 	can_take_damage = false
 	set_state(false)

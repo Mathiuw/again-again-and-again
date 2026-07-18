@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cx2joiy5tdfss"]
+[gd_scene format=3 uid="uid://cx2joiy5tdfss"]
 
 [ext_resource type="Texture2D" uid="uid://dshshei42ak4j" path="res://entity/character/lynx/DyingBoss-Sheet.png" id="1_4tfo8"]
 
@@ -365,7 +365,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3yyse")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 15.0
 }]
@@ -373,22 +373,22 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_dnlai"]
 radius = 16.0
 
-[node name="AfterLynxFight" type="Node2D"]
+[node name="AfterLynxFight" type="Node2D" unique_id=1919362970]
 script = SubResource("GDScript_prs6n")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1755062194]
 position = Vector2(1, -32)
 sprite_frames = SubResource("SpriteFrames_rlkcy")
 autoplay = "default"
 frame = 47
 frame_progress = 1.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=252029416]
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=666309919]
 shape = SubResource("CircleShape2D_dnlai")
 disabled = true
 

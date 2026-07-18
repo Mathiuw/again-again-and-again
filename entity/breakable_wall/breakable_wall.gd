@@ -29,7 +29,7 @@ func advance_break_state() -> void:
 	if health_component._current_hits == 0:
 		return
 	
-	for coord in timemap_coords:
+	for coord: Vector2i in timemap_coords:
 		wall_layer.set_cell(coord, 0, desired_atlas_coords[current_break_index], 0)
 		
 		if multiple_atlas_coords:

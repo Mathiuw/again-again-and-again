@@ -38,10 +38,10 @@ func load_room_into_world_from_scene(room_uid: StringName, load_direction: LoadD
 	return room_instance
 
 
-func load_room_into_world_from_node(room_instance: Node, load_direction: LoadDirection, room_activated: bool = true) -> void:
+func load_room_into_world_from_node(room_instance: Node2D, load_direction: LoadDirection, room_activated: bool = true) -> void:
 	var world_root: Node2D = get_tree().get_first_node_in_group("world")
 	if world_root:
-		room_instance.global_position = get_desired_load_position(room_instance, load_direction)
+		room_instance.global_position = get_desired_load_position(room_instance as Room, load_direction)
 		world_root.add_child(room_instance)
 		if current_room_loaded:
 			previous_room_loaded = current_room_loaded

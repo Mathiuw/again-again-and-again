@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://byk72d1ahusm0" path="res://level/room/rome/room_rome_boss.tscn" id="2_vp86o"]
 [ext_resource type="PackedScene" uid="uid://cshb25yq5ltku" path="res://entity/top_down_camera_2d/top_down_camera_2d.tscn" id="3_i7cke"]
 
-[node name="BossTest" type="Node"]
+[node name="BossTest" type="Node" unique_id=1761184361]
 
-[node name="Map" type="Node2D" parent="." groups=["world"]]
+[node name="Map" type="Node2D" parent="." unique_id=934608814 groups=["world"]]
 y_sort_enabled = true
 
-[node name="Player" parent="Map" instance=ExtResource("1_3s7i2")]
+[node name="Player" parent="Map" unique_id=1975778859 instance=ExtResource("1_3s7i2")]
 position = Vector2(280, 16)
 
-[node name="RoomRomeBoss" parent="Map" instance=ExtResource("2_vp86o")]
+[node name="RoomRomeBoss" parent="Map" unique_id=1092226265 instance=ExtResource("2_vp86o")]
 
-[node name="PlayerCamera" parent="." instance=ExtResource("3_i7cke")]
+[node name="PlayerCamera" parent="." unique_id=2066152519 instance=ExtResource("3_i7cke")]

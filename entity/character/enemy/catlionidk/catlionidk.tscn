@@ -361,8 +361,7 @@ dash_length = 0.2
 dash_cooldown = 5.0
 infinite_dash = true
 
-[node name="Enemy" parent="." unique_id=1917655172 node_paths=PackedStringArray("enemy_root") instance=ExtResource("4_vwfc6")]
-enemy_root = NodePath("..")
+[node name="Enemy" parent="." unique_id=1917655172 instance=ExtResource("4_vwfc6")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1362588939]
 material = ExtResource("1_kq2sb")

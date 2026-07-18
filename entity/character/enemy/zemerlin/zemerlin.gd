@@ -39,16 +39,16 @@ func on_die() -> void:
 	queue_free()
 
 
-func _set_zemerlin_animation(desiredDirection: Vector2) -> void:
+func _set_zemerlin_animation(direction: Vector2) -> void:
 	var margin: float = 0.4
 	
-	if desiredDirection.y <= margin && desiredDirection.y >= -margin && desiredDirection.x > 0:
+	if direction.y <= margin && direction.y >= -margin && direction.x > 0:
 		_animated_sprite_2d.play("walk_right")
-	elif desiredDirection.y <= margin && desiredDirection.y >= -margin && desiredDirection.x < 0:
+	elif direction.y <= margin && direction.y >= -margin && direction.x < 0:
 		_animated_sprite_2d.play("walk_left")
-	elif desiredDirection.y > margin:
+	elif direction.y > margin:
 		_animated_sprite_2d.play("walk_front")
-	elif desiredDirection.y < margin:
+	elif direction.y < margin:
 		_animated_sprite_2d.play("walk_back")
 
 
@@ -77,10 +77,10 @@ func set_animations() -> void:
 		_set_zemerlin_idle()
 
 
-func damage(damageAmount: int):
+func damage(damageAmount: int) -> void:
 	_health.remove_health(damageAmount)
 	
 	if !_health.dead:
-		var damage_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		var damage_tween: Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 		damage_tween.tween_property($AnimatedSprite2D, "material:shader_parameter/flash_value", 1, 0.125)
 		damage_tween.chain().tween_property($AnimatedSprite2D, "material:shader_parameter/flash_value", 0, 0.125)

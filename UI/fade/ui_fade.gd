@@ -28,8 +28,8 @@ func _ready() -> void:
 	color_rect.color = fade_settings.fade_color
 	color_rect.color.a = start_value
 	
-	var fade_tween = create_tween().set_trans(Tween.TRANS_SINE)
-	fade_tween.tween_property($ColorRect, "color:a", end_value, fade_settings.fade_duration).finished.connect(func(): 
+	var fade_tween: Tween = create_tween().set_trans(Tween.TRANS_SINE)
+	fade_tween.tween_property($ColorRect, "color:a", end_value, fade_settings.fade_duration).finished.connect(func() -> void: 
 		print("fade is over")
 		on_fade_end.emit()
 		if fade_settings.destroy_on_end:

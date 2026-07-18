@@ -28,11 +28,11 @@ func on_die() -> void:
 	queue_free()
 
 
-func damage(damageAmount: int):
+func damage(damageAmount: int) -> void:
 	health_component.remove_health(damageAmount)
 	
 	if !health_component.dead:
-		var damage_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		var damage_tween: Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 		damage_tween.tween_property($MedusaSprite2D, "material:shader_parameter/flash_value", 1, 0.125)
 		damage_tween.chain().tween_property($MedusaSprite2D, "material:shader_parameter/flash_value", 0, 0.125)
 

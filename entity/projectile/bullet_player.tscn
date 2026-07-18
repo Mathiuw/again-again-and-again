@@ -10,7 +10,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_qwydi")
 }],
-"loop": true,
+"loop": 1,
 "name": &"bullet",
 "speed": 5.0
 }]
@@ -23,33 +23,33 @@ size = Vector2(14, 7)
 resource_local_to_scene = true
 size = Vector2(12, 5)
 
-[node name="bullet" type="StaticBody2D"]
+[node name="bullet" type="StaticBody2D" unique_id=1464139637]
 y_sort_enabled = true
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_xw300")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=694340731]
 sprite_frames = SubResource("SpriteFrames_xw300")
 animation = &"bullet"
 autoplay = "bullet"
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1200561122]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_dcxha")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1929031545]
 collision_layer = 4
 collision_mask = 3
 input_pickable = false
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=397918870]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_m8pa0")
 
-[node name="DestroyTimer" type="Timer" parent="."]
+[node name="DestroyTimer" type="Timer" parent="." unique_id=1845051563]
 wait_time = 8.0
 one_shot = true
 autostart = true

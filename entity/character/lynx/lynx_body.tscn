@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bft146fxu4jge"]
+[gd_scene format=3 uid="uid://bft146fxu4jge"]
 
 [ext_resource type="Script" uid="uid://dko0tcwes0486" path="res://entity/character/lynx/lynx_body.gd" id="1_8o57x"]
 [ext_resource type="Material" uid="uid://cenkdihc6dw7h" path="res://asset/damage_flash_material.tres" id="2_5hcag"]
@@ -96,7 +96,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2ejte")
 }],
-"loop": true,
+"loop": 1,
 "name": &"running_horizontal",
 "speed": 16.0
 }, {
@@ -125,7 +125,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uflbd")
 }],
-"loop": true,
+"loop": 1,
 "name": &"running_vertical",
 "speed": 16.0
 }]
@@ -147,7 +147,7 @@ func damage(damageAmount: int) -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5ckt"]
 size = Vector2(160, 64)
 
-[node name="LynxBody" type="PathFollow2D"]
+[node name="LynxBody" type="PathFollow2D" unique_id=2069260782]
 z_as_relative = false
 y_sort_enabled = true
 loop = false
@@ -155,7 +155,7 @@ script = ExtResource("1_8o57x")
 knockback_force = 500.0
 knockback_duration = 0.3
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1678409222]
 material = ExtResource("2_5hcag")
 position = Vector2(-0.13463214, 23.737103)
 sprite_frames = SubResource("SpriteFrames_p17v0")
@@ -163,14 +163,14 @@ animation = &"running_horizontal"
 frame_progress = 0.61816853
 offset = Vector2(0.13463488, -39.737106)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=935752161]
 position = Vector2(-0.08620453, -8.000206)
 collision_layer = 2
 collision_mask = 2
 input_pickable = false
 script = SubResource("GDScript_8o57x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1873841450]
 position = Vector2(0, -0.24288177)
 shape = SubResource("RectangleShape2D_k5ckt")
 

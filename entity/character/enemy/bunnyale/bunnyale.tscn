@@ -232,13 +232,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ggyp"]
 radius = 8.0
 
-[node name="Bunnyale" type="CharacterBody2D" unique_id=8408862 groups=["enemy"]]
+[node name="Bunnyale" type="CharacterBody2D" unique_id=8408862 node_paths=PackedStringArray("body_collision_shape") groups=["enemy"]]
 disable_mode = 2
 collision_layer = 2
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_8ggyp")
 move_speed = 250.0
+body_collision_shape = NodePath("CollisionShape2D")
 
 [node name="AIRunAwayBehaviour" type="Node" parent="." unique_id=1952204739]
 script = ExtResource("1_1shr2")
@@ -247,8 +248,7 @@ script = ExtResource("1_1shr2")
 unique_name_in_owner = true
 max_hits = 2
 
-[node name="Enemy" parent="." unique_id=1917655172 node_paths=PackedStringArray("enemy_root") instance=ExtResource("6_qd5lj")]
-enemy_root = NodePath("..")
+[node name="Enemy" parent="." unique_id=1917655172 instance=ExtResource("6_qd5lj")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1844507095]
 material = ExtResource("2_mvmwx")

@@ -5,7 +5,7 @@ signal on_dialogue_start
 
 @export var dialogue_steps: Array[DialogueStep]
 
-func interact():
+func interact() -> void:
 	if !dialogue_steps:
 		push_error("Error finding dialogue resource")
 		return

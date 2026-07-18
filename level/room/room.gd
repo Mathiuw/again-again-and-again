@@ -25,7 +25,7 @@ var navigation_region_2D: NavigationRegion2D
 @export var transition_right: bool = true
 @export var transition_up: bool = true
 @export var transition_down: bool = true
-@export_tool_button("Spawn Transition Markers", "Marker2D") var spawn_marker_action = spawn_transition_markers
+@export_tool_button("Spawn Transition Markers", "Marker2D") var spawn_marker_action: Callable = spawn_transition_markers
 
 func _draw() -> void:
 	if Engine.is_editor_hint():
@@ -40,10 +40,10 @@ func _draw() -> void:
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
-	for child in get_children():
+	for child: Node in get_children():
 		if child is NavigationRegion2D:
 			navigation_region_2D = child
-
+	
 	# y sort setup
 	y_sort_enabled = true
 	if navigation_region_2D:
@@ -57,6 +57,7 @@ func on_enemy_die() -> void:
 	if on_open_trigger_effetcts && Globals.enemies_spawned.size() == 0:
 		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ROOM_OPEN)
 		SignalBus.on_camera_shake.emit(6)
+	
 	# update navigation region if have
 	if navigation_region_2D:
 		await get_tree().process_frame
@@ -71,7 +72,7 @@ func on_room_change(_room: Room) -> void:
 	# bake the room navigation mesh (failsafe measure)
 	if navigation_region_2D:
 		if !navigation_region_2D.is_baking():
-			navigation_region_2D.bake_navigation_polygon()
+			navigation_region_2D.bake_navigation_polygon(true)
 #endregion
 
 

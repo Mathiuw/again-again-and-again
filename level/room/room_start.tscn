@@ -17,7 +17,6 @@ metadata/_custom_type_script = "uid://db3x51addxum0"
 [node name="RoomStart" type="Node2D" unique_id=1638760223]
 y_sort_enabled = true
 script = ExtResource("1_3e5rq")
-id = &"s01"
 pause_timer = true
 music_override = ExtResource("2_8bbkh")
 

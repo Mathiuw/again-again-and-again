@@ -27,11 +27,11 @@ func on_die() -> void:
 	queue_free()
 
 
-func damage(damageAmount: int):
+func damage(damageAmount: int) -> void:
 	_health.remove_health(damageAmount)
 	
 	if !_health.dead:
-		var damage_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+		var damage_tween: Tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 		damage_tween.tween_property($Sprite2D, "material:shader_parameter/flash_value", 1, 0.125)
 		damage_tween.chain().tween_property($Sprite2D, "material:shader_parameter/flash_value", 0, 0.125)
 
@@ -40,5 +40,5 @@ func _on_ai_shoot_behaviour_on_ai_shoot() -> void:
 	animation_player.play("shoot")
 
 
-func play_idle_anim():
+func play_idle_anim() -> void:
 	animation_player.play("idle")

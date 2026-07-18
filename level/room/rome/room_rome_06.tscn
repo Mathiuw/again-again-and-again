@@ -18,38 +18,31 @@ vertices = PackedVector2Array(-284, -134, -163.07031, -134, -167.89844, -129.171
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15, 16), PackedInt32Array(17, 18, 19, 20, 21), PackedInt32Array(22, 23, 24, 25, 26), PackedInt32Array(27, 8, 11), PackedInt32Array(28, 29, 5, 7, 30), PackedInt32Array(30, 31, 28), PackedInt32Array(21, 32, 17), PackedInt32Array(17, 33, 34, 35), PackedInt32Array(36, 37, 38, 39, 40), PackedInt32Array(41, 42, 43, 44, 45), PackedInt32Array(46, 47, 48, 49), PackedInt32Array(50, 51, 52, 53), PackedInt32Array(54, 55, 56, 57, 58), PackedInt32Array(56, 59, 60, 61), PackedInt32Array(57, 56, 61), PackedInt32Array(62, 63, 12, 64), PackedInt32Array(15, 65, 66, 67), PackedInt32Array(15, 67, 16), PackedInt32Array(12, 16, 64), PackedInt32Array(62, 64, 68, 69), PackedInt32Array(68, 70, 69), PackedInt32Array(62, 69, 22, 26), PackedInt32Array(26, 25, 71), PackedInt32Array(26, 71, 72, 57, 61), PackedInt32Array(23, 73, 74, 75), PackedInt32Array(75, 76, 77, 78), PackedInt32Array(79, 80, 0, 4), PackedInt32Array(7, 81, 82, 30), PackedInt32Array(83, 27, 11, 57), PackedInt32Array(17, 35, 36, 40, 18), PackedInt32Array(84, 19, 18), PackedInt32Array(84, 18, 41, 85), PackedInt32Array(45, 85, 41), PackedInt32Array(86, 45, 44, 14), PackedInt32Array(87, 86, 14), PackedInt32Array(88, 87, 14, 13), PackedInt32Array(89, 88, 13, 90), PackedInt32Array(57, 72, 83), PackedInt32Array(91, 57, 11, 92), PackedInt32Array(21, 20, 93), PackedInt32Array(10, 9, 94, 78), PackedInt32Array(95, 24, 23), PackedInt32Array(96, 29, 28), PackedInt32Array(97, 96, 28), PackedInt32Array(78, 94, 98, 75), PackedInt32Array(55, 54, 97, 28, 53), PackedInt32Array(21, 93, 99), PackedInt32Array(90, 21, 99), PackedInt32Array(90, 99, 100), PackedInt32Array(90, 100, 89), PackedInt32Array(101, 90, 13), PackedInt32Array(28, 101, 13, 49), PackedInt32Array(13, 46, 49), PackedInt32Array(28, 49, 50), PackedInt32Array(28, 50, 53), PackedInt32Array(58, 57, 3, 102), PackedInt32Array(103, 102, 3), PackedInt32Array(2, 103, 3), PackedInt32Array(79, 4, 91, 77), PackedInt32Array(77, 91, 92), PackedInt32Array(77, 92, 78), PackedInt32Array(75, 98, 104), PackedInt32Array(23, 75, 104), PackedInt32Array(23, 104, 95)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-304, 160, -304, 56, -288, 56, -288, -48, -304, -48, -304, -176, 296, -176, 296, 160)])
 
-[sub_resource type="Resource" id="Resource_m3wie"]
+[sub_resource type="Resource" id="Resource_medq1"]
 script = ExtResource("10_cyxch")
-desired_room_id = &"r04"
-transition_key = "right"
+room_uid = &"uid://bw650n1ie2vmrq"
+scene_load_direction = 1
+transition_position_key = "right"
 metadata/_custom_type_script = "uid://db3x51addxum0"
 
 [sub_resource type="Resource" id="Resource_vsncp"]
 script = ExtResource("10_cyxch")
-desired_room_id = &"r14"
-transition_key = "up"
 metadata/_custom_type_script = "uid://db3x51addxum0"
 
-[sub_resource type="Resource" id="Resource_cyxch"]
+[sub_resource type="Resource" id="Resource_6ivru"]
 script = ExtResource("10_cyxch")
-desired_room_id = &"r03"
-transition_key = "down"
+room_uid = &"uid://ci0kv3c6au21s"
+scene_load_direction = 3
+transition_position_key = "down"
 metadata/_custom_type_script = "uid://db3x51addxum0"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsncp"]
-resource_local_to_scene = true
-size = Vector2(96, 72)
-
-[node name="RoomRome06" type="Node2D" unique_id=482438826 node_paths=PackedStringArray("navigation_region_2D", "enemies_root", "transition_positions")]
+[node name="RoomRome06" type="Node2D" unique_id=482438826 node_paths=PackedStringArray("transition_positions")]
 y_sort_enabled = true
 script = ExtResource("1_m7usy")
-id = &"r06"
-navigation_region_2D = NodePath("NavigationRegion2D")
-enemies_root = NodePath("NavigationRegion2D")
 transition_positions = {
-"down": NodePath("TransitionDown"),
-"left": NodePath("TransitionLeft"),
-"up": NodePath("TransitionUp")
+"down": NodePath("DoorDown/TransitionDown"),
+"left": NodePath("DoorLeft/TransitionLeft"),
+"up": NodePath("DoorFront/TransitionUp")
 }
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1705919708]
@@ -110,7 +103,10 @@ position = Vector2(-152, -104)
 
 [node name="DoorLeft" parent="." unique_id=979283599 instance=ExtResource("5_j38ae")]
 position = Vector2(-304, 0)
-room_transition = SubResource("Resource_m3wie")
+room_transition = SubResource("Resource_medq1")
+
+[node name="TransitionLeft" type="Marker2D" parent="DoorLeft" unique_id=283351747]
+position = Vector2(24, 8)
 
 [node name="DoorDown" parent="." unique_id=697402209 instance=ExtResource("6_a6sh5")]
 position = Vector2(-80, 160)
@@ -118,34 +114,16 @@ room_transition = SubResource("Resource_vsncp")
 always_open = true
 secret_door = true
 
-[node name="DoorLayer" parent="DoorDown" index="0"]
-visible = false
+[node name="TransitionDown" type="Marker2D" parent="DoorDown" unique_id=1778248247]
+position = Vector2(0, -24)
 
 [node name="DoorFront" parent="." unique_id=844174866 instance=ExtResource("7_7fyaj")]
 position = Vector2(-112, -144)
-room_transition = SubResource("Resource_cyxch")
+room_transition = SubResource("Resource_6ivru")
 
-[node name="TransitionLeft" type="Marker2D" parent="." unique_id=283351747]
-position = Vector2(-280, 8)
-
-[node name="TransitionUp" type="Marker2D" parent="." unique_id=1623379972]
-position = Vector2(-112, -128)
-
-[node name="TransitionDown" type="Marker2D" parent="." unique_id=1778248247]
-position = Vector2(-80, 136)
+[node name="TransitionUp" type="Marker2D" parent="DoorFront" unique_id=1623379972]
+position = Vector2(0, 16)
 
 [node name="HiddenArea2D" parent="." unique_id=142107537 instance=ExtResource("12_vsncp")]
-position = Vector2(248, 104)
-
-[node name="CollisionShape2D" parent="HiddenArea2D" index="0" unique_id=843650593]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_vsncp")
-
-[node name="Control" parent="HiddenArea2D/CollisionShape2D" index="0" unique_id=1601357352]
-offset_left = -48.0
-offset_top = -36.0
-offset_right = 48.0
-offset_bottom = 36.0
-
-[editable path="DoorDown"]
-[editable path="HiddenArea2D"]
+position = Vector2(249, 109)
+size = Vector2(96.915, 70.065)

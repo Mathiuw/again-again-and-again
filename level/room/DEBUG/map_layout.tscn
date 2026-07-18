@@ -31,93 +31,160 @@
 [ext_resource type="PackedScene" uid="uid://5mv2gasuhs2x" path="res://level/room/rome/room_rome_28.tscn" id="29_alb3o"]
 [ext_resource type="PackedScene" uid="uid://byk72d1ahusm0" path="res://level/room/rome/room_rome_boss.tscn" id="30_nf4g8"]
 
-[node name="MapLayout" type="Node"]
+[node name="MapLayout" type="Node" unique_id=1295561605]
 
-[node name="RoomStart" parent="." instance=ExtResource("1_1ywty")]
+[node name="RoomStart" parent="." unique_id=1300921297 instance=ExtResource("1_1ywty")]
 
-[node name="RoomRome01" parent="." instance=ExtResource("2_f871f")]
+[node name="RoomRome01" parent="." unique_id=1233613317 node_paths=PackedStringArray("transition_positions") instance=ExtResource("2_f871f")]
 position = Vector2(640, 0)
+transition_positions = {
+"left": NodePath("TransitionLeft"),
+"right": NodePath("TransitionRight")
+}
 
-[node name="RoomRome02" parent="." instance=ExtResource("3_8ajj7")]
+[node name="RoomRome02" parent="." unique_id=899036989 node_paths=PackedStringArray("transition_positions") instance=ExtResource("3_8ajj7")]
 position = Vector2(1280, 0)
+transition_positions = {
+"down": NodePath("NavigationRegion2D/DoorDown/SpawnDown"),
+"left": NodePath("NavigationRegion2D/DoorLeft/SpawnLeft"),
+"right": NodePath("NavigationRegion2D/DoorRight/SpawnRight"),
+"up": NodePath("NavigationRegion2D/DoorUp/SpawnUp")
+}
 
-[node name="RoomRome03" parent="." instance=ExtResource("4_0mf0y")]
+[node name="RoomRome03" parent="." unique_id=2028387187 node_paths=PackedStringArray("transition_positions") instance=ExtResource("4_0mf0y")]
 position = Vector2(1920, -768)
+transition_positions = {
+"down": NodePath("TransitionDown"),
+"right": NodePath("TransitionRight")
+}
 
-[node name="RoomRome04" parent="." instance=ExtResource("5_h30el")]
+[node name="RoomRome04" parent="." unique_id=979135369 node_paths=PackedStringArray("transition_positions") instance=ExtResource("5_h30el")]
 position = Vector2(1280, -384)
+transition_positions = {
+"down": NodePath("TransitionDown"),
+"left": NodePath("TransitionLeft"),
+"right": NodePath("TransitionRight")
+}
 
-[node name="RoomRome05" parent="." instance=ExtResource("6_h68pt")]
+[node name="RoomRome05" parent="." unique_id=735894525 node_paths=PackedStringArray("transition_positions") instance=ExtResource("6_h68pt")]
 position = Vector2(640, -384)
+transition_positions = {
+"right": NodePath("TransitionRight")
+}
 
-[node name="RoomRome06" parent="." instance=ExtResource("7_p1ega")]
+[node name="RoomRome06" parent="." unique_id=314331191 node_paths=PackedStringArray("transition_positions") instance=ExtResource("7_p1ega")]
 position = Vector2(1920, -384)
+transition_positions = {
+"down": NodePath("TransitionDown"),
+"left": NodePath("TransitionLeft"),
+"up": NodePath("TransitionUp")
+}
 
-[node name="RoomRome07" parent="." instance=ExtResource("8_18r7n")]
+[node name="RoomRome07" parent="." unique_id=28214221 node_paths=PackedStringArray("transition_positions") instance=ExtResource("8_18r7n")]
 position = Vector2(2560, 768)
+transition_positions = {
+"left": NodePath("TransitionLeft"),
+"right": NodePath("TransitionRight")
+}
 
-[node name="RoomRome08" parent="." instance=ExtResource("9_add1k")]
+[node name="RoomRome08" parent="." unique_id=738618325 node_paths=PackedStringArray("transition_positions") instance=ExtResource("9_add1k")]
 position = Vector2(4480, 768)
+transition_positions = {
+"left": NodePath("TransitionLeft"),
+"up": NodePath("TransitionUp")
+}
 
-[node name="RoomRome09" parent="." instance=ExtResource("10_vahor")]
+[node name="RoomRome09" parent="." unique_id=1376729636 node_paths=PackedStringArray("transition_positions") instance=ExtResource("10_vahor")]
 position = Vector2(1920, 768)
+transition_positions = {
+"left": NodePath("TransitionLeft"),
+"right": NodePath("TransitionRight")
+}
 
-[node name="RoomRome10" parent="." instance=ExtResource("11_2ja1i")]
+[node name="RoomRome10" parent="." unique_id=222772146 node_paths=PackedStringArray("transition_positions") instance=ExtResource("11_2ja1i")]
 position = Vector2(1280, 384)
+transition_positions = {
+"down": NodePath("TransitionDown"),
+"up": NodePath("TransitionUp")
+}
 
-[node name="RoomRome11" parent="." instance=ExtResource("12_bk4m0")]
+[node name="RoomRome11" parent="." unique_id=659220028 node_paths=PackedStringArray("transition_positions") instance=ExtResource("12_bk4m0")]
 position = Vector2(1280, 768)
+transition_positions = {
+"right": NodePath("TransitionRight")
+}
 
-[node name="RoomRome12" parent="." instance=ExtResource("13_rno7r")]
+[node name="RoomRome12" parent="." unique_id=567638401 instance=ExtResource("13_rno7r")]
 position = Vector2(4480, 384)
 
-[node name="RoomRome13" parent="." instance=ExtResource("14_cbvxy")]
+[node name="RoomRome13" parent="." unique_id=2141508141 node_paths=PackedStringArray("transition_positions") instance=ExtResource("14_cbvxy")]
 position = Vector2(1920, 384)
+transition_positions = {
+"down": NodePath("TransitionDown"),
+"up": NodePath("TransitionUp")
+}
 
-[node name="RoomRome14" parent="." instance=ExtResource("15_6335c")]
+[node name="RoomRome14" parent="." unique_id=1862240734 node_paths=PackedStringArray("transition_positions") instance=ExtResource("15_6335c")]
 position = Vector2(1920, 0)
+transition_positions = {
+"down": NodePath("TransitionDown"),
+"left": NodePath("TransitionLeft"),
+"up": NodePath("TransitionUp")
+}
 
-[node name="RoomRome15" parent="." instance=ExtResource("16_62212")]
+[node name="RoomRome15" parent="." unique_id=70612567 instance=ExtResource("16_62212")]
 position = Vector2(3200, 768)
 
-[node name="RoomRome16" parent="." instance=ExtResource("17_imfcm")]
+[node name="RoomRome16" parent="." unique_id=61433421 instance=ExtResource("17_imfcm")]
 position = Vector2(3840, 768)
 
-[node name="RoomRome17" parent="." instance=ExtResource("18_5lgd7")]
+[node name="RoomRome17" parent="." unique_id=803072242 instance=ExtResource("18_5lgd7")]
 position = Vector2(3840, 384)
 
-[node name="RoomRome18" parent="." instance=ExtResource("19_m6bxq")]
+[node name="RoomRome18" parent="." unique_id=703596868 instance=ExtResource("19_m6bxq")]
 position = Vector2(3840, 0)
 
-[node name="RoomRome19" parent="." instance=ExtResource("20_mo2us")]
+[node name="RoomRome19" parent="." unique_id=934772472 node_paths=PackedStringArray("transition_positions") instance=ExtResource("20_mo2us")]
 position = Vector2(3200, 0)
+transition_positions = {
+"left": NodePath("TransitionLeft"),
+"right": NodePath("TransitionRight")
+}
 
-[node name="RoomRome20" parent="." instance=ExtResource("21_1x5bg")]
+[node name="RoomRome20" parent="." unique_id=1363662104 node_paths=PackedStringArray("transition_positions") instance=ExtResource("21_1x5bg")]
 position = Vector2(3200, -768)
+transition_positions = {
+"left": NodePath("TransitionLeft"),
+"right": NodePath("TransitionRight")
+}
 
-[node name="RoomRome21" parent="." instance=ExtResource("22_h3vjh")]
+[node name="RoomRome21" parent="." unique_id=1174350384 node_paths=PackedStringArray("transition_positions") instance=ExtResource("22_h3vjh")]
 position = Vector2(2560, -768)
+transition_positions = {
+"left": NodePath("TransitionLeft"),
+"right": NodePath("TransitionRight")
+}
 
-[node name="RoomRome22" parent="." instance=ExtResource("23_q8f0d")]
+[node name="RoomRome22" parent="." unique_id=835671493 instance=ExtResource("23_q8f0d")]
 position = Vector2(3200, 384)
 
-[node name="RoomRome23" parent="." instance=ExtResource("24_0b73w")]
+[node name="RoomRome23" parent="." unique_id=1232964609 instance=ExtResource("24_0b73w")]
 position = Vector2(2560, 384)
 
-[node name="RoomRome24" parent="." instance=ExtResource("25_f2sec")]
+[node name="RoomRome24" parent="." unique_id=747403052 instance=ExtResource("25_f2sec")]
 position = Vector2(3840, -768)
 
-[node name="RoomRome25" parent="." instance=ExtResource("26_2gyt0")]
+[node name="RoomRome25" parent="." unique_id=1348578320 instance=ExtResource("26_2gyt0")]
 position = Vector2(3840, -384)
 
-[node name="RoomRome26" parent="." instance=ExtResource("27_28e2b")]
+[node name="RoomRome26" parent="." unique_id=1973589683 instance=ExtResource("27_28e2b")]
 position = Vector2(3200, -384)
 
-[node name="RoomRome27" parent="." instance=ExtResource("28_ji1jc")]
+[node name="RoomRome27" parent="." unique_id=799348258 instance=ExtResource("28_ji1jc")]
 position = Vector2(4480, -384)
 
-[node name="RoomRome28" parent="." instance=ExtResource("29_alb3o")]
+[node name="RoomRome28" parent="." unique_id=1935152327 instance=ExtResource("29_alb3o")]
 position = Vector2(4480, 0)
 
-[node name="RoomRomeBoss" parent="." instance=ExtResource("30_nf4g8")]
+[node name="RoomRomeBoss" parent="." unique_id=1424916417 instance=ExtResource("30_nf4g8")]
 position = Vector2(2560, 0)

@@ -14,7 +14,7 @@ func _ready() -> void:
 		sound_effect_dict[sound_effect.type] = sound_effect
 
 
-func set_music(new_music: AudioStream):
+func set_music(new_music: AudioStream) -> void:
 	if new_music == null:
 		_music_stream_player.stop()
 		_music_stream_player.stream = null

@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cashvt3sqfcys"]
+[gd_scene format=3 uid="uid://cashvt3sqfcys"]
 
 [ext_resource type="Script" uid="uid://b210qoojl4ybi" path="res://system/area_music_changer/music_changer_area_2d.gd" id="1_vh4nt"]
 
-[node name="MusicChangerArea2D" type="Area2D"]
+[node name="MusicChangerArea2D" type="Area2D" unique_id=1279303866]
 disable_mode = 2
 collision_layer = 0
 collision_mask = 2

@@ -1,8 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://xlm0m144kl1c"]
+[gd_scene format=3 uid="uid://xlm0m144kl1c"]
 
 [ext_resource type="PackedScene" uid="uid://y34phjayr0ow" path="res://system/interact/interactable_component.tscn" id="1_qtai2"]
 [ext_resource type="Script" uid="uid://cyayakcwnkjos" path="res://system/dialogue/dialogue_component.gd" id="2_c7kjp"]
+[ext_resource type="Script" uid="uid://cuetc258gthhy" path="res://system/dialogue/dialogue_step.gd" id="3_33ski"]
 
-[node name="DialogueComponent" instance=ExtResource("1_qtai2")]
+[node name="DialogueComponent" unique_id=2080136895 instance=ExtResource("1_qtai2")]
 script = ExtResource("2_c7kjp")
-dialogue_resource = null
+dialogue_steps = Array[ExtResource("3_33ski")]([])

@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-const DIALOGUE_CONTAINER = preload("uid://bqori46ibnbqm")
-const TEXT_BOX = preload("uid://dmvvtuhuy8xh4")
+const DIALOGUE_CONTAINER: PackedScene = preload("uid://bqori46ibnbqm")
+const TEXT_BOX: PackedScene = preload("uid://dmvvtuhuy8xh4")
 
 @export var dialogue_box_scene : PackedScene
 
@@ -16,10 +16,10 @@ var get_current_dialogue_step_text: Array:
 			return []
 		
 		var file: FileAccess = FileAccess.open(dialogue_steps[dialogue_step_index].json_file.resource_path, FileAccess.READ)
-		var data = JSON.parse_string(file.get_as_text())
+		var data: Variant = JSON.parse_string(file.get_as_text())
 		file.close()
 	
-		var dialogue_array = data[dialogue_steps[dialogue_step_index].key]
+		var dialogue_array: Array = data[dialogue_steps[dialogue_step_index].key]
 		
 		return dialogue_array
 
@@ -58,7 +58,7 @@ func _on_dialogue_end() -> void:
 	dialogue_step_index = 0
 	dialogue_steps = []
 	
-	for node in get_children():
+	for node: Node in get_children():
 		node.queue_free()
 
 

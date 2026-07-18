@@ -39,7 +39,7 @@
 position = Vector2(640, 0)
 transition_positions = {
 "left": NodePath("TransitionLeft"),
-"right": NodePath("TransitionRight")
+"right": null
 }
 
 [node name="RoomRome02" parent="." unique_id=951858031 node_paths=PackedStringArray("transition_positions") instance=ExtResource("8_ewlkf")]
@@ -54,37 +54,37 @@ transition_positions = {
 [node name="RoomRome03" parent="." unique_id=1364524188 node_paths=PackedStringArray("transition_positions") instance=ExtResource("9_w6htm")]
 position = Vector2(1920, -768)
 transition_positions = {
-"down": NodePath("TransitionDown"),
-"right": NodePath("TransitionRight")
+"down": null,
+"right": null
 }
 
 [node name="RoomRome04" parent="." unique_id=1541660683 node_paths=PackedStringArray("transition_positions") instance=ExtResource("10_byimw")]
 position = Vector2(1280, -384)
 transition_positions = {
-"down": NodePath("TransitionDown"),
-"left": NodePath("TransitionLeft"),
-"right": NodePath("TransitionRight")
+"down": null,
+"left": null,
+"right": null
 }
 
 [node name="RoomRome05" parent="." unique_id=642223200 node_paths=PackedStringArray("transition_positions") instance=ExtResource("11_01ud3")]
 position = Vector2(640, -384)
 transition_positions = {
-"right": NodePath("TransitionRight")
+"right": null
 }
 
 [node name="RoomRome06" parent="." unique_id=269416965 node_paths=PackedStringArray("transition_positions") instance=ExtResource("12_4gvas")]
 position = Vector2(1920, -384)
 transition_positions = {
-"down": NodePath("TransitionDown"),
-"left": NodePath("TransitionLeft"),
-"up": NodePath("TransitionUp")
+"down": null,
+"left": null,
+"up": null
 }
 
 [node name="RoomRome07" parent="." unique_id=1985224910 node_paths=PackedStringArray("transition_positions") instance=ExtResource("13_5q77o")]
 position = Vector2(2560, 768)
 transition_positions = {
-"left": NodePath("TransitionLeft"),
-"right": NodePath("TransitionRight")
+"left": null,
+"right": null
 }
 
 [node name="RoomRome08" parent="." unique_id=863670817 node_paths=PackedStringArray("transition_positions") instance=ExtResource("14_fmw5a")]
@@ -97,21 +97,23 @@ transition_positions = {
 [node name="RoomRome09" parent="." unique_id=1508716766 node_paths=PackedStringArray("transition_positions") instance=ExtResource("15_swf20")]
 position = Vector2(1920, 768)
 transition_positions = {
-"left": NodePath("TransitionLeft"),
-"right": NodePath("TransitionRight")
+"left": null,
+"right": null,
+"up": NodePath("DoorUp/TransitionUp")
 }
 
 [node name="RoomRome10" parent="." unique_id=1340757168 node_paths=PackedStringArray("transition_positions") instance=ExtResource("16_l7m5t")]
-position = Vector2(1280, 400)
+position = Vector2(1280, 384)
 transition_positions = {
-"down": NodePath("TransitionDown"),
-"up": NodePath("TransitionUp")
+"down": null,
+"up": null
 }
 
 [node name="RoomRome11" parent="." unique_id=302544288 node_paths=PackedStringArray("transition_positions") instance=ExtResource("17_5oh1r")]
 position = Vector2(1280, 768)
 transition_positions = {
-"right": NodePath("TransitionRight")
+"right": null,
+"up": NodePath("NavigationRegion2D/DoorUp/TransitionUp")
 }
 
 [node name="RoomRome12" parent="." unique_id=127655317 instance=ExtResource("18_5i6ew")]
@@ -120,8 +122,8 @@ position = Vector2(4480, 384)
 [node name="RoomRome13" parent="." unique_id=829599427 node_paths=PackedStringArray("transition_positions") instance=ExtResource("19_4p31n")]
 position = Vector2(1920, 384)
 transition_positions = {
-"down": NodePath("TransitionDown"),
-"up": NodePath("TransitionUp")
+"down": null,
+"up": null
 }
 
 [node name="RoomRome14" parent="." unique_id=457398281 node_paths=PackedStringArray("transition_positions") instance=ExtResource("20_v2ugs")]

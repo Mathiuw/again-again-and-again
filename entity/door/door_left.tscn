@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1rdx6jk7oibd"]
+[gd_scene format=3 uid="uid://c1rdx6jk7oibd"]
 
 [ext_resource type="Script" uid="uid://bx0bv6spxg62p" path="res://entity/door/door.gd" id="1_uigt1"]
 [ext_resource type="TileSet" uid="uid://dah4dbx8ikesr" path="res://level/room/tileset_level.tres" id="2_pyfrd"]
@@ -38,22 +38,22 @@ gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_2tyue")
 color_ramp = SubResource("GradientTexture1D_psa10")
 
-[node name="DoorLeft" type="Area2D"]
+[node name="DoorLeft" type="Area2D" unique_id=1562814759]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_uigt1")
 
-[node name="DoorLayer" type="TileMapLayer" parent="."]
+[node name="DoorLayer" type="TileMapLayer" parent="." unique_id=374733303]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 5, 0, 4, 0, 17, 0, 0, 0, 0, 0, 255, 255, 5, 0, 4, 0, 18, 0, 0, 0, 0, 0, 0, 0, 5, 0, 4, 0, 18, 0, 0, 0, 0, 0, 1, 0, 5, 0, 4, 0, 19, 0, 0, 0)
 tile_set = ExtResource("2_pyfrd")
 navigation_enabled = false
 
-[node name="AreaCollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="AreaCollisionShape2D" type="CollisionShape2D" parent="." unique_id=1484252789]
 z_index = 1
 position = Vector2(1.5, -1.5)
 shape = SubResource("RectangleShape2D_x71b1")
 
-[node name="OpenParticle" type="GPUParticles2D" parent="."]
+[node name="OpenParticle" type="GPUParticles2D" parent="." unique_id=119030656]
 position = Vector2(1, 0)
 emitting = false
 texture = ExtResource("3_blhnk")

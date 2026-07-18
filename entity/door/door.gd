@@ -40,6 +40,6 @@ func set_state(state: bool) -> void:
 		open_particle.emitting = false
 
 
-func on_enemy_die():
+func on_enemy_die() -> void:
 	if Globals.enemies_spawned.size() == 0:
 		set_state(true)

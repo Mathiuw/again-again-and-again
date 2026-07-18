@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cglc5tcgjld28"]
 
-[ext_resource type="Texture2D" uid="uid://bhvkqpbqbsgt2" path="res://ui/letter_cutscene/letter.png" id="1_cuw3n"]
+[ext_resource type="Texture2D" uid="uid://c7hfwls14p5px" path="res://ui/letter_cutscene/letter.png" id="1_cuw3n"]
 [ext_resource type="FontFile" uid="uid://orwn5asl7m13" path="res://asset/font/ari-w9500-display.ttf" id="2_mg387"]
 [ext_resource type="AudioStream" uid="uid://bvjvb5ofrqe3y" path="res://audio/sfx/pageflip.ogg" id="3_020cu"]
 
@@ -96,7 +96,7 @@ _data = {
 &"pick_letter": SubResource("Animation_brh6d")
 }
 
-[node name="Letter" type="Control"]
+[node name="Letter" type="Control" unique_id=1035039933]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -106,7 +106,7 @@ grow_vertical = 2
 script = SubResource("GDScript_2uvr7")
 metadata/_edit_lock_ = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1737960595]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -116,7 +116,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TextureLetter" type="TextureRect" parent="."]
+[node name="TextureLetter" type="TextureRect" parent="." unique_id=151533204]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -133,7 +133,7 @@ rotation = -0.0820305
 pivot_offset = Vector2(120, 156)
 texture = ExtResource("1_cuw3n")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=298007350]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -152,11 +152,9 @@ text = "Press any key to continue"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_kctpb")
-}
-autoplay = "pick_letter"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1463738452]
+libraries/ = SubResource("AnimationLibrary_kctpb")
+autoplay = &"pick_letter"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=23853256]
 bus = &"Sfx"

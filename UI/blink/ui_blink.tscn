@@ -8,12 +8,12 @@ script = ExtResource("2_k18ij")
 blink_duration = 3.0
 metadata/_custom_type_script = "uid://gat42tsx5w2o"
 
-[node name="UIBlink" type="CanvasLayer"]
+[node name="UIBlink" type="CanvasLayer" unique_id=568030530]
 layer = 9
 script = ExtResource("2_5tvik")
 blink_settings = SubResource("Resource_nrv45")
 
-[node name="Reference" type="ReferenceRect" parent="."]
+[node name="Reference" type="ReferenceRect" parent="." unique_id=632066657]
 show_behind_parent = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +23,7 @@ grow_vertical = 2
 border_width = 2.0
 metadata/_edit_lock_ = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1567675975]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

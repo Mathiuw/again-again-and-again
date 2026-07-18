@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnb6xxaiufcqp"]
+[gd_scene format=3 uid="uid://dnb6xxaiufcqp"]
 
 [ext_resource type="Texture2D" uid="uid://deb6eroafqfs5" path="res://entity/chest/chest_rome.png" id="1_8d0cf"]
 [ext_resource type="Script" uid="uid://ceanf8yvbsrvw" path="res://entity/chest/chest.gd" id="1_81ki8"]
@@ -20,7 +20,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0wrp2")
 }],
-"loop": false,
+"loop": 0,
 "name": &"closed",
 "speed": 5.0
 }, {
@@ -28,7 +28,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h1mxe")
 }],
-"loop": false,
+"loop": 0,
 "name": &"open",
 "speed": 5.0
 }]
@@ -39,26 +39,26 @@ radius = 13.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asika"]
 size = Vector2(16, 12.5)
 
-[node name="Chest" type="StaticBody2D"]
+[node name="Chest" type="StaticBody2D" unique_id=2134110708]
 collision_mask = 0
 script = ExtResource("1_81ki8")
 item_pickup_animation = ExtResource("2_asika")
 stored_item = ExtResource("3_0wrp2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1717390132]
 sprite_frames = SubResource("SpriteFrames_asika")
 animation = &"closed"
 autoplay = "closed"
 offset = Vector2(0, -9)
 
-[node name="InteractableComponent" parent="." instance=ExtResource("3_yrheh")]
+[node name="InteractableComponent" parent="." unique_id=1975013021 instance=ExtResource("3_yrheh")]
 show_behind_parent = true
 position = Vector2(0, -6)
 interactable_once = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=597365613]
 shape = SubResource("CircleShape2D_0wrp2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=613128802]
 position = Vector2(0, -6.25)
 shape = SubResource("RectangleShape2D_asika")

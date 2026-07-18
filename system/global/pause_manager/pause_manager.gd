@@ -26,18 +26,21 @@ func _input(_event: InputEvent) -> void:
 		
 		on_pause_state_changed.emit(is_paused)
 
+
 func pause_toggle() -> void:
 	set_pause_state(!get_tree().paused)
 
-func set_pause_state(state: bool):
+
+func set_pause_state(state: bool) -> void:
 	get_tree().paused = state
 	on_pause_state_changed.emit(state)
 
+
 func spawn_options_menu() -> void:
-	var options_menu_node = options_menu.instantiate()
+	var options_menu_node: Node = options_menu.instantiate()
 	add_child(options_menu_node)
 
 
 func spawn_pause_menu() -> void:
-	var pause_menu_node = pause_menu.instantiate()
+	var pause_menu_node: Node = pause_menu.instantiate()
 	add_child(pause_menu_node)

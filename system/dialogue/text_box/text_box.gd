@@ -1,5 +1,5 @@
-class_name DialogueBoxText
 extends RichTextLabel
+class_name TextBox
 
 @export var text_speed: float = 0.05
 
@@ -31,7 +31,7 @@ func _input(_event: InputEvent) -> void:
 func _load_current_index_dialog_text() -> void:
 	visible_characters = 0
 	text = dialogue_array[dialogue_index]
-	for n in text.length():
+	for n: int in text.length():
 		if visible_characters == -1: return
 		visible_characters += 1
 		await get_tree().create_timer(text_speed).timeout

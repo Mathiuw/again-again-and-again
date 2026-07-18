@@ -14,20 +14,15 @@ size = Vector2(94, 134)
 
 [sub_resource type="Resource" id="Resource_4jx6i"]
 script = ExtResource("6_kkfpa")
-desired_room_id = &"rlynx"
-transition_key = "right"
 metadata/_custom_type_script = "uid://db3x51addxum0"
 
 [sub_resource type="Resource" id="Resource_kkfpa"]
 script = ExtResource("6_kkfpa")
-desired_room_id = &"r18"
-transition_key = "left"
 metadata/_custom_type_script = "uid://db3x51addxum0"
 
 [node name="RoomRome19" type="Node2D" unique_id=397367677 node_paths=PackedStringArray("transition_positions")]
 y_sort_enabled = true
 script = ExtResource("1_mhatv")
-id = &"r19"
 transition_positions = {
 "left": NodePath("TransitionLeft"),
 "right": NodePath("TransitionRight")

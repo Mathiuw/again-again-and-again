@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cenkdihc6dw7h"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cenkdihc6dw7h"]
 
 [ext_resource type="Shader" uid="uid://bpstb077hykmf" path="res://asset/damage_flash.gdshader" id="1_0dldj"]
 

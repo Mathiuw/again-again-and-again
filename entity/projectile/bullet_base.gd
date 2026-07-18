@@ -6,7 +6,7 @@ var damage: int = 0
 var shooter: Node
 var ignore_group: Array[StringName]
 
-func set_values(_bullet_speed: float, _damage: int, _shooter: Node):
+func set_values(_bullet_speed: float, _damage: int, _shooter: Node) -> void:
 	bullet_speed = _bullet_speed
 	damage = _damage
 	shooter = _shooter
@@ -26,7 +26,7 @@ func collision_check(body: Node2D) -> void:
 	if !body: return
 	
 	# Check if the collider is in the same group as the shooter
-	for group in ignore_group:
+	for group: StringName in ignore_group:
 		if  body.is_in_group(group):
 			add_collision_exception_with(body)
 			print("collision ignored")
