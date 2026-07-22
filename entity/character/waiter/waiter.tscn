@@ -1,57 +1,57 @@
 [gd_scene format=3 uid="uid://e1scgkiciot6"]
 
-[ext_resource type="Script" uid="uid://dbr8713g7yhdj" path="res://entity/character/aditya/aditya.gd" id="1_06dl2"]
-[ext_resource type="Texture2D" uid="uid://xyyrrafvg71p" path="res://entity/character/aditya/Aditya-Sheet.png" id="1_0564f"]
-[ext_resource type="PackedScene" uid="uid://xlm0m144kl1c" path="res://system/dialogue/dialogue_component.tscn" id="2_vfub0"]
-[ext_resource type="Script" uid="uid://cuetc258gthhy" path="res://system/dialogue/dialogue_step.gd" id="3_ognfk"]
-[ext_resource type="JSON" path="res://dialogue/dialogue_aditya.json" id="5_bu7ub"]
+[ext_resource type="Script" uid="uid://dbr8713g7yhdj" path="res://entity/character/waiter/waiter.gd" id="1_ya5oq"]
+[ext_resource type="Texture2D" uid="uid://xyyrrafvg71p" path="res://entity/character/waiter/waiter_sheet.png" id="2_qgrjm"]
+[ext_resource type="PackedScene" uid="uid://xlm0m144kl1c" path="res://system/dialogue/dialogue_component.tscn" id="3_hvunb"]
+[ext_resource type="Script" uid="uid://cuetc258gthhy" path="res://system/dialogue/dialogue_step.gd" id="4_jios8"]
+[ext_resource type="JSON" path="res://dialogue/dialogue_aditya.json" id="5_ajg7b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_06dl2"]
-atlas = ExtResource("1_0564f")
+atlas = ExtResource("2_qgrjm")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmp63"]
-atlas = ExtResource("1_0564f")
+atlas = ExtResource("2_qgrjm")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ck200"]
-atlas = ExtResource("1_0564f")
+atlas = ExtResource("2_qgrjm")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jx4q4"]
-atlas = ExtResource("1_0564f")
+atlas = ExtResource("2_qgrjm")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_61ur2"]
-atlas = ExtResource("1_0564f")
+atlas = ExtResource("2_qgrjm")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohrd3"]
-atlas = ExtResource("1_0564f")
+atlas = ExtResource("2_qgrjm")
 region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xbuo1"]
-atlas = ExtResource("1_0564f")
+atlas = ExtResource("2_qgrjm")
 region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y3qcr"]
-atlas = ExtResource("1_0564f")
+atlas = ExtResource("2_qgrjm")
 region = Rect2(128, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tbryb"]
-atlas = ExtResource("1_0564f")
+atlas = ExtResource("2_qgrjm")
 region = Rect2(192, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x78iw"]
-atlas = ExtResource("1_0564f")
+atlas = ExtResource("2_qgrjm")
 region = Rect2(256, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0564f"]
-atlas = ExtResource("1_0564f")
+atlas = ExtResource("2_qgrjm")
 region = Rect2(0, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_csmq1"]
-atlas = ExtResource("1_0564f")
+atlas = ExtResource("2_qgrjm")
 region = Rect2(64, 128, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_csmq1"]
@@ -107,16 +107,16 @@ animations = [{
 size = Vector2(29, 61.999996)
 
 [sub_resource type="Resource" id="Resource_bb6bf"]
-script = ExtResource("3_ognfk")
-json_file = ExtResource("5_bu7ub")
+script = ExtResource("4_jios8")
+json_file = ExtResource("5_ajg7b")
 key = "no_keys"
 metadata/_custom_type_script = "uid://cuetc258gthhy"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06dl2"]
 size = Vector2(38, 20)
 
-[node name="Aditya" type="StaticBody2D" unique_id=477177507]
-script = ExtResource("1_06dl2")
+[node name="Waiter" type="StaticBody2D" unique_id=477177507]
+script = ExtResource("1_ya5oq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2005954394]
 sprite_frames = SubResource("SpriteFrames_csmq1")
@@ -130,9 +130,10 @@ position = Vector2(0.9999965, -14.5)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_rkl8i")
 
-[node name="DialogueComponent" parent="." unique_id=1744587696 instance=ExtResource("2_vfub0")]
+[node name="DialogueComponent" parent="." unique_id=1744587696 instance=ExtResource("3_hvunb")]
 position = Vector2(0, -14)
-dialogue_steps = Array[ExtResource("3_ognfk")]([SubResource("Resource_bb6bf")])
+audio_bip_index = 0
+dialogue_steps = Array[ExtResource("4_jios8")]([SubResource("Resource_bb6bf")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueComponent" unique_id=1253382884]
 position = Vector2(0, 9)

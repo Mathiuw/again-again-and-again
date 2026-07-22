@@ -8,6 +8,7 @@ enum SOUND_EFFECT_TYPE
 	ROOM_OPEN,
 	DIE,
 	HURT,
+	DIALOGUE_BIP,
 }
 
 @export_range(0, 10) var limit: int = 5 ## Maximum number of this SoundEffect to play

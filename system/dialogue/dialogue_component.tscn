@@ -6,4 +6,5 @@
 
 [node name="DialogueComponent" unique_id=2080136895 instance=ExtResource("1_qtai2")]
 script = ExtResource("2_c7kjp")
+audio_bip_index = -1
 dialogue_steps = Array[ExtResource("3_33ski")]([])

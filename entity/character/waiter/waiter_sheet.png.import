@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://xyyrrafvg71p"
-path="res://.godot/imported/Aditya-Sheet.png-6c45bf69c4d0680d932c54594506171d.ctex"
+path="res://.godot/imported/waiter_sheet.png-cf5de2c48ab040577ef9566c3fa9e6f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entity/character/aditya/Aditya-Sheet.png"
-dest_files=["res://.godot/imported/Aditya-Sheet.png-6c45bf69c4d0680d932c54594506171d.ctex"]
+source_file="res://entity/character/waiter/waiter_sheet.png"
+dest_files=["res://.godot/imported/waiter_sheet.png-cf5de2c48ab040577ef9566c3fa9e6f7.ctex"]
 
 [params]
 

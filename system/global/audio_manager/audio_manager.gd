@@ -1,5 +1,7 @@
 extends Node2D
 
+static var current_dialogue_bip_audio_index: int = -1
+
 @export var sound_effects: Array[SoundEffect]
 var sound_effect_dict: Dictionary = {}
 
@@ -69,3 +71,8 @@ func create_audio(type: SoundEffect.SOUND_EFFECT_TYPE, variant: int = 0) -> void
 			new_audio.play()
 	else:
 		push_error("AudioManager: failed to find setting for type ", type)
+
+
+func play_current_dialogue_index_audio() -> void:
+	if AudioManager.current_dialogue_bip_audio_index >= -1:
+		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DIALOGUE_BIP, AudioManager.current_dialogue_bip_audio_index)

@@ -9,6 +9,7 @@ var dialogue_index: int = 0
 
 func _ready() -> void:
 	dialogue_array = DialogueManager.get_current_dialogue_step_text
+	
 	if !dialogue_array.is_empty():
 		_load_current_index_dialog_text()
 
@@ -31,11 +32,17 @@ func _input(_event: InputEvent) -> void:
 func _load_current_index_dialog_text() -> void:
 	visible_characters = 0
 	text = dialogue_array[dialogue_index]
+
 	for n: int in text.length():
 		if visible_characters == -1: return
+
 		visible_characters += 1
+		AudioManager.play_current_dialogue_index_audio()
+
 		await get_tree().create_timer(text_speed).timeout
+
 	visible_characters = -1
+	AudioManager.current_dialogue_bip_audio_index = 0
 
 
 func _end_dialog() -> void:

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dx0ixuhjfpc27" path="res://level/room/room.gd" id="1_3e5rq"]
 [ext_resource type="AudioStream" uid="uid://74xuctaer14g" path="res://audio/music/Menu Loop.wav" id="2_8bbkh"]
 [ext_resource type="TileSet" uid="uid://dxvch24pihxor" path="res://level/room/tileset_level_v2.tres" id="3_27uo3"]
-[ext_resource type="PackedScene" uid="uid://e1scgkiciot6" path="res://entity/character/aditya/aditya.tscn" id="3_nadyk"]
+[ext_resource type="PackedScene" uid="uid://e1scgkiciot6" path="res://entity/character/waiter/waiter.tscn" id="3_nadyk"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://entity/door/door_right.tscn" id="4_g6d8v"]
 [ext_resource type="Script" uid="uid://db3x51addxum0" path="res://level/room/room_transition.gd" id="6_sx55f"]
 
@@ -39,7 +39,7 @@ tile_set = ExtResource("3_27uo3")
 tile_map_data = PackedByteArray("AAABAPz/AAAEABwAAAABAP3/AAAEAB0AAAACAPz/AAAFABwAAAACAP3/AAAFAB0AAAD8//z/AAAAABwAAAD8//3/AAAAAB0AAAD9//v/AAABABsAAAD9//z/AAABABwAAAD9//3/AAABAB0AAAD+//z/AAACABwAAAD+//3/AAACAB0AAAACAPv/AAAFABsAAAADAPz/AAAGABwAAAADAP3/AAAGAB0AAAD//wQAAAAJAB0AAAAAAAQAAAAKAB0AAAD+/wMAAAAIABwAAAD//wMAAAAJABwAAAAAAAMAAAAKABwAAAABAAMAAAALABwAAAD+/wQAAAAIAB0AAAABAAQAAAALAB0AAAA=")
 tile_set = ExtResource("3_27uo3")
 
-[node name="Aditya" parent="." unique_id=1323788430 instance=ExtResource("3_nadyk")]
+[node name="Waiter" parent="." unique_id=1323788430 instance=ExtResource("3_nadyk")]
 position = Vector2(-64, -88)
 
 [node name="DoorRight" parent="." unique_id=860557685 instance=ExtResource("4_g6d8v")]
