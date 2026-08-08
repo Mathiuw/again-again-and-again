@@ -10,7 +10,7 @@ func _ready() -> void:
 		
 		for node: Node in enemy_root.get_children():
 			if node is Health:
-				node.on_die.connect(on_die) 
+				node.on_die.connect(on_die)
 				return
 
 		enemy_root.tree_exited.connect(on_die)

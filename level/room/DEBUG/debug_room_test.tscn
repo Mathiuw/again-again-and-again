@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cdjb0lmbrr114"]
+
+[ext_resource type="PackedScene" uid="uid://8luo5dcpmybm" path="res://level/room/rome/room_rome_06.tscn" id="1_jch3o"]
+[ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://entity/character/top_down_conttroller_2d/top_down_conttroller_2d.tscn" id="2_kiwwo"]
+[ext_resource type="PackedScene" uid="uid://cshb25yq5ltku" path="res://entity/top_down_camera_2d/top_down_camera_2d.tscn" id="3_kiwwo"]
+
+[node name="DEBUGRoomTest" type="Node" unique_id=230100861]
+
+[node name="WorldRoot" type="Node2D" parent="." unique_id=1644544520 groups=["world"]]
+y_sort_enabled = true
+
+[node name="RoomRome06" parent="WorldRoot" unique_id=482438826 node_paths=PackedStringArray("transition_positions") instance=ExtResource("1_jch3o")]
+transition_positions = {
+"down": NodePath("NavigationRegion2D/DoorDown/TransitionDown"),
+"left": NodePath("NavigationRegion2D/DoorLeft/TransitionLeft"),
+"up": NodePath("NavigationRegion2D/DoorFront/TransitionUp")
+}
+
+[node name="TopDownController2D" parent="WorldRoot" unique_id=396335543 instance=ExtResource("2_kiwwo")]
+position = Vector2(-256, 8)
+
+[node name="TopDownCamera2D" parent="." unique_id=983059697 instance=ExtResource("3_kiwwo")]
