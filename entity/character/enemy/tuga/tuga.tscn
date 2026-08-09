@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dee684r0kwrb4" path="res://system/enemy/enemy.tscn" id="4_jhfyq"]
 [ext_resource type="PackedScene" uid="uid://dkkymdqija6rj" path="res://entity/projectile/bullet_tuga.tscn" id="4_r6lkd"]
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/ai/shoot_behaviour/ai_shoot_behaviour.tscn" id="5_teoyt"]
-[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/target_view_check/target_view_check.tscn" id="6_pvhdl"]
+[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/raycast_target_check_2d/raycast_target_check_2d.tscn" id="6_pvhdl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lbuii"]
 resource_local_to_scene = true

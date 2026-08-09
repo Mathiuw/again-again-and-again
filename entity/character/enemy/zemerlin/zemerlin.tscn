@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b236yas8wfjd" path="res://system/weapon/weapon.tscn" id="3_b7koy"]
 [ext_resource type="PackedScene" uid="uid://dee684r0kwrb4" path="res://system/enemy/enemy.tscn" id="5_60ph3"]
 [ext_resource type="PackedScene" uid="uid://d2uhi6ia23jpa" path="res://entity/projectile/bullet_zemerlin.tscn" id="5_mb7b2"]
-[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/target_view_check/target_view_check.tscn" id="6_1gk6y"]
+[ext_resource type="PackedScene" uid="uid://c5f1h0j03pxre" path="res://system/raycast_target_check_2d/raycast_target_check_2d.tscn" id="6_1gk6y"]
 [ext_resource type="PackedScene" uid="uid://4r33i08aifdq" path="res://system/ai/shoot_behaviour/ai_shoot_behaviour.tscn" id="7_cv5gn"]
 [ext_resource type="PackedScene" uid="uid://eiu347grr33x" path="res://system/ai/chaser_behaviour/ai_chaser_behaviour.tscn" id="9_tlhyt"]
 
@@ -285,6 +285,7 @@ target_raycast_check_2d = NodePath("../TargetRaycastCheck2D")
 root_node = NodePath("..")
 
 [node name="AIChaserBehaviour" parent="." unique_id=807217399 node_paths=PackedStringArray("navigation_agent_2d", "character_body_2d") instance=ExtResource("9_tlhyt")]
+move_speed = 90.0
 navigation_agent_2d = NodePath("../NavigationAgent2D")
 character_body_2d = NodePath("..")
 

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b1uw6v7edbscl" path="res://entity/character/enemy/bunnyale/bunnyale.tscn" id="8_bdn0h"]
 [ext_resource type="PackedScene" uid="uid://bqyoyuprd01pg" path="res://entity/character/enemy/franky_mouse/franky_mouse.tscn" id="9_2b8v2"]
 [ext_resource type="PackedScene" uid="uid://be2ns7nd7wct4" path="res://entity/character/enemy/catlionidk/catlionidk.tscn" id="10_ox838"]
-[ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://entity/character/top_down_conttroller_2d/top_down_conttroller_2d.tscn" id="11_tmye1"]
+[ext_resource type="PackedScene" uid="uid://v6scm44jqtat" path="res://entity/character/top_down_conttroller_2d/top_down_controller_2d.tscn" id="11_tmye1"]
 [ext_resource type="PackedScene" uid="uid://cshb25yq5ltku" path="res://entity/top_down_camera_2d/top_down_camera_2d.tscn" id="12_q7nlq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ffdht"]
