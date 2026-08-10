@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://entity/door/door_right.tscn" id="10_yqar7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ithsg"]
-vertices = PackedVector2Array(129, 136, -271, 136, -106, 135, 106, 135, -214, 135, 214, -9, 214, -120, 266, -40, 266, 71, -271, 71, -266, 71, -214, 24, -266, -40, 271, -121, 271, -40, -271, -121, 106, -120, -106, -9, 106, -9, -106, 24, -106, -120, -214, -120, -271, -40, -214, -9, 271, 71, 271, 136, 214, 135, 191, 136, 191, 135, 214, 24, 106, 24, 129, 135)
+vertices = PackedVector2Array(132, 139, -274, 139, -109, 132, 109, 132, -211, 132, 211, -12, 211, -117, 269, -37, 269, 68, -274, 68, -269, 68, -211, 27, -269, -37, 274, -124, 274, -37, -274, -124, 109, -117, -109, -12, 109, -12, -109, 27, -109, -117, -211, -117, -274, -37, -211, -12, 274, 68, 274, 139, 211, 132, 188, 139, 188, 132, 211, 27, 109, 27, 132, 132)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(4, 1, 9, 10), PackedInt32Array(11, 4, 10, 12), PackedInt32Array(13, 14, 7, 6), PackedInt32Array(15, 13, 6, 16), PackedInt32Array(17, 16, 18, 19), PackedInt32Array(16, 17, 20), PackedInt32Array(15, 16, 20), PackedInt32Array(15, 20, 21), PackedInt32Array(22, 15, 21, 12), PackedInt32Array(12, 21, 23), PackedInt32Array(11, 12, 23), PackedInt32Array(11, 23, 17, 19), PackedInt32Array(8, 24, 25, 26), PackedInt32Array(25, 27, 28, 26), PackedInt32Array(8, 26, 29), PackedInt32Array(5, 8, 29), PackedInt32Array(18, 5, 29, 30), PackedInt32Array(19, 18, 30), PackedInt32Array(19, 30, 3, 2), PackedInt32Array(0, 3, 31)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-296, 168, -296, -176, 296, -176, 296, 168)])
-agent_radius = 23.0
+agent_radius = 20.0
 
 [sub_resource type="Resource" id="Resource_w4lua"]
 script = ExtResource("8_4ppfi")

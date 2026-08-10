@@ -149,22 +149,22 @@ position = Vector2(3840, 0)
 [node name="RoomRome19" parent="." unique_id=1129634073 node_paths=PackedStringArray("transition_positions") instance=ExtResource("25_rtnov")]
 position = Vector2(3200, 0)
 transition_positions = {
-"left": NodePath("TransitionLeft"),
-"right": NodePath("TransitionRight")
+"left": null,
+"right": null
 }
 
 [node name="RoomRome20" parent="." unique_id=584868498 node_paths=PackedStringArray("transition_positions") instance=ExtResource("26_he7gq")]
 position = Vector2(3200, -768)
 transition_positions = {
-"left": NodePath("TransitionLeft"),
-"right": NodePath("TransitionRight")
+"left": null,
+"right": null
 }
 
 [node name="RoomRome21" parent="." unique_id=345228788 node_paths=PackedStringArray("transition_positions") instance=ExtResource("27_fn1ic")]
 position = Vector2(2560, -768)
 transition_positions = {
-"left": NodePath("TransitionLeft"),
-"right": NodePath("TransitionRight")
+"left": null,
+"right": null
 }
 
 [node name="RoomRome22" parent="." unique_id=1223524280 instance=ExtResource("28_21yyu")]
