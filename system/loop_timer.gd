@@ -12,7 +12,7 @@ func _ready() -> void:
 	if  player:
 		player.on_player_die.connect(on_player_die)
 	
-	RoomManager.on_room_change.connect(on_room_change_started)
+	SignalBus.on_room_change.connect(on_room_change_started)
 
 	# Start loop
 	start(max_wait_time)
@@ -58,6 +58,7 @@ func remove_time(time: float) -> float:
 func end_loop() -> void:
 	loop_amount += 1
 	save_game()
+	Globals.reset_enemies_cleared()
 	get_tree().reload_current_scene()
 	print("Loop ended")
 

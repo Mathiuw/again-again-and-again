@@ -14,3 +14,6 @@ signal on_camera_shake(force: float)
 
 @warning_ignore("unused_signal")
 signal on_enemy_die
+
+@warning_ignore("unused_signal")
+signal on_room_change(room: Room)

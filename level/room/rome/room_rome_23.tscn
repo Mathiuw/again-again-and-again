@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c5pxaov6df4yw" path="res://entity/character/enemy/tuga/tuga.tscn" id="4_53cje"]
 [ext_resource type="PackedScene" uid="uid://ds7eji5rc71gs" path="res://entity/door/door_right.tscn" id="6_6orpp"]
 
-[node name="RoomRome21" type="Node2D" unique_id=102895436]
+[node name="RoomRome23" type="Node2D" unique_id=102895436]
 y_sort_enabled = true
 script = ExtResource("1_53cje")
 

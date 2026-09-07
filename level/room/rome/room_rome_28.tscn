@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bbdbtt4jx6wt8" path="res://entity/door/door_up.tscn" id="4_fxtdm"]
 [ext_resource type="PackedScene" uid="uid://c1rdx6jk7oibd" path="res://entity/door/door_left.tscn" id="5_io65y"]
 
-[node name="RoomRome18" type="Node2D" unique_id=1759241506]
+[node name="RoomRome28" type="Node2D" unique_id=1759241506]
 y_sort_enabled = true
 script = ExtResource("1_io65y")
 

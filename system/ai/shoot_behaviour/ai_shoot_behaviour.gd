@@ -14,6 +14,7 @@ signal on_ai_shoot
 @export var weapon_component: Weapon
 @export var target_raycast_check_2d: TargetRaycastCheck2D
 @export var root_node: Node2D
+@export var health_component: Health
 
 var target: Node2D = null
 var current_cooldown: float = 0
@@ -35,6 +36,9 @@ func _ready() -> void:
 	target = get_tree().get_first_node_in_group("player")
 	if  !target:
 		push_error("error finding player on node tree")
+	
+	if health_component:
+		health_component.on_die.connect(_on_die)
 
 func _process(delta: float) -> void:
 	if !target: return
@@ -68,3 +72,7 @@ func ai_shoot() -> void:
 		weapon_component_shoot()
 	
 	current_cooldown = shoot_cooldown + final_shoot_cooldown_variation
+
+
+func _on_die() -> void:
+	queue_free()

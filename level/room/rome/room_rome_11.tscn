@@ -29,7 +29,7 @@ scene_load_direction = 2
 transition_position_key = "left"
 metadata/_custom_type_script = "uid://db3x51addxum0"
 
-[node name="RoomRome01" type="Node2D" unique_id=751737515 node_paths=PackedStringArray("transition_positions")]
+[node name="RoomRome11" type="Node2D" unique_id=751737515 node_paths=PackedStringArray("transition_positions")]
 y_sort_enabled = true
 script = ExtResource("1_y3lcl")
 music_override = ExtResource("2_vg4c0")

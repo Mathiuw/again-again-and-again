@@ -126,12 +126,13 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_7o4kk")
 
-[node name="AIShootBehaviour" parent="." unique_id=643289924 node_paths=PackedStringArray("weapon_component", "target_raycast_check_2d", "root_node") instance=ExtResource("3_7o4kk")]
+[node name="AIShootBehaviour" parent="." unique_id=643289924 node_paths=PackedStringArray("weapon_component", "target_raycast_check_2d", "root_node", "health_component") instance=ExtResource("3_7o4kk")]
 shoot_cooldown = 1.5
 shoot_weapon_component = false
 weapon_component = NodePath("../Weapon_Component")
 target_raycast_check_2d = NodePath("../TargetRaycastCheck2D")
 root_node = NodePath("..")
+health_component = NodePath("../HealthComponent")
 
 [node name="HealthComponent" parent="." unique_id=1921334493 instance=ExtResource("5_0bcff")]
 unique_name_in_owner = true

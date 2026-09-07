@@ -3,7 +3,7 @@ extends Node
 @export var move_speed: float = 100
 @export var navigation_agent_2d: NavigationAgent2D
 @export var character_body_2d: CharacterBody2D
-
+@export var health_component: Health
 
 func _ready() -> void:
 	if !character_body_2d:
@@ -14,6 +14,9 @@ func _ready() -> void:
 		push_error("navigation_agent_2d is null")
 		return
 	
+	if health_component:
+		health_component.on_die.connect(_on_die)
+
 	navigation_agent_2d.velocity_computed.connect(on_velocity_computed)
 
 
@@ -34,3 +37,8 @@ func _physics_process(_delta: float) -> void:
 func on_velocity_computed(safe_velocity: Vector2) -> void:
 	character_body_2d.velocity = safe_velocity
 	character_body_2d.move_and_collide(safe_velocity * get_physics_process_delta_time())
+
+
+func _on_die() -> void:
+	navigation_agent_2d.process_mode = Node.PROCESS_MODE_DISABLED
+	queue_free()

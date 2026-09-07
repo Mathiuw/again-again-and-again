@@ -41,7 +41,7 @@ func shoot_targeted() -> void:
 	
 	var targeted_markers: Array[Marker2D]
 	
-	for marker in spawn_markers:
+	for marker: Marker2D in spawn_markers:
 		if marker.get_parent().target:
 			targeted_markers.push_back(marker)
 	

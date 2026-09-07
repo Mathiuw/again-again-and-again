@@ -34,7 +34,7 @@ func _ready() -> void:
 		push_error("HUD: cant find loop timer")
 		return
 	
-	RoomManager.on_room_change.connect(on_room_change)
+	SignalBus.on_room_change.connect(on_room_change)
 
 
 

@@ -21,7 +21,7 @@ func _ready() -> void:
 	color_rect.color = blink_settings.blink_color
 	color_rect.color.a = start_value
 	
-	var blink_tween = create_tween().set_trans(Tween.TRANS_SINE)
+	var blink_tween: Tween = create_tween().set_trans(Tween.TRANS_SINE)
 	blink_tween.tween_property($ColorRect, "color:a", end_value, blink_settings.blink_duration/2).finished.connect(func(): 
 		#print("blink halfway mark")
 		on_full_blink.emit()

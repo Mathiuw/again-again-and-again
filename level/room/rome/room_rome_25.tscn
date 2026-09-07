@@ -17,7 +17,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(
 outlines = Array[PackedVector2Array]([PackedVector2Array(-296, 152, -296, 56, -288, 56, -288, -48, -296, -48, -296, -168, -104, -168, 296, -144, 296, -48, 288, -48, 288, 56, 296, 56, 296, 152)])
 agent_radius = 12.0
 
-[node name="RoomRome21" type="Node2D" unique_id=1810407847]
+[node name="RoomRome25" type="Node2D" unique_id=1810407847]
 y_sort_enabled = true
 script = ExtResource("1_gnsy2")
 

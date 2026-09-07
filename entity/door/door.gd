@@ -9,10 +9,14 @@ extends Area2D
 @onready var open_particle: GPUParticles2D = $OpenParticle
 
 func  _ready() -> void:
+	await get_tree().process_frame
+
 	if secret_door:
 		door_layer.hide()
+
 	if  always_open || Globals.enemies_spawned.size() == 0:
 		set_state(true)
+
 	SignalBus.on_enemy_die.connect(on_enemy_die)
 
 
@@ -29,13 +33,16 @@ func set_state(state: bool) -> void:
 	if state:
 		door_layer.hide()
 		door_layer.collision_enabled = false
+		
 		if !secret_door:
 			open_particle.emitting = true
 	else:
 		if always_open:
 			return
+
 		if !secret_door:
 			door_layer.show()
+
 		door_layer.collision_enabled = true
 		open_particle.emitting = false
 

@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://db3x51addxum0"
 script = ExtResource("7_srmdv")
 metadata/_custom_type_script = "uid://db3x51addxum0"
 
-[node name="RoomRome03" type="Node2D" unique_id=47993019 node_paths=PackedStringArray("transition_positions")]
+[node name="RoomRome14" type="Node2D" unique_id=47993019 node_paths=PackedStringArray("transition_positions")]
 y_sort_enabled = true
 script = ExtResource("1_4ruq7")
 transition_positions = {

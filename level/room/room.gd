@@ -49,7 +49,7 @@ func _ready() -> void:
 	if navigation_region_2D:
 		navigation_region_2D.y_sort_enabled = true
 	
-	RoomManager.on_room_change.connect(on_room_change)
+	SignalBus.on_room_change.connect(on_room_change)
 	SignalBus.on_enemy_die.connect(on_enemy_die)
 
 
