@@ -76,17 +76,17 @@ position = Vector2(202, -55)
 [node name="Medusa3" parent="NavigationRegion2D" unique_id=1938584395 instance=ExtResource("6_p4xpp")]
 position = Vector2(84, -118)
 
-[node name="Zemerlin2" parent="NavigationRegion2D" unique_id=1686193322 instance=ExtResource("7_t86hv")]
-position = Vector2(-232, -104)
-
-[node name="Zemerlin3" parent="NavigationRegion2D" unique_id=1122682704 instance=ExtResource("7_t86hv")]
-position = Vector2(117, 30)
-
 [node name="Chest" parent="NavigationRegion2D" unique_id=15181497 instance=ExtResource("8_e82fx")]
 position = Vector2(-272, -120)
 
 [node name="Chest2" parent="NavigationRegion2D" unique_id=2134110708 instance=ExtResource("8_e82fx")]
 position = Vector2(-264, 136)
+
+[node name="Zemerlin2" parent="NavigationRegion2D" unique_id=1686193322 instance=ExtResource("7_t86hv")]
+position = Vector2(-232, -104)
+
+[node name="Zemerlin3" parent="NavigationRegion2D" unique_id=1122682704 instance=ExtResource("7_t86hv")]
+position = Vector2(117, 30)
 
 [node name="DoorFront" parent="NavigationRegion2D" unique_id=1456100062 instance=ExtResource("9_yrtgy")]
 position = Vector2(144, -144)
