@@ -182,8 +182,12 @@ position = Vector2(3840, -384)
 [node name="RoomRome26" parent="." unique_id=1973589683 instance=ExtResource("27_28e2b")]
 position = Vector2(3200, -384)
 
-[node name="RoomRome27" parent="." unique_id=799348258 instance=ExtResource("28_ji1jc")]
+[node name="RoomRome27" parent="." unique_id=799348258 node_paths=PackedStringArray("transition_positions") instance=ExtResource("28_ji1jc")]
 position = Vector2(4480, -384)
+transition_positions = {
+"down": NodePath("DoorDown/TransitionDown"),
+"left": NodePath("DoorLeft/TransitionLeft")
+}
 
 [node name="RoomRome28" parent="." unique_id=1935152327 instance=ExtResource("29_alb3o")]
 position = Vector2(4480, 0)
